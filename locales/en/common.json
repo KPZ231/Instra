@@ -19,6 +19,35 @@
         "section2": "Lorem Ipsum Dolor Sit Amet",
         "section3": "Lorem Ipsum Dolor Sit Amet"
     },
+    "aboutInstra": {
+        "badge": "EST. 2024 — Your Marketing Companion",
+        "heading_line1": "ABOUT",
+        "heading_line2": "INSTRA",
+        "block1": {
+            "label": "// 01 — PLATFORM",
+            "body1": "Instra is an award-winning marketing intelligence platform that transforms the way brands engage with their audiences. Built for founders, growth operators, and marketing teams who demand precision, speed, and measurable results.",
+            "body2": "Our goal is to help 1,000,000 businesses scale their marketing operations with AI-powered tools that think and act like a seasoned operator — available around the clock."
+        },
+        "block2": {
+            "label": "// 02 — PHILOSOPHY",
+            "body": "If you don't see us at a conference or pitching another deck, you should know we're building — constantly iterating on the next feature that will change how you approach your market. We believe marketing intelligence should be as sharp as the teams that use it, and we're not stopping until it is."
+        },
+        "stats": {
+            "aria_label": "Instra platform statistics"
+        },
+        "stat1": {
+            "value": "500K+",
+            "label": "Active Users"
+        },
+        "stat2": {
+            "value": "10M+",
+            "label": "Campaigns Launched"
+        },
+        "stat3": {
+            "value": "98%",
+            "label": "Satisfaction Rate"
+        }
+    },
     "about": {
         "mission": {
             "title": "Our Mission",
@@ -205,6 +234,24 @@
         "panel_badge": "Security",
         "panel_card_title": "Your data stays yours.",
         "panel_card_desc": "We never store passwords in plain text. Every credential is hashed and salted before touching our servers."
+    },
+    "reset_password": {
+        "title": "Choose a new password.",
+        "subtitle": "Your identity is verified. Enter a strong new password below.",
+        "password_label": "New Password",
+        "password_placeholder": "Min. 8 chars, 1 number, 1 symbol",
+        "password_hint": "8+ characters · at least 1 letter, 1 number, 1 symbol",
+        "confirm_label": "Confirm New Password",
+        "confirm_placeholder": "Repeat your new password",
+        "submit": "Reset password",
+        "remembered": "Remembered it?",
+        "signin_link": "Back to sign in",
+        "success_title": "Password updated.",
+        "success_desc": "Your password has been changed. You can now sign in with your new credentials.",
+        "goto_signin": "Go to sign in",
+        "invalid_title": "Link expired or invalid.",
+        "invalid_desc": "This reset link has expired or has already been used. Reset links are valid for 15 minutes and can only be used once.",
+        "request_new": "Request a new reset link"
     },
     "pricing": {
         "title": "Pricing",

@@ -111,8 +111,8 @@ export default function Navbar() {
 
           {authState === "unauthenticated" && (
             <>
-              <Button href="/singin" variant="secondary">{t("nav.singin")}</Button>
-              <Button href="/singup" variant="primary">{t("nav.singup")}</Button>
+              <Button href="/signin" variant="secondary">{t("nav.singin")}</Button>
+              <Button href="/signup" variant="primary">{t("nav.singup")}</Button>
             </>
           )}
 
@@ -246,8 +246,8 @@ export default function Navbar() {
           >
             {authState === "unauthenticated" && (
               <>
-                <Button href="/singin" variant="secondary" className="w-full justify-center">{t("nav.singin")}</Button>
-                <Button href="/singup" variant="primary" className="w-full justify-center">{t("nav.singup")}</Button>
+                <Button href="/signin" variant="secondary" className="w-full justify-center">{t("nav.singin")}</Button>
+                <Button href="/signup" variant="primary" className="w-full justify-center">{t("nav.singup")}</Button>
               </>
             )}
 

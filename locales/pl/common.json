@@ -20,6 +20,35 @@
         "section2": "Lorem Ipsum Dolor Sit Amet",
         "section3": "Lorem Ipsum Dolor Sit Amet"
     },
+    "aboutInstra": {
+        "badge": "ZAŁ. 2024 — Twój Towarzysz Marketingowy",
+        "heading_line1": "O NAS",
+        "heading_line2": "INSTRA",
+        "block1": {
+            "label": "// 01 — PLATFORMA",
+            "body1": "Instra to nagradzana platforma intelligence marketingowego, która zmienia sposób, w jaki marki angażują swoich odbiorców. Stworzona dla założycieli, operatorów wzrostu i zespołów marketingowych, które wymagają precyzji, szybkości i mierzalnych wyników.",
+            "body2": "Naszym celem jest pomoc 1 000 000 firm w skalowaniu operacji marketingowych za pomocą narzędzi opartych na AI, które myślą i działają jak doświadczony operator — dostępnych przez całą dobę."
+        },
+        "block2": {
+            "label": "// 02 — FILOZOFIA",
+            "body": "Jeśli nie widzisz nas na konferencji ani nie pitchujemy kolejnego decku, wiedz, że budujemy — ciągle iterujemy nad kolejną funkcją, która zmieni Twoje podejście do rynku. Wierzymy, że intelligence marketingowy powinien być tak ostry jak zespoły, które go używają — i nie zatrzymamy się, dopóki tak nie będzie."
+        },
+        "stats": {
+            "aria_label": "Statystyki platformy Instra"
+        },
+        "stat1": {
+            "value": "500K+",
+            "label": "Aktywnych Użytkowników"
+        },
+        "stat2": {
+            "value": "10M+",
+            "label": "Uruchomionych Kampanii"
+        },
+        "stat3": {
+            "value": "98%",
+            "label": "Wskaźnik Zadowolenia"
+        }
+    },
     "about": {
         "mission": {
             "title": "Nasza Misja",
@@ -206,6 +235,24 @@
         "panel_badge": "Bezpieczeństwo",
         "panel_card_title": "Twoje dane pozostają Twoje.",
         "panel_card_desc": "Nigdy nie przechowujemy haseł w postaci jawnej. Każde poświadczenie jest hashowane i solone, zanim dotrze do naszych serwerów."
+    },
+    "reset_password": {
+        "title": "Wybierz nowe hasło.",
+        "subtitle": "Twoja tożsamość została zweryfikowana. Wpisz poniżej silne nowe hasło.",
+        "password_label": "Nowe hasło",
+        "password_placeholder": "Min. 8 znaków, 1 cyfra, 1 symbol",
+        "password_hint": "8+ znaków · min. 1 litera, 1 cyfra, 1 znak specjalny",
+        "confirm_label": "Powtórz nowe hasło",
+        "confirm_placeholder": "Powtórz nowe hasło",
+        "submit": "Resetuj hasło",
+        "remembered": "Przypomniałeś sobie?",
+        "signin_link": "Wróć do logowania",
+        "success_title": "Hasło zostało zmienione.",
+        "success_desc": "Twoje hasło zostało zaktualizowane. Możesz teraz zalogować się używając nowych danych.",
+        "goto_signin": "Przejdź do logowania",
+        "invalid_title": "Link wygasł lub jest nieprawidłowy.",
+        "invalid_desc": "Ten link do resetowania wygasł lub został już wykorzystany. Linki są ważne przez 15 minut i można ich użyć tylko raz.",
+        "request_new": "Wyślij nowy link"
     },
     "pricing": {
         "title": "Cennik",

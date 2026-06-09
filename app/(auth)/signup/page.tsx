@@ -416,7 +416,7 @@ export default function SignUpPage() {
           <div className="mt-5 flex flex-col gap-1">
             <p className="m-0 text-[13px] text-outline">
               {t('signup.have_account')}{' '}
-              <Link href="/singin" className="text-[13px] text-on-surface no-underline transition-colors duration-150 hover:text-white hover:underline">
+              <Link href="/signin" className="text-[13px] text-on-surface no-underline transition-colors duration-150 hover:text-white hover:underline">
                 {t('signup.signin_link')}
               </Link>
             </p>
