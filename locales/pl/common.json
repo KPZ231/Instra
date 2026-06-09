@@ -19,5 +19,178 @@
         "section1": "Lorem Ipsum Dolor Sit Amet",
         "section2": "Lorem Ipsum Dolor Sit Amet",
         "section3": "Lorem Ipsum Dolor Sit Amet"
+    },
+    "about": {
+        "mission": {
+            "title": "Nasza Misja",
+            "desc": "Umożliwić zespołom osiągnięcie doskonałości w marketingu"
+        },
+        "vision": {
+            "title": "Nasza Wizja",
+            "desc": "Być platformą, która redefiniuje marketing"
+        },
+        "values": {
+            "title": "Nasze Wartości",
+            "desc": "Innowacyjność, przejrzystość i projekt zorientowany na użytkownika"
+        },
+        "main": {
+            "title": "Stworzone dla Nowoczesnego Marketera",
+            "description": "Wierzymy, że marketing powinien być intuicyjny, potężny i dostępny dla każdego. Instra łączy najnowocześniejszą technologię z przemyślanym designem, aby pomóc Ci dotrzeć do swojej grupy docelowej z precyzją i kreatywnością."
+        },
+        "cta": "Dowiedz się Więcej",
+        "stat1": {
+            "value": "500K+",
+            "label": "Aktywnych Użytkowników"
+        },
+        "stat2": {
+            "value": "10M+",
+            "label": "Uruchomionych Kampanii"
+        },
+        "stat3": {
+            "value": "98%",
+            "label": "Wskaźnik Zadowolenia"
+        }
+    },
+    "marquee": {
+        "heading": "Znajdujesz się w dobrym towarzystwie",
+        "adroll": {
+            "quote": "Instra oszczędza mi 1-2 godziny na raportowaniu każdego tygodnia, ponieważ wszystkie moje elementy są już udokumentowane.",
+            "title": "Dyrektor ds. Marketingu Produktu",
+            "linkText": "Zobacz studium przypadku AdRoll"
+        },
+        "fireclay": {
+            "quote": "Umożliwienie ludziom wspólnego działania zwiększa widoczność, co jest kluczowe w produkcji.",
+            "title": "Dyrektor Kreatywny",
+            "linkText": "Zobacz studium przypadku Fireclay Tile"
+        },
+        "lorem": {
+            "quote": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "title": "Dyrektor Generalny",
+            "linkText": "Przeczytaj case study Lorem"
+        }
+    },
+    "cta": {
+        "line1": "Niech Twój Następny Krok",
+        "line2": "Będzie Najlepszym",
+        "button": "Umów Rozmowę Wstępną",
+        "feature1": "Brak opłat z góry",
+        "feature2": "Łatwa anulacja"
+    },
+    "faq": {
+        "title": "Często zadawane pytania",
+        "subtitle": "Znajdź odpowiedzi na najczęstsze pytania dotyczące platformy Instra i dowiedz się, jak może pomóc Twojej firmie.",
+        "categories": {
+            "general": "Informacje Ogólne",
+            "pricing": "Plany i Cennik",
+            "security": "Bezpieczeństwo i Prywatność"
+        },
+        "questions": {
+            "general": [
+                {
+                    "q": "Czym jest Instra?",
+                    "a": "Instra to zaawansowana platforma marketingowa zaprojektowana do obsługi niestandardowych procesów biznesowych tak, jak zrobiłby to żywy operator. Odpowiada na zapytania klientów, poprawiając ich doświadczenia z marką."
+                },
+                {
+                    "q": "Jak to działa?",
+                    "a": "Integruje się bezpośrednio z Twoją obecną infrastrukturą i wykorzystuje najnowocześniejsze modele sztucznej inteligencji, aby stale automatyzować i optymalizować operacje marketingowe."
+                }
+            ],
+            "pricing": [
+                {
+                    "q": "Czy istnieje darmowy okres próbny?",
+                    "a": "Tak, oferujemy 14-dniowy bezpłatny okres próbny dla wszystkich naszych standardowych planów, abyś mógł przetestować nasze funkcje."
+                }
+            ],
+            "security": [
+                {
+                    "q": "Czy moje dane są bezpieczne?",
+                    "a": "Zdecydowanie. Stosujemy szyfrowanie AES-256 dla danych w spoczynku i TLS 1.3 dla wszystkich danych przesyłanych."
+                }
+            ]
+        },
+        "contact": {
+            "title": "Nadal masz pytanie?",
+            "desc": "Jeśli nie znalazłeś odpowiedzi, skontaktuj się z nami.",
+            "button": "Skontaktuj się"
+        }
+    },
+    "footer": {
+        "tagline": "Twój Towarzysz Marketingowy",
+        "rights": "Wszelkie prawa zastrzeżone.",
+        "nav": {
+            "product": "Produkt",
+            "pricing": "Cennik",
+            "docs": "Dokumentacja",
+            "blog": "Blog",
+            "careers": "Kariera"
+        },
+        "legal": {
+            "privacy": "Polityka Prywatności",
+            "terms": "Warunki Usługi",
+            "cookies": "Polityka Cookies"
+        }
+    },
+    "pricing": {
+        "title": "Cennik",
+        "billing": {
+            "annual": "Rocznie",
+            "monthly": "Miesięcznie"
+        },
+        "plans": {
+            "basic": {
+                "name": "Starter",
+                "badge": "Aktywny",
+                "price": { "monthly": 17, "annual": 15 },
+                "period": "/ miesiąc (USD)",
+                "billedYearly": "180$ płatne rocznie",
+                "desc": "Rozpocznij z niezbędnymi narzędziami do wydajnego zarządzania zespołem. Idealny dla małych zespołów.",
+                "button": "Zacznij za darmo",
+                "features": [
+                    { "name": "Dostęp do podstawowych funkcji", "included": true },
+                    { "name": "Zarządzanie rekordami", "included": true },
+                    { "name": "Podstawowe narzędzia raportowania", "included": true },
+                    { "name": "Zarządzaj do 10 członków", "included": true },
+                    { "name": "Śledź obecność", "included": false },
+                    { "name": "Przydzielaj i monitoruj zadania", "included": false },
+                    { "name": "Wsparcie e-mail", "included": false }
+                ]
+            },
+            "pro": {
+                "name": "Profesjonalny",
+                "badge": "Oszczędź 27%",
+                "price": { "monthly": 26, "annual": 19 },
+                "period": "/ miesiąc (USD)",
+                "billedYearly": "228$ płatne rocznie",
+                "desc": "Kompleksowe rozwiązanie dla rosnących zespołów, oferujące rozszerzone funkcje do usprawnienia procesów.",
+                "button": "Rozpocznij 7-dniowy okres próbny",
+                "features": [
+                    { "name": "Dostęp do podstawowych funkcji", "included": true },
+                    { "name": "Zarządzanie rekordami", "included": true },
+                    { "name": "Podstawowe narzędzia raportowania", "included": true },
+                    { "name": "Zarządzaj do 50 członków", "included": true },
+                    { "name": "Śledź obecność", "included": true },
+                    { "name": "Przydzielaj i monitoruj zadania", "included": true },
+                    { "name": "Wsparcie e-mail", "included": false }
+                ]
+            },
+            "enterprise": {
+                "name": "Enterprise",
+                "badge": "Popularny",
+                "price": { "monthly": 34, "annual": 29 },
+                "period": "/ miesiąc (USD)",
+                "billedYearly": "348$ płatne rocznie",
+                "desc": "Maksymalizuj wydajność dzięki narzędziom premium i pełnej konfiguracji, idealne dla dużych organizacji.",
+                "button": "Skontaktuj się z działem sprzedaży",
+                "features": [
+                    { "name": "Dostęp do podstawowych funkcji", "included": true },
+                    { "name": "Zarządzanie rekordami", "included": true },
+                    { "name": "Podstawowe narzędzia raportowania", "included": true },
+                    { "name": "Nielimitowana ilość członków", "included": true },
+                    { "name": "Śledź obecność", "included": true },
+                    { "name": "Przydzielaj i monitoruj zadania", "included": true },
+                    { "name": "Priorytetowe wsparcie 24/7", "included": true }
+                ]
+            }
+        }
     }
 }

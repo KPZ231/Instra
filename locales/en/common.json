@@ -18,5 +18,178 @@
         "section1": "Lorem Ipsum Dolor Sit Amet",
         "section2": "Lorem Ipsum Dolor Sit Amet",
         "section3": "Lorem Ipsum Dolor Sit Amet"
+    },
+    "about": {
+        "mission": {
+            "title": "Our Mission",
+            "desc": "Empower teams to achieve marketing excellence"
+        },
+        "vision": {
+            "title": "Our Vision",
+            "desc": "Become the platform that redefines marketing"
+        },
+        "values": {
+            "title": "Our Values",
+            "desc": "Innovation, transparency, and user-first design"
+        },
+        "main": {
+            "title": "Built for the Modern Marketer",
+            "description": "We believe marketing should be intuitive, powerful, and accessible to everyone. Instra combines cutting-edge technology with thoughtful design to help you reach your audience with precision and creativity."
+        },
+        "cta": "Learn More",
+        "stat1": {
+            "value": "500K+",
+            "label": "Active Users"
+        },
+        "stat2": {
+            "value": "10M+",
+            "label": "Campaigns Launched"
+        },
+        "stat3": {
+            "value": "98%",
+            "label": "Satisfaction Rate"
+        }
+    },
+    "marquee": {
+        "heading": "You're in good company",
+        "adroll": {
+            "quote": "Instra saves me 1-2 hours on reporting every single week because all my items are already documented.",
+            "title": "Head of Product Marketing",
+            "linkText": "View AdRoll case study"
+        },
+        "fireclay": {
+            "quote": "Getting people on the same page increases visibility, which is so critical in manufacturing.",
+            "title": "Creative Director",
+            "linkText": "View Fireclay Tile case study"
+        },
+        "lorem": {
+            "quote": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "title": "Chief Executive Officer",
+            "linkText": "Read Lorem case study"
+        }
+    },
+    "cta": {
+        "line1": "Let's Make Your Next Move",
+        "line2": "Your Best Move",
+        "button": "Book Discovery Call",
+        "feature1": "No upfront payment",
+        "feature2": "Easily cancellation"
+    },
+    "faq": {
+        "title": "Frequently Asked Questions",
+        "subtitle": "Find answers to common questions about Instra and how it can benefit your business.",
+        "categories": {
+            "general": "General Information",
+            "pricing": "Plans and Pricing",
+            "security": "Security and Privacy"
+        },
+        "questions": {
+            "general": [
+                {
+                    "q": "What is Instra?",
+                    "a": "Instra is an advanced marketing platform designed to navigate custom workflows just like a live operator would. It responds to customer inquiries with human-like interactions, enhancing the customer experience."
+                },
+                {
+                    "q": "How does it work?",
+                    "a": "It integrates directly into your existing infrastructure and utilizes cutting-edge AI models to automate and optimize your marketing operations continuously."
+                }
+            ],
+            "pricing": [
+                {
+                    "q": "Is there a free trial?",
+                    "a": "Yes, we offer a 14-day free trial on all of our standard plans so you can test our features."
+                }
+            ],
+            "security": [
+                {
+                    "q": "Is my data secure?",
+                    "a": "Absolutely. We employ AES-256 encryption at rest and TLS 1.3 for all data in transit."
+                }
+            ]
+        },
+        "contact": {
+            "title": "Still have a question?",
+            "desc": "If you didn't find your answer, feel free to reach out.",
+            "button": "Contact us"
+        }
+    },
+    "footer": {
+        "tagline": "Your Marketing Companion",
+        "rights": "All rights reserved.",
+        "nav": {
+            "product": "Product",
+            "pricing": "Pricing",
+            "docs": "Docs",
+            "blog": "Blog",
+            "careers": "Careers"
+        },
+        "legal": {
+            "privacy": "Privacy Policy",
+            "terms": "Terms of Service",
+            "cookies": "Cookie Policy"
+        }
+    },
+    "pricing": {
+        "title": "Pricing",
+        "billing": {
+            "annual": "Annual",
+            "monthly": "Monthly"
+        },
+        "plans": {
+            "basic": {
+                "name": "Starter",
+                "badge": "Active",
+                "price": { "monthly": 17, "annual": 15 },
+                "period": "/ month (USD)",
+                "billedYearly": "$180 billed yearly",
+                "desc": "Get started with essential tools to manage your team efficiently. Ideal for small teams with fundamental needs.",
+                "button": "Start for free",
+                "features": [
+                    { "name": "Access to core features", "included": true },
+                    { "name": "Record management", "included": true },
+                    { "name": "Basic reporting tools", "included": true },
+                    { "name": "Manage up to 10 members", "included": true },
+                    { "name": "Track attendance", "included": false },
+                    { "name": "Assign and monitor tasks", "included": false },
+                    { "name": "Email support", "included": false }
+                ]
+            },
+            "pro": {
+                "name": "Professional",
+                "badge": "Save 27%",
+                "price": { "monthly": 26, "annual": 19 },
+                "period": "/ month (USD)",
+                "billedYearly": "$228 billed yearly",
+                "desc": "A comprehensive solution for growing teams, offering enhanced features to streamline processes.",
+                "button": "Start 7-days Free Trial",
+                "features": [
+                    { "name": "Access to core features", "included": true },
+                    { "name": "Record management", "included": true },
+                    { "name": "Basic reporting tools", "included": true },
+                    { "name": "Manage up to 50 members", "included": true },
+                    { "name": "Track attendance", "included": true },
+                    { "name": "Assign and monitor tasks", "included": true },
+                    { "name": "Email support", "included": false }
+                ]
+            },
+            "enterprise": {
+                "name": "Enterprise",
+                "badge": "Popular",
+                "price": { "monthly": 34, "annual": 29 },
+                "period": "/ month (USD)",
+                "billedYearly": "$348 billed yearly",
+                "desc": "Maximize performance with premium tools and full customization options, perfect for larger organizations.",
+                "button": "Contact Sales",
+                "features": [
+                    { "name": "Access to core features", "included": true },
+                    { "name": "Record management", "included": true },
+                    { "name": "Basic reporting tools", "included": true },
+                    { "name": "Unlimited members", "included": true },
+                    { "name": "Track attendance", "included": true },
+                    { "name": "Assign and monitor tasks", "included": true },
+                    { "name": "24/7 Priority support", "included": true }
+                ]
+            }
+        }
     }
 }
