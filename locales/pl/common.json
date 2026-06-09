@@ -1,0 +1,23 @@
+{
+    "nav": {
+        "home": "Strona główna",
+        "about": "O nas",
+        "features": "Funkcje",
+        "usecases": "Zastosowania",
+        "docs": "Dokumentacja",
+        "singup": "Zarejestruj się",
+        "singin": "Zaloguj się",
+        "dashboard": "Panel",
+        "profile": "Profil",
+        "signout": "Wyloguj się",
+        "menu_open": "Otwórz menu",
+        "menu_close": "Zamknij menu"
+    },
+
+    "hero": {
+        "title": "Lorem Ipsum Dolor Sit Amet",
+        "section1": "Lorem Ipsum Dolor Sit Amet",
+        "section2": "Lorem Ipsum Dolor Sit Amet",
+        "section3": "Lorem Ipsum Dolor Sit Amet"
+    }
+}

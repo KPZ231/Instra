@@ -1,26 +1,261 @@
 @import "tailwindcss";
 
+/* ─────────────────────────────────────────────
+   Design tokens — Executive Precision
+   Source: DESIGN.md
+───────────────────────────────────────────── */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    /* Surfaces */
+    --color-surface: #121410;
+    --color-surface-dim: #121410;
+    --color-surface-bright: #383a35;
+    --color-surface-container-lowest: #0d0f0b;
+    --color-surface-container-low: #1b1c18;
+    --color-surface-container: #1f201c;
+    --color-surface-container-high: #292a26;
+    --color-surface-container-highest: #343531;
+    --color-on-surface: #e3e3dc;
+    --color-on-surface-variant: #c4c7c8;
+    --color-inverse-surface: #e3e3dc;
+    --color-inverse-on-surface: #30312c;
+    /* Outlines */
+    --color-outline: #8e9192;
+    --color-outline-variant: #444748;
+    /* Primary */
+    --color-surface-tint: #c6c6c7;
+    --color-primary: #ffffff;
+    --color-on-primary: #2f3131;
+    --color-primary-container: #e2e2e2;
+    --color-on-primary-container: #636565;
+    --color-inverse-primary: #5d5f5f;
+    --color-primary-fixed: #e2e2e2;
+    --color-primary-fixed-dim: #c6c6c7;
+    --color-on-primary-fixed: #1a1c1c;
+    --color-on-primary-fixed-variant: #454747;
+    /* Secondary */
+    --color-secondary: #cbc6bc;
+    --color-on-secondary: #32302a;
+    --color-secondary-container: #49473f;
+    --color-on-secondary-container: #b9b5ab;
+    --color-secondary-fixed: #e7e2d8;
+    --color-secondary-fixed-dim: #cbc6bc;
+    --color-on-secondary-fixed: #1d1c16;
+    --color-on-secondary-fixed-variant: #49473f;
+    /* Tertiary */
+    --color-tertiary: #ffffff;
+    --color-on-tertiary: #2f3131;
+    --color-tertiary-container: #e2e2e2;
+    --color-on-tertiary-container: #636565;
+    --color-tertiary-fixed: #e2e2e2;
+    --color-tertiary-fixed-dim: #c6c6c7;
+    --color-on-tertiary-fixed: #1a1c1c;
+    --color-on-tertiary-fixed-variant: #454747;
+    /* Error */
+    --color-error: #ffb4ab;
+    --color-on-error: #690005;
+    --color-error-container: #93000a;
+    --color-on-error-container: #ffdad6;
+    /* Background */
+    --color-background: #121410;
+    --color-on-background: #e3e3dc;
+    --color-surface-variant: #343531;
+    /* Semantic extras */
+    --color-pitch-black: #000000;
+    --color-surface-charcoal: #121212;
+    --color-accent-bone: #E8E3D9;
+    --color-success-green: #00FF41;
+    /* Typography scale */
+    --text-display-lg-size: 72px;
+    --text-display-lg-weight: 600;
+    --text-display-lg-lh: 80px;
+    --text-display-lg-ls: -0.04em;
+    --text-headline-lg-size: 48px;
+    --text-headline-lg-weight: 600;
+    --text-headline-lg-lh: 56px;
+    --text-headline-lg-ls: -0.02em;
+    --text-headline-lg-mobile-size: 32px;
+    --text-headline-lg-mobile-weight: 600;
+    --text-headline-lg-mobile-lh: 40px;
+    --text-headline-lg-mobile-ls: -0.02em;
+    --text-body-lg-size: 18px;
+    --text-body-lg-weight: 400;
+    --text-body-lg-lh: 28px;
+    --text-body-lg-ls: 0em;
+    --text-body-md-size: 16px;
+    --text-body-md-weight: 400;
+    --text-body-md-lh: 24px;
+    --text-body-md-ls: 0em;
+    --text-label-mono-size: 14px;
+    --text-label-mono-weight: 500;
+    --text-label-mono-lh: 20px;
+    --text-label-mono-ls: 0.05em;
+    --text-caption-mono-size: 12px;
+    --text-caption-mono-weight: 400;
+    --text-caption-mono-lh: 16px;
+    --text-caption-mono-ls: 0.05em;
+    /* Spacing */
+    --spacing-unit: 8px;
+    --spacing-container-max: 1280px;
+    --spacing-gutter: 24px;
+    --spacing-margin-desktop: 64px;
+    --spacing-margin-mobile: 20px;
 }
+
+
+/* ─────────────────────────────────────────────
+   Tailwind v4 theme — maps tokens to utilities
+   Fonts are injected by next/font via CSS vars
+───────────────────────────────────────────── */
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+    /* Fonts */
+    --font-sans: var(--font-sans);
+    --font-mono: var(--font-mono);
+    /* Colors */
+    --color-background: var(--color-background);
+    --color-foreground: var(--color-on-surface);
+    --color-surface: var(--color-surface);
+    --color-surface-dim: var(--color-surface-dim);
+    --color-surface-bright: var(--color-surface-bright);
+    --color-surface-container-lowest: var(--color-surface-container-lowest);
+    --color-surface-container-low: var(--color-surface-container-low);
+    --color-surface-container: var(--color-surface-container);
+    --color-surface-container-high: var(--color-surface-container-high);
+    --color-surface-container-highest: var(--color-surface-container-highest);
+    --color-on-surface: var(--color-on-surface);
+    --color-on-surface-variant: var(--color-on-surface-variant);
+    --color-inverse-surface: var(--color-inverse-surface);
+    --color-inverse-on-surface: var(--color-inverse-on-surface);
+    --color-outline: var(--color-outline);
+    --color-outline-variant: var(--color-outline-variant);
+    --color-primary: var(--color-primary);
+    --color-on-primary: var(--color-on-primary);
+    --color-primary-container: var(--color-primary-container);
+    --color-on-primary-container: var(--color-on-primary-container);
+    --color-inverse-primary: var(--color-inverse-primary);
+    --color-secondary: var(--color-secondary);
+    --color-on-secondary: var(--color-on-secondary);
+    --color-secondary-container: var(--color-secondary-container);
+    --color-on-secondary-container: var(--color-on-secondary-container);
+    --color-tertiary: var(--color-tertiary);
+    --color-on-tertiary: var(--color-on-tertiary);
+    --color-tertiary-container: var(--color-tertiary-container);
+    --color-on-tertiary-container: var(--color-on-tertiary-container);
+    --color-error: var(--color-error);
+    --color-on-error: var(--color-on-error);
+    --color-error-container: var(--color-error-container);
+    --color-on-error-container: var(--color-on-error-container);
+    --color-on-background: var(--color-on-background);
+    --color-surface-variant: var(--color-surface-variant);
+    --color-pitch-black: var(--color-pitch-black);
+    --color-surface-charcoal: var(--color-surface-charcoal);
+    --color-accent-bone: var(--color-accent-bone);
+    --color-success-green: var(--color-success-green);
+    /* Border radius */
+    --radius-sm: 0.125rem;
+    --radius: 0.25rem;
+    --radius-md: 0.375rem;
+    --radius-lg: 0.5rem;
+    --radius-xl: 0.75rem;
+    --radius-full: 9999px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+
+/* ─────────────────────────────────────────────
+   Base
+───────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    background: var(--color-background);
+    color: var(--color-on-surface);
+    font-family: var(--font-sans);
+    font-size: var(--text-body-md-size);
+    line-height: var(--text-body-md-lh);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* ─────────────────────────────────────────────
+   Global Button Classes
+   Usage: className="btn btn-primary" or "btn btn-secondary"
+───────────────────────────────────────────── */
+
+.btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 24px;
+    font-family: var(--font-mono);
+    font-size: var(--text-label-mono-size);
+    font-weight: var(--text-label-mono-weight);
+    letter-spacing: var(--text-label-mono-ls);
+    line-height: var(--text-label-mono-lh);
+    border-radius: 4px;
+    border: 1px solid transparent;
+    text-decoration: none;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, transform 0.1s ease;
+}
+
+.btn:disabled,
+.btn[disabled] {
+    opacity: 0.35;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.btn:active:not(:disabled) {
+    transform: scale(0.97);
+}
+
+
+/* ── Primary — white fill, dark text ── */
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+    border-color: var(--color-primary);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.btn-primary::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: transparent;
+    transition: background 0.2s ease;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background-color: var(--color-primary-container);
+    border-color: var(--color-primary-container);
+    box-shadow: 0 0 18px rgba(255, 255, 255, 0.12), 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+
+/* ── Secondary — ghost with bone outline ── */
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-accent-bone);
+    border-color: rgba(232, 227, 217, 0.45);
+}
+
+.btn-secondary:hover:not(:disabled) {
+    background-color: rgba(232, 227, 217, 0.07);
+    border-color: var(--color-accent-bone);
+    box-shadow: 0 0 14px rgba(232, 227, 217, 0.08), inset 0 0 0 0.5px rgba(232, 227, 217, 0.15);
 }
