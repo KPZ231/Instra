@@ -1,0 +1,22 @@
+import bcrypt from 'bcryptjs'
+
+const SALT_ROUNDS = 12
+
+/**
+ * Hashes a plaintext password using bcrypt.
+ * @param password - The plaintext password to hash
+ * @returns The bcrypt hash string
+ */
+export async function hashPassword(password: string): Promise<string> {
+  return bcrypt.hash(password, SALT_ROUNDS)
+}
+
+/**
+ * Verifies a plaintext password against a bcrypt hash.
+ * @param password - The plaintext password to check
+ * @param hash - The stored bcrypt hash
+ * @returns true if the password matches
+ */
+export async function verifyPassword(password: string, hash: string): Promise<boolean> {
+  return bcrypt.compare(password, hash)
+}
