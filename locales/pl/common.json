@@ -277,6 +277,70 @@
             }
         ]
     },
+    "aboutPlugins": {
+        "label": "// Platforma open-core",
+        "heading": "Rozszerzaj wszystko za pomocą pluginów",
+        "body1": "Instra opiera się na modelu open-core — fundamenty platformy są otwarte i dostępne do przeglądu, forkowania oraz samodzielnego hostowania. Plany subskrypcyjne odblokowują kuratorowany marketplace premium pluginów przyspieszających Twoje działania marketingowe.",
+        "body2": "Każdy plugin jest izolowany w sandboksie, ma ograniczone uprawnienia i jest audytowalny. Zewnętrzni deweloperzy publikują do Instra Plugin Registry po weryfikacji bezpieczeństwa — dając Twojemu zespołowi zaufany ekosystem bez vendor lock-in.",
+        "modelLabel": "// Model platformy",
+        "tierFree": "Core (Darmowy)",
+        "tierPro": "Pluginy Pro",
+        "modelDesc": "Podstawowe funkcje dostępne są na każdym koncie. Pluginy Pro aktywują się na każdym płatnym planie — bez opłat za poszczególne pluginy, bez niespodzianek.",
+        "stat1": {
+            "value": "40+",
+            "label": "Dostępnych pluginów"
+        },
+        "stat2": {
+            "value": "MIT",
+            "label": "Licencja core"
+        },
+        "morePlugins": "+ Więcej już wkrótce",
+        "morePluginsHint": "Nowe pluginy wychodzą co sprint. Przeglądaj pełny rejestr.",
+        "plugins": [
+            {
+                "name": "Plugin Alpha",
+                "tier": "free",
+                "description": "Podstawowe narzędzie dostępne na każdym koncie Instra. Integruje się z głównym workflow od pierwszego dnia.",
+                "icon": "◈"
+            },
+            {
+                "name": "Plugin Beta",
+                "tier": "free",
+                "description": "Lekki moduł automatyzacji dla powtarzalnych zadań. Dostępny w open-core bez żadnej konfiguracji.",
+                "icon": "◇"
+            },
+            {
+                "name": "Plugin Gamma",
+                "tier": "pro",
+                "description": "Zaawansowane rozszerzenie pipeline'u danych z synchronizacją w czasie rzeczywistym. Dostępne w planach Professional i Enterprise.",
+                "icon": "◉"
+            },
+            {
+                "name": "Plugin Delta",
+                "tier": "pro",
+                "description": "Moduł raportowania klasy enterprise. Eksportuje ustrukturyzowane dane do dowolnego narzędzia BI jednym kliknięciem.",
+                "icon": "◎"
+            }
+        ]
+    },
+    "whyUs": {
+        "label": "Liczby mówią same za siebie",
+        "heading": "Dlaczego zespoły wybierają Instra",
+        "items": [
+            {
+                "value": "98%",
+                "description": "Użytkowników poczuło się naprawdę wysłuchanych i zrozumianych podczas pierwszej sesji z naszą platformą."
+            },
+            {
+                "value": "88%",
+                "description": "Zauważyło wyraźną poprawę wyników kampanii w ciągu pierwszych kilku tygodni korzystania z serwisu."
+            },
+            {
+                "value": "71%",
+                "description": "Kontynuuje regularne korzystanie z platformy po pierwszym uruchomieniu, co świadczy o trwałym zaangażowaniu i zaufaniu."
+            }
+        ]
+    },
     "pricing": {
         "title": "Cennik",
         "billing": {

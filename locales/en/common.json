@@ -277,6 +277,70 @@
             }
         ]
     },
+    "aboutPlugins": {
+        "label": "// Open-core platform",
+        "heading": "Extend everything with plugins",
+        "body1": "Instra is built on an open-core model — the platform's foundations are open and free to inspect, fork, and self-host. Subscription plans unlock a curated marketplace of premium plugins that accelerate your marketing operations.",
+        "body2": "Every plugin is sandboxed, permission-scoped, and auditable. Third-party developers publish to the Instra Plugin Registry after a security review — giving your team a trusted ecosystem without vendor lock-in.",
+        "modelLabel": "// Platform model",
+        "tierFree": "Core (Free)",
+        "tierPro": "Pro Plugins",
+        "modelDesc": "Core capabilities ship with every account. Pro plugins activate on any paid plan — no per-plugin billing, no surprise charges.",
+        "stat1": {
+            "value": "40+",
+            "label": "Available plugins"
+        },
+        "stat2": {
+            "value": "MIT",
+            "label": "Core license"
+        },
+        "morePlugins": "+ More coming soon",
+        "morePluginsHint": "New plugins ship every sprint. Browse the full registry.",
+        "plugins": [
+            {
+                "name": "Plugin Alpha",
+                "tier": "free",
+                "description": "A foundational utility included with every Instra account. Integrates into your core workflow on day one.",
+                "icon": "◈"
+            },
+            {
+                "name": "Plugin Beta",
+                "tier": "free",
+                "description": "Lightweight automation module for recurring tasks. Ships with the open-core and requires no configuration.",
+                "icon": "◇"
+            },
+            {
+                "name": "Plugin Gamma",
+                "tier": "pro",
+                "description": "Advanced data pipeline extension with real-time sync. Available on Professional and Enterprise plans.",
+                "icon": "◉"
+            },
+            {
+                "name": "Plugin Delta",
+                "tier": "pro",
+                "description": "Enterprise-grade reporting module. Exports structured datasets to any downstream BI tool with a single click.",
+                "icon": "◎"
+            }
+        ]
+    },
+    "whyUs": {
+        "label": "By the numbers",
+        "heading": "Why teams choose Instra",
+        "items": [
+            {
+                "value": "98%",
+                "description": "Users said they felt truly heard and understood during their first session with our AI-powered platform."
+            },
+            {
+                "value": "88%",
+                "description": "Experienced noticeable improvement in campaign performance within the first few weeks of using the service."
+            },
+            {
+                "value": "71%",
+                "description": "Continued using the platform regularly after their initial setup, showing lasting engagement and trust."
+            }
+        ]
+    },
     "pricing": {
         "title": "Pricing",
         "billing": {

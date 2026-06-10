@@ -5,6 +5,7 @@ import I18nProvider from "@/components/providers/I18nProvider";
 import AuthProvider from "@/components/providers/AuthProvider";
 import Navbar from "@/components/ui/Navbar";
 import InstraToaster from "@/components/ui/InstraToaster";
+import Footer from "@/components/ui/Footer";
 
 const hankenGrotesk = Hanken_Grotesk({
   variable: "--font-sans",
@@ -41,6 +42,7 @@ export default function RootLayout({
             <Navbar />
             {children}
             <InstraToaster />
+            <Footer />
           </I18nProvider>
         </AuthProvider>
       </body>

@@ -4,7 +4,7 @@ import Marquee, { Testimonial } from "@/components/ui/Marquee";
 import CTA from "@/components/ui/CTA";
 import FAQ from "@/components/ui/FAQ";
 import PricingPlans from "@/components/ui/PricingPlans";
-import Footer from "@/components/ui/Footer";
+
 
 const testimonials: Testimonial[] = [
   {
@@ -42,7 +42,6 @@ export default function Home() {
       <PricingPlans />
       <FAQ />
       <CTA />
-      <Footer />
     </>
   );
 }
