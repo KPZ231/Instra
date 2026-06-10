@@ -13,7 +13,6 @@
         "menu_open": "Otwórz menu",
         "menu_close": "Zamknij menu"
     },
-
     "hero": {
         "title": "Lorem Ipsum Dolor Sit Amet",
         "section1": "Lorem Ipsum Dolor Sit Amet",
@@ -254,6 +253,30 @@
         "invalid_desc": "Ten link do resetowania wygasł lub został już wykorzystany. Linki są ważne przez 15 minut i można ich użyć tylko raz.",
         "request_new": "Wyślij nowy link"
     },
+    "values": {
+        "label": "Nasze zasady",
+        "heading": "W co wierzymy",
+        "items": [
+            {
+                "index": "01",
+                "title": "Przejrzystość",
+                "description": "Każda metryka, każda decyzja — otwarta i weryfikowalna. Żadnych czarnych skrzynek. Twoje dane należą do Ciebie.",
+                "detail": "Każdy punkt danych, który prezentujemy, jest identyfikowalny do swojego źródła. Ścieżka audytu obejmuje każdy krok potoku — pozyskiwanie, transformację i wynik. Możesz sprawdzić, wyeksportować i zweryfikować każdy wynik w dowolnym momencie."
+            },
+            {
+                "index": "02",
+                "title": "Precyzja",
+                "description": "Marketing bez danych to zgadywanie. Pokazujemy tylko te sygnały, które naprawdę mają znaczenie.",
+                "detail": "Zbudowaliśmy precyzję w samym rdzeniu. Zamiast zasypywać Cię dashboardami, Instra identyfikuje jeden sygnał o najwyższej dźwigni w Twoim zbiorze danych i prezentuje go jako pierwszy. Mniej szumu, szybsze decyzje, lepsze wyniki."
+            },
+            {
+                "index": "03",
+                "title": "Integralność",
+                "description": "Nie idziemy na skróty. Każdy insight jest wielokrotnie weryfikowany, a każda rekomendacja oparta na faktach.",
+                "detail": "Każda rekomendacja generowana przez Instra jest krzyżowo walidowana wobec co najmniej trzech niezależnych sygnałów przed dotarciem do Ciebie. Nasze modele są audytowane kwartalnie, a każda anomalia w jakości wyników wyzwala natychmiastowy rollback."
+            }
+        ]
+    },
     "pricing": {
         "title": "Cennik",
         "billing": {
@@ -264,55 +287,127 @@
             "basic": {
                 "name": "Starter",
                 "badge": "Aktywny",
-                "price": { "monthly": 17, "annual": 15 },
+                "price": {
+                    "monthly": 17,
+                    "annual": 15
+                },
                 "period": "/ miesiąc (USD)",
                 "billedYearly": "180$ płatne rocznie",
                 "desc": "Rozpocznij z niezbędnymi narzędziami do wydajnego zarządzania zespołem. Idealny dla małych zespołów.",
                 "button": "Zacznij za darmo",
                 "features": [
-                    { "name": "Dostęp do podstawowych funkcji", "included": true },
-                    { "name": "Zarządzanie rekordami", "included": true },
-                    { "name": "Podstawowe narzędzia raportowania", "included": true },
-                    { "name": "Zarządzaj do 10 członków", "included": true },
-                    { "name": "Śledź obecność", "included": false },
-                    { "name": "Przydzielaj i monitoruj zadania", "included": false },
-                    { "name": "Wsparcie e-mail", "included": false }
+                    {
+                        "name": "Dostęp do podstawowych funkcji",
+                        "included": true
+                    },
+                    {
+                        "name": "Zarządzanie rekordami",
+                        "included": true
+                    },
+                    {
+                        "name": "Podstawowe narzędzia raportowania",
+                        "included": true
+                    },
+                    {
+                        "name": "Zarządzaj do 10 członków",
+                        "included": true
+                    },
+                    {
+                        "name": "Śledź obecność",
+                        "included": false
+                    },
+                    {
+                        "name": "Przydzielaj i monitoruj zadania",
+                        "included": false
+                    },
+                    {
+                        "name": "Wsparcie e-mail",
+                        "included": false
+                    }
                 ]
             },
             "pro": {
                 "name": "Profesjonalny",
                 "badge": "Oszczędź 27%",
-                "price": { "monthly": 26, "annual": 19 },
+                "price": {
+                    "monthly": 26,
+                    "annual": 19
+                },
                 "period": "/ miesiąc (USD)",
                 "billedYearly": "228$ płatne rocznie",
                 "desc": "Kompleksowe rozwiązanie dla rosnących zespołów, oferujące rozszerzone funkcje do usprawnienia procesów.",
                 "button": "Rozpocznij 7-dniowy okres próbny",
                 "features": [
-                    { "name": "Dostęp do podstawowych funkcji", "included": true },
-                    { "name": "Zarządzanie rekordami", "included": true },
-                    { "name": "Podstawowe narzędzia raportowania", "included": true },
-                    { "name": "Zarządzaj do 50 członków", "included": true },
-                    { "name": "Śledź obecność", "included": true },
-                    { "name": "Przydzielaj i monitoruj zadania", "included": true },
-                    { "name": "Wsparcie e-mail", "included": false }
+                    {
+                        "name": "Dostęp do podstawowych funkcji",
+                        "included": true
+                    },
+                    {
+                        "name": "Zarządzanie rekordami",
+                        "included": true
+                    },
+                    {
+                        "name": "Podstawowe narzędzia raportowania",
+                        "included": true
+                    },
+                    {
+                        "name": "Zarządzaj do 50 członków",
+                        "included": true
+                    },
+                    {
+                        "name": "Śledź obecność",
+                        "included": true
+                    },
+                    {
+                        "name": "Przydzielaj i monitoruj zadania",
+                        "included": true
+                    },
+                    {
+                        "name": "Wsparcie e-mail",
+                        "included": false
+                    }
                 ]
             },
             "enterprise": {
                 "name": "Enterprise",
                 "badge": "Popularny",
-                "price": { "monthly": 34, "annual": 29 },
+                "price": {
+                    "monthly": 34,
+                    "annual": 29
+                },
                 "period": "/ miesiąc (USD)",
                 "billedYearly": "348$ płatne rocznie",
                 "desc": "Maksymalizuj wydajność dzięki narzędziom premium i pełnej konfiguracji, idealne dla dużych organizacji.",
                 "button": "Skontaktuj się z działem sprzedaży",
                 "features": [
-                    { "name": "Dostęp do podstawowych funkcji", "included": true },
-                    { "name": "Zarządzanie rekordami", "included": true },
-                    { "name": "Podstawowe narzędzia raportowania", "included": true },
-                    { "name": "Nielimitowana ilość członków", "included": true },
-                    { "name": "Śledź obecność", "included": true },
-                    { "name": "Przydzielaj i monitoruj zadania", "included": true },
-                    { "name": "Priorytetowe wsparcie 24/7", "included": true }
+                    {
+                        "name": "Dostęp do podstawowych funkcji",
+                        "included": true
+                    },
+                    {
+                        "name": "Zarządzanie rekordami",
+                        "included": true
+                    },
+                    {
+                        "name": "Podstawowe narzędzia raportowania",
+                        "included": true
+                    },
+                    {
+                        "name": "Nielimitowana ilość członków",
+                        "included": true
+                    },
+                    {
+                        "name": "Śledź obecność",
+                        "included": true
+                    },
+                    {
+                        "name": "Przydzielaj i monitoruj zadania",
+                        "included": true
+                    },
+                    {
+                        "name": "Priorytetowe wsparcie 24/7",
+                        "included": true
+                    }
                 ]
             }
         }

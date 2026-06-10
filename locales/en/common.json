@@ -253,6 +253,30 @@
         "invalid_desc": "This reset link has expired or has already been used. Reset links are valid for 15 minutes and can only be used once.",
         "request_new": "Request a new reset link"
     },
+    "values": {
+        "label": "Our principles",
+        "heading": "What we stand for",
+        "items": [
+            {
+                "index": "01",
+                "title": "Transparency",
+                "description": "Every metric, every decision — open and auditable. No black boxes, no hidden agendas. You own your data.",
+                "detail": "Every data point we surface is traceable to its source. Our audit trail covers every pipeline step — ingestion, transformation, and output. You can inspect, export, and verify any result at any time. No vendor lock-in, no algorithmic black boxes."
+            },
+            {
+                "index": "02",
+                "title": "Precision",
+                "description": "Marketing without signal is guesswork. We surface the exact data that moves the needle, nothing more.",
+                "detail": "We built precision into the core. Instead of drowning you in dashboards, Instra identifies the single highest-leverage signal in your dataset and surfaces it first. Less noise, faster decisions, better outcomes — measured and proven."
+            },
+            {
+                "index": "03",
+                "title": "Integrity",
+                "description": "We don't cut corners. Every insight is cross-validated and every recommendation is evidence-backed.",
+                "detail": "Every recommendation Instra generates is cross-validated against at least three independent signals before it reaches you. Our models are audited quarterly, and any anomaly in output quality triggers an immediate rollback to a verified checkpoint."
+            }
+        ]
+    },
     "pricing": {
         "title": "Pricing",
         "billing": {
@@ -263,55 +287,127 @@
             "basic": {
                 "name": "Starter",
                 "badge": "Active",
-                "price": { "monthly": 17, "annual": 15 },
+                "price": {
+                    "monthly": 17,
+                    "annual": 15
+                },
                 "period": "/ month (USD)",
                 "billedYearly": "$180 billed yearly",
                 "desc": "Get started with essential tools to manage your team efficiently. Ideal for small teams with fundamental needs.",
                 "button": "Start for free",
                 "features": [
-                    { "name": "Access to core features", "included": true },
-                    { "name": "Record management", "included": true },
-                    { "name": "Basic reporting tools", "included": true },
-                    { "name": "Manage up to 10 members", "included": true },
-                    { "name": "Track attendance", "included": false },
-                    { "name": "Assign and monitor tasks", "included": false },
-                    { "name": "Email support", "included": false }
+                    {
+                        "name": "Access to core features",
+                        "included": true
+                    },
+                    {
+                        "name": "Record management",
+                        "included": true
+                    },
+                    {
+                        "name": "Basic reporting tools",
+                        "included": true
+                    },
+                    {
+                        "name": "Manage up to 10 members",
+                        "included": true
+                    },
+                    {
+                        "name": "Track attendance",
+                        "included": false
+                    },
+                    {
+                        "name": "Assign and monitor tasks",
+                        "included": false
+                    },
+                    {
+                        "name": "Email support",
+                        "included": false
+                    }
                 ]
             },
             "pro": {
                 "name": "Professional",
                 "badge": "Save 27%",
-                "price": { "monthly": 26, "annual": 19 },
+                "price": {
+                    "monthly": 26,
+                    "annual": 19
+                },
                 "period": "/ month (USD)",
                 "billedYearly": "$228 billed yearly",
                 "desc": "A comprehensive solution for growing teams, offering enhanced features to streamline processes.",
                 "button": "Start 7-days Free Trial",
                 "features": [
-                    { "name": "Access to core features", "included": true },
-                    { "name": "Record management", "included": true },
-                    { "name": "Basic reporting tools", "included": true },
-                    { "name": "Manage up to 50 members", "included": true },
-                    { "name": "Track attendance", "included": true },
-                    { "name": "Assign and monitor tasks", "included": true },
-                    { "name": "Email support", "included": false }
+                    {
+                        "name": "Access to core features",
+                        "included": true
+                    },
+                    {
+                        "name": "Record management",
+                        "included": true
+                    },
+                    {
+                        "name": "Basic reporting tools",
+                        "included": true
+                    },
+                    {
+                        "name": "Manage up to 50 members",
+                        "included": true
+                    },
+                    {
+                        "name": "Track attendance",
+                        "included": true
+                    },
+                    {
+                        "name": "Assign and monitor tasks",
+                        "included": true
+                    },
+                    {
+                        "name": "Email support",
+                        "included": false
+                    }
                 ]
             },
             "enterprise": {
                 "name": "Enterprise",
                 "badge": "Popular",
-                "price": { "monthly": 34, "annual": 29 },
+                "price": {
+                    "monthly": 34,
+                    "annual": 29
+                },
                 "period": "/ month (USD)",
                 "billedYearly": "$348 billed yearly",
                 "desc": "Maximize performance with premium tools and full customization options, perfect for larger organizations.",
                 "button": "Contact Sales",
                 "features": [
-                    { "name": "Access to core features", "included": true },
-                    { "name": "Record management", "included": true },
-                    { "name": "Basic reporting tools", "included": true },
-                    { "name": "Unlimited members", "included": true },
-                    { "name": "Track attendance", "included": true },
-                    { "name": "Assign and monitor tasks", "included": true },
-                    { "name": "24/7 Priority support", "included": true }
+                    {
+                        "name": "Access to core features",
+                        "included": true
+                    },
+                    {
+                        "name": "Record management",
+                        "included": true
+                    },
+                    {
+                        "name": "Basic reporting tools",
+                        "included": true
+                    },
+                    {
+                        "name": "Unlimited members",
+                        "included": true
+                    },
+                    {
+                        "name": "Track attendance",
+                        "included": true
+                    },
+                    {
+                        "name": "Assign and monitor tasks",
+                        "included": true
+                    },
+                    {
+                        "name": "24/7 Priority support",
+                        "included": true
+                    }
                 ]
             }
         }
