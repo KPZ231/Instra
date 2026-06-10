@@ -162,4 +162,11 @@ export const pageMetadata = {
     description: "Set a new password for your Instra account.",
     robots: { index: false, follow: false },
   },
+
+  verifyEmail: {
+    slug: "verify-email",
+    title: `Verify Your Email — Instra`,
+    description: "Enter the 6-digit code we sent to your email address to complete your Instra registration.",
+    robots: { index: false, follow: false },
+  },
 } as const;

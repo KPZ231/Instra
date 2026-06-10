@@ -6,6 +6,7 @@ export type AuthActionState = {
     password?: string[]
     confirmPassword?: string[]
     terms?: string[]
+    code?: string[]
     _form?: string[]
   }
   message?: string

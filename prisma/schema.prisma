@@ -76,3 +76,14 @@ model PasswordResetToken {
 
   @@index([email])
 }
+
+model PendingRegistration {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String?
+  code         String
+  expiresAt    DateTime
+  lastSentAt   DateTime
+  createdAt    DateTime @default(now())
+}

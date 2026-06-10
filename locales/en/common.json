@@ -537,6 +537,23 @@
             }
         ]
     },
+    "verify_email": {
+        "title": "Check your inbox.",
+        "subtitle": "We sent a 6-digit code to",
+        "code_label": "Verification Code",
+        "submit": "Verify email",
+        "no_code": "Didn't receive the code?",
+        "resend": "Resend code",
+        "resend_wait": "Resend in {{seconds}}s",
+        "resend_success": "A new code has been sent to your email.",
+        "back_to_signup": "← Back to sign up",
+        "panel_title": "One step away.",
+        "panel_desc": "Check your email and enter the 6-digit code to activate your Instra account. The code expires in 10 minutes.",
+        "panel_social": "Secure registration · No spam",
+        "panel_card_label": "// Security",
+        "panel_card_title": "Codes are single-use and time-limited.",
+        "panel_card_desc": "Each verification code expires after 10 minutes and can only be used once. Request a new one if yours expires."
+    },
     "featuresSection": {
         "label": "// CORE CAPABILITIES",
         "heading": "Everything you need to grow",

@@ -537,6 +537,23 @@
             }
         ]
     },
+    "verify_email": {
+        "title": "Sprawdź skrzynkę.",
+        "subtitle": "Wysłaliśmy 6-cyfrowy kod na adres",
+        "code_label": "Kod weryfikacyjny",
+        "submit": "Zweryfikuj email",
+        "no_code": "Nie otrzymałeś kodu?",
+        "resend": "Wyślij ponownie",
+        "resend_wait": "Wyślij ponownie za {{seconds}}s",
+        "resend_success": "Nowy kod został wysłany na Twój adres email.",
+        "back_to_signup": "← Wróć do rejestracji",
+        "panel_title": "Jeden krok do przodu.",
+        "panel_desc": "Sprawdź email i wpisz 6-cyfrowy kod, aby aktywować konto Instra. Kod wygasa po 10 minutach.",
+        "panel_social": "Bezpieczna rejestracja · Bez spamu",
+        "panel_card_label": "// Bezpieczeństwo",
+        "panel_card_title": "Kody są jednorazowe i ograniczone czasowo.",
+        "panel_card_desc": "Każdy kod weryfikacyjny wygasa po 10 minutach i może być użyty tylko raz. Jeśli Twój wygaśnie, poproś o nowy."
+    },
     "featuresSection": {
         "label": "// KLUCZOWE MOŻLIWOŚCI",
         "heading": "Wszystko, czego potrzebujesz do rozwoju",
