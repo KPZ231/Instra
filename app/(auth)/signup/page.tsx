@@ -32,8 +32,8 @@ const ClientEmailSchema = z
     password: passwordSchema,
     confirmPassword: z.string().min(1, 'Please confirm your password'),
     terms: z
-      .boolean()
-      .refine((v) => v === true, { message: 'You must accept the Terms of Service' }),
+      .union([z.boolean(), z.string()])
+      .refine((v) => v === true || v === 'on', { message: 'You must accept the Terms of Service' }),
   })
   .refine((d) => d.password === d.confirmPassword, {
     message: 'Passwords do not match',
@@ -57,8 +57,8 @@ const ClientUsernameSchema = z
     password: passwordSchema,
     confirmPassword: z.string().min(1, 'Please confirm your password'),
     terms: z
-      .boolean()
-      .refine((v) => v === true, { message: 'You must accept the Terms of Service' }),
+      .union([z.boolean(), z.string()])
+      .refine((v) => v === true || v === 'on', { message: 'You must accept the Terms of Service' }),
   })
   .refine((d) => d.password === d.confirmPassword, {
     message: 'Passwords do not match',
@@ -72,7 +72,7 @@ type RegisterFormData = {
   username?: string
   password: string
   confirmPassword: string
-  terms: boolean
+  terms: boolean | string
 }
 
 /**

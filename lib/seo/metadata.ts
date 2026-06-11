@@ -83,6 +83,24 @@ export const pageMetadata = {
     },
   },
 
+  plugins: {
+    slug: "plugins",
+    title: `Instra Plugins — Extend Instra with Custom Integrations and Automations`,
+    description:
+      "Instra's plugin system lets you build custom integrations, automations, and data syncs to connect Instra with your unique marketing stack and workflows.",
+    openGraph: {
+      title: "Instra Plugins — Extend Instra with Custom Integrations and Automations",
+      description:
+        "Build custom integrations, automations, and data syncs to connect Instra with your unique marketing stack and workflows.",
+    },
+    twitter: {
+      title: "Instra Plugins — Extend Instra with Custom Integrations and Automations",
+      description:
+
+        "Build custom integrations, automations, and data syncs to connect Instra with your unique marketing stack and workflows.",
+    },
+  },
+
   features: {
     slug: "features",
     title: `Instra Features — AI Marketing Tools That Work`,

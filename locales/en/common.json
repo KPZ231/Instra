@@ -705,5 +705,10 @@
         "heading": "Works with the tools\nyou already use.",
         "subtitle": "Connect marketing platforms and dev tools without writing a single line of glue code.",
         "moreLabel": "+ 120 more integrations"
+    },
+    "pluginsHeader": {
+        "label": "// PLUGIN ECOSYSTEM",
+        "heading": "Extend Instra\nyour way.",
+        "description": "Instra's plugin system is fully open. Any developer can extend the platform — add widgets, register routes, or hook into events via the PluginContext API."
     }
 }

@@ -1,11 +1,13 @@
 'use client'
 
-import { useActionState, useEffect, useRef } from 'react'
+import { useActionState, useEffect, useRef, useTransition } from 'react'
 import { useTranslation } from 'react-i18next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { toast } from 'sonner'
 import { z } from 'zod'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
 import { forgotPassword } from '@/features/auth/actions/forgotPassword'
 import type { AuthActionState } from '@/features/auth/types'
 
@@ -18,40 +20,52 @@ const ClientForgotSchema = z.object({
     .refine((v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v), 'Enter a valid email address (e.g. you@example.com)'),
 })
 
+type ForgotFormData = z.infer<typeof ClientForgotSchema>
+
 /**
  * ForgotPasswordPage — two-panel password reset request screen.
- * Validates email client-side with Zod, then calls the forgotPassword server action.
+ * Validates email client-side with react-hook-form + zodResolver (hybrid: errors on blur).
  * Shows a success state after the email is dispatched.
  */
 export default function ForgotPasswordPage() {
   const { t } = useTranslation('common')
   const [state, formAction, isPending] = useActionState(forgotPassword, initialState)
+  const [, startTransition] = useTransition()
+  const formRef = useRef<HTMLFormElement>(null)
   const emailRef = useRef<HTMLInputElement>(null)
+
+  const { register, handleSubmit, formState: { errors }, watch } = useForm<ForgotFormData>({
+    resolver: zodResolver(ClientForgotSchema),
+    mode: 'onTouched',
+    reValidateMode: 'onChange',
+  })
+
+  const emailValue = watch('email', '')
 
   useEffect(() => {
     emailRef.current?.focus()
   }, [])
 
+  /** Show only _form-level server errors as toasts; field errors shown inline. */
   useEffect(() => {
     if (state.errors?._form?.length) {
       toast.error(state.errors._form[0])
     }
   }, [state])
 
-  function handleSubmit(e: React.SyntheticEvent<HTMLFormElement>) {
-    const form = e.currentTarget
-    const result = ClientForgotSchema.safeParse({
-      email: (form.elements.namedItem('email') as HTMLInputElement)?.value,
+  /**
+   * RHF handleSubmit callback: called only when client validation passes.
+   * Submits the native form to the server action via startTransition.
+   */
+  function onClientSubmit() {
+    startTransition(() => {
+      if (formRef.current) {
+        formAction(new FormData(formRef.current))
+      }
     })
-    if (!result.success) {
-      e.preventDefault()
-      toast.error(result.error.issues[0].message, { description: 'Email field' })
-    }
   }
 
-  const emailValue = typeof window !== 'undefined'
-    ? (document.getElementById('email') as HTMLInputElement)?.value ?? ''
-    : ''
+  const emailError = errors.email?.message ?? state.errors?.email?.[0]
 
   return (
     <main className="flex min-h-dvh bg-pitch-black font-sans">
@@ -81,7 +95,13 @@ export default function ForgotPasswordPage() {
                 {t('forgot_password.subtitle')}
               </p>
 
-              <form action={formAction} onSubmit={handleSubmit} className="mb-5 flex flex-col gap-4" noValidate>
+              <form
+                ref={formRef}
+                action={formAction}
+                onSubmit={handleSubmit(onClientSubmit)}
+                className="mb-5 flex flex-col gap-4"
+                noValidate
+              >
 
                 <div className="flex flex-col gap-1.5">
                   <label
@@ -99,9 +119,7 @@ export default function ForgotPasswordPage() {
                       <path d="M1 5.5L8 9.5L15 5.5" stroke="currentColor" strokeWidth="1.2" />
                     </svg>
                     <input
-                      ref={emailRef}
                       id="email"
-                      name="email"
                       type="email"
                       autoComplete="email"
                       placeholder={t('forgot_password.email_placeholder')}
@@ -110,14 +128,19 @@ export default function ForgotPasswordPage() {
                         'text-sm text-on-surface placeholder:text-outline-variant',
                         'border outline-none transition-[border-color,box-shadow] duration-150',
                         'focus:border-white/80 focus:shadow-[0_0_0_2px_rgba(255,255,255,0.06)]',
-                        state.errors?.email ? 'border-error/50' : 'border-white/15',
+                        emailError ? 'border-error/50' : 'border-white/15',
                       ].join(' ')}
-                      aria-describedby={state.errors?.email ? 'email-error' : undefined}
+                      aria-describedby={emailError ? 'email-error' : undefined}
+                      {...register('email')}
+                      ref={(el) => {
+                        register('email').ref(el)
+                        emailRef.current = el
+                      }}
                     />
                   </div>
-                  {state.errors?.email && (
+                  {emailError && (
                     <p id="email-error" className="font-mono text-[11px] tracking-[0.03em] text-error">
-                      {state.errors.email[0]}
+                      {emailError}
                     </p>
                   )}
                 </div>

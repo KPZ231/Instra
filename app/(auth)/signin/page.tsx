@@ -1,12 +1,14 @@
 'use client'
 
-import { useActionState, useEffect, useRef } from 'react'
+import { useActionState, useEffect, useRef, useTransition } from 'react'
 import { signIn } from 'next-auth/react'
 import { useTranslation } from 'react-i18next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { toast } from 'sonner'
 import { z } from 'zod'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
 import { loginUser } from '@/features/auth/actions/loginUser'
 import type { AuthActionState } from '@/features/auth/types'
 
@@ -24,22 +26,33 @@ const ClientLoginSchema = z.object({
     .max(128, 'Password must not exceed 128 characters'),
 })
 
+type LoginFormData = z.infer<typeof ClientLoginSchema>
+
 /**
  * SignInPage — two-panel sign-in screen following Executive Precision design system.
  * Left: credential form + OAuth buttons. Right: brand/visual panel.
+ * Uses react-hook-form + zodResolver for hybrid validation (errors on blur, silent before first submit).
  * @returns JSX.Element
  * @example <SignInPage />
  */
 export default function SignInPage() {
   const { t } = useTranslation('common')
   const [state, formAction, isPending] = useActionState(loginUser, initialState)
+  const [, startTransition] = useTransition()
+  const formRef = useRef<HTMLFormElement>(null)
   const emailRef = useRef<HTMLInputElement>(null)
+
+  const { register, handleSubmit, formState: { errors } } = useForm<LoginFormData>({
+    resolver: zodResolver(ClientLoginSchema),
+    mode: 'onTouched',
+    reValidateMode: 'onChange',
+  })
 
   useEffect(() => {
     emailRef.current?.focus()
   }, [])
 
-  /** Show server-side errors as toasts whenever action state changes. */
+  /** Show only _form-level server errors as toasts; field errors shown inline. */
   useEffect(() => {
     if (!state.errors) return
     if (state.errors._form?.length) {
@@ -47,32 +60,31 @@ export default function SignInPage() {
         description: 'Check your credentials and try again.',
       })
     }
-    if (state.errors.email?.length) {
-      toast.warning(state.errors.email[0], { description: 'Email field' })
-    }
-    if (state.errors.password?.length) {
-      toast.warning(state.errors.password[0], { description: 'Password field' })
-    }
   }, [state])
 
   /**
-   * Client-side Zod validation before the server action is called.
-   * Prevents unnecessary round-trips on obvious input errors.
+   * RHF handleSubmit callback: called only when client validation passes.
+   * Submits the native form to the server action via startTransition.
    */
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    const form = e.currentTarget
-    const result = ClientLoginSchema.safeParse({
-      email: (form.elements.namedItem('email') as HTMLInputElement)?.value,
-      password: (form.elements.namedItem('password') as HTMLInputElement)?.value,
+  function onClientSubmit() {
+    startTransition(() => {
+      if (formRef.current) {
+        formAction(new FormData(formRef.current))
+      }
     })
-    if (!result.success) {
-      e.preventDefault()
-      const firstError = result.error.issues[0]
-      toast.error(firstError.message, {
-        description: `Field: ${String(firstError.path[0])}`,
-      })
-    }
   }
+
+  const emailError = errors.email?.message ?? state.errors?.email?.[0]
+  const passwordError = errors.password?.message ?? state.errors?.password?.[0]
+
+  const inputClass = (hasError?: string) =>
+    [
+      'w-full rounded bg-[#040503] py-2.5 pl-9.5 pr-3.5',
+      'text-sm text-on-surface placeholder:text-outline-variant',
+      'border outline-none transition-[border-color,box-shadow] duration-150',
+      'focus:border-white/80 focus:shadow-[0_0_0_2px_rgba(255,255,255,0.06)]',
+      hasError ? 'border-error/50' : 'border-white/15',
+    ].join(' ')
 
   return (
     <main className="flex min-h-dvh bg-pitch-black font-sans">
@@ -99,7 +111,13 @@ export default function SignInPage() {
           </h1>
 
           {/* Credentials form */}
-          <form action={formAction} onSubmit={handleSubmit} className="mb-5 flex flex-col gap-4" noValidate>
+          <form
+            ref={formRef}
+            action={formAction}
+            onSubmit={handleSubmit(onClientSubmit)}
+            className="mb-5 flex flex-col gap-4"
+            noValidate
+          >
 
             {/* Email field */}
             <div className="flex flex-col gap-1.5">
@@ -115,27 +133,22 @@ export default function SignInPage() {
                   <path d="M1 5.5L8 9.5L15 5.5" stroke="currentColor" strokeWidth="1.2" />
                 </svg>
                 <input
-                  ref={emailRef}
                   id="email"
-                  name="email"
                   type="email"
                   autoComplete="email"
                   placeholder={t('signin.email_placeholder')}
-                  className={[
-                    'w-full rounded bg-[#040503] py-2.5 pl-9.5 pr-3.5',
-                    'text-sm text-on-surface placeholder:text-outline-variant',
-                    'border outline-none transition-[border-color,box-shadow] duration-150',
-                    'focus:border-white/80 focus:shadow-[0_0_0_2px_rgba(255,255,255,0.06)]',
-                    state.errors?.email
-                      ? 'border-error/50'
-                      : 'border-white/15',
-                  ].join(' ')}
-                  aria-describedby={state.errors?.email ? 'email-error' : undefined}
+                  className={inputClass(emailError)}
+                  aria-describedby={emailError ? 'email-error' : undefined}
+                  {...register('email')}
+                  ref={(el) => {
+                    register('email').ref(el)
+                    emailRef.current = el
+                  }}
                 />
               </div>
-              {state.errors?.email && (
+              {emailError && (
                 <p id="email-error" className="font-mono text-[11px] tracking-[0.03em] text-error">
-                  {state.errors.email[0]}
+                  {emailError}
                 </p>
               )}
             </div>
@@ -155,25 +168,17 @@ export default function SignInPage() {
                 </svg>
                 <input
                   id="password"
-                  name="password"
                   type="password"
                   autoComplete="current-password"
                   placeholder={t('signin.password_placeholder')}
-                  className={[
-                    'w-full rounded bg-[#040503] py-2.5 pl-9.5 pr-3.5',
-                    'text-sm text-on-surface placeholder:text-outline-variant',
-                    'border outline-none transition-[border-color,box-shadow] duration-150',
-                    'focus:border-white/80 focus:shadow-[0_0_0_2px_rgba(255,255,255,0.06)]',
-                    state.errors?.password
-                      ? 'border-error/50'
-                      : 'border-white/15',
-                  ].join(' ')}
-                  aria-describedby={state.errors?.password ? 'password-error' : undefined}
+                  className={inputClass(passwordError)}
+                  aria-describedby={passwordError ? 'password-error' : undefined}
+                  {...register('password')}
                 />
               </div>
-              {state.errors?.password && (
+              {passwordError && (
                 <p id="password-error" className="font-mono text-[11px] tracking-[0.03em] text-error">
-                  {state.errors.password[0]}
+                  {passwordError}
                 </p>
               )}
             </div>

@@ -71,7 +71,8 @@ export async function registerUser(
         // Cooldown active — do not reveal that a record exists; just tell them to check their inbox
         return { errors: { email: ['A verification code was already sent. Check your email.'] } }
       }
-      // Outside cooldown: only refresh the code — never overwrite passwordHash or name
+      // Outside cooldown: refresh code AND credentials so the verified record reflects this request
+      const passwordHash = await hashPassword(password)
       const code = generateVerificationCode()
       const now = new Date()
       const expiresAt = new Date(now.getTime() + 10 * 60 * 1000)
@@ -89,7 +90,7 @@ export async function registerUser(
 
       await prisma.pendingRegistration.update({
         where: { email },
-        data: { code, expiresAt, lastSentAt: now },
+        data: { code, expiresAt, lastSentAt: now, passwordHash, name: name ?? null, attempts: 0 },
       })
     } else {
       // New registration: hash password, create pending record, send code

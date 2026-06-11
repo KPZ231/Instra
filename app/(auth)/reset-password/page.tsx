@@ -1,12 +1,14 @@
 'use client'
 
-import { useActionState, useEffect, useRef, Suspense } from 'react'
+import { useActionState, useEffect, useRef, useTransition, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { useTranslation } from 'react-i18next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { toast } from 'sonner'
 import { z } from 'zod'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
 import { resetPassword } from '@/features/auth/actions/resetPassword'
 import type { AuthActionState } from '@/features/auth/types'
 
@@ -28,38 +30,52 @@ const ClientResetSchema = z
     path: ['confirmPassword'],
   })
 
+type ResetFormData = z.infer<typeof ClientResetSchema>
+
 /**
  * Inner component that reads token from search params (must be inside Suspense).
+ * Uses react-hook-form + zodResolver for hybrid validation (errors on blur, silent before first submit).
  */
 function ResetPasswordForm() {
   const { t } = useTranslation('common')
   const searchParams = useSearchParams()
   const token = searchParams.get('token') ?? ''
   const [state, formAction, isPending] = useActionState(resetPassword, initialState)
+  const [, startTransition] = useTransition()
+  const formRef = useRef<HTMLFormElement>(null)
   const passwordRef = useRef<HTMLInputElement>(null)
+
+  const { register, handleSubmit, formState: { errors } } = useForm<ResetFormData>({
+    resolver: zodResolver(ClientResetSchema),
+    mode: 'onTouched',
+    reValidateMode: 'onChange',
+  })
 
   useEffect(() => {
     passwordRef.current?.focus()
   }, [])
 
+  /** Show only _form-level server errors as toasts; field errors shown inline. */
   useEffect(() => {
     if (state.errors?._form?.length) {
       toast.error(state.errors._form[0])
     }
   }, [state])
 
-  function handleSubmit(e: React.SyntheticEvent<HTMLFormElement>) {
-    const form = e.currentTarget
-    const result = ClientResetSchema.safeParse({
-      password: (form.elements.namedItem('password') as HTMLInputElement)?.value,
-      confirmPassword: (form.elements.namedItem('confirmPassword') as HTMLInputElement)?.value,
+  /**
+   * RHF handleSubmit callback: called only when client validation passes.
+   * Submits the native form to the server action via startTransition.
+   */
+  function onClientSubmit() {
+    startTransition(() => {
+      if (formRef.current) {
+        formAction(new FormData(formRef.current))
+      }
     })
-    if (!result.success) {
-      e.preventDefault()
-      const issue = result.error.issues[0]
-      toast.error(issue.message, { description: `Field: ${String(issue.path[0])}` })
-    }
   }
+
+  const passwordError = errors.password?.message ?? state.errors?.password?.[0]
+  const confirmPasswordError = errors.confirmPassword?.message ?? state.errors?.confirmPassword?.[0]
 
   if (!token) {
     return (
@@ -128,7 +144,13 @@ function ResetPasswordForm() {
         {t('reset_password.subtitle')}
       </p>
 
-      <form action={formAction} onSubmit={handleSubmit} className="mb-5 flex flex-col gap-4" noValidate>
+      <form
+        ref={formRef}
+        action={formAction}
+        onSubmit={handleSubmit(onClientSubmit)}
+        className="mb-5 flex flex-col gap-4"
+        noValidate
+      >
         {/* Hidden token field */}
         <input type="hidden" name="token" value={token} />
 
@@ -149,9 +171,7 @@ function ResetPasswordForm() {
               <path d="M5.5 7V5a2.5 2.5 0 015 0v2" stroke="currentColor" strokeWidth="1.2" />
             </svg>
             <input
-              ref={passwordRef}
               id="password"
-              name="password"
               type="password"
               autoComplete="new-password"
               placeholder={t('reset_password.password_placeholder')}
@@ -160,14 +180,19 @@ function ResetPasswordForm() {
                 'text-sm text-on-surface placeholder:text-outline-variant',
                 'border outline-none transition-[border-color,box-shadow] duration-150',
                 'focus:border-white/80 focus:shadow-[0_0_0_2px_rgba(255,255,255,0.06)]',
-                state.errors?.password ? 'border-error/50' : 'border-white/15',
+                passwordError ? 'border-error/50' : 'border-white/15',
               ].join(' ')}
-              aria-describedby={state.errors?.password ? 'password-error' : 'password-hint'}
+              aria-describedby={passwordError ? 'password-error' : 'password-hint'}
+              {...register('password')}
+              ref={(el) => {
+                register('password').ref(el)
+                passwordRef.current = el
+              }}
             />
           </div>
-          {state.errors?.password ? (
+          {passwordError ? (
             <p id="password-error" className="font-mono text-[11px] tracking-[0.03em] text-error">
-              {state.errors.password[0]}
+              {passwordError}
             </p>
           ) : (
             <p id="password-hint" className="font-mono text-[11px] tracking-[0.03em] text-outline-variant">
@@ -194,7 +219,6 @@ function ResetPasswordForm() {
             </svg>
             <input
               id="confirmPassword"
-              name="confirmPassword"
               type="password"
               autoComplete="new-password"
               placeholder={t('reset_password.confirm_placeholder')}
@@ -203,14 +227,15 @@ function ResetPasswordForm() {
                 'text-sm text-on-surface placeholder:text-outline-variant',
                 'border outline-none transition-[border-color,box-shadow] duration-150',
                 'focus:border-white/80 focus:shadow-[0_0_0_2px_rgba(255,255,255,0.06)]',
-                state.errors?.confirmPassword ? 'border-error/50' : 'border-white/15',
+                confirmPasswordError ? 'border-error/50' : 'border-white/15',
               ].join(' ')}
-              aria-describedby={state.errors?.confirmPassword ? 'confirm-error' : undefined}
+              aria-describedby={confirmPasswordError ? 'confirm-error' : undefined}
+              {...register('confirmPassword')}
             />
           </div>
-          {state.errors?.confirmPassword && (
+          {confirmPasswordError && (
             <p id="confirm-error" className="font-mono text-[11px] tracking-[0.03em] text-error">
-              {state.errors.confirmPassword[0]}
+              {confirmPasswordError}
             </p>
           )}
         </div>

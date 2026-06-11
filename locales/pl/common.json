@@ -705,5 +705,10 @@
         "heading": "Działa z narzędziami,\nktórych już używasz.",
         "subtitle": "Połącz platformy marketingowe i narzędzia deweloperskie bez pisania ani jednej linii kodu kleju.",
         "moreLabel": "+ 120 kolejnych integracji"
+    },
+    "pluginsHeader": {
+        "label": "// EKOSYSTEM PLUGINÓW",
+        "heading": "Rozszerzaj Instra\nna swój sposób.",
+        "description": "System pluginów Instra jest w pełni otwarty. Każdy developer może rozszerzyć platformę — dodawać widżety, rejestrować trasy lub nasłuchiwać zdarzeń przez API PluginContext."
     }
 }
