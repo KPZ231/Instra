@@ -26,6 +26,11 @@ model User {
   accounts Account[]
   sessions Session[]
 
+  plugins             Plugin[]
+  pluginInstallations PluginInstallation[]
+  pluginData          PluginData[]
+  reviewedVersions    PluginVersion[]      @relation
+
 }
 
 model Account {
@@ -87,4 +92,103 @@ model PendingRegistration {
   lastSentAt   DateTime
   attempts     Int      @default(0)
   createdAt    DateTime @default(now())
+}
+
+enum PluginReviewStatus {
+  DRAFT
+  PENDING_REVIEW
+  APPROVED
+  REJECTED
+}
+
+enum WidgetSlot {
+  DASHBOARD_TOP
+  DASHBOARD_SIDEBAR
+  DASHBOARD_BOTTOM
+  SETTINGS_GENERAL
+  SETTINGS_ADVANCED
+  HEADER_ACTIONS
+  PROFILE_MENU
+}
+
+model Plugin {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  name        String
+  description String
+  authorId    String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  author       User             @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  versions     PluginVersion[]
+  installations PluginInstallation[]
+  data         PluginData[]
+  auditLogs    PluginAuditLog[]
+
+  @@index([authorId])
+}
+
+model PluginVersion {
+  id               String             @id @default(cuid())
+  pluginId         String
+  version          String
+  status           PluginReviewStatus @default(DRAFT)
+  manifest         Json
+  bundleStorageKey String
+  reviewedById     String?
+  reviewedAt       DateTime?
+  rejectionReason  String?
+  createdAt        DateTime           @default(now())
+
+  plugin        Plugin               @relation(fields: [pluginId], references: [id], onDelete: Cascade)
+  reviewedBy    User?                @relation(fields: [reviewedById], references: [id])
+  installations PluginInstallation[]
+
+  @@unique([pluginId, version])
+  @@index([status])
+}
+
+model PluginInstallation {
+  id              String   @id @default(cuid())
+  userId          String
+  pluginId        String
+  pluginVersionId String
+  enabled         Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  user          User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  plugin        Plugin        @relation(fields: [pluginId], references: [id], onDelete: Cascade)
+  pluginVersion PluginVersion @relation(fields: [pluginVersionId], references: [id])
+
+  @@unique([userId, pluginId])
+  @@index([userId])
+}
+
+model PluginData {
+  id        String   @id @default(cuid())
+  pluginId  String
+  userId    String
+  key       String
+  value     Json
+  updatedAt DateTime @updatedAt
+
+  plugin Plugin @relation(fields: [pluginId], references: [id], onDelete: Cascade)
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([pluginId, userId, key])
+}
+
+model PluginAuditLog {
+  id        String   @id @default(cuid())
+  pluginId  String
+  userId    String?
+  action    String
+  metadata  Json?
+  createdAt DateTime @default(now())
+
+  plugin Plugin @relation(fields: [pluginId], references: [id], onDelete: Cascade)
+
+  @@index([pluginId, createdAt])
 }
