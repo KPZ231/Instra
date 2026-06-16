@@ -59,6 +59,11 @@ Doświadczony full-stack developer. Stack: **Next.js, React, TypeScript, Supabas
 - Dostęp **wyłącznie przez Prisma** — nigdy surowy SQL
 - Zmiany schematu → `schema.prisma` + `prisma migrate dev` + aktualizacja `/docs/database.md`
 
+## Cache (Redis)
+- Warstwa cache w `/lib/cache` (Upstash Redis) — `getOrSet()` jako główny wzorzec użycia dla zapytań DB/API
+- Namespace `instra:cache:*`, presety TTL w `/lib/cache/config.ts` (`db: 300s`, `api: 900s`), izolowany od `instra:rl:*` (rate-limit)
+- Po mutacji w Prisma wywołaj `invalidatePrefix()` — szczegóły w `/docs/cache.md`
+
 ---
 
 ## i18n
