@@ -6,7 +6,6 @@ import StatCard from "@/components/dashboard/StatCard";
 import AnalyticsChart from "@/components/dashboard/AnalyticsChart";
 import ActivityFeed from "@/components/dashboard/ActivityFeed";
 import QuickActions from "@/components/dashboard/QuickActions";
-import DashboardWidgetSlot from "@/components/dashboard/DashboardWidgetSlot";
 
 const STATS = [
   { id: "posts", labelKey: "dashboard.stats.posts", value: "142", delta: 8.3, deltaLabelKey: "dashboard.stats.vsLastWeek" },
@@ -87,19 +86,15 @@ export default function DashboardOverview() {
         </motion.div>
       </motion.div>
 
-      {/* Row 3 — Quick actions + Plugin slot */}
+      {/* Row 3 — Quick actions */}
       <motion.div
-        className="grid grid-cols-1 lg:grid-cols-2 gap-4"
+        className="grid grid-cols-1 gap-4"
         variants={stagger}
         initial="hidden"
         animate="show"
       >
         <motion.div variants={fadeUp}>
           <QuickActions />
-        </motion.div>
-
-        <motion.div variants={fadeUp}>
-          <DashboardWidgetSlot />
         </motion.div>
       </motion.div>
     </div>

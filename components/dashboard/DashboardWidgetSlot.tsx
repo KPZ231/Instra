@@ -1,7 +1,7 @@
 import { verifySession } from "@/lib/auth/dal";
 import { renderWidgetsForUser } from "@/lib/plugins/render";
-import BlockRenderer from "@/components/ui/plugins/BlockRenderer";
-import PluginErrorBoundary from "@/components/ui/plugins/PluginErrorBoundary";
+import { BlockRenderer } from "@/components/ui/plugins/BlockRenderer";
+import { PluginErrorBoundary } from "@/components/ui/plugins/PluginErrorBoundary";
 import { WidgetSlot } from "@prisma/client";
 
 /**

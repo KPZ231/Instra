@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { buildMetadata } from "@/lib/seo/metadata";
 import DashboardOverview from "@/components/dashboard/DashboardOverview";
+import DashboardWidgetSlot from "@/components/dashboard/DashboardWidgetSlot";
 
 export const metadata: Metadata = buildMetadata({
   slug: "dashboard",
@@ -11,5 +12,10 @@ export const metadata: Metadata = buildMetadata({
 
 /** Dashboard overview page — server component entry point. */
 export default function DashboardPage() {
-  return <DashboardOverview />;
+  return (
+    <div className="space-y-6">
+      <DashboardOverview />
+      <DashboardWidgetSlot />
+    </div>
+  );
 }
