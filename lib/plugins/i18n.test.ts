@@ -7,6 +7,7 @@ import { registerPluginLocales } from './i18n'
 
 describe('registerPluginLocales', () => {
   it('registers each locale under the plugin namespace', () => {
+    addResourceBundle.mockClear()
     registerPluginLocales('my-plugin', { en: { greeting: 'Hello' }, pl: { greeting: 'Witaj' } })
     expect(addResourceBundle).toHaveBeenCalledWith('en', 'plugin:my-plugin', { greeting: 'Hello' }, true, true)
     expect(addResourceBundle).toHaveBeenCalledWith('pl', 'plugin:my-plugin', { greeting: 'Witaj' }, true, true)
