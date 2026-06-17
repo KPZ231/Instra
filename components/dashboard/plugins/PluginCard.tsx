@@ -23,7 +23,7 @@ interface PluginCardProps {
  * @param slug - Unique plugin slug
  * @param name - Display name
  * @param description - Short description
- * @param authorLabel - Display label for the plugin author
+ * @param authorLabel - Display label for the plugin author (e.g. "Plugin Author")
  * @param version - Current approved version string
  * @param capabilities - Array of capability strings from manifest
  * @param installed - Whether the current user has this installed
@@ -48,10 +48,9 @@ export default function PluginCard({
 }: PluginCardProps) {
   return (
     <div
-      className="rounded-sm border p-5 flex flex-col gap-4 transition-[border-color] duration-150"
+      className="rounded-sm border border-[rgba(255,255,255,0.06)] hover:border-[rgba(255,255,255,0.15)] p-5 flex flex-col gap-4 transition-colors duration-150"
       style={{
         background: "var(--color-surface-container-lowest)",
-        borderColor: "rgba(255,255,255,0.06)",
       }}
     >
       {/* Header row */}

@@ -43,7 +43,7 @@ export default async function PluginsMarketplacePage() {
         slug: version.plugin.slug,
         name: version.plugin.name,
         description: version.plugin.description,
-        authorLabel: version.plugin.authorId,
+        authorLabel: 'Plugin Author',
         version: version.version,
         capabilities: manifest.permissions ?? [],
         installed: !!installation,

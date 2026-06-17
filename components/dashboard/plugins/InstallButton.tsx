@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useTranslation } from "react-i18next";
 
 interface InstallButtonProps {
   pluginId: string;
@@ -29,6 +30,7 @@ export default function InstallButton({
   latestVersionId,
 }: InstallButtonProps) {
   const router = useRouter();
+  const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
 
   /**
@@ -73,7 +75,7 @@ export default function InstallButton({
               color: "#000",
             }}
           >
-            {loading ? "..." : "Update"}
+            {loading ? t("plugins.marketplace.installing") : t("plugins.marketplace.update_action")}
           </button>
         )}
         <button
@@ -86,7 +88,7 @@ export default function InstallButton({
             background: "transparent",
           }}
         >
-          {loading ? "..." : "Odinstaluj"}
+          {loading ? t("plugins.marketplace.uninstalling") : t("plugins.marketplace.uninstall")}
         </button>
       </div>
     );
@@ -102,7 +104,7 @@ export default function InstallButton({
         color: "var(--color-on-primary)",
       }}
     >
-      {loading ? "..." : "Zainstaluj"}
+      {loading ? t("plugins.marketplace.installing") : t("plugins.marketplace.install")}
     </button>
   );
 }
