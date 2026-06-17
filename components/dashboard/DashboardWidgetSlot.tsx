@@ -27,6 +27,7 @@ export default async function DashboardWidgetSlot() {
         }}
       >
         <div className="text-center">
+          {/* i18n skipped: react-i18next useTranslation requires a Client Component; this is an async Server Component */}
           <p
             className="font-mono text-xs tracking-[0.1em] uppercase mb-2"
             style={{ color: "var(--color-on-surface-variant)" }}
