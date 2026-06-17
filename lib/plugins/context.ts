@@ -57,7 +57,6 @@ export function createPluginContext(opts: {
       registrations.listeners.set(event, list)
     },
     off(event, listener) {
-      requireCapability('events:listen')
       const list = registrations.listeners.get(event)
       if (list) registrations.listeners.set(event, list.filter((l) => l !== listener))
     },

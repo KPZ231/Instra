@@ -74,7 +74,10 @@ export async function POST(request: Request) {
       }
     }
   } catch (err) {
-    const message = err instanceof Error ? err.message : 'Internal server error'
-    return NextResponse.json({ error: message }, { status: 400 })
+    const KNOWN_USER_ERRORS = ['already installed', 'is not approved', 'not found', 'is not installable']
+    const isUserError =
+      err instanceof Error && KNOWN_USER_ERRORS.some(k => err.message.toLowerCase().includes(k))
+    const message = isUserError ? (err as Error).message : 'Internal server error'
+    return NextResponse.json({ error: message }, { status: isUserError ? 400 : 500 })
   }
 }

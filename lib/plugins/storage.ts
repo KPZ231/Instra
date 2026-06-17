@@ -2,9 +2,10 @@ import { createClient } from '@supabase/supabase-js'
 
 const BUCKET = 'plugin-bundles'
 
-function getClient() {
-  return createClient(process.env.SUPABASE_URL ?? '', process.env.SUPABASE_SERVICE_ROLE_KEY ?? '')
-}
+const supabaseClient = createClient(
+  process.env.SUPABASE_URL ?? '',
+  process.env.SUPABASE_SERVICE_ROLE_KEY ?? '',
+)
 
 /**
  * Builds the deterministic storage key for a plugin bundle.
@@ -26,7 +27,7 @@ export function buildBundleKey(slug: string, version: string): string {
  */
 export async function uploadBundle(slug: string, version: string, code: string): Promise<string> {
   const key = buildBundleKey(slug, version)
-  const { error } = await getClient().storage.from(BUCKET).upload(key, code, {
+  const { error } = await supabaseClient.storage.from(BUCKET).upload(key, code, {
     contentType: 'application/javascript',
     upsert: false,
   })
@@ -40,7 +41,7 @@ export async function uploadBundle(slug: string, version: string, code: string):
  * @example const code = await downloadBundle(version.bundleStorageKey)
  */
 export async function downloadBundle(key: string): Promise<string> {
-  const { data, error } = await getClient().storage.from(BUCKET).download(key)
+  const { data, error } = await supabaseClient.storage.from(BUCKET).download(key)
   if (error) throw error
   return await data.text()
 }

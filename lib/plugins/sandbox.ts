@@ -18,8 +18,6 @@ export function loadPluginModule(bundleCode: string): SandboxModule {
     module: moduleObj,
     exports: moduleObj.exports,
     console: { log() {}, error() {}, warn() {} },
-    setTimeout,
-    clearTimeout,
   }
   const context = vm.createContext(sandbox)
   const script = new vm.Script(bundleCode, { filename: 'plugin-bundle.js' })

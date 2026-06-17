@@ -1,13 +1,12 @@
 'use client'
 
 import { Component, type ReactNode } from 'react'
-import { logPluginAction } from '@/lib/plugins/audit'
 
 interface PluginErrorBoundaryProps {
   children: ReactNode
-  /** Optional plugin ID for audit logging */
+  /** Optional plugin ID for error logging */
   pluginId?: string
-  /** Optional user ID for audit logging */
+  /** Optional user ID for error logging */
   userId?: string
 }
 
@@ -33,18 +32,7 @@ export class PluginErrorBoundary extends Component<PluginErrorBoundaryProps, Plu
   }
 
   componentDidCatch(error: Error, info: React.ErrorInfo): void {
-    const { pluginId, userId } = this.props
-    if (pluginId) {
-      try {
-        // Fire-and-forget: class lifecycle cannot be async
-        logPluginAction(pluginId, userId ?? null, 'widget.render.error', {
-          error: error.message,
-          componentStack: info.componentStack,
-        })
-      } catch {
-        // Suppress audit errors to avoid masking the original render failure
-      }
-    }
+    console.error('[PluginErrorBoundary] Render error:', error.message, info.componentStack)
   }
 
   render() {

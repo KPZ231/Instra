@@ -2,6 +2,7 @@ import { prisma } from '@/lib/prisma'
 import type { PluginManifest } from './manifest'
 import { parseManifest } from './manifest'
 import { logPluginAction } from './audit'
+import { PluginReviewStatus } from '@prisma/client'
 
 /**
  * Registers a brand-new plugin together with its first version (DRAFT).
@@ -64,6 +65,11 @@ export async function createPlugin(input: {
  * @returns Updated plugin version record
  */
 export async function submitVersionForReview(versionId: string) {
+  const version = await prisma.pluginVersion.findUnique({ where: { id: versionId } })
+  if (!version) throw new Error(`Plugin version "${versionId}" not found`)
+  if (version.status !== PluginReviewStatus.DRAFT) {
+    throw new Error(`Plugin version "${versionId}" is not in DRAFT status`)
+  }
   const pluginVersion = await prisma.pluginVersion.update({ where: { id: versionId }, data: { status: 'PENDING_REVIEW' } })
   await logPluginAction(pluginVersion.pluginId, null, 'version.submitted', { versionId })
   return pluginVersion

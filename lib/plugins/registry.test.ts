@@ -1,11 +1,12 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 
-const { pluginCreate, pluginFindUnique, versionCreate, versionUpdate, versionFindMany } = vi.hoisted(() => ({
+const { pluginCreate, pluginFindUnique, versionCreate, versionUpdate, versionFindMany, versionFindUnique } = vi.hoisted(() => ({
   pluginCreate: vi.fn(),
   pluginFindUnique: vi.fn(),
   versionCreate: vi.fn(),
   versionUpdate: vi.fn(),
   versionFindMany: vi.fn(),
+  versionFindUnique: vi.fn(),
 }))
 
 const { logPluginAction } = vi.hoisted(() => ({ logPluginAction: vi.fn() }))
@@ -14,7 +15,7 @@ const { parseManifest } = vi.hoisted(() => ({ parseManifest: vi.fn() }))
 vi.mock('@/lib/prisma', () => ({
   prisma: {
     plugin: { create: pluginCreate, findUnique: pluginFindUnique },
-    pluginVersion: { create: versionCreate, update: versionUpdate, findMany: versionFindMany },
+    pluginVersion: { create: versionCreate, update: versionUpdate, findMany: versionFindMany, findUnique: versionFindUnique },
   },
 }))
 
@@ -32,6 +33,7 @@ beforeEach(() => {
   versionCreate.mockReset()
   versionUpdate.mockReset()
   versionFindMany.mockReset()
+  versionFindUnique.mockReset()
   logPluginAction.mockReset()
   parseManifest.mockReset()
 
@@ -90,6 +92,7 @@ describe('plugin registry', () => {
   })
 
   it('moves a version from DRAFT to PENDING_REVIEW', async () => {
+    versionFindUnique.mockResolvedValue({ id: 'v1', status: 'DRAFT', pluginId: 'plugin-1' })
     versionUpdate.mockResolvedValue({ status: 'PENDING_REVIEW', pluginId: 'plugin-1' })
     await submitVersionForReview('v1')
     expect(versionUpdate).toHaveBeenCalledWith({
