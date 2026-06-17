@@ -70,17 +70,15 @@ my-plugin/
 
 ```json
 {
-  "slug": "my-plugin",
-  "version": "1.0.0",
   "name": "My Plugin",
+  "version": "1.0.0",
   "description": "Does something cool",
   "author": "Jane Doe",
+  "main": "dist/index.js",
   "permissions": [
-    "widget:dashboard:top",
-    "api.storage.get",
-    "api.storage.set",
-    "events.on",
-    "i18n.t"
+    "widgets:dashboard:top",
+    "storage:kv",
+    "events:listen"
   ],
   "locales": {
     "en": { "title": "My Plugin" },
@@ -96,24 +94,21 @@ import { PluginContext } from "@/types/plugin";
 import { UIBlock } from "@/lib/plugins/blocks";
 
 export async function init(context: PluginContext) {
-  // Register widget for dashboard:top slot
-  context.registerWidget("dashboard:top", async () => {
+  // Register widget for DASHBOARD_TOP slot
+  context.registerWidget("DASHBOARD_TOP", async () => {
     const stored = await context.api.storage.get("counter");
-    const count = (stored?.value as number) || 0;
+    const count = (stored as number) || 0;
 
     return [
       {
         type: "card",
         title: "My Counter",
-        blocks: [
-          { type: "text", content: `Count: ${count}` },
+        children: [
+          { type: "text", value: `Count: ${count}` },
           {
             type: "button",
             label: "Increment",
-            onClick: async () => {
-              await context.api.storage.set("counter", count + 1);
-              // UI will re-render on next page load
-            }
+            action: "counter:increment"
           }
         ]
       }
@@ -122,7 +117,7 @@ export async function init(context: PluginContext) {
 
   // Listen to global events
   context.on("user:login", (data) => {
-    context.logger.info("User logged in", data);
+    context.logger.info("User logged in");
   });
 }
 ```
@@ -196,7 +191,7 @@ User: `GET /api/plugins` → lista zatwierdzonych pluginów (najnowsza wersja ka
     "description": "...",
     "author": "Jane Doe",
     "latestVersion": "1.0.0",
-    "permissions": ["widget:dashboard:top", "api.storage.get", "api.storage.set"]
+    "permissions": ["widgets:dashboard:top", "storage:kv"]
   }
 ]
 ```
@@ -206,22 +201,23 @@ User: `POST /api/plugins/install`
 ```json
 {
   "action": "install",
-  "pluginSlug": "my-plugin"
+  "pluginId": "my-plugin",
+  "pluginVersionId": "pv_xyz"
 }
 ```
 
 Backend:
-1. Pobiera najnowszą `APPROVED` wersję pluginu
+1. Weryfikuje, że `PluginVersion` ma status `APPROVED` i należy do `pluginId`
 2. Tworzy `PluginInstallation` (pluginId, userId, pluginVersionId, enabled: true)
 3. Loguje `PLUGIN_INSTALLED` do `PluginAuditLog`
-4. Zwraca `{ installed: true, version: "1.0.0" }`
+4. Zwraca `{ ok: true }`
 
 ### 5. Rendering (runtime)
 
 Na każdej stronie, która wyświetla widgety (np. dashboard), kod frontendowy woła:
 
 ```typescript
-const widgets = await renderWidgetsForUser(userId, "dashboard:top");
+const widgets = await renderWidgetsForUser(userId, "DASHBOARD_TOP");
 ```
 
 **Przepływ:**
@@ -255,38 +251,27 @@ Każdy plugin deklaruje swoje uprawnienia w `manifest.json`.`permissions` array.
 **Lista dostępnych capabilities** (`lib/plugins/config.ts`):
 
 ```typescript
-export enum PluginCapability {
-  // UI Registration
-  WIDGET_DASHBOARD_TOP = "widget:dashboard:top",
-  WIDGET_DASHBOARD_SIDEBAR = "widget:dashboard:sidebar",
-  WIDGET_DASHBOARD_BOTTOM = "widget:dashboard:bottom",
-  WIDGET_SETTINGS_GENERAL = "widget:settings:general",
-  WIDGET_SETTINGS_ADVANCED = "widget:settings:advanced",
-  WIDGET_HEADER_ACTIONS = "widget:header:actions",
-  WIDGET_PROFILE_MENU = "widget:profile:menu",
+export const PLUGIN_CAPABILITIES = [
+  // Widget slots
+  "widgets:dashboard:top",
+  "widgets:dashboard:sidebar",
+  "widgets:dashboard:bottom",
+  "widgets:settings:general",
+  "widgets:settings:advanced",
+  "widgets:header:actions",
+  "widgets:profile:menu",
 
-  // Storage & Data
-  API_STORAGE_GET = "api.storage.get",      // PluginData read
-  API_STORAGE_SET = "api.storage.set",      // PluginData write
-  API_STORAGE_DELETE = "api.storage.delete", // PluginData delete
+  // Routing & Menu
+  "routes:register",
+  "menu:register",
 
-  // Events & Hooks
-  EVENTS_ON = "events.on",
-  EVENTS_OFF = "events.off",
-  EVENTS_EMIT = "events.emit",
+  // Events
+  "events:emit",
+  "events:listen",
 
-  // Internationalization
-  I18N_T = "i18n.t",
-
-  // Routing (future)
-  ROUTE_REGISTER = "route:register",
-
-  // Menu (future)
-  MENU_ITEM_REGISTER = "menu:item:register",
-
-  // Logger
-  LOGGER = "logger",
-}
+  // Storage
+  "storage:kv",
+] as const;
 ```
 
 **Każda metoda `PluginContext` sprawdza capability:**
@@ -300,7 +285,7 @@ export function createPluginContext(
 ): PluginContext {
   return {
     registerWidget(slot, handler) {
-      // slot="dashboard:top" → check WIDGET_DASHBOARD_TOP in permissions
+      // slot="DASHBOARD_TOP" → check "widgets:dashboard:top" in permissions
       const requiredCap = WIDGET_SLOT_CAPABILITY[slot];
       if (!permissions.includes(requiredCap)) {
         throw new Error(`Plugin ${plugin.slug} lacks permission: ${requiredCap}`);
@@ -310,15 +295,15 @@ export function createPluginContext(
     api: {
       storage: {
         get(key) {
-          if (!permissions.includes(PluginCapability.API_STORAGE_GET)) {
-            throw new Error("No api.storage.get permission");
+          if (!permissions.includes("storage:kv")) {
+            throw new Error("No storage:kv permission");
           }
           return getPluginData(plugin.id, userId, key);
         },
-        // ... similar for set, delete
+        // ... similar for set
       }
     },
-    // ... similar for on/off/emit, logger, i18n.t
+    // ... similar for on/off/emit
   };
 }
 ```
@@ -332,7 +317,7 @@ Jeśli plugin spróbuje użyć uprawnienia, które nie ma, rzuci wyjątek → bl
 ```typescript
 export function loadPluginModule(
   bundleCode: string,
-  sandbox?: Record<string, any>
+  sandbox?: Record<string, unknown>
 ) {
   // CommonJS emulation
   const context = {
@@ -375,11 +360,11 @@ export async function callPluginExport(
 
 - `console` (debug, log, warn, error)
 - `JSON`, `Math`, `Date`, `Object`, `Array`, `String`, `Number`, `Boolean`
-- `setTimeout`, `clearTimeout` (capped at ~5s)
+- `setTimeout`, `clearTimeout` (capped)
 - `module` + `module.exports` (CommonJS interface)
 - **Brak:** `require`, `fs`, `net`, `http`, `process`, `child_process`, `eval`, `fetch`
 
-**Timeout:** `SANDBOX_TIMEOUT_MS` (default 5000ms) ustawiony w `lib/plugins/config.ts`. Jeśli plugin zawiesza się, renderowanie dla tego pluginu przerywa się z błędem.
+**Timeout:** `SANDBOX_TIMEOUT_MS` (500ms) ustawiony w `lib/plugins/config.ts`. Jeśli plugin zawiesza się, renderowanie dla tego pluginu przerywa się z błędem.
 
 ## Storage (KV per-plugin-per-user)
 
@@ -407,7 +392,7 @@ export async function getPluginData(
   pluginId: string,
   userId: string,
   key: string
-): Promise<{ value: Json } | null> {
+): Promise<unknown> {
   return prisma.pluginData.findUnique({
     where: { pluginId_userId_key: { pluginId, userId, key } },
     select: { value: true }
@@ -418,22 +403,12 @@ export async function setPluginData(
   pluginId: string,
   userId: string,
   key: string,
-  value: Json
+  value: unknown
 ): Promise<void> {
   await prisma.pluginData.upsert({
     where: { pluginId_userId_key: { pluginId, userId, key } },
     update: { value },
     create: { pluginId, userId, key, value }
-  });
-}
-
-export async function deletePluginData(
-  pluginId: string,
-  userId: string,
-  key: string
-): Promise<void> {
-  await prisma.pluginData.delete({
-    where: { pluginId_userId_key: { pluginId, userId, key } }
   });
 }
 ```
@@ -444,11 +419,10 @@ export async function deletePluginData(
 export async function init(context: PluginContext) {
   const stored = await context.api.storage.get("myKey");
   if (stored) {
-    console.log("Stored value:", stored.value);
+    context.logger.info("Value found in storage");
   }
 
   await context.api.storage.set("myKey", { count: 42, name: "test" });
-  await context.api.storage.delete("myKey");
 }
 ```
 
@@ -460,7 +434,7 @@ Plugin może słuchać i emitować globalne eventy przez `PluginContext`:
 
 ```typescript
 context.on("user:login", (data) => {
-  console.log("User logged in:", data);
+  context.logger.info("User logged in");
 });
 
 context.emit("custom:event", { detail: "..." });
@@ -479,42 +453,23 @@ Event bus przechowywany w-memorii (będzie utrwalony po dodaniu pub/sub layer, n
 
 ## Renderowanie (UIBlock)
 
-Pluginy **nie** dostarcdzają JSX/React. Zamiast tego zwracają `UIBlock[]` — deklaratywne drzewo strukturalne.
+Pluginy **nie** dostarczają JSX/React. Zamiast tego zwracają `UIBlock[]` — deklaratywne drzewo strukturalne.
 
 **UIBlock schema** (`lib/plugins/blocks.ts`):
 
 ```typescript
 export type UIBlock =
-  | {
-      type: "text";
-      content: string;
-      className?: string;
-    }
-  | {
-      type: "card";
-      title?: string;
-      blocks: UIBlock[];
-      className?: string;
-    }
-  | {
-      type: "list";
-      items: { label: string; value: string }[];
-      className?: string;
-    }
-  | {
-      type: "table";
-      columns: { key: string; label: string }[];
-      rows: Record<string, any>[];
-      className?: string;
-    }
-  | {
-      type: "button";
-      label: string;
-      onClick?: () => Promise<void>;
-      variant?: "primary" | "secondary" | "danger";
-      className?: string;
-    };
+  | { type: "text"; value: string }
+  | { type: "card"; title: string; children: UIBlock[] }
+  | { type: "list"; items: string[] }
+  | { type: "table"; columns: string[]; rows: string[][] }
+  | { type: "button"; label: string; action: string };
 ```
+
+Ograniczenia walidatora:
+- `card.children` max 50 elementów
+- `list.items` max 200 elementów
+- `table.columns` max 20, `table.rows` max 500
 
 **BlockRenderer** (`components/ui/plugins/BlockRenderer.tsx`):
 
@@ -522,13 +477,13 @@ export type UIBlock =
 function BlockRenderer({ block }: { block: UIBlock }) {
   switch (block.type) {
     case "text":
-      return <p className={block.className}>{block.content}</p>;
+      return <p>{block.value}</p>;
     case "card":
       return (
-        <div className={block.className}>
-          {block.title && <h3>{block.title}</h3>}
+        <div>
+          <h3>{block.title}</h3>
           <div>
-            {block.blocks.map((b, i) => (
+            {block.children.map((b, i) => (
               <BlockRenderer key={i} block={b} />
             ))}
           </div>
@@ -546,14 +501,11 @@ const blocks: UIBlock[] = [
   {
     type: "card",
     title: "Stats",
-    blocks: [
-      { type: "text", content: "Total users: 1234" },
+    children: [
+      { type: "text", value: "Total users: 1234" },
       {
         type: "list",
-        items: [
-          { label: "Active", value: "890" },
-          { label: "Inactive", value: "344" }
-        ]
+        items: ["Active: 890", "Inactive: 344"]
       }
     ]
   }
@@ -579,7 +531,7 @@ Plugin może deklarować swoje stringi w manifest.json:
 
 ```json
 {
-  "slug": "my-plugin",
+  "name": "my-plugin",
   "locales": {
     "en": {
       "title": "My Plugin",
@@ -608,23 +560,7 @@ i18next.addResourceBundle("pl", "plugin:my-plugin", {
 });
 ```
 
-W pluginie:
-
-```typescript
-export async function init(context: PluginContext) {
-  // Requires "i18n.t" permission
-  const title = context.i18n.t("plugin:my-plugin:title");
-  const desc = context.i18n.t("plugin:my-plugin:description");
-
-  return [
-    {
-      type: "card",
-      title,
-      blocks: [{ type: "text", content: desc }]
-    }
-  ];
-}
-```
+Lokalizacje są dostępne przez mechanizm i18next aplikacji. Plugin nie ma bezpośredniego dostępu do funkcji `t()` przez `PluginContext`.
 
 ## Audit Log
 
@@ -664,7 +600,7 @@ export async function logPluginAction(
   pluginId: string,
   userId: string | null,
   action: string,
-  details?: Record<string, any>,
+  details?: Record<string, unknown>,
   error?: string
 ): Promise<void> {
   await prisma.pluginAuditLog.create({
@@ -706,9 +642,8 @@ List zatwierdzonych pluginów (publiczny):
     "author": "Jane Doe",
     "latestVersion": "1.0.0",
     "permissions": [
-      "widget:dashboard:top",
-      "api.storage.get",
-      "api.storage.set"
+      "widgets:dashboard:top",
+      "storage:kv"
     ]
   }
 ]
@@ -716,25 +651,58 @@ List zatwierdzonych pluginów (publiczny):
 
 ### POST /api/plugins/install
 
-Install/uninstall/toggle/checkUpdate pluginu (authenticated):
+Install/uninstall/toggle/checkUpdate pluginu (authenticated).
 
-**Body:**
+Używa `discriminatedUnion` na polu `action`. Każdy wariant wymaga innych pól:
+
+**install:**
 
 ```json
 {
-  "action": "install" | "uninstall" | "toggle" | "checkUpdate",
-  "pluginSlug": "my-plugin"
+  "action": "install",
+  "pluginId": "clxyz...",
+  "pluginVersionId": "clpv..."
 }
 ```
 
-**Responses:**
+Odpowiedź: `{ "ok": true }`
 
-- `action: "install"` → `{ installed: true, version: "1.0.0" }`
-- `action: "uninstall"` → `{ installed: false }`
-- `action: "toggle"` → `{ enabled: true/false }`
-- `action: "checkUpdate"` → `{ updateAvailable: boolean, newVersion?: "1.1.0" }`
+**uninstall:**
 
-Update nigdy nie jest instalowany automatycznie — user musi jawnie pobrać nową wersję. Instal jest przymocowany do konkretnego `PluginVersionId`.
+```json
+{
+  "action": "uninstall",
+  "pluginId": "clxyz..."
+}
+```
+
+Odpowiedź: `{ "ok": true }`
+
+**toggle:**
+
+```json
+{
+  "action": "toggle",
+  "pluginId": "clxyz...",
+  "enabled": true
+}
+```
+
+Odpowiedź: `{ "ok": true }`
+
+**checkUpdate:**
+
+```json
+{
+  "action": "checkUpdate",
+  "pluginId": "clxyz...",
+  "currentVersion": "1.0.0"
+}
+```
+
+Odpowiedź: `{ "update": { ... } | null }`
+
+Update nigdy nie jest instalowany automatycznie — user musi jawnie wywołać `install` z nowym `pluginVersionId`.
 
 ### GET /api/admin/plugins
 
@@ -754,7 +722,6 @@ List wersji do recenzji (admin only):
     "submittedAt": "2026-01-15T10:00:00Z",
     "submittedBy": "jane@example.com",
     "manifest": {
-      "slug": "my-plugin",
       "name": "My Plugin",
       "permissions": [...]
     }
@@ -789,7 +756,7 @@ Approve/reject wersję (admin only):
 ### 1. Sandboksowanie
 
 - Brak dostępu do `fs`, `net`, `http`, `child_process`, `eval`, itp.
-- Timeout na wykonanie (default 5s)
+- Timeout na wykonanie: 500ms (`SANDBOX_TIMEOUT_MS`)
 - CommonJS emulation: `require` rzuca wyjątek
 
 ### 2. Capability-based access control
@@ -808,7 +775,7 @@ Approve/reject wersję (admin only):
 
 - `lib/plugins/manifest.ts::parseManifest()` waliduje schema
 - Nie dopuszcza nieznanego pola `permissions`
-- Sprawdza format `slug` (alphanumeric + `-`)
+- Sprawdza format semver dla `version`
 
 ### 5. Audit trail
 
@@ -837,16 +804,14 @@ npm install typescript @types/node
 
 ```json
 {
-  "slug": "my-plugin",
-  "version": "1.0.0",
   "name": "My Plugin",
+  "version": "1.0.0",
   "description": "My first plugin",
   "author": "You",
+  "main": "dist/index.js",
   "permissions": [
-    "widget:dashboard:top",
-    "api.storage.get",
-    "api.storage.set",
-    "logger"
+    "widgets:dashboard:top",
+    "storage:kv"
   ]
 }
 ```
@@ -858,13 +823,13 @@ import { PluginContext } from "@/types/plugin";
 import { UIBlock } from "@/lib/plugins/blocks";
 
 export async function init(context: PluginContext) {
-  context.registerWidget("dashboard:top", async () => {
+  context.registerWidget("DASHBOARD_TOP", async () => {
     return [
       {
         type: "card",
         title: "Hello",
-        blocks: [
-          { type: "text", content: "Plugin is working!" }
+        children: [
+          { type: "text", value: "Plugin is working!" }
         ]
       }
     ] as UIBlock[];
@@ -897,18 +862,17 @@ Admin: `GET /api/admin/plugins` → `POST /api/admin/plugins/[id]/review` z `act
 
 7. **User install:**
 
-User: `GET /api/plugins` → `POST /api/plugins/install` z `pluginSlug: "my-plugin"`
+User: `GET /api/plugins` → `POST /api/plugins/install` z `action: "install"`, `pluginId` i `pluginVersionId`
 
 8. **Rendering:**
 
-Na stronie dashboard: `renderWidgetsForUser(userId, "dashboard:top")` → pokazuje widget z pluginu.
+Na stronie dashboard: `renderWidgetsForUser(userId, "DASHBOARD_TOP")` → pokazuje widget z pluginu.
 
 ### Best Practices
 
 - **Mały scope:** Jeden plugin = jedno zadanie
 - **Uprawnienia:** Deklaruj tylko to, co potrzebujesz
 - **Errory:** Zawsze wrap w try/catch; zwróć error UIBlock
-- **i18n:** Zawsze tłumacz UI stringi
 - **Docs:** Dołącz README.md z instrukcjami użytkownika
 - **License:** Wybierz open-source license (MIT, Apache 2.0, itp.)
 - **Versioning:** Używaj semver (MAJOR.MINOR.PATCH)
@@ -931,11 +895,11 @@ Na stronie dashboard: `renderWidgetsForUser(userId, "dashboard:top")` → pokazu
 ### Plugin wyrzuca "No permission" error
 
 - Sprawdź: czy deklarowałeś capability w `manifest.json`?
-- Przykład: `"permissions": ["widget:dashboard:top", "api.storage.get"]`
+- Przykład: `"permissions": ["widgets:dashboard:top", "storage:kv"]`
 
 ### Plugin zawiesza się (timeout)
 
-- Sandbox timeout: 5000ms (konfigurowalny w `lib/plugins/config.ts`)
+- Sandbox timeout: 500ms (`SANDBOX_TIMEOUT_MS` w `lib/plugins/config.ts`)
 - Przyczyny: nieskończona pętla, synchroniczny polling, itp.
 - Rozwiązanie: optimize plugin code
 
@@ -951,44 +915,33 @@ interface PluginContext {
   // UI Registration
   registerWidget(
     slot: WidgetSlot,
-    handler: () => Promise<UIBlock[]>
+    handler: () => UIBlock[] | Promise<UIBlock[]>
   ): void;
 
   registerRoute(
     path: string,
-    handler: () => Promise<UIBlock[]>
+    handler: () => UIBlock[] | Promise<UIBlock[]>
   ): void;
 
-  registerMenuItem(
-    label: string,
-    onClick: () => Promise<void>
-  ): void;
+  registerMenuItem(item: { label: string; path: string }): void;
 
   // Storage (per-plugin-per-user KV)
   api: {
     storage: {
-      get(key: string): Promise<{ value: Json } | null>;
-      set(key: string, value: Json): Promise<void>;
-      delete(key: string): Promise<void>;
+      get(key: string): Promise<unknown>;
+      set(key: string, value: unknown): Promise<void>;
     };
   };
 
   // Events & Hooks
-  on(event: string, handler: (data: any) => void): void;
-  off(event: string, handler: (data: any) => void): void;
-  emit(event: string, data: any): void;
-
-  // Internationalization
-  i18n: {
-    t(key: string, defaultValue?: string): string;
-  };
+  on(event: string, listener: (payload: unknown) => void): void;
+  off(event: string, listener: (payload: unknown) => void): void;
+  emit(event: string, payload: unknown): void;
 
   // Logging
   logger: {
-    debug(msg: string, data?: any): void;
-    info(msg: string, data?: any): void;
-    warn(msg: string, data?: any): void;
-    error(msg: string, data?: any): void;
+    info(message: string): void;
+    error(message: string): void;
   };
 }
 ```
