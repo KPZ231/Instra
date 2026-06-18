@@ -66,9 +66,12 @@ export async function createPost(
   }
 
   try {
-    await prisma.post.create({
+    const platforms = formData.getAll('platforms').filter((p): p is string => typeof p === 'string')
+
+  await prisma.post.create({
       data: {
         content: parsed.data.content ?? null,
+        platforms,
         authorId: user.id,
         media: {
           create: uploadedMedia.map(({ url, storagePath, mimeType, order }) => ({

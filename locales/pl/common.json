@@ -830,7 +830,8 @@
             "max_media_error": "Możesz dodać maksymalnie {{max}} zdjęcia na post.",
             "char_counter_label": "Liczba znaków: {{current}} / {{max}}",
             "existing_media_alt": "Istniejące media #{{n}}",
-            "remove_media_label": "Usuń media #{{n}}"
+            "remove_media_label": "Usuń media #{{n}}",
+            "platforms_label": "Publikuj na"
         },
         "feed": {
             "empty": "Brak postów. Bądź pierwszy!",

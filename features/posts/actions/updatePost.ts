@@ -80,10 +80,13 @@ export async function updatePost(
         data: { postId: post.id, url: m.url, storagePath: m.storagePath, mimeType: m.mimeType, order: m.order },
       }),
     ),
-    // Update post content
+    // Update post content + platforms
     prisma.post.update({
       where: { id: post.id },
-      data: { content: parsed.data.content ?? null },
+      data: {
+        content: parsed.data.content ?? null,
+        platforms: formData.getAll('platforms').filter((p): p is string => typeof p === 'string'),
+      },
     }),
   ])
 

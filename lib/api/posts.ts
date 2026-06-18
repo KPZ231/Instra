@@ -12,6 +12,7 @@ const TAKE = 12
 export type FeedPost = {
   id: string
   content: string | null
+  platforms: string[]
   createdAt: Date
   author: {
     id: string
@@ -107,6 +108,7 @@ export async function getFeed(
         posts: posts.map((p) => ({
           id: p.id,
           content: p.content,
+          platforms: p.platforms,
           createdAt: p.createdAt,
           author: p.author,
           media: p.media,
@@ -172,6 +174,7 @@ export async function getPostsByUsername(
         posts: posts.map((p) => ({
           id: p.id,
           content: p.content,
+          platforms: p.platforms,
           createdAt: p.createdAt,
           author: p.author,
           media: p.media,

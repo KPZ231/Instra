@@ -198,6 +198,7 @@ model PluginAuditLog {
 model Post {
   id        String   @id @default(cuid())
   content   String?  @db.Text
+  platforms String[]
   authorId  String
   author    User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
   media     Media[]

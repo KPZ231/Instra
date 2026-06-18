@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import { useTranslation } from 'react-i18next'
 import { Textarea } from '@/components/ui/Textarea'
 import { MediaUploadPreview } from './MediaUploadPreview'
+import { PlatformSelector, type PlatformId } from './PlatformSelector'
 import { createPost, updatePost } from '@/features/posts'
 import { MAX_POST_LENGTH, MAX_POST_MEDIA } from '@/features/posts/validation'
 import type { FeedPost } from '@/lib/api/posts'
@@ -46,6 +47,9 @@ export function PostComposer({ mode, existingPost }: PostComposerProps) {
   const [expanded, setExpanded] = useState(mode === 'full')
   const [content, setContent] = useState(existingPost?.content ?? '')
   const [newFiles, setNewFiles] = useState<File[]>([])
+  const [platforms, setPlatforms] = useState<PlatformId[]>(
+    (existingPost?.platforms ?? []) as PlatformId[],
+  )
   const [keepMediaIds, setKeepMediaIds] = useState<string[]>(
     existingPost?.media.map((m) => m.id) ?? [],
   )
@@ -77,6 +81,7 @@ export function PostComposer({ mode, existingPost }: PostComposerProps) {
     if (state.success) {
       setContent('')
       setNewFiles([])
+      setPlatforms([])
       setKeepMediaIds(existingPost?.media.map((m) => m.id) ?? [])
       if (mode === 'inline') {
         setExpanded(false)
@@ -138,6 +143,11 @@ export function PostComposer({ mode, existingPost }: PostComposerProps) {
 
       {/* mediaCount drives Zod validation (must equal files submitted + kept) */}
       <input type="hidden" name="mediaCount" value={totalMedia} />
+
+      {/* Selected platforms submitted as repeated hidden inputs */}
+      {platforms.map((p) => (
+        <input key={p} type="hidden" name="platforms" value={p} />
+      ))}
 
       {/* Hidden file input that actually submits files to the Server Action */}
       <input
@@ -260,6 +270,17 @@ export function PostComposer({ mode, existingPost }: PostComposerProps) {
               {t('posts.composer.success')}
             </p>
           )}
+
+          {/* Platform selector */}
+          <div className="space-y-1">
+            <p
+              className="font-mono text-[10px] uppercase tracking-[0.08em]"
+              style={{ color: 'var(--color-outline)' }}
+            >
+              {t('posts.composer.platforms_label')}
+            </p>
+            <PlatformSelector selected={platforms} onChange={setPlatforms} />
+          </div>
 
           {/* Footer: add photo + action buttons */}
           <div className="flex items-center justify-between gap-3">
