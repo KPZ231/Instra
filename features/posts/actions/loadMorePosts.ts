@@ -1,8 +1,6 @@
 'use server'
 
-// @ts-expect-error – lib/api/posts created in Task 5
 import { getFeed } from '@/lib/api/posts'
-// @ts-expect-error – lib/api/posts created in Task 5
 import type { FeedPost } from '@/lib/api/posts'
 
 /**

@@ -5,7 +5,7 @@ import { prisma } from '@/lib/prisma'
 import { verifySession } from '@/lib/auth/dal'
 import { rateLimit, RateLimitError } from '@/lib/rate-limit'
 import { invalidatePrefix } from '@/lib/cache'
-import { uploadPostMedia } from '@/lib/storage/supabase'
+import { uploadPostMedia, deletePostMedia } from '@/lib/storage/supabase'
 import { CreatePostSchema, MAX_POST_MEDIA } from '../validation'
 import type { PostActionState } from '../types'
 
@@ -49,12 +49,14 @@ export async function createPost(
     return { errors: { media: [`Maximum ${MAX_POST_MEDIA} images allowed`] } }
   }
 
-  // Upload media files
+  // Upload media files — track storagePaths for rollback on DB failure
   let uploadedMedia: { url: string; storagePath: string; mimeType: string; order: number }[] = []
+  const uploadedPaths: string[] = []
   try {
     uploadedMedia = await Promise.all(
       mediaFiles.map(async (file, index) => {
         const result = await uploadPostMedia(file, user.id)
+        uploadedPaths.push(result.storagePath)
         return { ...result, order: index }
       }),
     )
@@ -63,20 +65,28 @@ export async function createPost(
     return { errors: { media: [message] } }
   }
 
-  await prisma.post.create({
-    data: {
-      content: parsed.data.content ?? null,
-      authorId: user.id,
-      media: {
-        create: uploadedMedia.map(({ url, storagePath, mimeType, order }) => ({
-          url,
-          storagePath,
-          mimeType,
-          order,
-        })),
+  try {
+    await prisma.post.create({
+      data: {
+        content: parsed.data.content ?? null,
+        authorId: user.id,
+        media: {
+          create: uploadedMedia.map(({ url, storagePath, mimeType, order }) => ({
+            url,
+            storagePath,
+            mimeType,
+            order,
+          })),
+        },
       },
-    },
-  })
+    })
+  } catch {
+    // Best-effort: delete already-uploaded files to avoid storage orphans
+    if (uploadedPaths.length > 0) {
+      await deletePostMedia(uploadedPaths).catch(() => {})
+    }
+    return { errors: { _form: ['Failed to create post. Please try again.'] } }
+  }
 
   await invalidatePrefix('db', 'feed')
   await invalidatePrefix('db', 'profile', user.id)

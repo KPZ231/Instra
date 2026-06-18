@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
-import { prisma } from '@/lib/prisma'
+import { getUserByUsername } from '@/lib/api/users'
 import { getPostsByUsername } from '@/lib/api/posts'
 import { auth } from '@/lib/auth/config'
 import { PostFeed } from '@/components/ui/posts/PostFeed'
@@ -20,7 +20,7 @@ interface ProfilePageProps {
  */
 export async function generateMetadata({ params }: ProfilePageProps): Promise<Metadata> {
   const { username } = await params
-  const user = await prisma.user.findUnique({ where: { username }, select: { name: true } })
+  const user = await getUserByUsername(username)
   if (!user) return {}
 
   const displayName = user.name ?? username
@@ -44,17 +44,13 @@ export async function generateMetadata({ params }: ProfilePageProps): Promise<Me
 export default async function ProfilePage({ params }: ProfilePageProps) {
   const { username } = await params
 
-  const user = await prisma.user.findUnique({
-    where: { username },
-    select: { id: true, name: true, username: true, image: true },
-  })
-
-  if (!user) notFound()
-
-  const [{ posts, nextCursor }, session] = await Promise.all([
+  const [user, { posts, nextCursor }, session] = await Promise.all([
+    getUserByUsername(username),
     getPostsByUsername(username),
     auth(),
   ])
+
+  if (!user) notFound()
 
   const currentUserId = session?.user?.id ?? null
   const currentUserRole = (session?.user as { role?: UserRole } | undefined)?.role ?? null

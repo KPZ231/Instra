@@ -31,7 +31,11 @@ export default async function DashboardPage() {
         initialPosts={posts}
         initialNextCursor={nextCursor}
         currentUserId={user?.id ?? null}
-        currentUserRole={(user?.role as UserRole) ?? null}
+        currentUserRole={
+          Object.values(UserRole).includes(user?.role as UserRole)
+            ? (user!.role as UserRole)
+            : null
+        }
       />
 
       <DashboardWidgetSlot />

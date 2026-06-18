@@ -25,14 +25,19 @@ export async function toggleLike(postId: string): Promise<void> {
     throw error
   }
 
-  const existing = await prisma.like.findUnique({
-    where: { postId_userId: { postId, userId: user.id } },
-  })
+  try {
+    const existing = await prisma.like.findUnique({
+      where: { postId_userId: { postId, userId: user.id } },
+    })
 
-  if (existing) {
-    await prisma.like.delete({ where: { id: existing.id } })
-  } else {
-    await prisma.like.create({ data: { postId, userId: user.id } })
+    if (existing) {
+      await prisma.like.delete({ where: { id: existing.id } })
+    } else {
+      await prisma.like.create({ data: { postId, userId: user.id } })
+    }
+  } catch {
+    // Graceful failure — e.g. foreign key violation on non-existent postId
+    return
   }
 
   await invalidatePrefix('db', 'feed')
