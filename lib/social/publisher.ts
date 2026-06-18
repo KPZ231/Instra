@@ -30,7 +30,7 @@ export async function publishPost(postId: string, userId: string): Promise<Publi
     media: post.media.map((m) => ({ url: m.url, mimeType: m.mimeType, order: m.order })),
   }
 
-  const results = await Promise.all(
+  const results = await Promise.allSettled(
     platforms.map(async (platform): Promise<PublishResult> => {
       // Mark as PUBLISHING
       await prisma.socialPostStatus.upsert({
@@ -43,7 +43,7 @@ export async function publishPost(postId: string, userId: string): Promise<Publi
         const account = await prisma.socialAccount.findUnique({
           where: { userId_platform: { userId, platform } },
         })
-        if (!account) throw new Error('Account not connected')
+        if (!account) throw new Error('Brak połączonego konta')
         if (account.expiresAt && account.expiresAt < new Date()) {
           throw new Error('Token expired — reconnect your account')
         }
@@ -79,5 +79,5 @@ export async function publishPost(postId: string, userId: string): Promise<Publi
     }),
   )
 
-  return results
+  return results.filter(r => r.status === 'fulfilled').map(r => r.value)
 }

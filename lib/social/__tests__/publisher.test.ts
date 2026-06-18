@@ -72,7 +72,7 @@ describe('publishPost', () => {
     mockStatusUpsert.mockResolvedValue({})
 
     const results = await publishPost('post-2', 'user-1')
-    expect(results[0]).toMatchObject({ platform: 'INSTAGRAM', success: false, error: 'Account not connected' })
+    expect(results[0]).toMatchObject({ platform: 'INSTAGRAM', success: false, error: 'Brak połączonego konta' })
   })
 
   it('throws when post not found', async () => {
