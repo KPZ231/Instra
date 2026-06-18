@@ -1,7 +1,8 @@
 {
     "lang": {
         "en": "English",
-        "pl": "Polski"
+        "pl": "Polski",
+        "switcher_label": "Change language"
     },
     "nav": {
         "home": "Home",

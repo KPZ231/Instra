@@ -20,7 +20,9 @@ export default function LanguageSwitcher() {
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
-  const currentLocale = i18n.language as Locale;
+  const currentLocale = (supportedLocales.includes(i18n.language as Locale)
+    ? i18n.language
+    : supportedLocales[0]) as Locale;
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -41,7 +43,7 @@ export default function LanguageSwitcher() {
     <div ref={ref} className="relative">
       <button
         onClick={() => setIsOpen((p) => !p)}
-        aria-label={t("lang.switcher_label", "Change language")}
+        aria-label={t("lang.switcher_label")}
         aria-expanded={isOpen}
         className="flex items-center gap-1.5 transition-opacity duration-150 hover:opacity-80 cursor-pointer"
         style={{ color: "var(--color-on-surface-variant)" }}
