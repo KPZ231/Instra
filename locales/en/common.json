@@ -827,7 +827,10 @@
             "publishing": "Publishing...",
             "cancel": "Cancel",
             "success": "Post published!",
-            "max_media_error": "You can add at most {{max}} images per post."
+            "max_media_error": "You can add at most {{max}} images per post.",
+            "char_counter_label": "Character count: {{count}} / {{max}}",
+            "existing_media_alt": "Existing media",
+            "remove_media_label": "Remove media"
         },
         "feed": {
             "empty": "No posts yet. Be the first!",
