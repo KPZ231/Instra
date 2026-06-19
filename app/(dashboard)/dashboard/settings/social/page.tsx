@@ -1,3 +1,4 @@
+import { getTranslations } from 'next-intl/server'
 import { getConnectedAccounts } from '@/lib/api/socialAccounts'
 import { verifySession } from '@/lib/auth/dal'
 import { SocialConnectCard } from '@/components/ui/SocialConnectCard'
@@ -26,6 +27,7 @@ export default async function SocialSettingsPage({
 }: {
   searchParams: { success?: string; error?: string }
 }) {
+  const t = await getTranslations('social')
   const { user } = await verifySession()
   const accounts = await getConnectedAccounts(user.id)
 
@@ -39,8 +41,7 @@ export default async function SocialSettingsPage({
         className="font-mono text-lg font-bold uppercase tracking-[0.1em]"
         style={{ color: 'var(--color-on-surface)' }}
       >
-        {/* TODO: Task 13 — replace with t('social.settings.title') after i18n keys are added */}
-        Social Media
+        {t('settings.title')}
       </h1>
 
       {searchParams.success && (
