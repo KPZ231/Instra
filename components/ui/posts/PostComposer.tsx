@@ -5,7 +5,14 @@ import { useRouter } from 'next/navigation'
 import { useTranslation } from 'react-i18next'
 import { Textarea } from '@/components/ui/Textarea'
 import { MediaUploadPreview } from './MediaUploadPreview'
-import { PlatformSelector, type PlatformId } from './PlatformSelector'
+import { PlatformSelector, type PlatformId, PLATFORMS } from './PlatformSelector'
+import {
+  PlatformFields,
+  PlatformHint,
+  PlatformIcon,
+  PLATFORM_CHAR_LIMITS,
+  type AllPlatformData,
+} from './PlatformFields'
 import { createPost, updatePost } from '@/features/posts'
 import { MAX_POST_LENGTH, MAX_POST_MEDIA } from '@/features/posts/validation'
 import type { FeedPost } from '@/lib/api/posts'
@@ -22,22 +29,17 @@ interface PostComposerProps {
 const INITIAL_STATE: PostActionState = {}
 
 /**
- * Create/edit form for posts. In "inline" mode the composer starts collapsed and
- * expands when the user focuses it. In "full" mode it is always fully visible,
- * used on `/dashboard/posts/new` and edit pages.
- *
- * File uploads are handled by collecting files in React state, syncing them into
- * a hidden `<input type="file" name="media" multiple>` via the DataTransfer API
- * so that the Server Action receives real File objects through FormData.
+ * Create/edit form for posts. Adapts dynamically based on the selected platform(s):
+ * - Zero/no platform: generic composer
+ * - One platform: immersive single-platform view with that platform's char limit and
+ *   specific extra fields (hashtags, alt-text, thread mode, video title, etc.)
+ * - Multiple platforms: unified content area with limit warning + tabbed per-platform extras
  *
  * @param mode         - "inline" (collapsible, on feed) or "full" (dedicated page)
  * @param existingPost - When provided, switches to edit mode (prefills content/media)
  *
  * @example
- * // Create mode on feed
  * <PostComposer mode="inline" />
- *
- * // Edit mode on dedicated page
  * <PostComposer mode="full" existingPost={post} />
  */
 export function PostComposer({ mode, existingPost }: PostComposerProps) {
@@ -53,72 +55,53 @@ export function PostComposer({ mode, existingPost }: PostComposerProps) {
   const [keepMediaIds, setKeepMediaIds] = useState<string[]>(
     existingPost?.media.map((m) => m.id) ?? [],
   )
+  const [platformData, setPlatformData] = useState<AllPlatformData>({})
 
-  /** Ref to the hidden file input whose FileList is synced via DataTransfer */
   const hiddenFileInputRef = useRef<HTMLInputElement>(null)
-  /** Ref to the visible trigger input (styled, not submitted) */
   const triggerInputRef = useRef<HTMLInputElement>(null)
   const formRef = useRef<HTMLFormElement>(null)
 
   const action = existingPost ? updatePost : createPost
   const [state, formAction, isPending] = useActionState(action, INITIAL_STATE)
 
-  // Sync newFiles into the hidden <input type="file"> via DataTransfer so
-  // the Server Action receives them as real File entries in FormData.
+  // Sync newFiles into hidden file input via DataTransfer
   useEffect(() => {
     const input = hiddenFileInputRef.current
-    if (!input) return
-
-    if (typeof DataTransfer === 'undefined') return
-
+    if (!input || typeof DataTransfer === 'undefined') return
     const dt = new DataTransfer()
     newFiles.forEach((file) => dt.items.add(file))
     input.files = dt.files
   }, [newFiles])
 
-  // Reset form and refresh server data after a successful submission.
+  // Reset after successful submission
   useEffect(() => {
     if (state.success) {
       setContent('')
       setNewFiles([])
       setPlatforms([])
+      setPlatformData({})
       setKeepMediaIds(existingPost?.media.map((m) => m.id) ?? [])
-      if (mode === 'inline') {
-        setExpanded(false)
-      }
-      // Trigger a server re-render so PostFeed receives the new post immediately.
+      if (mode === 'inline') setExpanded(false)
       router.refresh()
     }
   }, [state.success, existingPost, mode, router])
 
-  /** Handles file selection from the trigger input and merges into state */
   function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
     const selected = Array.from(e.target.files ?? [])
     if (selected.length === 0) return
-
-    const currentTotal = keepMediaIds.length + newFiles.length
-    const remaining = MAX_POST_MEDIA - currentTotal
-    const toAdd = selected.slice(0, remaining)
-
-    setNewFiles((prev) => [...prev, ...toAdd])
-
-    // Reset the trigger input so the same file can be re-selected
-    if (triggerInputRef.current) {
-      triggerInputRef.current.value = ''
-    }
+    const remaining = MAX_POST_MEDIA - (keepMediaIds.length + newFiles.length)
+    setNewFiles((prev) => [...prev, ...selected.slice(0, remaining)])
+    if (triggerInputRef.current) triggerInputRef.current.value = ''
   }
 
-  /** Removes a new (not-yet-uploaded) file by index */
   function removeNewFile(index: number) {
     setNewFiles((prev) => prev.filter((_, i) => i !== index))
   }
 
-  /** Removes an existing media item from the keep list (marks it for deletion) */
   function removeExistingMedia(id: string) {
     setKeepMediaIds((prev) => prev.filter((mid) => mid !== id))
   }
 
-  /** Collapses the composer and resets its transient state */
   function handleCancel() {
     setExpanded(false)
     setContent('')
@@ -126,30 +109,49 @@ export function PostComposer({ mode, existingPost }: PostComposerProps) {
     setKeepMediaIds(existingPost?.media.map((m) => m.id) ?? [])
   }
 
+  /** Updates a single platform's extra field data */
+  function handlePlatformData(id: PlatformId, patch: Partial<AllPlatformData[PlatformId]>) {
+    setPlatformData((prev) => ({ ...prev, [id]: { ...(prev[id] ?? {}), ...patch } }))
+  }
+
+  // ── Derived state ────────────────────────────────────────────────────────────
   const existingMediaToShow = existingPost?.media.filter((m) => keepMediaIds.includes(m.id)) ?? []
-  const charCount = content.length
   const totalMedia = keepMediaIds.length + newFiles.length
   const canAddMore = totalMedia < MAX_POST_MEDIA
+  const charCount = content.length
+
+  const isSinglePlatform = platforms.length === 1
+  const isMultiPlatform = platforms.length > 1
+  const activeSinglePlatform = isSinglePlatform ? platforms[0] : null
+
+  // Character limit: platform limit in single mode, default in multi/generic mode
+  const effectiveCharLimit = activeSinglePlatform
+    ? PLATFORM_CHAR_LIMITS[activeSinglePlatform]
+    : MAX_POST_LENGTH
+
+  // Most restrictive limit across selected platforms (for multi-platform warning)
+  const mostRestrictiveLimit = isMultiPlatform
+    ? Math.min(...platforms.map((p) => PLATFORM_CHAR_LIMITS[p]))
+    : null
+  const mostRestrictivePlatform = isMultiPlatform
+    ? platforms.find((p) => PLATFORM_CHAR_LIMITS[p] === mostRestrictiveLimit) ?? null
+    : null
+
+  const activeColor = activeSinglePlatform
+    ? PLATFORMS.find((p) => p.id === activeSinglePlatform)?.color
+    : undefined
 
   return (
     <form ref={formRef} action={formAction} className="space-y-3">
-      {/* Edit mode: pass postId */}
+      {/* Hidden inputs for server action */}
       {existingPost && <input type="hidden" name="postId" value={existingPost.id} />}
-
-      {/* Pass kept existing media IDs so the server action knows which to preserve */}
       {keepMediaIds.map((id) => (
         <input key={id} type="hidden" name="keepMediaIds" value={id} />
       ))}
-
-      {/* mediaCount drives Zod validation (must equal files submitted + kept) */}
       <input type="hidden" name="mediaCount" value={totalMedia} />
-
-      {/* Selected platforms submitted as repeated hidden inputs */}
       {platforms.map((p) => (
         <input key={p} type="hidden" name="platforms" value={p} />
       ))}
-
-      {/* Hidden file input that actually submits files to the Server Action */}
       <input
         ref={hiddenFileInputRef}
         type="file"
@@ -181,33 +183,134 @@ export function PostComposer({ mode, existingPost }: PostComposerProps) {
       {/* ── Expanded state ── */}
       {expanded && (
         <>
-          <Textarea
-            name="content"
-            rows={mode === 'inline' ? 3 : 5}
-            maxLength={MAX_POST_LENGTH}
-            placeholder={t('posts.composer.placeholder')}
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-            error={state.errors?.content?.[0]}
-            autoFocus={mode === 'inline'}
-          />
+          {/* ── Platform selector ── */}
+          <div className="space-y-1">
+            <p
+              className="font-mono text-[10px] uppercase tracking-[0.08em]"
+              style={{ color: 'var(--color-outline)' }}
+            >
+              {t('posts.composer.platforms_label')}
+            </p>
+            <PlatformSelector selected={platforms} onChange={setPlatforms} />
+          </div>
 
-          {/* Character counter — only shown when content is non-empty */}
+          {/* ── Single-platform header ── */}
+          {isSinglePlatform && activeSinglePlatform && (
+            <SinglePlatformHeader platformId={activeSinglePlatform} color={activeColor!} t={t} />
+          )}
+
+          {/* ── Multi-platform limit warning ── */}
+          {isMultiPlatform && mostRestrictiveLimit !== null && charCount > mostRestrictiveLimit && (
+            <div
+              className="flex items-start gap-2 px-3 py-2 rounded-sm border font-mono text-[10px]"
+              style={{
+                borderColor: 'rgba(255,180,0,0.3)',
+                background: 'rgba(255,180,0,0.05)',
+                color: '#ffcf77',
+              }}
+              role="alert"
+            >
+              <span aria-hidden="true">⚠</span>
+              <span>
+                {t('posts.composer.limit_exceeded_warning', {
+                  platform: PLATFORMS.find((p) => p.id === mostRestrictivePlatform)?.label,
+                  limit: mostRestrictiveLimit,
+                })}
+              </span>
+            </div>
+          )}
+
+          {/* ── Multi-platform soft warning (approaching limit) ── */}
+          {isMultiPlatform && mostRestrictiveLimit !== null && charCount <= mostRestrictiveLimit && charCount > 0 && (
+            <p
+              className="font-mono text-[10px]"
+              style={{ color: 'var(--color-outline)' }}
+            >
+              {t('posts.composer.multi_platform_limit_note', {
+                platform: PLATFORMS.find((p) => p.id === mostRestrictivePlatform)?.label,
+                limit: mostRestrictiveLimit,
+              })}
+            </p>
+          )}
+
+          {/* ── Content textarea ── */}
+          <div className="relative">
+            <Textarea
+              name="content"
+              rows={mode === 'inline' ? 3 : isSinglePlatform ? 6 : 5}
+              maxLength={effectiveCharLimit}
+              placeholder={
+                activeSinglePlatform
+                  ? t(`posts.composer.placeholder_${activeSinglePlatform}`, {
+                      defaultValue: t('posts.composer.placeholder'),
+                    })
+                  : t('posts.composer.placeholder')
+              }
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+              error={state.errors?.content?.[0]}
+              autoFocus={mode === 'inline'}
+              style={
+                activeSinglePlatform
+                  ? {
+                      borderColor: charCount > effectiveCharLimit * 0.9
+                        ? 'rgba(255,75,75,0.5)'
+                        : `${activeColor}30`,
+                      transition: 'border-color 200ms',
+                    }
+                  : undefined
+              }
+            />
+          </div>
+
+          {/* Character counter */}
           {charCount > 0 && (
             <p
               className="font-mono text-[10px] text-right"
               style={{
                 color:
-                  charCount > MAX_POST_LENGTH * 0.9 ? '#ffb4ab' : 'var(--color-outline)',
+                  charCount > effectiveCharLimit
+                    ? '#ffb4ab'
+                    : charCount > effectiveCharLimit * 0.9
+                      ? '#ffcf77'
+                      : 'var(--color-outline)',
               }}
               aria-live="polite"
               aria-label={t('posts.composer.char_counter_label', {
                 current: charCount,
-                max: MAX_POST_LENGTH,
+                max: effectiveCharLimit,
               })}
             >
-              {charCount}/{MAX_POST_LENGTH}
+              {charCount}/{effectiveCharLimit}
             </p>
+          )}
+
+          {/* Platform hint (single mode) */}
+          {isSinglePlatform && activeSinglePlatform && (
+            <PlatformHint platformId={activeSinglePlatform} />
+          )}
+
+          {/* ── Platform-specific extra fields ── */}
+          {platforms.length > 0 && (
+            <div
+              className="rounded-sm border p-3 space-y-3"
+              style={{ borderColor: 'rgba(255,255,255,0.07)', background: 'rgba(255,255,255,0.02)' }}
+            >
+              <p
+                className="font-mono text-[10px] uppercase tracking-[0.08em]"
+                style={{ color: 'var(--color-outline)' }}
+              >
+                {isSinglePlatform
+                  ? t('posts.composer.platform_fields.section_label_single')
+                  : t('posts.composer.platform_fields.section_label_multi')}
+              </p>
+              <PlatformFields
+                platforms={platforms}
+                data={platformData}
+                onChange={handlePlatformData}
+                mode={isSinglePlatform ? 'single' : 'multi'}
+              />
+            </div>
           )}
 
           {/* Existing media thumbnails (edit mode only) */}
@@ -242,14 +345,12 @@ export function PostComposer({ mode, existingPost }: PostComposerProps) {
           {/* New file previews */}
           <MediaUploadPreview files={newFiles} onRemove={removeNewFile} />
 
-          {/* Media error */}
+          {/* Errors */}
           {state.errors?.media?.[0] && (
             <p className="font-mono text-xs" style={{ color: '#ffb4ab' }} role="alert">
               {state.errors.media[0]}
             </p>
           )}
-
-          {/* Form-level error */}
           {state.errors?._form?.[0] && (
             <p
               className="font-mono text-xs px-3 py-2 rounded-sm border"
@@ -263,29 +364,15 @@ export function PostComposer({ mode, existingPost }: PostComposerProps) {
               {state.errors._form[0]}
             </p>
           )}
-
-          {/* Success message */}
           {state.success && (
             <p className="font-mono text-xs" style={{ color: '#a8d5a2' }} role="status">
               {t('posts.composer.success')}
             </p>
           )}
 
-          {/* Platform selector */}
-          <div className="space-y-1">
-            <p
-              className="font-mono text-[10px] uppercase tracking-[0.08em]"
-              style={{ color: 'var(--color-outline)' }}
-            >
-              {t('posts.composer.platforms_label')}
-            </p>
-            <PlatformSelector selected={platforms} onChange={setPlatforms} />
-          </div>
-
-          {/* Footer: add photo + action buttons */}
+          {/* ── Footer: media + actions ── */}
           <div className="flex items-center justify-between gap-3">
             <div className="flex items-center gap-3">
-              {/* Visible trigger input for file selection */}
               {canAddMore && (
                 <>
                   <input
@@ -310,7 +397,6 @@ export function PostComposer({ mode, existingPost }: PostComposerProps) {
             </div>
 
             <div className="flex items-center gap-3">
-              {/* Cancel button — inline mode only */}
               {mode === 'inline' && (
                 <button
                   type="button"
@@ -325,11 +411,19 @@ export function PostComposer({ mode, existingPost }: PostComposerProps) {
               <button
                 type="submit"
                 disabled={isPending}
-                className="px-5 py-2 rounded-sm font-mono text-xs tracking-[0.08em] uppercase transition-opacity disabled:opacity-50"
-                style={{
-                  background: 'var(--color-primary)',
-                  color: 'var(--color-on-primary)',
-                }}
+                className="px-5 py-2 rounded-sm font-mono text-xs tracking-[0.08em] uppercase transition-all duration-150 disabled:opacity-50"
+                style={
+                  activeSinglePlatform && activeColor
+                    ? {
+                        background: activeColor,
+                        color: '#000',
+                        boxShadow: `0 0 0 0 ${activeColor}`,
+                      }
+                    : {
+                        background: 'var(--color-primary)',
+                        color: 'var(--color-on-primary)',
+                      }
+                }
               >
                 {isPending
                   ? t('posts.composer.publishing')
@@ -342,5 +436,37 @@ export function PostComposer({ mode, existingPost }: PostComposerProps) {
         </>
       )}
     </form>
+  )
+}
+
+// ── Internal subcomponents ────────────────────────────────────────────────────
+
+interface SinglePlatformHeaderProps {
+  platformId: PlatformId
+  color: string
+  t: (key: string, opts?: Record<string, unknown>) => string
+}
+
+/** Decorative platform identity strip shown in single-platform mode */
+function SinglePlatformHeader({ platformId, color, t }: SinglePlatformHeaderProps) {
+  const meta = PLATFORMS.find((p) => p.id === platformId)!
+  return (
+    <div
+      className="flex items-center gap-2.5 px-3 py-2 rounded-sm border"
+      style={{
+        borderColor: `${color}25`,
+        background: `${color}08`,
+      }}
+    >
+      <span style={{ color }} aria-hidden="true">
+        <PlatformIcon id={platformId} size={14} />
+      </span>
+      <span
+        className="font-mono text-[10px] uppercase tracking-[0.1em]"
+        style={{ color }}
+      >
+        {t('posts.composer.composing_for', { platform: meta.label })}
+      </span>
+    </div>
   )
 }

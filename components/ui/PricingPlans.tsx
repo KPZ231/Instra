@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { FiCheck, FiX } from "react-icons/fi";
 
@@ -27,10 +28,21 @@ export const PricingPlans = () => {
   const planKeys = ["basic", "pro", "enterprise"];
 
   return (
-    <section className="w-full max-w-[1280px] mx-auto px-5 md:px-6 my-16 md:my-32 font-sans relative">
-      
+    <motion.section
+      className="w-full max-w-[1280px] mx-auto px-5 md:px-6 my-16 md:my-32 font-sans relative"
+      initial={{ opacity: 0, y: 32 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+    >
       {/* Nagłówek i przełącznik */}
-      <div className="flex flex-col md:flex-row items-center justify-between mb-12 md:mb-16 gap-6">
+      <motion.div
+        className="flex flex-col md:flex-row items-center justify-between mb-12 md:mb-16 gap-6"
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+      >
         <h2 className="text-headline-lg-mobile md:text-headline-lg font-semibold text-primary tracking-tight">
           {t("pricing.title")}
         </h2>
@@ -54,11 +66,11 @@ export const PricingPlans = () => {
             {t("pricing.billing.monthly")}
           </button>
         </div>
-      </div>
+      </motion.div>
 
       {/* Karty Cenowe */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-stretch mt-8">
-        {planKeys.map((key) => {
+        {planKeys.map((key, idx) => {
           // Pobieramy plan z JSON
           const rawPlan = t(`pricing.plans.${key}`, { returnObjects: true });
           const plan: PricingPlan = typeof rawPlan === 'object' && rawPlan !== null ? (rawPlan as PricingPlan) : null as any;
@@ -69,8 +81,12 @@ export const PricingPlans = () => {
           const currentPrice = isAnnual ? plan.price.annual : plan.price.monthly;
 
           return (
-            <div
+            <motion.div
               key={key}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 + idx * 0.1 }}
               className={`relative flex flex-col transition-all duration-300 p-[1px] group ${
                 isHighlighted
                   ? "bg-white/20 shadow-2xl scale-100 md:scale-105 z-10"
@@ -148,12 +164,12 @@ export const PricingPlans = () => {
                   {plan.button}
                 </button>
               </div>
-            </div>
+            </motion.div>
           );
         })}
       </div>
 
-    </section>
+    </motion.section>
   );
 };
 

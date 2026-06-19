@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
 interface FAQItem {
@@ -28,17 +29,28 @@ export const FAQ = () => {
   const currentQuestions: FAQItem[] = Array.isArray(rawQuestions) ? rawQuestions : [];
 
   return (
-    <section className="w-full max-w-[1280px] mx-auto px-5 md:px-6 my-16 md:my-24 font-sans">
-      
+    <motion.section
+      className="w-full max-w-[1280px] mx-auto px-5 md:px-6 my-16 md:my-24 font-sans"
+      initial={{ opacity: 0, y: 32 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+    >
       {/* Sekcja Nagłówkowa */}
-      <div className="flex flex-col items-center text-center mb-12 md:mb-20">
+      <motion.div
+        className="flex flex-col items-center text-center mb-12 md:mb-20"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+      >
         <h2 className="text-headline-lg-mobile md:text-headline-lg font-semibold text-primary tracking-tight mb-4">
           {t("faq.title")}
         </h2>
         <p className="text-body-lg text-on-surface-variant max-w-2xl">
           {t("faq.subtitle")}
         </p>
-      </div>
+      </motion.div>
 
       {/* Główna zawartość - 2 kolumny na desktopie */}
       <div className="flex flex-col md:flex-row gap-12 md:gap-24 relative">
@@ -149,7 +161,7 @@ export const FAQ = () => {
 
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

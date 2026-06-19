@@ -20,7 +20,7 @@ export default async function DashboardPage() {
   const [{ posts, nextCursor }, user] = await Promise.all([getFeed(), getCurrentUser()])
 
   return (
-    <div className="space-y-6 max-w-xl mx-auto">
+    <div className="space-y-6">
       {/* Inline composer */}
       <Card className="p-4">
         <PostComposer mode="inline" />

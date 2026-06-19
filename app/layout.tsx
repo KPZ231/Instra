@@ -3,7 +3,6 @@ import { Hanken_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import I18nProvider from "@/components/providers/I18nProvider";
 import AuthProvider from "@/components/providers/AuthProvider";
-import Navbar from "@/components/ui/Navbar";
 import InstraToaster from "@/components/ui/InstraToaster";
 
 const hankenGrotesk = Hanken_Grotesk({
@@ -38,7 +37,6 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <AuthProvider>
           <I18nProvider>
-            <Navbar></Navbar>
             {children}
             <InstraToaster />
           </I18nProvider>

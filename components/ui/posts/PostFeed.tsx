@@ -66,14 +66,15 @@ export function PostFeed({
   }
 
   return (
-    <div className="space-y-4">
+    <div className="columns-1 md:columns-2 xl:columns-3 gap-4">
       {posts.map((post) => (
-        <PostCard
-          key={post.id}
-          post={post}
-          currentUserId={currentUserId}
-          currentUserRole={currentUserRole}
-        />
+        <div key={post.id} className="break-inside-avoid mb-4">
+          <PostCard
+            post={post}
+            currentUserId={currentUserId}
+            currentUserRole={currentUserRole}
+          />
+        </div>
       ))}
 
       {nextCursor && (

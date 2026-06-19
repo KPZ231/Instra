@@ -29,6 +29,10 @@ export async function rateLimit(
   preset: RateLimitPresetKey | RateLimitPreset,
   keyFn?: (ip: string) => string,
 ): Promise<void> {
+  if (!process.env.UPSTASH_REDIS_REST_URL || !process.env.UPSTASH_REDIS_REST_TOKEN) {
+    return
+  }
+
   const isNamed = typeof preset === 'string'
   const config = isNamed ? RATE_LIMIT_PRESETS[preset] : preset
   const actionKey = isNamed ? preset : 'custom'
@@ -38,6 +42,8 @@ export async function rateLimit(
 
   const limiter = getLimiter(actionKey, config.limit, config.window)
   const result = await limiter.limit(identifier)
+
+  console.log(`[rateLimit] action=${actionKey} ip=${identifier} success=${result.success} remaining=${result.remaining} reset=${result.reset}`)
 
   if (!result.success) {
     const retryAfter = Math.ceil((result.reset - Date.now()) / 1000)

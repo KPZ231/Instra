@@ -67,7 +67,8 @@ export default function AboutProject() {
               key={item.id}
               className="group relative p-4 md:p-5 rounded-lg border border-outline-variant/40 hover:border-accent-bone/60 transition-colors cursor-pointer bg-surface-container/30 backdrop-blur-sm"
               initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
               transition={{ ...baseTransition, delay: 0.1 + idx * 0.12 }}
               whileHover={{ x: 4 }}
             >
@@ -91,8 +92,9 @@ export default function AboutProject() {
           <motion.h2
             className="font-sans text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight md:leading-snug lg:leading-tight tracking-[-0.02em] text-on-surface mb-6 md:mb-8"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ ...baseTransition, delay: 0.3 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ ...baseTransition, delay: 0.15 }}
           >
             {t("about.main.title")}
           </motion.h2>
@@ -101,8 +103,9 @@ export default function AboutProject() {
           <motion.p
             className="font-sans text-base md:text-lg leading-7 md:leading-8 text-on-surface-variant max-w-2xl mb-8 md:mb-10"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ ...baseTransition, delay: 0.4 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ ...baseTransition, delay: 0.25 }}
           >
             {t("about.main.description")}
           </motion.p>
@@ -111,8 +114,9 @@ export default function AboutProject() {
           <motion.div
             className="inline-flex"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ ...baseTransition, delay: 0.5 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ ...baseTransition, delay: 0.35 }}
           >
             <button className="group flex items-center gap-3 px-6 md:px-8 py-3 md:py-4 rounded-lg border border-accent-bone/80 bg-transparent hover:bg-primary/5 transition-all duration-300 text-on-surface hover:text-accent-bone">
               <span className="font-sans text-sm md:text-base font-medium">
@@ -129,8 +133,9 @@ export default function AboutProject() {
           <motion.div
             className="mt-12 md:mt-14 pt-8 md:pt-10 border-t border-outline-variant/30 flex flex-col sm:flex-row gap-8 md:gap-12"
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ ...baseTransition, delay: 0.6 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ ...baseTransition, delay: 0.45 }}
           >
             {[
               { key: "about.stat1.label", value: "about.stat1.value" },
@@ -140,8 +145,9 @@ export default function AboutProject() {
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ ...baseTransition, delay: 0.65 + idx * 0.1 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ ...baseTransition, delay: 0.5 + idx * 0.1 }}
               >
                 <span className="font-mono text-lg md:text-2xl font-medium text-accent-bone block">
                   {t(stat.value)}

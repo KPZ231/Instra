@@ -1,8 +1,11 @@
 "use client";
 
 import React from "react";
+import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { FiCheck } from "react-icons/fi";
+
+const transition = (delay: number) => ({ duration: 0.7, ease: "easeOut" as const, delay });
 
 /**
  * @interface CTAProps
@@ -44,7 +47,13 @@ export const CTA = ({
   const { t } = useTranslation();
 
   return (
-    <section className="w-full max-w-[1280px] mx-auto px-5 md:px-6 my-16 md:my-24">
+    <motion.section
+      className="w-full max-w-[1280px] mx-auto px-5 md:px-6 my-16 md:my-24"
+      initial={{ opacity: 0, y: 32 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={transition(0)}
+    >
       {/* 
         Container: Dark surface (Level 1), rounded corners, hidden overflow for background shapes.
         Zamiast purpurowych blobów z referencji, wykorzystujemy ciemne tło (Level 1) z
@@ -78,25 +87,39 @@ export const CTA = ({
             Odwzorowanie kwadratowej ikony ze znakiem plus na samej górze. 
             Wzbogacona o delikatny blask.
           */}
-          <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-[#121410] flex items-center justify-center mb-8 border border-white/10 shadow-2xl transition-transform duration-500 group-hover:scale-105">
+          <motion.div
+            className="w-14 h-14 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-[#121410] flex items-center justify-center mb-8 border border-white/10 shadow-2xl transition-transform duration-500 group-hover:scale-105"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={transition(0.1)}
+          >
             <div className="relative w-5 h-5 md:w-6 md:h-6">
                <div className="absolute top-0 bottom-0 left-1/2 -ml-[2px] w-[4px] bg-primary rounded-sm" />
                <div className="absolute left-0 right-0 top-1/2 -mt-[2px] h-[4px] bg-primary rounded-sm" />
             </div>
-          </div>
+          </motion.div>
 
-          {/* 
-            Główny nagłówek rozbity na 2 sekcje (tak jak na zdjęciu), 
-            z przyciskiem osadzonym bezpośrednio w drugim wierszu na większych ekranach.
-          */}
-          <h2 className="font-sans font-semibold text-[32px] md:text-[48px] text-primary tracking-tight mb-2 max-w-3xl leading-[1.1]">
+          <motion.h2
+            className="font-sans font-semibold text-[32px] md:text-[48px] text-primary tracking-tight mb-2 max-w-3xl leading-[1.1]"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={transition(0.2)}
+          >
             {t(line1Key)}
-          </h2>
-          
+          </motion.h2>
+
           <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6 mt-2 md:mt-4">
-            <h2 className="font-sans font-semibold text-[32px] md:text-[48px] text-primary tracking-tight leading-[1.1]">
+            <motion.h2
+              className="font-sans font-semibold text-[32px] md:text-[48px] text-primary tracking-tight leading-[1.1]"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={transition(0.3)}
+            >
               {t(line2Key)}
-            </h2>
+            </motion.h2>
             
             {/* Przycisk (zgodny z systemem z globals.css) z animowaną strzałką */}
             <a href={buttonUrl} className="btn btn-primary group/btn mt-4 md:mt-0 px-6 py-3 rounded-full md:rounded-md text-[16px]">
@@ -108,7 +131,13 @@ export const CTA = ({
           </div>
 
           {/* Małe tagi / funkcje na samym dole z ikonką Check */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-10 mt-12 md:mt-16">
+          <motion.div
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-10 mt-12 md:mt-16"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={transition(0.45)}
+          >
             {featuresKeys.map((featKey, idx) => (
               <div key={idx} className="flex items-center gap-2.5 group/feat">
                 <div className="w-[18px] h-[18px] rounded-full bg-white/10 flex items-center justify-center text-primary transition-colors duration-300 group-hover/feat:bg-white/20">
@@ -119,11 +148,11 @@ export const CTA = ({
                 </span>
               </div>
             ))}
-          </div>
-          
+          </motion.div>
+
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

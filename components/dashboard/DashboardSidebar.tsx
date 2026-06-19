@@ -11,7 +11,7 @@ import {
   Settings,
   Zap,
   ShieldCheck,
-  User,
+  Share2,
 } from "lucide-react";
 import { UserRole } from "@/types/auth";
 
@@ -23,14 +23,47 @@ interface NavItem {
 }
 
 const NAV_ITEMS: NavItem[] = [
-  { href: "/dashboard", labelKey: "dashboard.nav.overview", icon: <LayoutDashboard size={18} /> },
-  { href: "/dashboard/analytics", labelKey: "dashboard.nav.analytics", icon: <BarChart2 size={18} /> },
-  { href: "/dashboard/campaigns", labelKey: "dashboard.nav.campaigns", icon: <Zap size={18} /> },
-  { href: "/dashboard/schedule", labelKey: "dashboard.nav.schedule", icon: <CalendarDays size={18} /> },
-  { href: "/dashboard/plugins", labelKey: "dashboard.nav.plugins", icon: <Puzzle size={18} /> },
-  { href: "/dashboard/profile", labelKey: "dashboard.nav.profile", icon: <User size={18} /> },
-  { href: "/dashboard/settings", labelKey: "dashboard.nav.settings", icon: <Settings size={18} /> },
-  { href: "/dashboard/admin/plugins", labelKey: "dashboard.adminNav", icon: <ShieldCheck size={18} />, adminOnly: true },
+  {
+    href: "/dashboard",
+    labelKey: "dashboard.nav.overview",
+    icon: <LayoutDashboard size={16} />,
+  },
+  {
+    href: "/dashboard/analytics",
+    labelKey: "dashboard.nav.analytics",
+    icon: <BarChart2 size={16} />,
+  },
+  {
+    href: "/dashboard/campaigns",
+    labelKey: "dashboard.nav.campaigns",
+    icon: <Zap size={16} />,
+  },
+  {
+    href: "/dashboard/schedule",
+    labelKey: "dashboard.nav.schedule",
+    icon: <CalendarDays size={16} />,
+  },
+  {
+    href: "/dashboard/plugins",
+    labelKey: "dashboard.nav.plugins",
+    icon: <Puzzle size={16} />,
+  },
+  {
+    href: "/dashboard/settings",
+    labelKey: "dashboard.nav.settings",
+    icon: <Settings size={16} />,
+  },
+  {
+    href: "/dashboard/settings/social",
+    labelKey: "dashboard.nav.social",
+    icon: <Share2 size={16} />,
+  },
+  {
+    href: "/dashboard/admin/plugins",
+    labelKey: "dashboard.adminNav",
+    icon: <ShieldCheck size={16} />,
+    adminOnly: true,
+  },
 ];
 
 interface DashboardSidebarProps {
@@ -38,8 +71,7 @@ interface DashboardSidebarProps {
 }
 
 /**
- * Fixed left sidebar for the dashboard shell.
- * Highlights the active route via usePathname.
+ * Horizontal pill navigation bar for the dashboard top bar.
  * Shows admin link when role === 'ADMIN'.
  *
  * @param role - Current user's role, used to show admin navigation
@@ -55,67 +87,39 @@ export default function DashboardSidebar({ role }: DashboardSidebarProps) {
   );
 
   return (
-    <aside
-      className="hidden lg:flex flex-col w-60 shrink-0 border-r"
+    <nav
+      aria-label="Dashboard navigation"
+      className="flex items-center gap-0.5 rounded-full border px-1.5 py-1"
       style={{
-        background: "var(--color-surface-container-lowest)",
-        borderColor: "rgba(255,255,255,0.06)",
+        background: "var(--color-surface-container-low)",
+        borderColor: "rgba(255,255,255,0.08)",
       }}
     >
-      {/* Logo */}
-      <div
-        className="flex items-center gap-2 px-6 py-5 border-b"
-        style={{ borderColor: "rgba(255,255,255,0.06)" }}
-      >
-        <span
-          className="font-mono text-xs tracking-[0.12em] uppercase"
-          style={{ color: "var(--color-on-surface-variant)" }}
-        >
-          // INSTRA
-        </span>
-      </div>
-
-      {/* Nav */}
-      <nav className="flex-1 px-3 py-4 space-y-0.5">
-        {visibleItems.map((item) => {
-          const isActive = pathname === item.href || pathname.startsWith(item.href + "/");
-          return (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="flex items-center gap-3 px-3 py-2.5 rounded-sm text-sm transition-colors group relative"
-              style={{
-                color: isActive ? "var(--color-primary)" : "var(--color-on-surface-variant)",
-                background: isActive ? "rgba(255,255,255,0.05)" : "transparent",
-              }}
-            >
-              {isActive && (
-                <span
-                  className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-5 rounded-r"
-                  style={{ background: "var(--color-primary)" }}
-                />
-              )}
-              <span className="shrink-0">{item.icon}</span>
-              <span className="font-mono text-xs tracking-[0.08em] uppercase">
-                {t(item.labelKey)}
-              </span>
-            </Link>
-          );
-        })}
-      </nav>
-
-      {/* Footer */}
-      <div
-        className="px-6 py-4 border-t"
-        style={{ borderColor: "rgba(255,255,255,0.06)" }}
-      >
-        <p
-          className="font-mono text-xs tracking-[0.05em]"
-          style={{ color: "var(--color-on-surface-variant)" }}
-        >
-          v0.1.0-alpha
-        </p>
-      </div>
-    </aside>
+      {visibleItems.map((item) => {
+        const isActive =
+          pathname === item.href || pathname.startsWith(item.href + "/");
+        return (
+          <Link
+            key={item.href}
+            href={item.href}
+            aria-current={isActive ? "page" : undefined}
+            className="flex items-center gap-2 px-3 py-1.5 rounded-full whitespace-nowrap transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30"
+            style={{
+              color: isActive
+                ? "var(--color-primary)"
+                : "var(--color-on-surface-variant)",
+              background: isActive
+                ? "var(--color-surface-container-high)"
+                : "transparent",
+            }}
+          >
+            <span className="shrink-0">{item.icon}</span>
+            <span className="font-mono text-xs tracking-[0.08em] uppercase">
+              {t(item.labelKey)}
+            </span>
+          </Link>
+        );
+      })}
+    </nav>
   );
 }

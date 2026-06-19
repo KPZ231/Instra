@@ -15,7 +15,7 @@ try {
   console.error('Brak bcryptjs: npm install bcryptjs')
   process.exit(1)
 }
-
+  
 const EMAIL = process.env.ADMIN_SEED_EMAIL
 const PASSWORD = process.env.ADMIN_SEED_PASSWORD
 if (!EMAIL || !PASSWORD) {

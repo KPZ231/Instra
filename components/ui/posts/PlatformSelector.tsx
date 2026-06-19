@@ -1,6 +1,7 @@
 'use client'
 
 import { useTranslation } from 'react-i18next'
+import { PlatformIcon } from './PlatformFields'
 
 /** Supported social platforms for post publishing */
 export const PLATFORMS = [
@@ -21,7 +22,7 @@ interface PlatformSelectorProps {
 
 /**
  * Multi-select chip group for choosing target social platforms.
- * Each chip can be toggled independently; at least zero may be selected.
+ * Each chip displays the platform's SVG icon and can be toggled independently.
  *
  * @param selected - Array of currently selected platform IDs
  * @param onChange - Callback fired with the updated selection on every toggle
@@ -53,7 +54,7 @@ export function PlatformSelector({ selected, onChange }: PlatformSelectorProps) 
             type="button"
             onClick={() => toggle(id)}
             aria-pressed={active}
-            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-mono text-[10px] tracking-[0.06em] uppercase border transition-all duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-1"
+            className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-full font-mono text-[10px] tracking-[0.06em] uppercase border transition-all duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-1"
             style={
               active
                 ? {
@@ -61,6 +62,7 @@ export function PlatformSelector({ selected, onChange }: PlatformSelectorProps) 
                     borderColor: color,
                     color: color,
                     outlineColor: color,
+                    boxShadow: `0 0 0 1px ${color}20`,
                   }
                 : {
                     background: 'transparent',
@@ -70,12 +72,13 @@ export function PlatformSelector({ selected, onChange }: PlatformSelectorProps) 
                   }
             }
           >
-            {/* Brand colour dot */}
             <span
-              className="w-1.5 h-1.5 rounded-full flex-shrink-0 transition-opacity duration-150"
-              style={{ background: color, opacity: active ? 1 : 0.35 }}
+              className="flex-shrink-0 transition-opacity duration-150"
+              style={{ opacity: active ? 1 : 0.45 }}
               aria-hidden="true"
-            />
+            >
+              <PlatformIcon id={id} size={11} />
+            </span>
             {label}
           </button>
         )
