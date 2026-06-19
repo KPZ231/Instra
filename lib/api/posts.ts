@@ -28,6 +28,11 @@ export type FeedPost = {
   }[]
   likeCount: number
   likedByMe: boolean
+  socialStatuses: {
+    platform: string
+    status: string
+    error: string | null
+  }[]
 }
 
 /**
@@ -97,6 +102,9 @@ export async function getFeed(
           likes: currentUserId
             ? { where: { userId: currentUserId }, select: { id: true } }
             : false,
+          socialStatuses: currentUserId
+            ? { select: { platform: true, status: true, error: true } }
+            : false,
         },
       })
 
@@ -114,6 +122,7 @@ export async function getFeed(
           media: p.media,
           likeCount: p._count.likes,
           likedByMe: currentUserId ? (p.likes as { id: string }[]).length > 0 : false,
+          socialStatuses: currentUserId ? (p.socialStatuses as { platform: string; status: string; error: string | null }[]) : [],
         })),
         nextCursor,
       }
@@ -163,6 +172,9 @@ export async function getPostsByUsername(
           likes: currentUserId
             ? { where: { userId: currentUserId }, select: { id: true } }
             : false,
+          socialStatuses: currentUserId
+            ? { select: { platform: true, status: true, error: true } }
+            : false,
         },
       })
 
@@ -180,6 +192,7 @@ export async function getPostsByUsername(
           media: p.media,
           likeCount: p._count.likes,
           likedByMe: currentUserId ? (p.likes as { id: string }[]).length > 0 : false,
+          socialStatuses: currentUserId ? (p.socialStatuses as { platform: string; status: string; error: string | null }[]) : [],
         })),
         nextCursor,
       }
@@ -211,6 +224,9 @@ export async function getPostById(id: string): Promise<FeedPost | null> {
       media: { orderBy: { order: 'asc' }, select: { id: true, url: true, mimeType: true, order: true } },
       _count: { select: { likes: true } },
       likes: currentUserId ? { where: { userId: currentUserId }, select: { id: true } } : false,
+      socialStatuses: currentUserId
+        ? { select: { platform: true, status: true, error: true } }
+        : false,
     },
   })
 
@@ -219,10 +235,12 @@ export async function getPostById(id: string): Promise<FeedPost | null> {
   return {
     id: p.id,
     content: p.content,
+    platforms: p.platforms,
     createdAt: p.createdAt,
     author: p.author,
     media: p.media,
     likeCount: p._count.likes,
     likedByMe: currentUserId ? (p.likes as { id: string }[]).length > 0 : false,
+    socialStatuses: currentUserId ? (p.socialStatuses as { platform: string; status: string; error: string | null }[]) : [],
   }
 }

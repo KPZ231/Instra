@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next'
 import { Card } from '@/components/ui/Card'
 import { MediaCarousel } from './MediaCarousel'
 import { toggleLike, deletePost } from '@/features/posts'
+import { SocialPublishButton } from './SocialPublishButton'
 import type { FeedPost } from '@/lib/api/posts'
 import { UserRole } from '@/types/auth'
 
@@ -129,6 +130,17 @@ export function PostCard({ post, currentUserId, currentUserRole }: PostCardProps
           <span>{post.likeCount}</span>
         </button>
       </div>
+
+      {/* Social publish */}
+      {canEdit && post.platforms.length > 0 && (
+        <div className="px-4 pb-3">
+          <SocialPublishButton
+            postId={post.id}
+            platforms={post.platforms}
+            initialStatuses={post.socialStatuses ?? []}
+          />
+        </div>
+      )}
     </Card>
   )
 }
