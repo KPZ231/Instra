@@ -826,7 +826,10 @@
         "expires": "Wygasa",
         "publish": "Opublikuj na social media",
         "publishing": "Publikowanie…",
-        "settings_title": "Konta Social Media"
+        "disconnect_error": "Nie udało się rozłączyć. Spróbuj ponownie.",
+        "settings": {
+            "title": "Konta Social Media"
+        }
     },
     "posts": {
         "like": "Lubię to",

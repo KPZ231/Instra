@@ -45,7 +45,7 @@ export async function publishPost(postId: string, userId: string): Promise<Publi
         })
         if (!account) throw new Error('Brak połączonego konta')
         if (account.expiresAt && account.expiresAt < new Date()) {
-          throw new Error('Token expired — reconnect your account')
+          throw new Error('Token wygasł — połącz konto ponownie')
         }
 
         const token = decrypt(account.accessToken)
@@ -79,5 +79,9 @@ export async function publishPost(postId: string, userId: string): Promise<Publi
     }),
   )
 
-  return results.filter(r => r.status === 'fulfilled').map(r => r.value)
+  return results.map((r, i) =>
+    r.status === 'fulfilled'
+      ? r.value
+      : { platform: platforms[i], success: false, error: 'Chyba publikacji' },
+  )
 }

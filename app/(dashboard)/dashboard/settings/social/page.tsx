@@ -25,8 +25,9 @@ function safeDecodeURIComponent(value: string): string {
 export default async function SocialSettingsPage({
   searchParams,
 }: {
-  searchParams: { success?: string; error?: string }
+  searchParams: Promise<{ success?: string; error?: string }>
 }) {
+  const { success, error } = await searchParams
   const t = await getTranslations('social')
   const { user } = await verifySession()
   const accounts = await getConnectedAccounts(user.id)
@@ -44,7 +45,7 @@ export default async function SocialSettingsPage({
         {t('settings.title')}
       </h1>
 
-      {searchParams.success && (
+      {success && (
         <p
           className="font-mono text-xs p-3 rounded"
           style={{ background: 'var(--color-surface-container)', color: 'var(--color-primary)' }}
@@ -52,12 +53,12 @@ export default async function SocialSettingsPage({
           Account connected successfully.
         </p>
       )}
-      {searchParams.error && (
+      {error && (
         <p
           className="font-mono text-xs p-3 rounded"
           style={{ background: 'var(--color-surface-container)', color: '#ffb4ab' }}
         >
-          {safeDecodeURIComponent(searchParams.error)}
+          {safeDecodeURIComponent(error)}
         </p>
       )}
 

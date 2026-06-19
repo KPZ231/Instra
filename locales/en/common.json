@@ -826,7 +826,10 @@
         "expires": "Expires",
         "publish": "Publish to social",
         "publishing": "Publishing…",
-        "settings_title": "Social Media Accounts"
+        "disconnect_error": "Failed to disconnect. Please try again.",
+        "settings": {
+            "title": "Social Media Accounts"
+        }
     },
     "posts": {
         "like": "Like",

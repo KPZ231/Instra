@@ -1,5 +1,3 @@
-import 'server-only'
-
 /** Platform identifier matching Prisma enum values. */
 export type SocialPlatform = 'FACEBOOK' | 'INSTAGRAM' | 'LINKEDIN'
 

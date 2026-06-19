@@ -136,10 +136,17 @@ async function handleMeta(
   if (!tokenRes.ok) throw new Error('Meta token exchange failed')
   const tokenData = (await tokenRes.json()) as { access_token: string }
 
-  // Exchange for long-lived token (60 days)
-  const longRes = await fetch(
-    `https://graph.facebook.com/v19.0/oauth/access_token?grant_type=fb_exchange_token&client_id=${appId}&client_secret=${appSecret}&fb_exchange_token=${tokenData.access_token}`,
-  )
+  // Exchange for long-lived token (60 days) — POST keeps secrets out of URL/logs
+  const longRes = await fetch('https://graph.facebook.com/v19.0/oauth/access_token', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({
+      grant_type: 'fb_exchange_token',
+      client_id: appId,
+      client_secret: appSecret,
+      fb_exchange_token: tokenData.access_token,
+    }),
+  })
   if (!longRes.ok) throw new Error('Meta long-lived token exchange failed')
   const longData = (await longRes.json()) as { access_token: string; expires_in: number }
   const longToken = longData.access_token

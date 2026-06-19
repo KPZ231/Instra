@@ -2,7 +2,7 @@
 
 import { useTranslation } from 'react-i18next'
 import { useRouter } from 'next/navigation'
-import { useTransition } from 'react'
+import { useTransition, useState } from 'react'
 import { Card } from '@/components/ui/Card'
 import type { ConnectedAccount, SocialPlatform } from '@/lib/social/types'
 
@@ -31,20 +31,22 @@ export function SocialConnectCard({ platform, account }: SocialConnectCardProps)
   const { t } = useTranslation()
   const router = useRouter()
   const [isPending, startTransition] = useTransition()
+  const [disconnectError, setDisconnectError] = useState<string | null>(null)
   const label = PLATFORM_LABELS[platform]
 
   async function handleDisconnect() {
+    setDisconnectError(null)
     try {
       const res = await fetch(`/api/social/disconnect/${platform.toLowerCase()}`, {
         method: 'DELETE',
       })
       if (!res.ok) {
-        console.error('Disconnect failed:', res.status)
+        setDisconnectError(t('social.disconnect_error'))
         return
       }
       startTransition(() => router.refresh())
-    } catch (err) {
-      console.error('Disconnect error:', err)
+    } catch {
+      setDisconnectError(t('social.disconnect_error'))
     }
   }
 
@@ -71,14 +73,19 @@ export function SocialConnectCard({ platform, account }: SocialConnectCardProps)
       </div>
 
       {account ? (
-        <button
-          onClick={handleDisconnect}
-          disabled={isPending}
-          className="font-mono text-xs uppercase tracking-[0.08em] hover:opacity-80 transition-opacity disabled:opacity-40"
-          style={{ color: '#ffb4ab' }}
-        >
-          {t('social.disconnect')}
-        </button>
+        <div className="flex flex-col items-end gap-1">
+          <button
+            onClick={handleDisconnect}
+            disabled={isPending}
+            className="font-mono text-xs uppercase tracking-[0.08em] hover:opacity-80 transition-opacity disabled:opacity-40"
+            style={{ color: '#ffb4ab' }}
+          >
+            {t('social.disconnect')}
+          </button>
+          {disconnectError && (
+            <p className="text-sm text-red-500 mt-1">{disconnectError}</p>
+          )}
+        </div>
       ) : (
         <a
           href={`/api/social/connect/${platform.toLowerCase()}`}
