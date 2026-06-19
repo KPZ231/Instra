@@ -723,7 +723,8 @@
             "campaigns": "Campaigns",
             "schedule": "Schedule",
             "plugins": "Plugins",
-            "settings": "Settings"
+            "settings": "Settings",
+            "social": "Social Media"
         },
         "header": {
             "search": "Search...",
@@ -827,6 +828,7 @@
         "publish": "Publish to social",
         "publishing": "Publishing…",
         "disconnect_error": "Failed to disconnect. Please try again.",
+        "connect_success": "Account connected successfully.",
         "settings": {
             "title": "Social Media Accounts"
         }

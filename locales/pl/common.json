@@ -723,7 +723,8 @@
             "campaigns": "Kampanie",
             "schedule": "Harmonogram",
             "plugins": "Pluginy",
-            "settings": "Ustawienia"
+            "settings": "Ustawienia",
+            "social": "Social Media"
         },
         "header": {
             "search": "Szukaj...",
@@ -827,6 +828,7 @@
         "publish": "Opublikuj na social media",
         "publishing": "Publikowanie…",
         "disconnect_error": "Nie udało się rozłączyć. Spróbuj ponownie.",
+        "connect_success": "Konto zostało połączone.",
         "settings": {
             "title": "Konta Social Media"
         }

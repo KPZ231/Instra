@@ -1,6 +1,8 @@
-import { getTranslations } from 'next-intl/server'
-import { getConnectedAccounts } from '@/lib/api/socialAccounts'
-import { verifySession } from '@/lib/auth/dal'
+'use client'
+
+import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { useSearchParams } from 'next/navigation'
 import { SocialConnectCard } from '@/components/ui/SocialConnectCard'
 import type { SocialPlatform, ConnectedAccount } from '@/lib/social/types'
 
@@ -22,15 +24,20 @@ function safeDecodeURIComponent(value: string): string {
 /**
  * Social accounts settings page — connect/disconnect Facebook, Instagram, LinkedIn.
  */
-export default async function SocialSettingsPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ success?: string; error?: string }>
-}) {
-  const { success, error } = await searchParams
-  const t = await getTranslations('social')
-  const { user } = await verifySession()
-  const accounts = await getConnectedAccounts(user.id)
+export default function SocialSettingsPage() {
+  const { t } = useTranslation('common')
+  const searchParams = useSearchParams()
+  const success = searchParams.get('success')
+  const error = searchParams.get('error')
+
+  const [accounts, setAccounts] = useState<ConnectedAccount[]>([])
+
+  useEffect(() => {
+    fetch('/api/social/accounts')
+      .then((r) => r.json())
+      .then((data) => setAccounts(data.accounts ?? []))
+      .catch(() => {})
+  }, [])
 
   const accountMap = Object.fromEntries(
     accounts.map((a) => [a.platform, a]),
@@ -42,7 +49,7 @@ export default async function SocialSettingsPage({
         className="font-mono text-lg font-bold uppercase tracking-[0.1em]"
         style={{ color: 'var(--color-on-surface)' }}
       >
-        {t('settings.title')}
+        {t('social.settings.title')}
       </h1>
 
       {success && (
@@ -50,7 +57,7 @@ export default async function SocialSettingsPage({
           className="font-mono text-xs p-3 rounded"
           style={{ background: 'var(--color-surface-container)', color: 'var(--color-primary)' }}
         >
-          Account connected successfully.
+          {t('social.connect_success')}
         </p>
       )}
       {error && (

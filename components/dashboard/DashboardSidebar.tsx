@@ -11,6 +11,7 @@ import {
   Settings,
   Zap,
   ShieldCheck,
+  Share2,
 } from "lucide-react";
 import { UserRole } from "@/types/auth";
 
@@ -28,6 +29,7 @@ const NAV_ITEMS: NavItem[] = [
   { href: "/dashboard/schedule", labelKey: "dashboard.nav.schedule", icon: <CalendarDays size={18} /> },
   { href: "/dashboard/plugins", labelKey: "dashboard.nav.plugins", icon: <Puzzle size={18} /> },
   { href: "/dashboard/settings", labelKey: "dashboard.nav.settings", icon: <Settings size={18} /> },
+  { href: "/dashboard/settings/social", labelKey: "dashboard.nav.social", icon: <Share2 size={18} /> },
   { href: "/dashboard/admin/plugins", labelKey: "dashboard.adminNav", icon: <ShieldCheck size={18} />, adminOnly: true },
 ];
 
