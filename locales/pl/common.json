@@ -818,6 +818,16 @@
             "manifest_label": "Manifest"
         }
     },
+    "social": {
+        "connect": "Połącz",
+        "disconnect": "Rozłącz",
+        "connected_as": "Połączono jako @{{username}}",
+        "not_connected": "Nie połączono",
+        "expires": "Wygasa",
+        "publish": "Opublikuj na social media",
+        "publishing": "Publikowanie…",
+        "settings_title": "Konta Social Media"
+    },
     "posts": {
         "like": "Lubię to",
         "unlike": "Nie lubię",

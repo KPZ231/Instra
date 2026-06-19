@@ -818,6 +818,16 @@
             "manifest_label": "Manifest"
         }
     },
+    "social": {
+        "connect": "Connect",
+        "disconnect": "Disconnect",
+        "connected_as": "Connected as @{{username}}",
+        "not_connected": "Not connected",
+        "expires": "Expires",
+        "publish": "Publish to social",
+        "publishing": "Publishing…",
+        "settings_title": "Social Media Accounts"
+    },
     "posts": {
         "like": "Like",
         "unlike": "Unlike",
