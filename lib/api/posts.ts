@@ -122,7 +122,10 @@ export async function getFeed(
           media: p.media,
           likeCount: p._count.likes,
           likedByMe: currentUserId ? (p.likes as { id: string }[]).length > 0 : false,
-          socialStatuses: currentUserId ? (p.socialStatuses as { platform: string; status: string; error: string | null }[]) : [],
+          socialStatuses:
+            currentUserId && currentUserId === p.author.id
+              ? (p.socialStatuses as { platform: string; status: string; error: string | null }[])
+              : [],
         })),
         nextCursor,
       }
@@ -192,7 +195,10 @@ export async function getPostsByUsername(
           media: p.media,
           likeCount: p._count.likes,
           likedByMe: currentUserId ? (p.likes as { id: string }[]).length > 0 : false,
-          socialStatuses: currentUserId ? (p.socialStatuses as { platform: string; status: string; error: string | null }[]) : [],
+          socialStatuses:
+            currentUserId && currentUserId === p.author.id
+              ? (p.socialStatuses as { platform: string; status: string; error: string | null }[])
+              : [],
         })),
         nextCursor,
       }
@@ -241,6 +247,9 @@ export async function getPostById(id: string): Promise<FeedPost | null> {
     media: p.media,
     likeCount: p._count.likes,
     likedByMe: currentUserId ? (p.likes as { id: string }[]).length > 0 : false,
-    socialStatuses: currentUserId ? (p.socialStatuses as { platform: string; status: string; error: string | null }[]) : [],
+    socialStatuses:
+      currentUserId && currentUserId === p.author.id
+        ? (p.socialStatuses as { platform: string; status: string; error: string | null }[])
+        : [],
   }
 }
