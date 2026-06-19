@@ -34,8 +34,18 @@ export function SocialConnectCard({ platform, account }: SocialConnectCardProps)
   const label = PLATFORM_LABELS[platform]
 
   async function handleDisconnect() {
-    await fetch(`/api/social/disconnect/${platform.toLowerCase()}`, { method: 'DELETE' })
-    startTransition(() => router.refresh())
+    try {
+      const res = await fetch(`/api/social/disconnect/${platform.toLowerCase()}`, {
+        method: 'DELETE',
+      })
+      if (!res.ok) {
+        console.error('Disconnect failed:', res.status)
+        return
+      }
+      startTransition(() => router.refresh())
+    } catch (err) {
+      console.error('Disconnect error:', err)
+    }
   }
 
   return (

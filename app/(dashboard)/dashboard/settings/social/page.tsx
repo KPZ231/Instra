@@ -6,6 +6,19 @@ import type { SocialPlatform, ConnectedAccount } from '@/lib/social/types'
 const PLATFORMS: SocialPlatform[] = ['FACEBOOK', 'INSTAGRAM', 'LINKEDIN']
 
 /**
+ * Safely decodes a URI component string, returning the original value if decoding fails.
+ * @param value - The value to decode
+ * @returns Decoded string, or original value if decoding fails
+ */
+function safeDecodeURIComponent(value: string): string {
+  try {
+    return decodeURIComponent(value)
+  } catch {
+    return value
+  }
+}
+
+/**
  * Social accounts settings page — connect/disconnect Facebook, Instagram, LinkedIn.
  */
 export default async function SocialSettingsPage({
@@ -26,6 +39,7 @@ export default async function SocialSettingsPage({
         className="font-mono text-lg font-bold uppercase tracking-[0.1em]"
         style={{ color: 'var(--color-on-surface)' }}
       >
+        {/* TODO: Task 13 — replace with t('social.settings.title') after i18n keys are added */}
         Social Media
       </h1>
 
@@ -42,7 +56,7 @@ export default async function SocialSettingsPage({
           className="font-mono text-xs p-3 rounded"
           style={{ background: 'var(--color-surface-container)', color: '#ffb4ab' }}
         >
-          {decodeURIComponent(searchParams.error)}
+          {safeDecodeURIComponent(searchParams.error)}
         </p>
       )}
 
