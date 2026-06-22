@@ -166,7 +166,7 @@ export function DayPanel({ date, items, posts, onClose }: DayPanelProps) {
                 className="font-mono text-[10px] tracking-[0.12em] uppercase mb-0.5"
                 style={{ color: 'var(--color-on-surface-variant)' }}
               >
-                // DAY
+                {'// DAY'}
               </p>
               <h2
                 className="font-sans text-sm font-semibold"

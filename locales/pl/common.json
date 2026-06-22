@@ -5,6 +5,7 @@
         "features": "Funkcje",
         "usecases": "Zastosowania",
         "docs": "Dokumentacja",
+        "download": "Pobierz",
         "singup": "Zarejestruj się",
         "singin": "Zaloguj się",
         "dashboard": "Panel",
@@ -546,6 +547,103 @@
             "label": "Szybsza Publikacja"
         }
     },
+    "downloadHeader": {
+        "label": "// POBIERZ INSTRE LOKALNIE",
+        "heading": "Zbuduj własną instancję\nInstra",
+        "description": "Wszystko, czego potrzebuje Twój zespół marketingowy — treści AI, harmonogramowanie, analityka i otwarty system pluginów — w jednej platformie."
+    },
+    "download": {
+        "badge": "// NARZĘDZIA",
+        "heading": "Dwa sposoby uruchomienia\nInstra lokalnie",
+        "cli": {
+            "label": "// CLI",
+            "name": "Instra CLI",
+            "version": "v1.0.0",
+            "description": "W pełni funkcjonalny interfejs wiersza poleceń do automatyzacji kampanii, synchronizacji kont społecznościowych i skryptowania przepływów marketingowych. Działa wszędzie tam, gdzie Node.js.",
+            "copyButton": "Skopiuj polecenie instalacji",
+            "copyAriaLabel": "Skopiuj polecenie npm install do schowka",
+            "npmButton": "Zobacz na npm",
+            "npmAriaLabel": "Zobacz @instra/cli na npm (otwiera nową kartę)"
+        },
+        "agent": {
+            "label": "// DESKTOP",
+            "name": "Instra Desktop Agent",
+            "version": "Najnowsze wydanie",
+            "description": "Natywny klient desktopowy utrzymujący instancję Instra w tle — obsługuje zaplanowane posty, monitoruje analitykę i wyświetla powiadomienia bez konieczności otwierania przeglądarki.",
+            "downloadButton": "Pobierz Desktop Agenta",
+            "downloadAriaLabel": "Pobierz najnowsze wydanie Instra Desktop Agent z GitHub",
+            "githubButton": "Zobacz na GitHub",
+            "githubAriaLabel": "Zobacz Instra Desktop Agent na GitHub (otwiera nową kartę)"
+        }
+    },
+    "installGuide": {
+        "badge": "// INSTALACJA",
+        "heading": "Uruchom w\nkilka minut",
+        "tabs": {
+            "macos": "macOS",
+            "windows": "Windows",
+            "linux": "Linux"
+        },
+        "copy": "Kopiuj",
+        "copied": "Skopiowano!",
+        "macos": {
+            "steps": [
+                {
+                    "title": "Zainstaluj Node.js (jeśli potrzebne)",
+                    "command": "brew install node",
+                    "description": "Wymaga Node.js 18+. Użyj Homebrew lub pobierz z nodejs.org."
+                },
+                {
+                    "title": "Zainstaluj Instra CLI",
+                    "command": "npm install -g @instra/cli",
+                    "description": "Instaluje CLI globalnie. Uruchom instra --version, aby potwierdzić."
+                },
+                {
+                    "title": "Pobierz Desktop Agenta",
+                    "command": "open Instra-Desktop-Agent.dmg",
+                    "description": "Pobierz .dmg z GitHub Releases, otwórz i przeciągnij Instra do folderu Aplikacje."
+                }
+            ]
+        },
+        "windows": {
+            "steps": [
+                {
+                    "title": "Zainstaluj Node.js (jeśli potrzebne)",
+                    "command": "winget install OpenJS.NodeJS.LTS",
+                    "description": "Wymaga Node.js 18+. Użyj winget lub pobierz instalator z nodejs.org."
+                },
+                {
+                    "title": "Zainstaluj Instra CLI",
+                    "command": "npm install -g @instra/cli",
+                    "description": "Instaluje CLI globalnie. Uruchom instra --version w nowym terminalu, aby potwierdzić."
+                },
+                {
+                    "title": "Pobierz Desktop Agenta",
+                    "command": "Start-Process Instra-Desktop-Agent-Setup.exe",
+                    "description": "Pobierz instalator .exe z GitHub Releases i uruchom go."
+                }
+            ]
+        },
+        "linux": {
+            "steps": [
+                {
+                    "title": "Zainstaluj Node.js (jeśli potrzebne)",
+                    "command": "curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - && sudo apt-get install -y nodejs",
+                    "description": "Wymaga Node.js 18+. Użyj menedżera pakietów dystrybucji lub instalatora NodeSource."
+                },
+                {
+                    "title": "Zainstaluj Instra CLI",
+                    "command": "npm install -g @instra/cli",
+                    "description": "Instaluje CLI globalnie. Uruchom instra --version, aby potwierdzić."
+                },
+                {
+                    "title": "Pobierz Desktop Agenta",
+                    "command": "chmod +x Instra-Desktop-Agent.AppImage && ./Instra-Desktop-Agent.AppImage",
+                    "description": "Pobierz .AppImage z GitHub Releases, nadaj uprawnienia wykonywania i uruchom."
+                }
+            ]
+        }
+    },
     "openSourcePlugins": {
         "label": "// OPEN SOURCE",
         "heading": "Zbuduj własny\nplugin",
@@ -728,6 +826,12 @@
             "search": "Szukaj...",
             "notifications": "Powiadomienia"
         },
+        "notifications": {
+            "title": "Powiadomienia",
+            "empty": "Wszystko przeczytane",
+            "markAllRead": "Oznacz wszystkie",
+            "unreadAria": "{{count}} nieprzeczytane powiadomienia"
+        },
         "overview": {
             "label": "// PRZEGLĄD",
             "heading": "Dzień dobry"
@@ -883,6 +987,15 @@
             "confirm_label": "Wpisz swoją nazwę użytkownika, aby potwierdzić",
             "confirm_placeholder": "twoja-nazwa",
             "confirm_action": "Trwale usuń konto"
+        },
+        "notifications": {
+            "title": "Preferencje powiadomień",
+            "muteLabel": "Wycisz powiadomienia",
+            "muteHelper": "Nowe powiadomienia nie będą pojawiać się w dzwonku.",
+            "emailLabel": "Powiadomienia e-mail",
+            "emailHelper": "Otrzymuj e-maile o ważnych zdarzeniach, takich jak ukończone kampanie i połączone konta.",
+            "save": "Zapisz preferencje",
+            "saved": "Zapisano!"
         }
     },
     "posts": {

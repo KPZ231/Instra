@@ -2,6 +2,8 @@ import { verifySession } from "@/lib/auth/dal";
 import DashboardSidebar from "@/components/dashboard/DashboardSidebar";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
 import Image from "next/image";
+import Link from "next/link";
+import { PenLine } from "lucide-react";
 
 /**
  * Dashboard shell — server component.
@@ -21,14 +23,20 @@ export default async function DashboardLayout({ children }: { children: React.Re
           borderColor: "rgba(255,255,255,0.06)",
         }}
       >
+        <Link
+          href={"/"}
+          title="Home"
+        >
         {/* Logo */}
         <Image
           className="shrink-0 select-none"
-          src="/images/logos/logo_white_No_Subtitle_Transparent_Wide.png"
+          src={"/images/logos/logo_white_No_Subtitle_Transparent_Wide.png"}
           alt="Logo"
-          width={120}
-          height={32}
+          width={160}
+          height={40}
         />
+        </Link>
+        
 
         {/* Pill nav — centred, takes all remaining space */}
         <div className="flex flex-1 justify-center min-w-0">
@@ -40,11 +48,22 @@ export default async function DashboardLayout({ children }: { children: React.Re
       </header>
 
       {/* ── Main content ── */}
-      <main className="flex-1 overflow-y-auto">
-        <div className="mx-auto w-full max-w-5xl px-6 py-8 lg:px-10 lg:py-10">
-          {children}
-        </div>
-      </main>
+      <main className="flex-1 overflow-y-auto p-6 lg:p-8">{children}</main>
+
+      {/* ── FAB: new post ── */}
+      <Link
+        href="/dashboard/posts/new"
+        aria-label="Create new post"
+        className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full shadow-lg transition-transform hover:scale-105 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+        style={{
+          background: "var(--color-primary)",
+          color: "var(--color-on-primary)",
+          boxShadow: "0 4px 24px rgba(0,0,0,0.5)",
+          ["--tw-outline-color" as string]: "var(--color-primary)",
+        }}
+      >
+        <PenLine size={22} aria-hidden="true" />
+      </Link>
     </div>
   );
 }

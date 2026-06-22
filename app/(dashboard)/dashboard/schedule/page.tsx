@@ -56,7 +56,7 @@ export default async function SchedulePage({ searchParams }: SchedulePageProps) 
           className="font-mono text-xs tracking-[0.12em] uppercase mb-1"
           style={{ color: 'var(--color-on-surface-variant)' }}
         >
-          // SCHEDULE
+          {'// SCHEDULE'}
         </p>
         <h1
           className="font-sans text-2xl font-semibold"

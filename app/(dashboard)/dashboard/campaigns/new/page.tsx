@@ -43,7 +43,7 @@ export default async function NewCampaignPage() {
           className="font-mono text-xs tracking-[0.12em] uppercase mb-1"
           style={{ color: 'var(--color-on-surface-variant)' }}
         >
-          // NEW CAMPAIGN
+          {'// NEW CAMPAIGN'}
         </p>
         <h1 className="font-sans text-2xl font-semibold" style={{ color: 'var(--color-primary)' }}>
           New Campaign
@@ -69,7 +69,7 @@ export default async function NewCampaignPage() {
             className="font-mono text-[10px] uppercase tracking-[0.12em] mb-4"
             style={{ color: 'var(--color-on-surface-variant)' }}
           >
-            // HOW IT WORKS
+            {'// HOW IT WORKS'}
           </p>
 
           {HOW_IT_WORKS.map(({ icon: Icon, title, body }) => (

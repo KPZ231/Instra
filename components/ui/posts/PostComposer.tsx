@@ -1,6 +1,7 @@
 'use client'
 
 import { useActionState, useEffect, useRef, useState } from 'react'
+import { PenLine } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { useTranslation } from 'react-i18next'
 import { Textarea } from '@/components/ui/Textarea'
@@ -80,7 +81,6 @@ export function PostComposer({ mode, existingPost }: PostComposerProps) {
     if (state.success) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setContent('')
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setNewFiles([])
       setPlatforms([])
       setPlatformData({})
@@ -173,14 +173,21 @@ export function PostComposer({ mode, existingPost }: PostComposerProps) {
         <button
           type="button"
           onClick={() => setExpanded(true)}
-          className="w-full text-left px-4 py-3 rounded-sm border font-mono text-sm transition-opacity hover:opacity-80"
+          className="w-full text-left px-4 py-3 rounded-sm border font-mono text-sm transition-all hover:border-white/20 hover:bg-white/[0.03] flex items-center justify-between gap-3 group"
           style={{
             background: 'var(--color-surface-container-lowest)',
-            borderColor: 'rgba(255,255,255,0.1)',
+            borderColor: 'rgba(255,255,255,0.12)',
             color: 'var(--color-outline)',
           }}
         >
-          {t('posts.composer.placeholder')}
+          <span className="truncate">{t('posts.composer.placeholder')}</span>
+          <span
+            className="shrink-0 flex items-center justify-center w-7 h-7 rounded-sm opacity-70 group-hover:opacity-100 transition-opacity"
+            style={{ background: 'var(--color-primary)', color: 'var(--color-on-primary)' }}
+            aria-hidden="true"
+          >
+            <PenLine size={13} />
+          </span>
         </button>
       )}
 

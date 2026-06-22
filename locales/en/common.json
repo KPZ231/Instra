@@ -5,6 +5,7 @@
         "features": "Features",
         "usecases": "Use Cases",
         "docs": "Docs",
+        "download": "Download",
         "singup": "Sign Up",
         "singin": "Sign In",
         "dashboard": "Dashboard",
@@ -546,6 +547,103 @@
             "label": "Faster Publishing"
         }
     },
+    "downloadHeader": {
+        "label": "// DOWNLOAD INSTRA LOCALLY",
+        "heading": "Build your own\nInstra instance",
+        "description": "Everything your marketing team needs — AI content, scheduling, analytics, and an open plugin layer — unified in a single platform."
+    },
+    "download": {
+        "badge": "// TOOLS",
+        "heading": "Two ways to run\nInstra locally",
+        "cli": {
+            "label": "// CLI",
+            "name": "Instra CLI",
+            "version": "v1.0.0",
+            "description": "A full-featured command-line interface for automating campaigns, syncing social accounts, and scripting your marketing workflows. Runs anywhere Node.js does.",
+            "copyButton": "Copy install command",
+            "copyAriaLabel": "Copy npm install command to clipboard",
+            "npmButton": "View on npm",
+            "npmAriaLabel": "View @instra/cli on npm (opens in new tab)"
+        },
+        "agent": {
+            "label": "// DESKTOP",
+            "name": "Instra Desktop Agent",
+            "version": "Latest release",
+            "description": "A native desktop companion that keeps your Instra instance running in the background — handles scheduled posts, watches analytics, and surfaces notifications without a browser.",
+            "downloadButton": "Download Desktop Agent",
+            "downloadAriaLabel": "Download latest Instra Desktop Agent release from GitHub",
+            "githubButton": "View on GitHub",
+            "githubAriaLabel": "View Instra Desktop Agent on GitHub (opens in new tab)"
+        }
+    },
+    "installGuide": {
+        "badge": "// INSTALLATION",
+        "heading": "Get up and running\nin minutes",
+        "tabs": {
+            "macos": "macOS",
+            "windows": "Windows",
+            "linux": "Linux"
+        },
+        "copy": "Copy",
+        "copied": "Copied!",
+        "macos": {
+            "steps": [
+                {
+                    "title": "Install Node.js (if needed)",
+                    "command": "brew install node",
+                    "description": "Requires Node.js 18+. Use Homebrew or download from nodejs.org."
+                },
+                {
+                    "title": "Install Instra CLI",
+                    "command": "npm install -g @instra/cli",
+                    "description": "Installs the CLI globally. Run instra --version to confirm."
+                },
+                {
+                    "title": "Download Desktop Agent",
+                    "command": "open Instra-Desktop-Agent.dmg",
+                    "description": "Download the .dmg from GitHub Releases, open it, and drag Instra to Applications."
+                }
+            ]
+        },
+        "windows": {
+            "steps": [
+                {
+                    "title": "Install Node.js (if needed)",
+                    "command": "winget install OpenJS.NodeJS.LTS",
+                    "description": "Requires Node.js 18+. Use winget or download the installer from nodejs.org."
+                },
+                {
+                    "title": "Install Instra CLI",
+                    "command": "npm install -g @instra/cli",
+                    "description": "Installs the CLI globally. Run instra --version in a new terminal to confirm."
+                },
+                {
+                    "title": "Download Desktop Agent",
+                    "command": "Start-Process Instra-Desktop-Agent-Setup.exe",
+                    "description": "Download the .exe installer from GitHub Releases and run it."
+                }
+            ]
+        },
+        "linux": {
+            "steps": [
+                {
+                    "title": "Install Node.js (if needed)",
+                    "command": "curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - && sudo apt-get install -y nodejs",
+                    "description": "Requires Node.js 18+. Use your distro's package manager or the NodeSource installer."
+                },
+                {
+                    "title": "Install Instra CLI",
+                    "command": "npm install -g @instra/cli",
+                    "description": "Installs the CLI globally. Run instra --version to confirm."
+                },
+                {
+                    "title": "Download Desktop Agent",
+                    "command": "chmod +x Instra-Desktop-Agent.AppImage && ./Instra-Desktop-Agent.AppImage",
+                    "description": "Download the .AppImage from GitHub Releases, make it executable, and run it."
+                }
+            ]
+        }
+    },
     "openSourcePlugins": {
         "label": "// OPEN SOURCE",
         "heading": "Build your own\nplugin",
@@ -728,6 +826,12 @@
             "search": "Search...",
             "notifications": "Notifications"
         },
+        "notifications": {
+            "title": "Notifications",
+            "empty": "You're all caught up",
+            "markAllRead": "Mark all read",
+            "unreadAria": "{{count}} unread notifications"
+        },
         "overview": {
             "label": "// OVERVIEW",
             "heading": "Good morning"
@@ -883,6 +987,15 @@
             "confirm_label": "Type your username to confirm",
             "confirm_placeholder": "your-username",
             "confirm_action": "Permanently delete account"
+        },
+        "notifications": {
+            "title": "Notification Preferences",
+            "muteLabel": "Mute in-app notifications",
+            "muteHelper": "No new notifications will appear in the bell dropdown.",
+            "emailLabel": "Email notifications",
+            "emailHelper": "Receive email alerts for important events like completed campaigns and connected accounts.",
+            "save": "Save preferences",
+            "saved": "Saved!"
         }
     },
     "posts": {

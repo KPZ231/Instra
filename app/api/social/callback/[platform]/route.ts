@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { auth } from '@/lib/auth/config'
 import { encrypt } from '@/lib/social/crypto'
 import { upsertSocialAccount } from '@/lib/api/socialAccounts'
+import { createNotification } from '@/lib/api/notifications'
 import type { SocialPlatform } from '@/lib/social/types'
 
 const PLATFORM_MAP: Record<string, SocialPlatform> = {
@@ -55,6 +56,15 @@ export async function GET(
     response.cookies.delete('social_oauth_state')
     return response
   }
+
+  // ponytail: best-effort, fire and forget
+  void createNotification({
+    userId: session.user.id,
+    type: 'SOCIAL_CONNECTED',
+    title: 'Account connected',
+    message: `Your ${socialPlatform.toLowerCase()} account has been connected successfully.`,
+    link: '/dashboard/settings/social',
+  })
 
   const response = NextResponse.redirect(
     new URL('/dashboard/settings/social?success=true', req.url),

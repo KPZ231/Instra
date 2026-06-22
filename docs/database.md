@@ -162,6 +162,49 @@ await prisma.post.delete({ where: { id: postId } })
 - Cache is invalidated after mutations (createPost, updatePost, deletePost, toggleLike)
 - See `docs/cache.md` for details
 
+---
+
+### Notification
+In-app notifications for users. Created by `createNotification()` in `lib/api/notifications.ts`.
+
+**Fields:**
+- `id` (String, PK): Unique notification identifier (CUID)
+- `userId` (String, FK): Owner user ID
+- `type` (NotificationType enum): Event type (see enum below)
+- `title` (String): Short notification heading
+- `message` (String, Text): Full notification body
+- `link` (String, nullable): Optional deep-link URL for CTA
+- `read` (Boolean): Whether the user has read the notification (default: false)
+- `readAt` (DateTime, nullable): Timestamp when marked read
+- `createdAt` (DateTime): Creation timestamp
+
+**NotificationType enum values:**
+- `CAMPAIGN_COMPLETED` — all scheduled runs of a campaign finished
+- `CAMPAIGN_FAILED` — a campaign publish-post run failed
+- `WEBHOOK_FAILED` — a campaign webhook run failed
+- `POST_PUBLISHED` — a social post was successfully published
+- `POST_FAILED` — a social post failed to publish
+- `SOCIAL_CONNECTED` — a social account was connected via OAuth
+- `SOCIAL_DISCONNECTED` — a social account was disconnected
+
+**Relations:**
+- `user` → User (many-to-one, required; cascade delete)
+
+**Indexes:**
+- `(userId, read)` — for fetching unread count
+- `(userId, createdAt)` — for listing newest-first per user
+
+---
+
+### User — new notification fields
+
+Two fields were added to the `User` model:
+
+- `notificationsMuted` (Boolean, default: false) — when `true`, no in-app notifications are written for this user
+- `emailNotificationsEnabled` (Boolean, default: true) — when `true`, eligible notification types (campaigns + social) also send an email
+
+---
+
 ## Relations Diagram
 
 ```

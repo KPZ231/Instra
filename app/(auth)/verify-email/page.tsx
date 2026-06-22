@@ -56,7 +56,6 @@ function VerifyEmailForm() {
     return () => {
       if (cooldownRef.current) clearInterval(cooldownRef.current)
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {

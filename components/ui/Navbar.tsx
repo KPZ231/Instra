@@ -38,6 +38,7 @@ export default function Navbar() {
     { name: t("nav.usecases"), href: "/usecase" },
     { name: t("nav.docs"), href: "/docs" },
     { name: t("nav.plugins"), href: "/plugins" },
+    { name: t("nav.download"), href:"/download"}
   ];
 
   useMotionValueEvent(scrollY, "change", (current) => {

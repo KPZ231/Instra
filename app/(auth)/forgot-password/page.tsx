@@ -40,6 +40,7 @@ export default function ForgotPasswordPage() {
     reValidateMode: 'onChange',
   })
 
+  // eslint-disable-next-line react-hooks/incompatible-library
   const emailValue = watch('email', '')
 
   useEffect(() => {

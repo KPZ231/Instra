@@ -23,7 +23,8 @@ export const RATE_LIMIT_PRESETS = {
   socialConnect:   { limit: 5,  window: '15 m' },
   changeUsername:  { limit: 5,  window: '1 h'  },
   recordMetrics:   { limit: 60, window: '1 h'  },
-  generateCaption: { limit: 20, window: '1 h'  }, // free-model tier throttles hard
+  generateCaption:    { limit: 20, window: '1 h'  }, // free-model tier throttles hard
+  updatePreferences:  { limit: 10, window: '1 h'  },
 } satisfies Record<string, RateLimitPreset>
 
 export type RateLimitPresetKey = keyof typeof RATE_LIMIT_PRESETS

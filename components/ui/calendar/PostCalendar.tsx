@@ -181,7 +181,6 @@ export function PostCalendar({ month, items, posts }: PostCalendarProps) {
             return (
               <button
                 key={iso}
-                role="gridcell"
                 type="button"
                 onClick={() => setOpenDay(iso)}
                 aria-label={`${dayNum} — ${dayItems.length} posts`}

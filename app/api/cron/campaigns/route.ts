@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { getDueCampaigns, recordRun, advanceCampaign } from '@/lib/api/campaigns'
+import { createNotification } from '@/lib/api/notifications'
 import { runCampaignHandler } from '@/lib/campaigns/handlers'
 import { invalidatePrefix } from '@/lib/cache'
 
@@ -46,6 +47,17 @@ export async function GET(request: Request): Promise<NextResponse> {
 
       await recordRun(campaign.id, success, error)
       await advanceCampaign(campaign)
+
+      if (!success) {
+        // ponytail: best-effort notification for failed run
+        void createNotification({
+          userId: campaign.userId,
+          type: campaign.actionType === 'WEBHOOK' ? 'WEBHOOK_FAILED' : 'CAMPAIGN_FAILED',
+          title: campaign.actionType === 'WEBHOOK' ? 'Webhook failed' : 'Campaign run failed',
+          message: `"${campaign.name}": ${error ?? 'Unknown error'}`,
+          link: '/dashboard/campaigns',
+        })
+      }
     }),
   )
 

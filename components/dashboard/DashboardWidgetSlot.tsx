@@ -54,7 +54,7 @@ export default async function DashboardWidgetSlot() {
         className="font-mono text-xs tracking-[0.12em] uppercase mb-3"
         style={{ color: "var(--color-on-surface-variant)" }}
       >
-        // PLUGIN SLOT
+        {'// PLUGIN SLOT'}
       </p>
       <PluginErrorBoundary>
         <BlockRenderer blocks={blocks} />

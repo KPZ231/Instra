@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { MAX_POST_MEDIA } from '@/features/posts/validation'
 
@@ -24,20 +24,13 @@ interface MediaUploadPreviewProps {
  * <MediaUploadPreview files={selectedFiles} onRemove={(i) => removeFile(i)} />
  */
 export function MediaUploadPreview({ files, onRemove }: MediaUploadPreviewProps) {
-  const urlsRef = useRef<string[]>([])
+  const [urls, setUrls] = useState<string[]>([])
 
-  // Create object URLs for current files, revoke old ones on change
   useEffect(() => {
-    // Revoke any previously created URLs
-    urlsRef.current.forEach((url) => URL.revokeObjectURL(url))
-    // Create fresh URLs for the current file list
-    urlsRef.current = files.map((file) => URL.createObjectURL(file))
-
-    return () => {
-      // Revoke on unmount or before next effect run
-      urlsRef.current.forEach((url) => URL.revokeObjectURL(url))
-      urlsRef.current = []
-    }
+    const newUrls = files.map((file) => URL.createObjectURL(file))
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setUrls(newUrls)
+    return () => newUrls.forEach((url) => URL.revokeObjectURL(url))
   }, [files])
 
   if (files.length === 0) return null
@@ -47,8 +40,7 @@ export function MediaUploadPreview({ files, onRemove }: MediaUploadPreviewProps)
   return (
     <div className="grid grid-cols-3 gap-2" role="list" aria-label="Selected media previews">
       {displayFiles.map((file, i) => {
-        // eslint-disable-next-line react-hooks/refs
-        const url = urlsRef.current[i] ?? ''
+        const url = urls[i] ?? ''
         return (
           <div
             key={`${file.name}-${file.lastModified}-${i}`}

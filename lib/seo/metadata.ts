@@ -135,6 +135,23 @@ export const pageMetadata = {
     },
   },
 
+  download: {
+    slug: "download",
+    title: `Download Instra — CLI & Desktop Agent`,
+    description:
+      "Download Instra CLI and Desktop Agent. Install the npm package globally or grab the latest desktop release for macOS, Windows, and Linux.",
+    openGraph: {
+      title: "Download Instra — CLI & Desktop Agent",
+      description:
+        "Install Instra CLI via npm or download the Desktop Agent for macOS, Windows, and Linux.",
+    },
+    twitter: {
+      title: "Download Instra — CLI & Desktop Agent",
+      description:
+        "Install Instra CLI via npm or download the Desktop Agent for macOS, Windows, and Linux.",
+    },
+  },
+
   docs: {
     slug: "docs",
     title: `Instra Documentation — Technical Reference`,

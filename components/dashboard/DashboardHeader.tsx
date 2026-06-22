@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
-import { Bell } from "lucide-react";
+import NotificationsBell from "@/components/ui/NotificationsBell";
 import { signOut } from "next-auth/react";
 import { motion } from "framer-motion";
 import Button from "@/components/ui/Button";
@@ -54,21 +54,7 @@ export default function DashboardHeader({ user }: DashboardHeaderProps) {
     <div className="flex items-center gap-3 shrink-0">
       
       {/* Notifications */}
-      <button
-        aria-label={t("dashboard.header.notifications")}
-        className="relative flex items-center justify-center w-9 h-9 min-w-[44px] min-h-[44px] rounded-full border transition-colors hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30"
-        style={{
-          background: "var(--color-surface-container-low)",
-          borderColor: "rgba(255,255,255,0.08)",
-        }}
-      >
-        <Bell size={16} style={{ color: "var(--color-on-surface-variant)" }} />
-        <span
-          aria-hidden="true"
-          className="absolute top-1.5 right-1.5 w-1.5 h-1.5 rounded-full"
-          style={{ background: "#00FF41" }}
-        />
-      </button>
+      <NotificationsBell />
 
       {/* Avatar + dropdown */}
       <div ref={profileRef} className="relative">

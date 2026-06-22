@@ -38,9 +38,25 @@ export default async function DashboardPage() {
       <DashboardOverview metrics={metrics} />
 
       {/* Inline composer */}
-      <Card className="p-4">
-        <PostComposer mode="inline" />
-      </Card>
+      <div className="space-y-2">
+        <p
+          className="font-mono text-[10px] uppercase tracking-[0.1em] flex items-center gap-2"
+          style={{ color: 'var(--color-on-surface-variant)' }}
+        >
+          <span
+            className="inline-block w-1.5 h-1.5 rounded-full"
+            style={{ background: 'var(--color-primary)' }}
+            aria-hidden="true"
+          />
+          New Post
+        </p>
+        <Card
+          className="p-4 ring-1 transition-shadow hover:ring-white/10"
+          style={{ ['--tw-ring-color' as string]: 'rgba(255,255,255,0.06)' }}
+        >
+          <PostComposer mode="inline" />
+        </Card>
+      </div>
 
       {/* Feed */}
       <PostFeed

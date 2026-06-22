@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { auth } from '@/lib/auth/config'
 import { deleteSocialAccount } from '@/lib/api/socialAccounts'
+import { createNotification } from '@/lib/api/notifications'
 import type { SocialPlatform } from '@/lib/social/types'
 
 const PLATFORM_MAP: Record<string, SocialPlatform> = {
@@ -29,6 +30,15 @@ export async function DELETE(
 
   try {
     await deleteSocialAccount(session.user.id, platform)
+
+    void createNotification({
+      userId: session.user.id,
+      type: 'SOCIAL_DISCONNECTED',
+      title: 'Account disconnected',
+      message: `Your ${platform.toLowerCase()} account has been disconnected.`,
+      link: '/dashboard/settings/social',
+    })
+
     return NextResponse.json({ success: true })
   } catch (error) {
     if (error instanceof Error && error.message.includes('Record to delete does not exist')) {

@@ -104,6 +104,7 @@ export default function SignUpPage() {
     defaultValues: { terms: false, password: '', confirmPassword: '' },
   })
 
+  // eslint-disable-next-line react-hooks/incompatible-library
   const termsChecked = watch('terms') === true
 
   /** Show only _form-level server errors as toasts; field errors shown inline. */

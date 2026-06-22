@@ -4,6 +4,7 @@ import { MAX_USERNAME_CHANGES_PER_YEAR } from '@/features/users/validation'
 import { ChangeUsernameForm } from '@/components/ui/account/ChangeUsernameForm'
 import { ExportAccountData } from '@/components/ui/account/ExportAccountData'
 import { DeleteAccountSection } from '@/components/ui/account/DeleteAccountSection'
+import { NotificationPreferences } from '@/components/ui/account/NotificationPreferences'
 
 /**
  * Account settings page — allows the user to change their username,
@@ -37,6 +38,16 @@ export default async function AccountSettingsPage() {
       <ChangeUsernameForm
         initialUsername={user.username ?? null}
         initialRemaining={remaining}
+      />
+
+      <div
+        className="border-t"
+        style={{ borderColor: 'rgba(255,255,255,0.08)' }}
+      />
+
+      <NotificationPreferences
+        initialMuted={user.notificationsMuted}
+        initialEmailEnabled={user.emailNotificationsEnabled}
       />
 
       <div

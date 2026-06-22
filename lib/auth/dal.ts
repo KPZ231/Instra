@@ -38,6 +38,8 @@ export const getCurrentUser = cache(async () => {
       image: true,
       role: true,
       createdAt: true,
+      notificationsMuted: true,
+      emailNotificationsEnabled: true,
     },
   })
 })

@@ -1,6 +1,7 @@
 import 'server-only'
 
 import { prisma } from '@/lib/prisma'
+import { createNotification } from '@/lib/api/notifications'
 import { decrypt } from './crypto'
 import { publishToFacebook, publishToInstagram } from './meta'
 import { publishToLinkedIn } from './linkedin'
@@ -66,6 +67,14 @@ export async function publishPost(postId: string, userId: string): Promise<Publi
           update: { status: 'PUBLISHED', platformPostId, publishedAt: new Date(), error: null },
         })
 
+        void createNotification({
+          userId,
+          type: 'POST_PUBLISHED',
+          title: 'Post published',
+          message: `Your post was successfully published to ${platform.toLowerCase()}.`,
+          link: `/dashboard`,
+        })
+
         return { platform, success: true, platformPostId }
       } catch (error) {
         const message = error instanceof Error ? error.message : 'Unknown error'
@@ -74,6 +83,14 @@ export async function publishPost(postId: string, userId: string): Promise<Publi
           create: { postId, platform, status: 'FAILED', error: message },
           update: { status: 'FAILED', error: message, platformPostId: null, publishedAt: null },
         })
+
+        void createNotification({
+          userId,
+          type: 'POST_FAILED',
+          title: 'Post failed to publish',
+          message: `Could not publish to ${platform.toLowerCase()}: ${message}`,
+        })
+
         return { platform, success: false, error: message }
       }
     }),

@@ -43,7 +43,6 @@ export function PostFeed({
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setPosts(initialPosts)
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setNextCursor(initialNextCursor)
   }, [initialPosts, initialNextCursor])
 

@@ -36,7 +36,7 @@ export default async function CampaignsPage() {
             className="font-mono text-xs tracking-[0.12em] uppercase mb-1"
             style={{ color: 'var(--color-on-surface-variant)' }}
           >
-            // CAMPAIGNS
+            {'// CAMPAIGNS'}
           </p>
           <h1
             className="font-sans text-2xl font-semibold"

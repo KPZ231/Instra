@@ -1,6 +1,7 @@
 import 'server-only'
 
 import { prisma } from '@/lib/prisma'
+import { createNotification } from './notifications'
 import type { Campaign, CampaignRun, CampaignStatus } from '@prisma/client'
 
 export type { Campaign, CampaignRun }
@@ -189,7 +190,7 @@ export async function advanceCampaign(campaign: Campaign): Promise<Campaign> {
   const nextRunAt = new Date(campaign.nextRunAt)
   nextRunAt.setMinutes(nextRunAt.getMinutes() + campaign.intervalMinutes)
 
-  return prisma.campaign.update({
+  const updated = await prisma.campaign.update({
     where: { id: campaign.id },
     data: {
       completedRuns,
@@ -198,4 +199,17 @@ export async function advanceCampaign(campaign: Campaign): Promise<Campaign> {
       nextRunAt: done ? campaign.nextRunAt : nextRunAt, // freeze nextRunAt when done
     },
   })
+
+  if (done) {
+    // ponytail: best-effort, createNotification never throws
+    void createNotification({
+      userId: campaign.userId,
+      type: 'CAMPAIGN_COMPLETED',
+      title: 'Campaign completed',
+      message: `"${campaign.name}" has finished all ${campaign.totalRuns} scheduled runs.`,
+      link: '/dashboard/campaigns',
+    })
+  }
+
+  return updated
 }

@@ -35,14 +35,24 @@ function isPrivateIPv4(ip: string): boolean {
   return PRIVATE_RANGES_V4.some((re) => re.test(ip))
 }
 
+function hexToDottedQuad(hex: string): string {
+  // converts "c0a80001" or "c0a8:0001" style to "192.168.0.1"
+  const clean = hex.replace(/:/g, '').padStart(8, '0')
+  return [0, 2, 4, 6].map((i) => parseInt(clean.slice(i, i + 2), 16)).join('.')
+}
+
 function isPrivateIPv6(ip: string): boolean {
-  const normalized = ip.toLowerCase()
-  return (
-    normalized === '::1' ||
-    normalized.startsWith('fe80:') ||
-    normalized.startsWith('fc') ||
-    normalized.startsWith('fd')
-  )
+  const n = ip.toLowerCase()
+  if (n === '::1' || n === '::') return true
+  // IPv4-mapped (::ffff:a.b.c.d or ::ffff:hhhh:hhhh) and IPv4-compatible (::a.b.c.d)
+  const v4mapped = n.match(/^::(?:ffff:)?([0-9a-f.:]+)$/)
+  if (v4mapped) {
+    const v4 = v4mapped[1].includes('.') ? v4mapped[1] : hexToDottedQuad(v4mapped[1])
+    return isPrivateIPv4(v4)
+  }
+  if (/^fe[89ab]/i.test(n)) return true  // fe80::/10 link-local
+  if (/^f[cd]/i.test(n)) return true     // fc00::/7 unique-local
+  return false
 }
 
 /**

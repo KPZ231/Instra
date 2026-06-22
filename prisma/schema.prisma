@@ -36,6 +36,9 @@ model User {
   socialAccounts  SocialAccount[]
   usernameChanges UsernameChange[]
   campaigns       Campaign[]
+  notifications   Notification[]
+  notificationsMuted        Boolean @default(false)
+  emailNotificationsEnabled Boolean @default(true)
 }
 
 model Account {
@@ -302,6 +305,35 @@ model UsernameChange {
   newUsername String
   createdAt   DateTime @default(now())
 
+  @@index([userId, createdAt])
+}
+
+// ─── Notifications ───────────────────────────────────────────────────────────
+
+enum NotificationType {
+  CAMPAIGN_COMPLETED
+  CAMPAIGN_FAILED
+  WEBHOOK_FAILED
+  POST_PUBLISHED
+  POST_FAILED
+  SOCIAL_CONNECTED
+  SOCIAL_DISCONNECTED
+}
+
+model Notification {
+  id        String           @id @default(cuid())
+  userId    String
+  type      NotificationType
+  title     String
+  message   String           @db.Text
+  link      String?
+  read      Boolean          @default(false)
+  readAt    DateTime?
+  createdAt DateTime         @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, read])
   @@index([userId, createdAt])
 }
 
