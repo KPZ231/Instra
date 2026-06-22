@@ -3,6 +3,7 @@ import 'server-only'
 import { prisma } from '@/lib/prisma'
 import { createNotification } from '@/lib/api/notifications'
 import { decrypt } from './crypto'
+import { ensureFreshToken } from './refresh'
 import { publishToFacebook, publishToInstagram } from './meta'
 import { publishToLinkedIn } from './linkedin'
 import type { SocialPlatform, PublishResult, SocialPostPayload } from './types'
@@ -45,15 +46,19 @@ export async function publishPost(postId: string, userId: string): Promise<Publi
           where: { userId_platform: { userId, platform } },
         })
         if (!account) throw new Error('Brak połączonego konta')
-        if (account.expiresAt && account.expiresAt < new Date()) {
-          throw new Error('Token wygasł — połącz konto ponownie')
-        }
 
-        const token = decrypt(account.accessToken)
+        // ensureFreshToken handles expiry check + lazy refresh for Meta; throws for expired LinkedIn
+        const token = await ensureFreshToken(account as Parameters<typeof ensureFreshToken>[0])
         let platformPostId: string | undefined
 
         if (platform === 'FACEBOOK') {
-          const pageToken = account.pageAccessToken ? decrypt(account.pageAccessToken) : token
+          // Re-read account to get potentially-refreshed pageAccessToken
+          const freshAccount = await prisma.socialAccount.findUnique({
+            where: { userId_platform: { userId, platform } },
+          })
+          const pageToken = freshAccount?.pageAccessToken
+            ? decrypt(freshAccount.pageAccessToken)
+            : token
           platformPostId = await publishToFacebook(account.pageId!, pageToken, payload)
         } else if (platform === 'INSTAGRAM') {
           platformPostId = await publishToInstagram(account.platformUserId, token, payload)

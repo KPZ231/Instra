@@ -13,7 +13,7 @@ const OAUTH_URLS: Record<string, string> = {
 const SCOPES: Record<string, string> = {
   facebook: 'pages_manage_posts,pages_read_engagement,instagram_basic,instagram_content_publish',
   instagram: 'pages_manage_posts,pages_read_engagement,instagram_basic,instagram_content_publish',
-  linkedin: 'w_member_social,r_liteprofile',
+  linkedin: 'openid profile w_member_social',
 }
 
 /**

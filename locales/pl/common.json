@@ -1021,9 +1021,14 @@
             "add_photo": "Dodaj zdjęcie",
             "cancel": "Anuluj",
             "publish": "Opublikuj",
+            "publish_to": "Opublikuj ({{count}})",
+            "save_draft": "Zapisz szkic",
             "publishing": "Publikowanie...",
             "save": "Zapisz",
             "success": "Post opublikowany pomyślnie.",
+            "instagram_needs_media": "Instagram wymaga co najmniej jednego zdjęcia. Dodaj zdjęcie, aby opublikować.",
+            "platform_not_connected": "{{platform}} nie jest podłączony — przejdź do ustawień kont",
+            "platform_disconnected_badge": "off",
             "ai": {
                 "generate": "Generuj",
                 "generating": "Generowanie...",
@@ -1213,6 +1218,70 @@
             "scheduled": "Post zaplanowany",
             "rescheduled": "Post przesunięty",
             "cancelled": "Zaplanowany post anulowany"
+        }
+    },
+    "reports": {
+        "page": {
+            "title": "Raporty",
+            "empty": "Brak raportów",
+            "new": "+ Nowy raport"
+        },
+        "sections": {
+            "stats": "Statystyki",
+            "chart": "Wykres zaangażowania",
+            "posts": "Najlepsze posty",
+            "prediction": "Predykcja",
+            "tip": "Wskazówka dnia"
+        },
+        "form": {
+            "name": "Nazwa raportu",
+            "name_placeholder": "np. Tygodniowy przegląd",
+            "sections": "Sekcje do uwzględnienia",
+            "interval": "Automatyczne generowanie",
+            "interval_none": "Tylko na żądanie",
+            "interval_week": "Co tydzień",
+            "interval_2weeks": "Co 2 tygodnie",
+            "interval_month": "Co miesiąc",
+            "create": "Utwórz raport",
+            "creating": "Tworzę…"
+        },
+        "row": {
+            "generate": "Generuj teraz",
+            "view": "Podgląd",
+            "pause": "Wstrzymaj",
+            "resume": "Wznów",
+            "delete": "Usuń",
+            "interval": "co {{days}} dni",
+            "on_demand": "Na żądanie",
+            "last_run": "Ostatni raport:",
+            "runs": "uruchomień",
+            "pause_na": "Wstrzymanie dotyczy tylko raportów z harmonogramem",
+            "confirm_delete": "Usunąć ten raport i całą historię? Tej operacji nie można cofnąć.",
+            "generated_ok": "Raport wygenerowany pomyślnie."
+        },
+        "status": {
+            "active": "Aktywny",
+            "paused": "Wstrzymany"
+        },
+        "view": {
+            "generated": "Wygenerowano:",
+            "chart_last30": "Ostatnie 30 punktów danych",
+            "title": "Raport",
+            "confidence": "Pewność predykcji",
+            "download": "Pobierz PDF"
+        },
+        "notification": {
+            "title": "Raport gotowy",
+            "message": "Raport \"{{name}}\" został wygenerowany."
+        },
+        "detail": {
+            "back": "← Raporty",
+            "every_days": "Co {{days}} dni",
+            "on_demand": "Na żądanie",
+            "runs_one": "{{count}} uruchomienie",
+            "runs_other": "{{count}} uruchomień",
+            "no_runs": "Brak uruchomień. Wygeneruj raport z listy raportów.",
+            "popup_blocked": "Popup zablokowany — zezwól na wyskakujące okna, aby wydrukować raport."
         }
     }
 }

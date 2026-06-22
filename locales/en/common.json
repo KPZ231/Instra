@@ -1021,9 +1021,14 @@
             "add_photo": "Add photo",
             "cancel": "Cancel",
             "publish": "Publish",
+            "publish_to": "Publish ({{count}})",
+            "save_draft": "Save draft",
             "publishing": "Publishing...",
             "save": "Save",
             "success": "Post published successfully.",
+            "instagram_needs_media": "Instagram requires at least one image. Add a photo to publish.",
+            "platform_not_connected": "{{platform}} is not connected — go to account settings",
+            "platform_disconnected_badge": "off",
             "ai": {
                 "generate": "Generate",
                 "generating": "Generating...",
@@ -1213,6 +1218,70 @@
             "scheduled": "Post scheduled",
             "rescheduled": "Post rescheduled",
             "cancelled": "Scheduled post cancelled"
+        }
+    },
+    "reports": {
+        "page": {
+            "title": "Reports",
+            "empty": "No reports yet",
+            "new": "+ New Report"
+        },
+        "sections": {
+            "stats": "Stats",
+            "chart": "Engagement Chart",
+            "posts": "Top Posts",
+            "prediction": "Prediction",
+            "tip": "Daily Tip"
+        },
+        "form": {
+            "name": "Report name",
+            "name_placeholder": "e.g. Weekly overview",
+            "sections": "Include sections",
+            "interval": "Auto-generate",
+            "interval_none": "On demand only",
+            "interval_week": "Every week",
+            "interval_2weeks": "Every 2 weeks",
+            "interval_month": "Every month",
+            "create": "Create Report",
+            "creating": "Creating…"
+        },
+        "row": {
+            "generate": "Generate now",
+            "view": "View",
+            "pause": "Pause",
+            "resume": "Resume",
+            "delete": "Delete",
+            "interval": "every {{days}} days",
+            "on_demand": "On demand",
+            "last_run": "Last run:",
+            "runs": "runs",
+            "pause_na": "Pause only applies to scheduled reports",
+            "confirm_delete": "Delete this report and all its runs? This cannot be undone.",
+            "generated_ok": "Report generated successfully."
+        },
+        "status": {
+            "active": "Active",
+            "paused": "Paused"
+        },
+        "view": {
+            "generated": "Generated:",
+            "chart_last30": "Last 30 data points",
+            "title": "Report",
+            "confidence": "Prediction confidence",
+            "download": "Download PDF"
+        },
+        "notification": {
+            "title": "Report ready",
+            "message": "\"{{name}}\" has been generated."
+        },
+        "detail": {
+            "back": "← Reports",
+            "every_days": "Every {{days}} days",
+            "on_demand": "On-demand",
+            "runs_one": "{{count}} run",
+            "runs_other": "{{count}} runs",
+            "no_runs": "No runs yet. Generate one from the Reports list.",
+            "popup_blocked": "Popup blocked — allow popups to print the report."
         }
     }
 }

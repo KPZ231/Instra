@@ -3,6 +3,5 @@ export interface GenerateCaptionState {
   errors?: {
     _form?: string[]
     prompt?: string[]
-    language?: string[]
   }
 }

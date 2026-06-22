@@ -4,6 +4,8 @@ import { getFeed } from '@/lib/api/posts'
 import { getCurrentUser } from '@/lib/auth/dal'
 import { getDashboardMetrics } from '@/lib/api/dashboardMetrics'
 import { PostComposer } from '@/components/ui/posts/PostComposer'
+import { getConnectedAccounts } from '@/lib/api/socialAccounts'
+import type { PlatformId } from '@/components/ui/posts/PlatformSelector'
 import { PostFeed } from '@/components/ui/posts/PostFeed'
 import { Card } from '@/components/ui/Card'
 import DashboardWidgetSlot from '@/components/dashboard/DashboardWidgetSlot'
@@ -21,7 +23,7 @@ export const metadata: Metadata = buildMetadata({
 export default async function DashboardPage() {
   const user = await getCurrentUser()
 
-  const [{ posts, nextCursor }, metrics] = await Promise.all([
+  const [{ posts, nextCursor }, metrics, connectedAccounts] = await Promise.all([
     getFeed(),
     user?.id
       ? getDashboardMetrics(user.id)
@@ -30,7 +32,10 @@ export default async function DashboardPage() {
           chartSeries: { '7D': [], '30D': [], '90D': [] },
           activity: [],
         }),
+    user?.id ? getConnectedAccounts(user.id) : Promise.resolve([]),
   ])
+
+  const connectedPlatforms = connectedAccounts.map((a) => a.platform.toLowerCase() as PlatformId)
 
   return (
     <div className="space-y-8">
@@ -54,7 +59,7 @@ export default async function DashboardPage() {
           className="p-4 ring-1 transition-shadow hover:ring-white/10"
           style={{ ['--tw-ring-color' as string]: 'rgba(255,255,255,0.06)' }}
         >
-          <PostComposer mode="inline" />
+          <PostComposer mode="inline" connectedPlatforms={connectedPlatforms} />
         </Card>
       </div>
 

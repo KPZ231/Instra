@@ -7,8 +7,6 @@ import { generateCaption } from '@/features/ai'
 interface AiCaptionButtonProps {
   /** Current content of the composer — used as the generation prompt. */
   prompt: string
-  /** i18n locale code. */
-  language: 'pl' | 'en'
   /** Called with the generated caption text on success. */
   onGenerated: (text: string) => void
 }
@@ -16,21 +14,21 @@ interface AiCaptionButtonProps {
 /**
  * Small "Generate" button that calls the generateCaption server action and
  * populates the PostComposer textarea with the result.
+ * Language is inferred automatically from the prompt content.
  *
  * @param prompt      - Current composer text (sent as the AI prompt)
- * @param language    - Active locale ('pl' | 'en')
  * @param onGenerated - Callback that receives the generated caption
  *
  * @example
- * <AiCaptionButton prompt={content} language="en" onGenerated={setContent} />
+ * <AiCaptionButton prompt={content} onGenerated={setContent} />
  */
-export function AiCaptionButton({ prompt, language, onGenerated }: AiCaptionButtonProps) {
+export function AiCaptionButton({ prompt, onGenerated }: AiCaptionButtonProps) {
   const { t } = useTranslation()
   const [isPending, startTransition] = useTransition()
 
   function handleGenerate() {
     startTransition(async () => {
-      const result = await generateCaption({}, { prompt: prompt || ' ', language })
+      const result = await generateCaption({}, { prompt: prompt || ' ' })
       if (result.text) {
         onGenerated(result.text)
       }

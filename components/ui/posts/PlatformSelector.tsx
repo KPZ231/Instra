@@ -18,23 +18,26 @@ export type PlatformId = (typeof PLATFORMS)[number]['id']
 interface PlatformSelectorProps {
   selected: PlatformId[]
   onChange: (platforms: PlatformId[]) => void
+  /** IDs of platforms the user has connected. Unconnected ones are shown grayed out. */
+  connectedPlatforms?: PlatformId[]
 }
 
 /**
  * Multi-select chip group for choosing target social platforms.
- * Each chip displays the platform's SVG icon and can be toggled independently.
+ * Unconnected platforms are disabled and shown with reduced opacity.
  *
- * @param selected - Array of currently selected platform IDs
- * @param onChange - Callback fired with the updated selection on every toggle
+ * @param selected            - Array of currently selected platform IDs
+ * @param onChange            - Callback fired with the updated selection on every toggle
+ * @param connectedPlatforms  - Which platforms the user has OAuth'd. Omit to allow all.
  *
  * @example
- * const [platforms, setPlatforms] = useState<PlatformId[]>([])
- * <PlatformSelector selected={platforms} onChange={setPlatforms} />
+ * <PlatformSelector selected={platforms} onChange={setPlatforms} connectedPlatforms={['instagram', 'facebook']} />
  */
-export function PlatformSelector({ selected, onChange }: PlatformSelectorProps) {
+export function PlatformSelector({ selected, onChange, connectedPlatforms }: PlatformSelectorProps) {
   const { t } = useTranslation()
 
   function toggle(id: PlatformId) {
+    if (connectedPlatforms && !connectedPlatforms.includes(id)) return
     onChange(
       selected.includes(id) ? selected.filter((p) => p !== id) : [...selected, id],
     )
@@ -48,38 +51,56 @@ export function PlatformSelector({ selected, onChange }: PlatformSelectorProps) 
     >
       {PLATFORMS.map(({ id, label, color }) => {
         const active = selected.includes(id)
+        const isConnected = !connectedPlatforms || connectedPlatforms.includes(id)
+        const disabled = !isConnected
+
         return (
           <button
             key={id}
             type="button"
             onClick={() => toggle(id)}
             aria-pressed={active}
+            aria-disabled={disabled}
+            title={disabled ? t('posts.composer.platform_not_connected', { platform: label }) : undefined}
             className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-full font-mono text-[10px] tracking-[0.06em] uppercase border transition-all duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-1"
             style={
-              active
+              disabled
                 ? {
-                    background: `${color}18`,
-                    borderColor: color,
-                    color: color,
-                    outlineColor: color,
-                    boxShadow: `0 0 0 1px ${color}20`,
-                  }
-                : {
                     background: 'transparent',
-                    borderColor: 'rgba(255,255,255,0.1)',
-                    color: 'var(--color-outline)',
-                    outlineColor: 'var(--color-outline)',
+                    borderColor: 'rgba(255,255,255,0.06)',
+                    color: 'rgba(255,255,255,0.2)',
+                    cursor: 'not-allowed',
+                    outlineColor: 'transparent',
                   }
+                : active
+                  ? {
+                      background: `${color}18`,
+                      borderColor: color,
+                      color: color,
+                      outlineColor: color,
+                      boxShadow: `0 0 0 1px ${color}20`,
+                    }
+                  : {
+                      background: 'transparent',
+                      borderColor: 'rgba(255,255,255,0.1)',
+                      color: 'var(--color-outline)',
+                      outlineColor: 'var(--color-outline)',
+                    }
             }
           >
             <span
               className="flex-shrink-0 transition-opacity duration-150"
-              style={{ opacity: active ? 1 : 0.45 }}
+              style={{ opacity: disabled ? 0.2 : active ? 1 : 0.45 }}
               aria-hidden="true"
             >
               <PlatformIcon id={id} size={11} />
             </span>
             {label}
+            {disabled && (
+              <span className="text-[8px] opacity-50 ml-0.5">
+                {t('posts.composer.platform_disconnected_badge')}
+              </span>
+            )}
           </button>
         )
       })}

@@ -94,14 +94,19 @@ async function handleLinkedIn(userId: string, code: string, redirectUri: string)
     }),
   })
   if (!tokenRes.ok) throw new Error('LinkedIn token exchange failed')
-  const tokenData = (await tokenRes.json()) as { access_token: string; expires_in: number }
+  const tokenData = (await tokenRes.json()) as {
+    access_token: string
+    expires_in: number
+    refresh_token?: string
+    refresh_token_expires_in?: number
+  }
 
-  // Fetch profile
-  const profileRes = await fetch('https://api.linkedin.com/v2/me?projection=(id,localizedFirstName,localizedLastName)', {
+  // Fetch profile via OpenID Connect userinfo (replaces deprecated /v2/me)
+  const profileRes = await fetch('https://api.linkedin.com/v2/userinfo', {
     headers: { Authorization: `Bearer ${tokenData.access_token}` },
   })
   if (!profileRes.ok) throw new Error('LinkedIn profile fetch failed')
-  const profile = (await profileRes.json()) as { id: string; localizedFirstName: string; localizedLastName: string }
+  const profile = (await profileRes.json()) as { sub: string; name?: string }
 
   const expiresAt = new Date(Date.now() + tokenData.expires_in * 1000)
 
@@ -109,9 +114,11 @@ async function handleLinkedIn(userId: string, code: string, redirectUri: string)
     userId,
     platform: 'LINKEDIN',
     accessToken: encrypt(tokenData.access_token),
+    // Store refresh_token if LinkedIn returns one (Community Management tier); basic tier won't
+    refreshToken: tokenData.refresh_token ?? undefined,
     expiresAt,
-    platformUserId: `urn:li:person:${profile.id}`,
-    platformUsername: `${profile.localizedFirstName} ${profile.localizedLastName}`,
+    platformUserId: `urn:li:person:${profile.sub}`,
+    platformUsername: profile.name ?? profile.sub,
   })
 }
 

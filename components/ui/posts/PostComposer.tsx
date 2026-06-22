@@ -26,6 +26,8 @@ interface PostComposerProps {
   mode: 'inline' | 'full'
   /** When provided, the composer switches to edit mode and pre-fills content/media */
   existingPost?: FeedPost
+  /** Platform IDs the user has connected. Unconnected platforms are grayed out. */
+  connectedPlatforms?: PlatformId[]
 }
 
 const INITIAL_STATE: PostActionState = {}
@@ -44,10 +46,9 @@ const INITIAL_STATE: PostActionState = {}
  * <PostComposer mode="inline" />
  * <PostComposer mode="full" existingPost={post} />
  */
-export function PostComposer({ mode, existingPost }: PostComposerProps) {
+export function PostComposer({ mode, existingPost, connectedPlatforms }: PostComposerProps) {
   const router = useRouter()
-  const { t, i18n } = useTranslation()
-  const language = (i18n.language?.startsWith('pl') ? 'pl' : 'en') as 'pl' | 'en'
+  const { t } = useTranslation()
 
   const [expanded, setExpanded] = useState(mode === 'full')
   const [content, setContent] = useState(existingPost?.content ?? '')
@@ -123,6 +124,8 @@ export function PostComposer({ mode, existingPost }: PostComposerProps) {
   const totalMedia = keepMediaIds.length + newFiles.length
   const canAddMore = totalMedia < MAX_POST_MEDIA
   const charCount = content.length
+
+  const instagramNeedsMedia = platforms.includes('instagram') && totalMedia === 0
 
   const isSinglePlatform = platforms.length === 1
   const isMultiPlatform = platforms.length > 1
@@ -202,7 +205,11 @@ export function PostComposer({ mode, existingPost }: PostComposerProps) {
             >
               {t('posts.composer.platforms_label')}
             </p>
-            <PlatformSelector selected={platforms} onChange={setPlatforms} />
+            <PlatformSelector
+              selected={platforms}
+              onChange={setPlatforms}
+              connectedPlatforms={connectedPlatforms}
+            />
           </div>
 
           {/* ── Single-platform header ── */}
@@ -242,6 +249,22 @@ export function PostComposer({ mode, existingPost }: PostComposerProps) {
                 limit: mostRestrictiveLimit,
               })}
             </p>
+          )}
+
+          {/* ── Instagram requires media warning ── */}
+          {instagramNeedsMedia && (
+            <div
+              className="flex items-start gap-2 px-3 py-2 rounded-sm border font-mono text-[10px]"
+              style={{
+                borderColor: 'rgba(255,180,0,0.3)',
+                background: 'rgba(255,180,0,0.05)',
+                color: '#ffcf77',
+              }}
+              role="alert"
+            >
+              <span aria-hidden="true">⚠</span>
+              <span>{t('posts.composer.instagram_needs_media')}</span>
+            </div>
           )}
 
           {/* ── Content textarea ── */}
@@ -407,7 +430,6 @@ export function PostComposer({ mode, existingPost }: PostComposerProps) {
               )}
               <AiCaptionButton
                 prompt={content}
-                language={language}
                 onGenerated={setContent}
               />
             </div>
@@ -426,26 +448,27 @@ export function PostComposer({ mode, existingPost }: PostComposerProps) {
 
               <button
                 type="submit"
-                disabled={isPending}
+                disabled={isPending || instagramNeedsMedia}
                 className="px-5 py-2 rounded-sm font-mono text-xs tracking-[0.08em] uppercase transition-all duration-150 disabled:opacity-50"
                 style={
-                  activeSinglePlatform && activeColor
-                    ? {
-                        background: activeColor,
-                        color: '#000',
-                        boxShadow: `0 0 0 0 ${activeColor}`,
-                      }
-                    : {
-                        background: 'var(--color-primary)',
-                        color: 'var(--color-on-primary)',
-                      }
+                  platforms.length > 0 && activeSinglePlatform && activeColor
+                    ? { background: activeColor, color: '#000' }
+                    : platforms.length > 0
+                      ? { background: 'var(--color-primary)', color: 'var(--color-on-primary)' }
+                      : {
+                          background: 'transparent',
+                          color: 'var(--color-outline)',
+                          border: '1px solid rgba(255,255,255,0.12)',
+                        }
                 }
               >
                 {isPending
                   ? t('posts.composer.publishing')
                   : existingPost
                     ? t('posts.composer.save')
-                    : t('posts.composer.publish')}
+                    : platforms.length === 0
+                      ? t('posts.composer.save_draft')
+                      : t('posts.composer.publish_to', { count: platforms.length })}
               </button>
             </div>
           </div>

@@ -36,6 +36,7 @@ model User {
   socialAccounts  SocialAccount[]
   usernameChanges UsernameChange[]
   campaigns       Campaign[]
+  reports         Report[]
   notifications   Notification[]
   notificationsMuted        Boolean @default(false)
   emailNotificationsEnabled Boolean @default(true)
@@ -318,6 +319,7 @@ enum NotificationType {
   POST_FAILED
   SOCIAL_CONNECTED
   SOCIAL_DISCONNECTED
+  REPORT_READY
 }
 
 model Notification {
@@ -390,6 +392,53 @@ model CampaignRun {
   campaign Campaign @relation(fields: [campaignId], references: [id], onDelete: Cascade)
 
   @@index([campaignId])
+}
+
+// ─── Reports ─────────────────────────────────────────────────────────────────
+
+enum ReportStatus {
+  ACTIVE
+  PAUSED
+}
+
+/**
+ * A saved report definition: which analytics sections to include, and optionally
+ * how often to auto-generate it (intervalDays >= 7 enforced by Zod).
+ * The cron worker polls WHERE status=ACTIVE AND nextRunAt<=now.
+ */
+model Report {
+  id           String       @id @default(cuid())
+  userId       String
+  name         String
+  /// { sections: string[] } — which overview sections to include
+  config       Json
+  /// null = on-demand only; >= 7 for a recurring schedule
+  intervalDays Int?
+  status       ReportStatus @default(ACTIVE)
+  /// null when on-demand only (cron ignores null nextRunAt)
+  nextRunAt    DateTime?
+  lastRunAt    DateTime?
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+
+  user User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  runs ReportRun[]
+
+  @@index([status, nextRunAt]) // tani polling crona
+  @@index([userId])
+}
+
+/** Immutable snapshot of a report's analytics data at generation time. */
+model ReportRun {
+  id          String   @id @default(cuid())
+  reportId    String
+  /// Snapshot of selected analytics sections at generation time
+  data        Json
+  generatedAt DateTime @default(now())
+
+  report Report @relation(fields: [reportId], references: [id], onDelete: Cascade)
+
+  @@index([reportId])
 }
 
 // ─────────────────────────────────────────────────────────────────────────────

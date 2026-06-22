@@ -25,6 +25,8 @@ export const RATE_LIMIT_PRESETS = {
   recordMetrics:   { limit: 60, window: '1 h'  },
   generateCaption:    { limit: 20, window: '1 h'  }, // free-model tier throttles hard
   updatePreferences:  { limit: 10, window: '1 h'  },
+  generateReport:     { limit: 5,  window: '1 h'  }, // expensive analytics aggregation
+  createReport:       { limit: 10, window: '1 h'  },
 } satisfies Record<string, RateLimitPreset>
 
 export type RateLimitPresetKey = keyof typeof RATE_LIMIT_PRESETS

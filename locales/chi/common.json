@@ -1,0 +1,1279 @@
+{
+    "nav": {
+        "home": "首页",
+        "about": "关于我们",
+        "features": "功能特性",
+        "usecases": "应用场景",
+        "docs": "文档",
+        "download": "下载",
+        "singup": "注册",
+        "singin": "登录",
+        "dashboard": "控制台",
+        "profile": "个人资料",
+        "signout": "退出登录",
+        "plugins": "插件",
+        "menu_open": "打开菜单",
+        "menu_close": "关闭菜单"
+    },
+    "hero": {
+        "title": "Lorem Ipsum Dolor Sit Amet",
+        "section1": "Lorem Ipsum Dolor Sit Amet",
+        "section2": "Lorem Ipsum Dolor Sit Amet",
+        "section3": "Lorem Ipsum Dolor Sit Amet"
+    },
+    "aboutInstra": {
+        "badge": "始于 2024 — 您的营销伴侣",
+        "heading_line1": "关于",
+        "heading_line2": "INSTRA",
+        "block1": {
+            "label": "// 01 — 平台",
+            "body1": "Instra 是一款屡获殊荣的营销情报平台，它改变了品牌与受众互动的方式。专为追求精准、速度和可衡量结果的创始人、增长运营人员及营销团队打造。",
+            "body2": "我们的目标是利用全天候运行、思维和行动都如同资深运营专家的 AI 驱动工具，帮助 1,000,000 家企业扩展其营销业务。"
+        },
+        "block2": {
+            "label": "// 02 — 理念",
+            "body": "如果您没有在会议上看到我们，或者没有看到我们在宣讲演示文稿，那么您应该知道我们正在埋头构建 —— 不断迭代下一个将改变您接触市场方式的功能。我们相信营销情报应当与使用它的团队一样敏锐，在实现这一目标之前，我们绝不驻足。"
+        },
+        "stats": {
+            "aria_label": "Instra 平台统计数据"
+        },
+        "stat1": {
+            "value": "500K+",
+            "label": "活跃用户"
+        },
+        "stat2": {
+            "value": "10M+",
+            "label": "已启动营销活动"
+        },
+        "stat3": {
+            "value": "98%",
+            "label": "满意度"
+        }
+    },
+    "about": {
+        "mission": {
+            "title": "我们的使命",
+            "desc": "赋能团队实现卓越营销"
+        },
+        "vision": {
+            "title": "我们的愿景",
+            "desc": "成为重新定义营销的平台"
+        },
+        "values": {
+            "title": "我们的价值观",
+            "desc": "创新、透明和用户至上的设计"
+        },
+        "main": {
+            "title": "专为现代营销人员打造",
+            "description": "我们相信营销应该是直观、强大且触手可及的。Instra 将尖端技术与贴心设计相结合，帮助您精准、富有创意地触达受众。"
+        },
+        "cta": "了解更多",
+        "stat1": {
+            "value": "500K+",
+            "label": "活跃用户"
+        },
+        "stat2": {
+            "value": "10M+",
+            "label": "已启动营销活动"
+        },
+        "stat3": {
+            "value": "98%",
+            "label": "满意度"
+        }
+    },
+    "marquee": {
+        "heading": "您将与优秀者同行",
+        "adroll": {
+            "quote": "Instra 每周都能帮我省下 1-2 个小时的报告时间，因为我所有的项目都已经记录在案了。",
+            "title": "产品营销负责人",
+            "linkText": "查看 AdRoll 案例研究"
+        },
+        "fireclay": {
+            "quote": "让大家步调一致可以提高可见性，这在制造业中至关重要。",
+            "title": "创意总监",
+            "linkText": "查看 Fireclay Tile 案例研究"
+        },
+        "lorem": {
+            "quote": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "title": "首席执行官",
+            "linkText": "阅读 Lorem 案例研究"
+        }
+    },
+    "cta": {
+        "line1": "让您的下一步行动",
+        "line2": "成为您最明智的行动",
+        "button": "预约探索电话",
+        "feature1": "无预付款",
+        "feature2": "轻松取消"
+    },
+    "faq": {
+        "title": "常见问题解答",
+        "subtitle": "寻找关于 Instra 以及它如何使您的企业受益的常见问题答案。",
+        "categories": {
+            "general": "常规信息",
+            "pricing": "方案与价格",
+            "security": "安全与隐私",
+            "usecase": "插件与工作流"
+        },
+        "questions": {
+            "general": [
+                {
+                    "q": "什么是 Instra？",
+                    "a": "Instra 是一款先进的营销平台，旨在像真人操作员一样引导自定义工作流。它能以拟真的人机互动来回应客户咨询，从而提升客户体验。"
+                },
+                {
+                    "q": "它是如何工作的？",
+                    "a": "它直接集成到您现有的基础设施中，并利用尖端的 AI 模型持续自动执行和优化您的营销业务。"
+                }
+            ],
+            "pricing": [
+                {
+                    "q": "有免费试用吗？",
+                    "a": "是的，我们为所有标准方案提供 14 天的免费试用，以便您可以测试我们的功能。"
+                }
+            ],
+            "security": [
+                {
+                    "q": "我的数据安全吗？",
+                    "a": "绝对安全。我们对静态数据采用 AES-256 加密，对传输中的所有数据采用 TLS 1.3 加密。"
+                }
+            ],
+            "usecase": [
+                {
+                    "q": "免费方案中包含哪些插件？",
+                    "a": "免费的开源核心（open-core）方案包含所有社区插件和核心平台功能。专业版插件（先进的自动化、优先集成、企业级连接器）将在任意付费方案中激活。"
+                },
+                {
+                    "q": "如何安装插件？",
+                    "a": "前往您 Instra 控制台中的插件注册表（Plugin Registry），点击任意列出插件上的“安装”，它就会立即加载到您的工作区中。无需重启或配置。"
+                },
+                {
+                    "q": "我可以连接我现有的营销工具吗？",
+                    "a": "可以。Instra 通过作用域限定的 OAuth 与 HubSpot、Mailchimp、Google Analytics、Meta Ads、Slack 等数十种工具集成 —— 插件仅访问其需要的内容。"
+                },
+                {
+                    "q": "支持哪些开发者工具？",
+                    "a": "插件生态系统支持 GitHub、Jira、Vercel、Supabase、Stripe 等。面向开发者的插件支持网络钩子（webhook）触发器、CI/CD 钩子和自定义事件流水线。"
+                },
+                {
+                    "q": "插件系统真的是开源的吗？",
+                    "a": "是的。核心平台采用 MIT 许可，插件 API 完全开放。任何/每位开发者都可以通过拉取请求（PR）或在 @instra 作用域下通过 npm 提交插件。"
+                },
+                {
+                    "q": "插件是如何沙盒化的？",
+                    "a": "插件完全通过 PluginContext API 进行通信 —— 无法直接访问数据库或环境变量。每个插件的操作都会记录到审计日志中。"
+                },
+                {
+                    "q": "我可以构建自定义的私有插件吗？",
+                    "a": "当然可以。私有插件将保留在您的工作区内，永远不会发布到注册表中。遵循 InstraPlugin 接口并使用 TypeScript 编写它们即可。"
+                },
+                {
+                    "q": "如果插件崩溃了会发生什么？",
+                    "a": "每个插件插槽都由 ErrorBoundary 包裹。发生故障的插件会被隔离并显示错误状态 —— 它永远不会导致您工作区的其余部分崩溃。"
+                }
+            ]
+        },
+        "contact": {
+            "title": "仍然有疑问？",
+            "desc": "如果您没有找到满意的答案，请随时与我们联系。",
+            "button": "联系我们"
+        }
+    },
+    "footer": {
+        "tagline": "您的营销伴侣",
+        "rights": "保留所有权利。",
+        "nav": {
+            "product": "产品",
+            "pricing": "价格",
+            "docs": "文档",
+            "blog": "博客",
+            "careers": "招贤纳士"
+        },
+        "legal": {
+            "privacy": "隐私政策",
+            "terms": "服务条款",
+            "cookies": "Cookie 政策"
+        }
+    },
+    "signin": {
+        "title": "欢迎回来。",
+        "subtitle": "登录您的 Instra 账户",
+        "email_label": "电子邮箱地址",
+        "email_placeholder": "you@company.com",
+        "password_label": "密码",
+        "password_placeholder": "••••••••",
+        "remember_me": "保持登录状态",
+        "submit": "登录",
+        "no_account": "新用户？",
+        "signup_link": "创建账户",
+        "forgot_password": "忘记密码？",
+        "or_continue": "或选择以下方式继续",
+        "google": "Google",
+        "github": "GitHub",
+        "panel_brand": "Instra",
+        "panel_title": "与思维同步的高效营销。",
+        "panel_desc": "告别零散工具的东拼西凑。Instra 为创始人与增长团队提供了一个统一的平台来规划、执行和衡量营销活动 —— 以清晰的洞察将努力转化为营收。",
+        "panel_social": "已有 17,000+ 名营销人员加快了交付速度",
+        "panel_card_title": "减少事务性工作。实现更多突破。",
+        "panel_card_desc": "自动化重复流程，放大创意力量 —— 终于可以专注于真正能带来业务增长的工作了。",
+        "error_invalid": "邮箱或密码无效。",
+        "error_generic": "发生未知错误。请重试。"
+    },
+    "signup": {
+        "title": "创建您的账户。",
+        "subtitle": "加入 17,000+ 名使用 Instra 加快交付速度的营销人员行列。",
+        "tab_email": "电子邮箱",
+        "tab_username": "用户名",
+        "name_label": "姓名全称",
+        "name_placeholder": "Jane Smith",
+        "optional": "（可选）",
+        "email_label": "电子邮箱地址",
+        "email_placeholder": "you@company.com",
+        "username_label": "用户名",
+        "username_placeholder": "your_handle",
+        "password_label": "密码",
+        "password_placeholder": "至少 8 个字符，1 个数字，1 个符号",
+        "password_hint": "8+ 个字符 · 包含至少 1 个字母，1 个数字，1 个符号",
+        "confirm_label": "确认密码",
+        "confirm_placeholder": "请重复您的密码",
+        "terms_prefix": "我同意",
+        "terms_link": "服务条款",
+        "terms_and": "和",
+        "privacy_link": "隐私政策",
+        "submit": "创建账户",
+        "have_account": "已有账户？",
+        "signin_link": "登录",
+        "or_continue": "或选择以下方式注册",
+        "google": "Google",
+        "github": "GitHub",
+        "panel_title": "您的竞争优势由此开启。",
+        "panel_desc": "从首个营销活动到全面增长 —— Instra 为您的团队提供超越竞争对手所需的清晰度、速度和数据支持。",
+        "panel_social": "14 天免费试用 · 无需信用卡",
+        "panel_card_title": "几分钟内完成设置。无限制扩展。",
+        "panel_card_desc": "连接您的渠道，构建您的首个营销活动，并在午餐前看到成效。",
+        "panel_card_members": "本周已加入"
+    },
+    "forgot_password": {
+        "title": "重置您的密码。",
+        "subtitle": "输入与您账户关联的电子邮箱地址，我们将向您发送重置链接。",
+        "email_label": "电子邮箱地址",
+        "email_placeholder": "you@company.com",
+        "submit": "发送重置链接",
+        "remembered": "想起来了？",
+        "signin_link": "返回登录",
+        "success_title": "请检查您的收件箱。",
+        "success_desc": "密码重置链接已发送至",
+        "success_hint": "未收到邮件？请检查垃圾邮件文件夹，或在几分钟后重试。",
+        "back_to_signin": "返回登录",
+        "panel_title": "您的账户安全无虞。",
+        "panel_desc": "我们使用行业标准的安全技术来保护您的数据。重置链接在 15 分钟内有效，且只能使用一次。",
+        "panel_social": "AES-256 加密 · 符合 SOC 2 标准",
+        "panel_badge": "安全",
+        "panel_card_title": "您的数据始终属于您。",
+        "panel_card_desc": "我们绝不会以明文形式存储密码。在进入我们的服务器之前，每个凭据都会进行哈希和加盐处理。"
+    },
+    "reset_password": {
+        "title": "选择新密码。",
+        "subtitle": "您的身份已验证。请在下方输入强新密码。",
+        "password_label": "新密码",
+        "password_placeholder": "至少 8 个字符，1 个数字，1 个符号",
+        "password_hint": "8+ 个字符 · 包含至少 1 个字母，1 个数字，1 个符号",
+        "confirm_label": "确认新密码",
+        "confirm_placeholder": "请重复您的新密码",
+        "submit": "重置密码",
+        "remembered": "想起来了？",
+        "signin_link": "返回登录",
+        "success_title": "密码已更新。",
+        "success_desc": "您的密码已更改。您现在可以使用新凭据登录。",
+        "goto_signin": "前往登录",
+        "invalid_title": "链接已过期或无效。",
+        "invalid_desc": "此重置链接已过期或已被使用。重置链接有效期为 15 分钟，且只能使用一次。",
+        "request_new": "请求新的重置链接"
+    },
+    "values": {
+        "label": "我们的原则",
+        "heading": "我们的立足之本",
+        "items": [
+            {
+                "index": "01",
+                "title": "透明度",
+                "description": "每一项指标，每一次决策 —— 均公开且可审计。没有黑箱，没有隐藏目的。您拥有自己的数据。",
+                "detail": "我们呈现的每个数据点都可以追溯到其源头。我们的审计日志覆盖了流水线的每一步 —— 摄取、转换和输出。您可以随时检查、导出和验证任何结果。无供应商锁定，无算法黑箱。"
+            },
+            {
+                "index": "02",
+                "title": "精准度",
+                "description": "没有信号的营销只是凭空猜测。我们只呈现真正对结果产生重要影响的精确数据，绝无冗余。",
+                "detail": "我们将精准度植入了核心。Instra 不会让您淹没在仪表盘中，而是会识别您数据集中最具杠杆作用的单一信号并优先呈现。更少杂音、更快决策、更佳结果 —— 均可衡量且经过证实。"
+            },
+            {
+                "index": "03",
+                "title": "正直守信",
+                "description": "我们不走捷径。每一项洞察均经过交叉验证，每一项建议均有证据支持。",
+                "detail": "在向您呈现之前，Instra 生成的每项建议都会针对至少三个独立信号进行交叉验证。我们的模型每季度审计一次，输出质量中的任何异常都会立即触发回滚至已验证的检查点。"
+            }
+        ]
+    },
+    "aboutPlugins": {
+        "label": "// 开源核心平台",
+        "heading": "通过插件扩展一切",
+        "body1": "Instra 基于开源核心（open-core）模式构建 —— 平台的底层基础是开放的，可供免费检查、分叉（fork）和自行托管。订阅方案可解锁精心策划的优质插件市场，从而加速您的营销业务。",
+        "body2": "每个插件均经过沙盒化、限定了权限范围并可进行审计。第三方开发者在通过安全审查后即可将插件发布到 Instra 插件注册表 —— 为您的团队提供一个值得信赖且无供应商锁定的生态系统。",
+        "modelLabel": "// 平台模式",
+        "tierFree": "核心版（免费）",
+        "tierPro": "专业版插件",
+        "modelDesc": "核心功能随每个账户一起提供。专业版插件在任意付费方案中激活 —— 无单个插件计费，无意外费用。",
+        "stat1": {
+            "value": "40+",
+            "label": "可用插件"
+        },
+        "stat2": {
+            "value": "MIT",
+            "label": "核心许可协议"
+        },
+        "morePlugins": "+ 更多插件即将推出",
+        "morePluginsHint": "新插件每个冲刺阶段都会交付。浏览完整的注册表。",
+        "plugins": [
+            {
+                "name": "Plugin Alpha",
+                "tier": "free",
+                "description": "包含在每个 Instra 账户中的基础工具。从第一天起即可集成到您的核心工作流中。",
+                "icon": "◈"
+            },
+            {
+                "name": "Plugin Beta",
+                "tier": "free",
+                "description": "用于轻量级自动化常规任务的模块。随开源核心版一同提供，无需配置。",
+                "icon": "◇"
+            },
+            {
+                "name": "Plugin Gamma",
+                "tier": "pro",
+                "description": "具有实时同步功能的高级数据流水线扩展。适用于专业版和企业版方案。",
+                "icon": "◉"
+            },
+            {
+                "name": "Plugin Delta",
+                "tier": "pro",
+                "description": "企业级报告模块。只需一键即可将结构化数据集导出到任何下游 BI 工具中。",
+                "icon": "◎"
+            }
+        ]
+    },
+    "whyUs": {
+        "label": "用数据说话",
+        "heading": "团队选择 Instra 的原因",
+        "items": [
+            {
+                "value": "98%",
+                "description": "用户表示，在使用我们 AI 驱动的平台进行第一次体验时，他们感到了真正的被倾听与被理解。"
+            },
+            {
+                "value": "88%",
+                "description": "在使用该服务的前几周内，体验到了营销活动性能的显著提升。"
+            },
+            {
+                "value": "71%",
+                "description": "在初始设置后继续定期使用该平台，展现了持久的参与度和信任。"
+            }
+        ]
+    },
+    "pricing": {
+        "title": "价格方案",
+        "billing": {
+            "annual": "年付",
+            "monthly": "月付"
+        },
+        "plans": {
+            "basic": {
+                "name": "Starter（初学者版）",
+                "badge": "当前激活",
+                "price": {
+                    "monthly": 17,
+                    "annual": 15
+                },
+                "period": "/ 月（美元）",
+                "billedYearly": "按年计费每年 $180",
+                "desc": "开启高效管理团队所需的基础工具。非常适合有基本需求的小型团队。",
+                "button": "免费开始使用",
+                "features": [
+                    {
+                        "name": "访问核心功能",
+                        "included": true
+                    },
+                    {
+                        "name": "记录管理",
+                        "included": true
+                    },
+                    {
+                        "name": "基础报告工具",
+                        "included": true
+                    },
+                    {
+                        "name": "管理多达 10 名成员",
+                        "included": true
+                    },
+                    {
+                        "name": "考勤追踪",
+                        "included": false
+                    },
+                    {
+                        "name": "分配和监控任务",
+                        "included": false
+                    },
+                    {
+                        "name": "邮件支持",
+                        "included": false
+                    }
+                ]
+            },
+            "pro": {
+                "name": "Professional（专业版）",
+                "badge": "立省 27%",
+                "price": {
+                    "monthly": 26,
+                    "annual": 19
+                },
+                "period": "/ 月（美元）",
+                "billedYearly": "按年计费每年 $228",
+                "desc": "面向成长型团队的全面解决方案，提供增强型功能以简化流程。",
+                "button": "开始 7 天免费试用",
+                "features": [
+                    {
+                        "name": "访问核心功能",
+                        "included": true
+                    },
+                    {
+                        "name": "记录管理",
+                        "included": true
+                    },
+                    {
+                        "name": "基础报告工具",
+                        "included": true
+                    },
+                    {
+                        "name": "管理多达 50 名成员",
+                        "included": true
+                    },
+                    {
+                        "name": "考勤追踪",
+                        "included": true
+                    },
+                    {
+                        "name": "分配和监控任务",
+                        "included": true
+                    },
+                    {
+                        "name": "邮件支持",
+                        "included": false
+                    }
+                ]
+            },
+            "enterprise": {
+                "name": "Enterprise（企业版）",
+                "badge": "最受欢迎",
+                "price": {
+                    "monthly": 34,
+                    "annual": 29
+                },
+                "period": "/ 月（美元）",
+                "billedYearly": "按年计费每年 $348",
+                "desc": "利用高级工具和完全自定义选项来最大化绩效，非常适合大型组织。",
+                "button": "联系销售",
+                "features": [
+                    {
+                        "name": "访问核心功能",
+                        "included": true
+                    },
+                    {
+                        "name": "记录管理",
+                        "included": true
+                    },
+                    {
+                        "name": "基础报告工具",
+                        "included": true
+                    },
+                    {
+                        "name": "无限数成员",
+                        "included": true
+                    },
+                    {
+                        "name": "考勤追踪",
+                        "included": true
+                    },
+                    {
+                        "name": "分配和监控任务",
+                        "included": true
+                    },
+                    {
+                        "name": "24/7 优先支持",
+                        "included": true
+                    }
+                ]
+            }
+        }
+    },
+    "featuresHeader": {
+        "label": "// 核心能力",
+        "heading": "专为\n高效执行而生",
+        "description": "营销团队所需的一切 —— AI 内容、定时排期、数据分析和开放插件层 —— 统一在单个平台中。"
+    },
+    "featuresHero": {
+        "badge": "核心能力 — Instra 的核心作用",
+        "heading_line1": "专为",
+        "heading_line2": "高效执行而生",
+        "block1": {
+            "label": "// 01 — 智能",
+            "body1": "Instra 将 AI 驱动的内容创作、跨平台定时排期和深度分析整合在单个工作流中。告别在各种工具间频繁切换 —— 您需要的每项能力都在这里。",
+            "body2": "从初稿创作到发布帖子，Instra 承担了所有的繁重工作，以便您的团队能够专注于战略、创意和增长。"
+        },
+        "block2": {
+            "label": "// 02 — 可扩展性",
+            "body": "Instra 中的每项功能都是基石，而非上限。开放的插件系统允许您进行超出任何封闭平台所能提供的扩展、集成和自动化。在数小时内交付自定义工作流，无需数个冲刺阶段。"
+        },
+        "stats": {
+            "aria_label": "Instra 功能统计数据"
+        },
+        "stat1": {
+            "value": "6+",
+            "label": "核心功能"
+        },
+        "stat2": {
+            "value": "40+",
+            "label": "可用插件"
+        },
+        "stat3": {
+            "value": "3×",
+            "label": "更快的发布速度"
+        }
+    },
+    "downloadHeader": {
+        "label": "// 在本地下载 INSTRA",
+        "heading": "构建您自己的\nInstra 实例",
+        "description": "营销团队所需的一切 —— AI 内容、定时排期、数据分析和开放插件层 —— 统一在单个平台中。"
+    },
+    "download": {
+        "badge": "// 工具",
+        "heading": "在本地运行 Instra\n的两种方式",
+        "cli": {
+            "label": "// CLI",
+            "name": "Instra CLI",
+            "version": "v1.0.0",
+            "description": "一个功能齐全的命令行界面，用于自动化营销活动、同步社交账户以及编写您的营销工作流脚本。可在任何支持 Node.js 的环境中运行。",
+            "copyButton": "复制安装命令",
+            "copyAriaLabel": "复制 npm 安装命令到剪贴板",
+            "npmButton": "在 npm 上查看",
+            "npmAriaLabel": "在 npm 上查看 @instra/cli（在新标签页中打开）"
+        },
+        "agent": {
+            "label": "// 桌面端",
+            "name": "Instra 桌面端代理（Agent）",
+            "version": "最新版本",
+            "description": "一个原生桌面伴侣程序，可让您的 Instra 实例在后台运行 —— 无需浏览器即可处理定时发布的帖子、监控分析数据并呈送通知。",
+            "downloadButton": "下载桌面端代理",
+            "downloadAriaLabel": "从 GitHub 下载最新的 Instra 桌面端代理版本",
+            "githubButton": "在 GitHub 上查看",
+            "githubAriaLabel": "在 GitHub 上查看 Instra 桌面端代理（在新标签页中打开）"
+        }
+    },
+    "installGuide": {
+        "badge": "// 安装指南",
+        "heading": "在几分钟内\n完成安装并运行",
+        "tabs": {
+            "macos": "macOS",
+            "windows": "Windows",
+            "linux": "Linux"
+        },
+        "copy": "复制",
+        "copied": "已复制！",
+        "macos": {
+            "steps": [
+                {
+                    "title": "安装 Node.js（如果需要）",
+                    "command": "brew install node",
+                    "description": "需要 Node.js 18+。请使用 Homebrew 或从 nodejs.org 下载。"
+                },
+                {
+                    "title": "安装 Instra CLI",
+                    "command": "npm install -g @instra/cli",
+                    "description": "全局安装 CLI。运行 instra --version 来确认是否成功。"
+                },
+                {
+                    "title": "下载桌面端代理",
+                    "command": "open Instra-Desktop-Agent.dmg",
+                    "description": "从 GitHub Releases 下载 .dmg 文件，打开它并将 Instra 拖动到“应用程序（Applications）”文件夹中。"
+                }
+            ]
+        },
+        "windows": {
+            "steps": [
+                {
+                    "title": "安装 Node.js（如果需要）",
+                    "command": "winget install OpenJS.NodeJS.LTS",
+                    "description": "需要 Node.js 18+。请使用 winget 或从 nodejs.org 下载安装程序。"
+                },
+                {
+                    "title": "安装 Instra CLI",
+                    "command": "npm install -g @instra/cli",
+                    "description": "全局安装 CLI。在新终端中运行 instra --version 来确认是否成功。"
+                },
+                {
+                    "title": "下载桌面端代理",
+                    "command": "Start-Process Instra-Desktop-Agent-Setup.exe",
+                    "description": "从 GitHub Releases 下载 .exe 安装程序并运行它。"
+                }
+            ]
+        },
+        "linux": {
+            "steps": [
+                {
+                    "title": "安装 Node.js（如果需要）",
+                    "command": "curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - && sudo apt-get install -y nodejs",
+                    "description": "需要 Node.js 18+。请使用您的发行版的包管理器或 NodeSource 安装程序。"
+                },
+                {
+                    "title": "安装 Instra CLI",
+                    "command": "npm install -g @instra/cli",
+                    "description": "全局安装 CLI。运行 instra --version 来确认是否成功。"
+                },
+                {
+                    "title": "下载桌面端代理",
+                    "command": "chmod +x Instra-Desktop-Agent.AppImage && ./Instra-Desktop-Agent.AppImage",
+                    "description": "从 GitHub Releases 下载 .AppImage 文件，赋予其可执行权限，然后运行它。"
+                }
+            ]
+        }
+    },
+    "openSourcePlugins": {
+        "label": "// 开源",
+        "heading": "构建您自己的\n插件",
+        "body": "Instra 的插件系统是完全开放的。任何开发者都可以扩展该平台 —— 添加小部件、注册路由、挂钩到事件，并发布到社区注册表。零门槛设置。",
+        "ctaTagline": "完整的 API 参考、清单模式（manifest schema）和示例插件均可在文档中找到。",
+        "docsButton": "前往文档",
+        "githubButton": "GitHub",
+        "githubAriaLabel": "在 GitHub 上查看 Instra（在新标签页中打开）",
+        "steps": [
+            {
+                "icon": "code",
+                "title": "编写您的插件",
+                "description": "创建一个导出 InstraPlugin 的 index.ts 文件。实现 init(ctx)，通过 PluginContext API 来注册小部件、路由或事件监听器。"
+            },
+            {
+                "icon": "package",
+                "title": "添加清单文件",
+                "description": "在 manifest.json 中声明名称、版本、权限和作者。在您的插件加载之前，该清单会根据 JSON 模式进行验证。"
+            },
+            {
+                "icon": "send",
+                "title": "发布到注册表",
+                "description": "提交拉取请求或通过 npm 在 @instra 作用域下进行发布。社区插件在出现在市场中之前，会先经过安全性审查。"
+            }
+        ]
+    },
+    "verify_email": {
+        "title": "检查您的收件箱。",
+        "subtitle": "我们向您发送了一个 6 位数的验证码，发送至",
+        "code_label": "验证码",
+        "submit": "验证电子邮箱",
+        "no_code": "未收到验证码？",
+        "resend": "重新发送验证码",
+        "resend_wait": "在 {{seconds}} 秒后重新发送",
+        "resend_success": "新的验证码已发送至您的邮箱。",
+        "back_to_signup": "← 返回注册",
+        "panel_title": "仅剩最后一步。",
+        "panel_desc": "检查您的电子邮箱并输入 6 位数验证码以激活您的 Instra 账户。验证码在 10 分钟内有效。",
+        "panel_social": "安全注册 · 绝无垃圾邮件",
+        "panel_card_label": "// 安全",
+        "panel_card_title": "验证码为单次使用且有时效限制。",
+        "panel_card_desc": "每个验证码在 10 分钟后过期，并且只能使用一次。如果您的验证码已过期，请请求一个新的验证码。"
+    },
+    "featuresSection": {
+        "label": "// 核心能力",
+        "heading": "助力增长所需的一切",
+        "features": [
+            {
+                "id": "ai-content",
+                "icon": "✦",
+                "title": "AI 内容生成",
+                "description": "在数秒内创建符合品牌调性的帖子、配文和广告文案。Instra 会学习您的独特声线并将其扩展到各个渠道。",
+                "image": "/images/features/ai-content.png"
+            },
+            {
+                "id": "scheduling",
+                "icon": "◈",
+                "title": "多平台定时排期",
+                "description": "从单个统一的日历中，将内容排队并发布到 Instagram、LinkedIn 和 X（原推特）。",
+                "image": "/images/features/scheduling.png"
+            },
+            {
+                "id": "analytics",
+                "icon": "▦",
+                "title": "分析仪表盘",
+                "description": "在单一视图中追踪触达率、参与度和转化率。实时数据，彻底告别电子表格。",
+                "image": null
+            },
+            {
+                "id": "plugins",
+                "icon": "⬡",
+                "title": "插件生态系统",
+                "description": "使用社区构建的或自定义的插件扩展 Instra。开源核心意味着您拥有该集成层。"
+            },
+            {
+                "id": "brand-voice",
+                "icon": "◎",
+                "title": "品牌声线配置文件",
+                "description": "保存每个品牌的语调、风格和指南。可立即切换语境且不丢失一致性。"
+            },
+            {
+                "id": "campaigns",
+                "icon": "◻",
+                "title": "营销活动管理器",
+                "description": "端到端地规划、执行和衡量完整的营销活动 —— 从简报直到生成报告。"
+            }
+        ]
+    },
+    "usecaseHeader": {
+        "label": "// 现实应用场景",
+        "heading": "统一平台。\n全能工作流。",
+        "description": "营销人员和开发者可以利用 Instra 的插件生态系统消除上下文切换，并构建统一的自动化工作流。"
+    },
+    "usecaseProblem": {
+        "badge": "// 问题所在",
+        "heading": "您的工具彼此之间\n无法互通。",
+        "items": [
+            {
+                "title": "持续的上下文切换",
+                "body": "团队每天在 8–12 种工具之间疲于奔命。每次切换都会打碎专注度，并消耗本应投入在实际工作中的时间。"
+            },
+            {
+                "title": "困在孤岛之中的数据",
+                "body": "分析数据在一个标签页，CRM 系统在另一个，而通讯工具在第三个。由于彼此之间毫无关联，因此无法产生复利效应。"
+            },
+            {
+                "title": "集成带来的负担",
+                "body": "每增加一个新工具都意味着多了一项手动流程，或多了一条脆弱的自动化链条。技术栈越来越臃肿，而生产力却裹足不前。"
+            }
+        ]
+    },
+    "usecaseHowItWorks": {
+        "badge": "// 工作原理",
+        "heading": "设计精简。\n默认强大。",
+        "steps": [
+            {
+                "title": "选择一款插件",
+                "body": "浏览开放注册表。按类别、兼容性或团队评级进行筛选。安装前可进行预览。"
+            },
+            {
+                "title": "一键安装",
+                "body": "插件会立即加载到您的工作区中。无需任何配置文件，无需 CLI，更不需要重启。"
+            },
+            {
+                "title": "连接您的工具",
+                "body": "通过 OAuth 或 API 密钥授权集成。权限作用域清晰限定 —— 插件只会访问它们需要的内容。"
+            },
+            {
+                "title": "自动化您的工作流",
+                "body": "使用插件事件跨工具触发各项操作。只需设置一次，即可任其自动运行。可在日志中审计每一步操作。"
+            }
+        ]
+    },
+    "usecaseWorkflow": {
+        "badge": "// 您的工作流",
+        "heading": "从完成设置到\n实现自动化，仅需数分钟。",
+        "steps": [
+            {
+                "title": "选择",
+                "body": "从注册表中的 40 多款社区和优质插件中挑选。"
+            },
+            {
+                "title": "安装",
+                "body": "直接一键安装到您的 Instra 工作区。"
+            },
+            {
+                "title": "连接",
+                "body": "通过限定作用域的 OAuth 权限授权您现有的工具。"
+            },
+            {
+                "title": "自动化",
+                "body": "配置触发器，让您的工作流实现无人值守自动运行。"
+            }
+        ]
+    },
+    "usecaseIntegrations": {
+        "badge": "// 软件集成",
+        "heading": "与您现有的\n工具融洽协作。",
+        "subtitle": "无需编写任何繁琐的黏合代码，即可将营销平台与开发工具连接起来。",
+        "moreLabel": "+ 还有 120 多个其他集成"
+    },
+    "pluginsHeader": {
+        "label": "// 插件生态系统",
+        "heading": "以您自己的方式\n扩展 Instra。",
+        "description": "Instra 的插件系统是完全开放的。任何开发者都可以扩展该平台 —— 通过 PluginContext API 添加小部件、注册路由或挂钩到事件。"
+    },
+    "dashboard": {
+        "nav": {
+            "overview": "总览",
+            "analytics": "分析数据",
+            "campaigns": "营销活动",
+            "schedule": "定时排期",
+            "plugins": "插件",
+            "settings": "设置",
+            "profile": "个人资料",
+            "social": "社交平台",
+            "openMenu": "打开导航菜单",
+            "closeMenu": "关闭导航菜单"
+        },
+        "header": {
+            "search": "搜索...",
+            "notifications": "通知"
+        },
+        "notifications": {
+            "title": "通知",
+            "empty": "您已阅读所有最新通知",
+            "markAllRead": "标记为全部已读",
+            "unreadAria": "有 {{count}} 条未读通知"
+        },
+        "overview": {
+            "label": "// 总览",
+            "heading": "早上好"
+        },
+        "stats": {
+            "posts": "已发布帖子",
+            "likes": "点赞总数",
+            "accounts": "已连接账户",
+            "reach": "总触达率",
+            "vsLastWeek": "对比上周",
+            "noData": "暂无数据"
+        },
+        "chart": {
+            "label": "// 分析数据",
+            "title": "发帖量随时间的变化趋势",
+            "aria": "发帖量随时间变化的图表",
+            "empty": "尚无帖子 — 发布一些内容以查看您的图表"
+        },
+        "activity": {
+            "label": "// 动态动态",
+            "title": "最近动态",
+            "published": "已发布 · {{platform}}",
+            "failed": "失败 · {{platform}}",
+            "pending": "待处理 · {{platform}}",
+            "processing": "正在处理 · {{platform}}",
+            "empty": "暂无动态 — 发布帖子来开始第一步吧"
+        },
+        "quickActions": {
+            "label": "// 操作",
+            "title": "快捷操作",
+            "newPost": "新帖子",
+            "newCampaign": "新营销活动",
+            "viewReport": "查看报告",
+            "addPlugin": "添加插件"
+        },
+        "pluginSlot": {
+            "label": "// 插件插槽",
+            "empty": "尚无启用的插件 — 浏览插件市场",
+            "hint": "控制台顶部 — 安装插件以使用此插槽"
+        },
+        "adminNav": "管理员"
+    },
+    "analytics": {
+        "page": {
+            "title": "帖子分析",
+            "description": "追踪表现、参与度趋势，并获取针对您的帖子的内容改进建议。"
+        },
+        "overview": {
+            "label": "// 分析总览",
+            "heading": "您的分析数据"
+        },
+        "stats": {
+            "impressions": "曝光量",
+            "reach": "触达人数",
+            "views": "浏览量",
+            "likes": "点赞总数",
+            "comments": "评论数",
+            "shares": "分享数",
+            "clicks": "点击次数",
+            "engagementRate": "互动率",
+            "vsLastPeriod": "对比上一阶段"
+        },
+        "chart": {
+            "label": "// 互动趋势",
+            "title": "互动量随时间的变化",
+            "aria": "带有预测功能的互动量随时间变化图表",
+            "prediction": "预测",
+            "confidence": {
+                "high": "高置信度",
+                "medium": "中置信度",
+                "low": "低置信度（需增加更多帖子）"
+            },
+            "empty": "暂无指标数据 — 记录您的第一个快照以查看图表"
+        },
+        "tip": {
+            "label": "// 每日小贴士",
+            "title": "今日小贴士",
+            "priority": {
+                "high": "高优先级",
+                "medium": "中优先级",
+                "low": "低优先级"
+            },
+            "relatedPost": "相关帖子"
+        },
+        "posts": {
+            "label": "// 您的帖子",
+            "title": "帖子绩效表现",
+            "empty": "尚无帖子 — 发布您的第一篇帖子以查看分析数据。",
+            "score": "内容评分",
+            "engagement": "互动互动",
+            "viewDetails": "详情"
+        },
+        "detail": {
+            "label": "// 帖子详情",
+            "back": "← 返回分析数据",
+            "published": "已发布",
+            "platforms": "平台"
+        },
+        "issues": {
+            "no_content": "您的帖子没有文本内容。",
+            "content_too_short": "帖子文本过短（{{length}} 个字符）。目标长度应至少为 30 个字符。",
+            "content_too_long": "帖子文本非常长（{{length}} 个字符）。为了更好的可读性，建议缩短。",
+            "no_media": "添加图片或视频以提高互动量。",
+            "no_hashtags": "未检测到标签。添加相关标签以提高可发现性。",
+            "too_many_hashtags": "标签过多（{{count}} 个）。目标数量应为 5–15 个以获得最佳触达效果。",
+            "no_platforms": "帖子未选择发布平台。",
+            "single_platform": "帖子仅在一个平台上。考虑跨平台发布以触达更多人群。",
+            "poor_timing": "帖子发布于 {{hour}}:00 — 处于高峰互动时间（7:00–22:00）之外。",
+            "no_cta": "未检测到号召性用语（CTA）。鼓励您的观众采取行动。"
+        },
+        "tips": {
+            "no_posts": "发布您的第一篇帖子，开始获取个性化的分析小贴士。",
+            "all_good": "干得漂亮！您最近的所有帖子都获得了不错的评分。请保持质量。",
+            "no_content": "尝试为您的下一篇帖子添加文本内容 — 带有文案的帖子可以获得明显更高的互动量。",
+            "content_too_short": "您的帖子文本非常短。将其扩展到至少 30 个字符，为您的受众提供更多背景信息。",
+            "content_too_long": "为了更好地在移动端阅读，考虑缩短您的帖子文本。",
+            "no_media": "带有图片或视频的帖子平均可获得 2–3 倍的互动量。请为下一篇帖子添加媒体文件。",
+            "no_hashtags": "为您的帖子添加 5–15 个相关标签，以吸引更广泛的受众。",
+            "too_many_hashtags": "将您的标签数量减少到每篇帖子 5–15 个 —— 标签太多看起来像垃圾邮件。",
+            "no_platforms": "在发布前至少选择一个平台，使您的帖子上线。",
+            "single_platform": "跨多个平台发布，以最大化您内容的触达效果。",
+            "poor_timing": "尝试将下一篇帖子排期在 7:00 至 22:00 之间发布，以获得更高的可见度。",
+            "no_cta": "在帖子结尾加上清晰的号召性用语 —— 向您的观众提出一个问题或邀请他们点击链接。"
+        }
+    },
+    "account": {
+        "profile": {
+            "title": "我的资料",
+            "edit_link": "在设置中编辑"
+        },
+        "settings": {
+            "title": "账户设置"
+        },
+        "username": {
+            "label": "用户名",
+            "section_title": "修改用户名",
+            "helper": "今年还可修改 {{remaining}} 次（限 3 次）",
+            "limit_reached": "您已达到每年修改 3 次用户名的限制。",
+            "taken": "该用户名已被占用",
+            "save": "保存用户名",
+            "success": "用户名更新成功"
+        },
+        "export": {
+            "title": "导出账户数据",
+            "description": "将您所有的账户数据下载为 JSON 文件。",
+            "button": "下载数据 (JSON)",
+            "loading": "正在准备导出..."
+        },
+        "delete": {
+            "title": "注销账户",
+            "warning": "此操作是永久性的，且无法撤销。您所有的帖子、社交平台连接和数据都将被删除。",
+            "button": "注销我的账户",
+            "confirm_label": "输入您的用户名以进行确认",
+            "confirm_placeholder": "您的用户名",
+            "confirm_action": "永久注销账户"
+        },
+        "notifications": {
+            "title": "通知首选项",
+            "muteLabel": "静音应用内通知",
+            "muteHelper": "铃铛下拉菜单中将不会显示新的通知。",
+            "emailLabel": "邮件通知",
+            "emailHelper": "接收重要事件的电子邮件提醒，如已完成的营销活动和已连接的账户。",
+            "save": "保存偏好设置",
+            "saved": "已保存！"
+        }
+    },
+    "posts": {
+        "composer": {
+            "placeholder": "有什么新鲜事？",
+            "placeholder_instagram": "撰写您的 Instagram 配文...",
+            "placeholder_facebook": "在 Facebook 上分享新鲜事...",
+            "placeholder_twitter": "有什么新鲜事？",
+            "placeholder_tiktok": "撰写您的 TikTok 描述...",
+            "placeholder_linkedin": "分享专业见解...",
+            "placeholder_youtube": "描述您的 YouTube 视频...",
+            "platforms_label": "平台",
+            "composing_for": "正在为 {{platform}} 撰写内容",
+            "limit_exceeded_warning": "内容超出了 {{platform}} 的 {{limit}} 个字符的限制。",
+            "multi_platform_limit_note": "最严格的限制: {{platform}}（{{limit}} 个字符）",
+            "char_counter_label": "当前字数 {{current}} / 最大限制 {{max}}",
+            "platform_fields": {
+                "section_label_single": "平台设置",
+                "section_label_multi": "独立平台设置"
+            },
+            "existing_media_alt": "媒体文件 {{n}}",
+            "remove_media_label": "移除媒体文件 {{n}}",
+            "add_photo": "添加照片",
+            "cancel": "取消",
+            "publish": "发布",
+            "publish_to": "发布 ({{count}})",
+            "save_draft": "保存草稿",
+            "publishing": "正在发布...",
+            "save": "保存",
+            "success": "帖子发布成功。",
+            "instagram_needs_media": "Instagram 要求至少包含一张图片。请添加照片再发布。",
+            "platform_not_connected": "{{platform}} 未连接 — 请前往账户设置",
+            "platform_disconnected_badge": "关闭",
+            "ai": {
+                "generate": "生成",
+                "generating": "正在生成...",
+                "generate_aria": "使用 AI 生成配文",
+                "error": "生成配文失败。请重试。"
+            }
+        }
+    },
+    "plugins": {
+        "marketplace": {
+            "label": "// 插件市场",
+            "heading": "插件市场",
+            "empty": "暂无可用插件。",
+            "installed": "已安装",
+            "update": "有更新",
+            "install": "安装",
+            "uninstall": "卸载",
+            "update_action": "更新",
+            "author": "作者:",
+            "capabilities": "能力列表",
+            "installing": "正在安装...",
+            "uninstalling": "正在卸载..."
+        },
+        "upload": {
+            "label": "// 上传插件",
+            "heading": "提交插件",
+            "slug_label": "唯一标识（Slug）",
+            "slug_placeholder": "my-plugin",
+            "name_label": "名称",
+            "name_placeholder": "我的插件",
+            "description_label": "描述",
+            "description_placeholder": "该插件有什么作用？",
+            "version_label": "版本",
+            "version_placeholder": "1.0.0",
+            "manifest_label": "清单 JSON（Manifest）",
+            "manifest_placeholder": "{\"name\": \"my-plugin\", \"version\": \"1.0.0\", \"description\": \"\", \"author\": \"\", \"permissions\": []}",
+            "bundle_label": "打包文件 (.js)",
+            "submit": "提交审核",
+            "submitting": "正在提交...",
+            "success": "插件已提交审核。",
+            "error": "提交插件失败。"
+        },
+        "admin": {
+            "label": "// 管理员",
+            "heading": "插件审核队列",
+            "empty": "暂无等待审核的插件。",
+            "approve": "批准",
+            "reject": "拒绝",
+            "reject_reason_label": "拒绝原因",
+            "reject_reason_placeholder": "说明拒绝该插件的原因...",
+            "confirm_reject": "确认拒绝",
+            "cancel": "取消",
+            "approving": "正在批准...",
+            "rejecting": "正在拒绝...",
+            "pending_badge": "等待审核",
+            "submitted": "已提交",
+            "version_label": "版本",
+            "author_label": "作者",
+            "capabilities_label": "能力列表",
+            "manifest_label": "清单清单"
+        }
+    },
+    "campaigns": {
+        "page": {
+            "eyebrow": "// 营销活动",
+            "title": "营销活动",
+            "empty": "尚无营销活动 — 创建一个以开始",
+            "new": "+ 新营销活动"
+        },
+        "new": {
+            "eyebrow": "// 新营销活动",
+            "title": "新营销活动",
+            "save": "创建营销活动",
+            "saving": "正在创建..."
+        },
+        "status": {
+            "active": "活跃中",
+            "paused": "已暂停",
+            "completed": "已完成",
+            "failed": "已失败"
+        },
+        "filter": {
+            "all": "全部",
+            "active": "活跃中",
+            "paused": "已暂停",
+            "completed": "已完成",
+            "failed": "已失败"
+        },
+        "action": {
+            "publish_post": "发布帖子",
+            "webhook": "网络钩子（Webhook）"
+        },
+        "field": {
+            "name": "营销活动名称",
+            "name_placeholder": "例如：每周促销",
+            "action_type": "操作类型",
+            "post_id": "帖子 ID",
+            "post_id_placeholder": "输入帖子 ID",
+            "url": "Webhook URL",
+            "url_placeholder": "https://example.com/webhook",
+            "method": "HTTP 方法",
+            "body": "请求体 (选填)",
+            "body_placeholder": "{ \"key\": \"value\" }",
+            "interval": "执行间隔（分钟）",
+            "total_runs": "总运行次数",
+            "start_at": "开始时间 (选填)",
+            "start_at_hint": "留空表示立即开始",
+            "name_help": "简短且具有高辨识度的营销活动标签（最大 100 个字符）。",
+            "action_type_help": "选择此营销活动在每次运行时执行的操作。",
+            "posts": "帖子列表",
+            "posts_help": "选择一个或多个要自动发布的帖子。",
+            "posts_empty": "您目前还没有帖子。请先创建帖子，然后再设置营销活动。",
+            "posts_selected": "已选择 {{count}} 篇帖子",
+            "posts_selected_plural": "已选择 {{count}} 篇帖子",
+            "url_help": "每次运行时接收 HTTP 请求的端点。必须使用 https 或 http。",
+            "method_help": "发送到 webhook 的 HTTP 动词。对于大多数使用场景，推荐使用 POST。",
+            "body_help": "随 POST/PUT/PATCH 请求发送的可选 JSON 请求体。",
+            "interval_help": "营销活动运行的频率。最少 1 分钟。使用上方的预设来选择常见间隔。",
+            "total_runs_help": "此营销活动在完成前将执行的总次数（1–10,000）。",
+            "start_at_help": "安排首次在未来的特定日期和时间运行。留空表示立即开始。",
+            "posts_search": "搜索帖子…",
+            "posts_no_results": "没有匹配您搜索的帖子",
+            "no_content": "（无文本内容）"
+        },
+        "interval_preset": {
+            "15m": "15分钟",
+            "1h": "1小时",
+            "6h": "6小时",
+            "24h": "24小时"
+        },
+        "actions": {
+            "pause": "暂停",
+            "resume": "恢复",
+            "delete": "删除",
+            "history": "历史记录",
+            "hide_history": "隐藏",
+            "pausing": "正在暂停...",
+            "resuming": "正在恢复...",
+            "deleting": "正在删除..."
+        },
+        "progress": "已运行 {{done}} / 总计 {{total}} 次",
+        "next_run": "下一次运行",
+        "last_run": "上一次运行",
+        "interval_label": "每 {{minutes}} 分钟",
+        "runs": {
+            "title": "运行历史记录",
+            "empty": "暂无运行记录",
+            "success": "成功",
+            "failed": "失败",
+            "at": "于"
+        },
+        "confirm_delete": {
+            "title": "删除营销活动",
+            "description": "这将永久删除该营销活动及其所有运行历史记录。此操作不可逆。",
+            "label": "输入营销活动名称以确认",
+            "confirm": "删除营销活动"
+        },
+        "toast": {
+            "paused": "营销活动已暂停",
+            "resumed": "营销活动已恢复",
+            "deleted": "营销活动已删除",
+            "created": "营销活动创建成功"
+        }
+    },
+    "schedule": {
+        "label": "// 定时排期",
+        "heading": "发帖日历",
+        "prev_month": "上个月",
+        "next_month": "下个月",
+        "today": "今天",
+        "weekdays": ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+        "empty_day": "当天无发帖安排。",
+        "schedule_post": "排期帖子",
+        "pick_post": "选择一篇帖子",
+        "pick_time": "日期与时间",
+        "submit_schedule": "确定排期",
+        "scheduling": "正在安排排期…",
+        "reschedule": "重新排期",
+        "rescheduling": "正在重新排期…",
+        "cancel_post": "取消",
+        "cancel_title": "取消已排期的帖子",
+        "cancel_description": "该帖子将不会在预定时间发布。您可以随时从“营销活动”页面重新安排它。",
+        "cancel_confirm": "取消发布",
+        "more": "还有 +{{count}} 项",
+        "published_on": "已发布于 {{platforms}}",
+        "toast": {
+            "scheduled": "帖子排期成功",
+            "rescheduled": "帖子已重新排期",
+            "cancelled": "已排期的帖子已取消"
+        }
+    },
+    "reports": {
+        "page": {
+            "title": "报告",
+            "empty": "暂无报告",
+            "new": "+ 新建报告"
+        },
+        "sections": {
+            "stats": "统计数据",
+            "chart": "参与度图表",
+            "posts": "热门帖子",
+            "prediction": "预测",
+            "tip": "每日提示"
+        },
+        "form": {
+            "name": "报告名称",
+            "name_placeholder": "例如：每周概览",
+            "sections": "包含的部分",
+            "interval": "自动生成",
+            "interval_none": "仅按需生成",
+            "interval_week": "每周",
+            "interval_2weeks": "每两周",
+            "interval_month": "每月",
+            "create": "创建报告",
+            "creating": "创建中…"
+        },
+        "row": {
+            "generate": "立即生成",
+            "view": "查看",
+            "pause": "暂停",
+            "resume": "恢复",
+            "delete": "删除",
+            "interval": "每 {{days}} 天",
+            "on_demand": "按需",
+            "last_run": "上次生成：",
+            "runs": "次运行",
+            "pause_na": "暂停仅适用于定期报告",
+            "confirm_delete": "确定删除此报告及所有历史记录？此操作无法撤销。",
+            "generated_ok": "报告生成成功。"
+        },
+        "status": {
+            "active": "活跃",
+            "paused": "已暂停"
+        },
+        "view": {
+            "generated": "生成时间：",
+            "chart_last30": "最近 30 个数据点",
+            "title": "报告",
+            "confidence": "预测置信度",
+            "download": "下载 PDF"
+        },
+        "notification": {
+            "title": "报告已就绪",
+            "message": "报告「{{name}}」已生成。"
+        }
+    }
+}

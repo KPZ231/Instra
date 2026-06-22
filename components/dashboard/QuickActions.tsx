@@ -15,8 +15,8 @@ interface QuickActionDef {
 const ACTIONS: QuickActionDef[] = [
   { id: "new-post",      icon: <FilePlus size={15} />, labelKey: "dashboard.quickActions.newPost",     href: "/dashboard/posts/new" },
   { id: "add-plugin",    icon: <Puzzle size={15} />,   labelKey: "dashboard.quickActions.addPlugin",   href: "/dashboard/plugins" },
-  { id: "new-campaign",  icon: <Zap size={15} />,      labelKey: "dashboard.quickActions.newCampaign", href: undefined },
-  { id: "view-report",   icon: <BarChart2 size={15} />, labelKey: "dashboard.quickActions.viewReport",  href: undefined },
+  { id: "new-campaign",  icon: <Zap size={15} />,      labelKey: "dashboard.quickActions.newCampaign", href: "/dashboard/campaigns/new" },
+  { id: "view-report",   icon: <BarChart2 size={15} />, labelKey: "dashboard.quickActions.viewReport",  href: "/dashboard/reports" },
 ];
 
 /**

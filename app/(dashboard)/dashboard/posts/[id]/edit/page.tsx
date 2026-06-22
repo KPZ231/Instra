@@ -3,8 +3,10 @@ import { notFound } from 'next/navigation'
 import { buildMetadata } from '@/lib/seo/metadata'
 import { getPostById } from '@/lib/api/posts'
 import { verifySession } from '@/lib/auth/dal'
+import { getConnectedAccounts } from '@/lib/api/socialAccounts'
 import { Card } from '@/components/ui/Card'
 import { PostComposer } from '@/components/ui/posts/PostComposer'
+import type { PlatformId } from '@/components/ui/posts/PlatformSelector'
 import { UserRole } from '@/types/auth'
 
 export const metadata: Metadata = buildMetadata({
@@ -22,6 +24,8 @@ interface EditPostPageProps {
 export default async function EditPostPage({ params }: EditPostPageProps) {
   const { id } = await params
   const [post, { user }] = await Promise.all([getPostById(id), verifySession()])
+  const accounts = await getConnectedAccounts(user.id)
+  const connectedPlatforms = accounts.map((a) => a.platform.toLowerCase() as PlatformId)
 
   if (!post) notFound()
 
@@ -37,7 +41,7 @@ export default async function EditPostPage({ params }: EditPostPageProps) {
         Edit Post
       </h1>
       <Card className="p-6">
-        <PostComposer mode="full" existingPost={post} />
+        <PostComposer mode="full" existingPost={post} connectedPlatforms={connectedPlatforms} />
       </Card>
     </div>
   )
