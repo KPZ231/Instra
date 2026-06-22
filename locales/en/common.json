@@ -1283,5 +1283,8 @@
             "no_runs": "No runs yet. Generate one from the Reports list.",
             "popup_blocked": "Popup blocked — allow popups to print the report."
         }
+    },
+    "announcement": {
+        "wip": "App under construction — errors may occur."
     }
 }

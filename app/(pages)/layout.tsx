@@ -3,6 +3,7 @@ import AuthProvider from "@/components/providers/AuthProvider";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 import InstraToaster from "@/components/ui/InstraToaster";
+import AnnouncementBar from "@/components/ui/AnnouncementBar";
 
 export default function RootLayout({
   children,
@@ -12,6 +13,7 @@ export default function RootLayout({
   return (
     <AuthProvider>
       <I18nProvider>
+        <AnnouncementBar fixed />
         <Navbar></Navbar>
         {children}
         <Footer></Footer>

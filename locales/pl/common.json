@@ -1283,5 +1283,8 @@
             "no_runs": "Brak uruchomień. Wygeneruj raport z listy raportów.",
             "popup_blocked": "Popup zablokowany — zezwól na wyskakujące okna, aby wydrukować raport."
         }
+    },
+    "announcement": {
+        "wip": "Aplikacja w trakcie tworzenia — mogą pojawić się błędy."
     }
 }

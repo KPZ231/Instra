@@ -72,7 +72,7 @@ export default function Navbar() {
     <motion.header
       animate={{ y: isNavVisible ? 0 : "-100%" }}
       transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
-      className="fixed top-0 left-0 right-0 z-50"
+      className="fixed top-[28px] left-0 right-0 z-50"
       style={{
         background: "rgba(13, 15, 11, 0.72)",
         backdropFilter: "blur(20px) saturate(160%)",

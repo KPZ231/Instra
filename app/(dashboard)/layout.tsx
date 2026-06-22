@@ -1,4 +1,5 @@
 import { verifySession } from "@/lib/auth/dal";
+import AnnouncementBar from "@/components/ui/AnnouncementBar";
 import DashboardSidebar from "@/components/dashboard/DashboardSidebar";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
 import Image from "next/image";
@@ -15,6 +16,9 @@ export default async function DashboardLayout({ children }: { children: React.Re
 
   return (
     <div className="flex flex-col h-dvh overflow-hidden bg-[#000000]">
+      {/* ── Announcement bar ── */}
+      <AnnouncementBar />
+
       {/* ── Top bar ── */}
       <header
         className="flex items-center gap-4 px-4 py-2 shrink-0 border-b"
