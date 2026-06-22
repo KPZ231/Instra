@@ -29,6 +29,8 @@ if (!i18n.isInitialized) {
       useSuspense: false,
     },
   });
+
+  ""
 }
 
 export default i18n;
