@@ -50,7 +50,7 @@ export async function validatePasswordResetToken(rawToken: string): Promise<stri
   return record.email
 }
 
-/** SHA-256 hash of the raw token — only the hash is ever stored in DB. */
+/** SHA-256 hash of the raw token  only the hash is ever stored in DB. */
 function hashToken(rawToken: string): string {
   return crypto.createHash('sha256').update(rawToken).digest('hex')
 }

@@ -44,7 +44,7 @@ export function CampaignRuns({ runs }: CampaignRunsProps) {
             className="flex items-start gap-2 py-1.5 px-2 rounded-sm"
             style={{ background: 'var(--color-surface-container-lowest)' }}
           >
-            {/* Success/fail icon — not color alone (text label also) */}
+            {/* Success/fail icon  not color alone (text label also) */}
             <span
               aria-label={run.success ? t('campaigns.runs.success') : t('campaigns.runs.failed')}
               className="font-mono text-xs mt-0.5 shrink-0 tabular-nums"

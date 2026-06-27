@@ -51,16 +51,16 @@ export function buildMetadata(overrides: Partial<Metadata> & { slug?: string }):
 export const pageMetadata = {
   home: {
     slug: "",
-    title: `${SITE_NAME} — Your Marketing Companion`,
+    title: `${SITE_NAME}  Your Marketing Companion`,
     description:
       "Instra is an AI-powered marketing intelligence platform for founders and growth teams. Launch smarter campaigns, measure real impact, and scale faster.",
     openGraph: {
-      title: `${SITE_NAME} — Your Marketing Companion`,
+      title: `${SITE_NAME}  Your Marketing Companion`,
       description:
         "AI-powered marketing intelligence platform for founders and growth teams.",
     },
     twitter: {
-      title: `${SITE_NAME} — Your Marketing Companion`,
+      title: `${SITE_NAME}  Your Marketing Companion`,
       description:
         "AI-powered marketing intelligence platform for founders and growth teams.",
     },
@@ -68,16 +68,16 @@ export const pageMetadata = {
 
   about: {
     slug: "about",
-    title: `About Instra — Marketing Intelligence Built for Operators`,
+    title: `About Instra  Marketing Intelligence Built for Operators`,
     description:
       "Learn who we are, what drives us, and why 500K+ businesses trust Instra to power their marketing operations at scale.",
     openGraph: {
-      title: "About Instra — Marketing Intelligence Built for Operators",
+      title: "About Instra  Marketing Intelligence Built for Operators",
       description:
         "500K+ businesses trust Instra. Learn our story, philosophy, and the team behind the platform.",
     },
     twitter: {
-      title: "About Instra — Marketing Intelligence Built for Operators",
+      title: "About Instra  Marketing Intelligence Built for Operators",
       description:
         "500K+ businesses trust Instra. Learn our story, philosophy, and the team behind the platform.",
     },
@@ -85,16 +85,16 @@ export const pageMetadata = {
 
   plugins: {
     slug: "plugins",
-    title: `Instra Plugins — Extend Instra with Custom Integrations and Automations`,
+    title: `Instra Plugins  Extend Instra with Custom Integrations and Automations`,
     description:
       "Instra's plugin system lets you build custom integrations, automations, and data syncs to connect Instra with your unique marketing stack and workflows.",
     openGraph: {
-      title: "Instra Plugins — Extend Instra with Custom Integrations and Automations",
+      title: "Instra Plugins  Extend Instra with Custom Integrations and Automations",
       description:
         "Build custom integrations, automations, and data syncs to connect Instra with your unique marketing stack and workflows.",
     },
     twitter: {
-      title: "Instra Plugins — Extend Instra with Custom Integrations and Automations",
+      title: "Instra Plugins  Extend Instra with Custom Integrations and Automations",
       description:
 
         "Build custom integrations, automations, and data syncs to connect Instra with your unique marketing stack and workflows.",
@@ -103,16 +103,16 @@ export const pageMetadata = {
 
   features: {
     slug: "features",
-    title: `Instra Features — AI Marketing Tools That Work`,
+    title: `Instra Features  AI Marketing Tools That Work`,
     description:
-      "Explore Instra's full feature set: AI campaign builder, analytics, audience intelligence, automation, and integrations — all in one platform.",
+      "Explore Instra's full feature set: AI campaign builder, analytics, audience intelligence, automation, and integrations  all in one platform.",
     openGraph: {
-      title: "Instra Features — AI Marketing Tools That Work",
+      title: "Instra Features  AI Marketing Tools That Work",
       description:
-        "AI campaign builder, analytics, audience intelligence, automation, and integrations — all in one platform.",
+        "AI campaign builder, analytics, audience intelligence, automation, and integrations  all in one platform.",
     },
     twitter: {
-      title: "Instra Features — AI Marketing Tools That Work",
+      title: "Instra Features  AI Marketing Tools That Work",
       description:
         "AI campaign builder, analytics, audience intelligence, automation, and integrations.",
     },
@@ -120,16 +120,16 @@ export const pageMetadata = {
 
   usecases: {
     slug: "usecases",
-    title: `Instra Use Cases — How Teams Use Instra to Grow`,
+    title: `Instra Use Cases  How Teams Use Instra to Grow`,
     description:
       "See how founders, growth operators, and marketing teams use Instra to launch campaigns, track performance, and scale their brands.",
     openGraph: {
-      title: "Instra Use Cases — How Teams Use Instra to Grow",
+      title: "Instra Use Cases  How Teams Use Instra to Grow",
       description:
         "How founders, growth operators, and marketing teams use Instra to scale their brands.",
     },
     twitter: {
-      title: "Instra Use Cases — How Teams Use Instra to Grow",
+      title: "Instra Use Cases  How Teams Use Instra to Grow",
       description:
         "How founders, growth operators, and marketing teams use Instra to scale.",
     },
@@ -137,16 +137,16 @@ export const pageMetadata = {
 
   download: {
     slug: "download",
-    title: `Download Instra — CLI & Desktop Agent`,
+    title: `Download Instra  CLI & Desktop Agent`,
     description:
       "Download Instra CLI and Desktop Agent. Install the npm package globally or grab the latest desktop release for macOS, Windows, and Linux.",
     openGraph: {
-      title: "Download Instra — CLI & Desktop Agent",
+      title: "Download Instra  CLI & Desktop Agent",
       description:
         "Install Instra CLI via npm or download the Desktop Agent for macOS, Windows, and Linux.",
     },
     twitter: {
-      title: "Download Instra — CLI & Desktop Agent",
+      title: "Download Instra  CLI & Desktop Agent",
       description:
         "Install Instra CLI via npm or download the Desktop Agent for macOS, Windows, and Linux.",
     },
@@ -154,53 +154,53 @@ export const pageMetadata = {
 
   docs: {
     slug: "docs",
-    title: `Instra Documentation — Technical Reference`,
+    title: `Instra Documentation  Technical Reference`,
     description:
       "Instra technical documentation: auth, database, i18n, architecture, plugin system, and API reference.",
     robots: { index: true, follow: true },
     openGraph: {
-      title: "Instra Documentation — Technical Reference",
+      title: "Instra Documentation  Technical Reference",
       description:
         "Auth, database, i18n, architecture, plugin system, and API reference.",
     },
     twitter: {
-      title: "Instra Documentation — Technical Reference",
+      title: "Instra Documentation  Technical Reference",
       description: "Auth, database, i18n, architecture, plugin system, and API reference.",
     },
   },
 
-  /** Auth pages — excluded from search engine indexing */
+  /** Auth pages  excluded from search engine indexing */
   signin: {
     slug: "signin",
-    title: `Sign In — Instra`,
+    title: `Sign In  Instra`,
     description: "Sign in to your Instra account.",
     robots: { index: false, follow: false },
   },
 
   signup: {
     slug: "signup",
-    title: `Sign Up — Instra`,
+    title: `Sign Up  Instra`,
     description: "Create your Instra account and start for free.",
     robots: { index: false, follow: false },
   },
 
   forgotPassword: {
     slug: "forgot-password",
-    title: `Reset Password — Instra`,
+    title: `Reset Password  Instra`,
     description: "Reset your Instra account password.",
     robots: { index: false, follow: false },
   },
 
   resetPassword: {
     slug: "reset-password",
-    title: `Set New Password — Instra`,
+    title: `Set New Password  Instra`,
     description: "Set a new password for your Instra account.",
     robots: { index: false, follow: false },
   },
 
   verifyEmail: {
     slug: "verify-email",
-    title: `Verify Your Email — Instra`,
+    title: `Verify Your Email  Instra`,
     description: "Enter the 6-digit code we sent to your email address to complete your Instra registration.",
     robots: { index: false, follow: false },
   },

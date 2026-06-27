@@ -16,8 +16,8 @@ Thank you for your interest in contributing! Please read this document before op
 
 ## Development Guidelines
 
-- **TypeScript everywhere** — no `any`.
-- **No direct DB/fetch in components** — use services in `/lib/api/`.
+- **TypeScript everywhere**  no `any`.
+- **No direct DB/fetch in components**  use services in `/lib/api/`.
 - **Business logic** goes in hooks or services, not in components.
 - **`async/await`** always; never `.then()` in new code.
 - Follow the naming conventions in [CLAUDE.md](CLAUDE.md).
@@ -47,7 +47,7 @@ Do **not** commit: `.env`, `node_modules`, generated Prisma files.
 ## Pull Requests
 
 - Branch off `master`: `git checkout -b feat/my-feature`
-- Keep PRs focused — one concern per PR.
+- Keep PRs focused  one concern per PR.
 - Fill in the PR template (what changed, how to test).
 - All checks must pass before merge: lint, tests, Lighthouse SEO ≥ 90.
 

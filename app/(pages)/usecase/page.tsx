@@ -10,7 +10,7 @@ import CTA from "@/components/ui/CTA";
 
 export const metadata: Metadata = buildMetadata(pageMetadata.usecases);
 
-/** UseCase page — communicates problem, solution, workflow, integrations, and FAQs. */
+/** UseCase page  communicates problem, solution, workflow, integrations, and FAQs. */
 export default function UseCasesPage() {
   return (
     <>

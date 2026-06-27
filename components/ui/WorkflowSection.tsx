@@ -34,7 +34,7 @@ const headerVariants = {
 /* ── Main component ─────────────────────────────────────────────── */
 
 /**
- * WorkflowSection — horizontal 4-step timeline on desktop, vertical on mobile.
+ * WorkflowSection  horizontal 4-step timeline on desktop, vertical on mobile.
  * Animated connector line (scaleX/scaleY) triggered by scroll via useInView.
  *
  * @example
@@ -178,7 +178,7 @@ export default function WorkflowSection() {
                   }}
                   className="relative flex gap-5 pb-10 last:pb-0"
                 >
-                  {/* Node icon — positioned over the track line */}
+                  {/* Node icon  positioned over the track line */}
                   <div
                     className="absolute left-0 flex items-center justify-center w-9 h-9 border border-white/30 bg-surface-container-lowest shrink-0 -translate-x-[1px]"
                     style={{ clipPath: CLIP_NODE_SM, marginTop: "2px" }}

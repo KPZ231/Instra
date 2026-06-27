@@ -88,7 +88,7 @@ export async function publishToInstagram(
   const caption = payload.content ?? ''
 
   if (images.length === 0) {
-    // Text as caption without media — Instagram requires at least one media item.
+    // Text as caption without media  Instagram requires at least one media item.
     // Use a single-item container with caption only (reel not supported; fallback: skip)
     throw new Error(
       'Instagram requires at least one image. Add media to publish on Instagram.',

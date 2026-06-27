@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
  * @function Footer
  * @description Modernistyczny footer z dużym, wycentrowanym logo Instra.
  * Płynnie łączy się z sekcją CTA powyżej dzięki wspólnemu ciemnemu tłu.
- * Styl zgodny z "Executive Precision" — Technical Brutalism / High-Contrast Modern.
+ * Styl zgodny z "Executive Precision"  Technical Brutalism / High-Contrast Modern.
  *
  * @returns {JSX.Element} Pełna sekcja stopki strony.
  * @example

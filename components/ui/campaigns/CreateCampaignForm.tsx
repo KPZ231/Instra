@@ -72,7 +72,7 @@ export function CreateCampaignForm({ posts }: CreateCampaignFormProps) {
   const [totalRuns, setTotalRuns] = useState(5)
   const [startAt, setStartAt] = useState('')
 
-  // PUBLISH_POST payload — multi-select
+  // PUBLISH_POST payload  multi-select
   const [postIds, setPostIds] = useState<string[]>([])
 
   // WEBHOOK payload
@@ -180,7 +180,7 @@ export function CreateCampaignForm({ posts }: CreateCampaignFormProps) {
         <FieldError errors={state.errors?.actionType} />
       </div>
 
-      {/* Payload — progressive disclosure */}
+      {/* Payload  progressive disclosure */}
       {actionType === 'PUBLISH_POST' && (
         <div>
           <p className={LABEL_CLASS} style={LABEL_STYLE}>

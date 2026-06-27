@@ -38,8 +38,24 @@ model User {
   campaigns       Campaign[]
   reports         Report[]
   notifications   Notification[]
+  apiTokens       ApiToken[]
   notificationsMuted        Boolean @default(false)
   emailNotificationsEnabled Boolean @default(true)
+}
+
+model ApiToken {
+  id        String    @id @default(cuid())
+  userId    String
+  name      String
+  tokenHash String    @unique
+  prefix    String
+  lastUsed  DateTime?
+  expiresAt DateTime?
+  createdAt DateTime  @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
 }
 
 model Account {
@@ -410,7 +426,7 @@ model Report {
   id           String       @id @default(cuid())
   userId       String
   name         String
-  /// { sections: string[] } — which overview sections to include
+  /// { sections: string[] }  which overview sections to include
   config       Json
   /// null = on-demand only; >= 7 for a recurring schedule
   intervalDays Int?

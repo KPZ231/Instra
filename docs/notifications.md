@@ -1,17 +1,17 @@
 # Notifications
 
-The notifications module provides in-app alerts and optional email delivery for key platform events. It is entirely server-side — no client-side store, no WebSocket. The UI polls `GET /api/notifications`.
+The notifications module provides in-app alerts and optional email delivery for key platform events. It is entirely server-side  no client-side store, no WebSocket. The UI polls `GET /api/notifications`.
 
 ---
 
 ## Architecture
 
 ```
-lib/api/notifications.ts          — service layer (createNotification, list, count, markRead)
-lib/email/templates/notification.ts — HTML + plain-text email templates
-app/api/notifications/route.ts    — GET /api/notifications
-app/api/notifications/read/route.ts — POST /api/notifications/read
-features/notifications/           — barrel export + updatePreferences server action
+lib/api/notifications.ts           service layer (createNotification, list, count, markRead)
+lib/email/templates/notification.ts  HTML + plain-text email templates
+app/api/notifications/route.ts     GET /api/notifications
+app/api/notifications/read/route.ts  POST /api/notifications/read
+features/notifications/            barrel export + updatePreferences server action
 ```
 
 ---
@@ -46,21 +46,21 @@ Indexes: `(userId, read)`, `(userId, createdAt)`.
 | SOCIAL_CONNECTED     | OAuth callback success (callback route)        | Yes    |
 | SOCIAL_DISCONNECTED  | Account disconnected (disconnect route)        | Yes    |
 
-Post events are in-app only — email is reserved for campaign and social account events.
+Post events are in-app only  email is reserved for campaign and social account events.
 
 ---
 
-## Service functions — `lib/api/notifications.ts`
+## Service functions  `lib/api/notifications.ts`
 
 ### `createNotification(input)`
-Creates an in-app notification and optionally sends an email. **Never throws** into the caller — all errors are caught and logged. Use `void createNotification(...)` for fire-and-forget.
+Creates an in-app notification and optionally sends an email. **Never throws** into the caller  all errors are caught and logged. Use `void createNotification(...)` for fire-and-forget.
 
 **Parameters:**
-- `input.userId` (string) — target user ID
-- `input.type` (NotificationType) — event type
-- `input.title` (string) — short heading
-- `input.message` (string) — body text
-- `input.link` (string, optional) — deep-link for the CTA button
+- `input.userId` (string)  target user ID
+- `input.type` (NotificationType)  event type
+- `input.title` (string)  short heading
+- `input.message` (string)  body text
+- `input.link` (string, optional)  deep-link for the CTA button
 
 Respects `User.notificationsMuted` (skips DB write) and `User.emailNotificationsEnabled` (skips email).
 
@@ -106,7 +106,7 @@ Marks notification(s) as read. Requires session.
 
 ---
 
-## Server Action — `updatePreferences`
+## Server Action  `updatePreferences`
 
 ```ts
 import { updatePreferences } from '@/features/notifications'
@@ -115,8 +115,8 @@ const [state, action] = useActionState(updatePreferences, {})
 ```
 
 **FormData fields:**
-- `notificationsMuted` — `"true"` or `"false"`
-- `emailNotificationsEnabled` — `"true"` or `"false"`
+- `notificationsMuted`  `"true"` or `"false"`
+- `emailNotificationsEnabled`  `"true"` or `"false"`
 
 Rate-limited to 10 requests/hour per user (preset: `updatePreferences`).
 Calls `revalidatePath('/dashboard/settings')` on success.
@@ -125,7 +125,7 @@ Calls `revalidatePath('/dashboard/settings')` on success.
 
 ## Best-effort guarantee
 
-`createNotification` is always called with `void` — it catches all errors internally and logs them via `console.error('[notifications] createNotification failed:', err)`. A notification failure never disrupts the calling flow (cron run, OAuth callback, post publish).
+`createNotification` is always called with `void`  it catches all errors internally and logs them via `console.error('[notifications] createNotification failed:', err)`. A notification failure never disrupts the calling flow (cron run, OAuth callback, post publish).
 
 ---
 

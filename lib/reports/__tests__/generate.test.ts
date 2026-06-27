@@ -1,13 +1,13 @@
 /**
  * Unit tests for generateReportRun section filtering.
- * Mocks analytics and Prisma — tests that only selected sections appear in the snapshot.
+ * Mocks analytics and Prisma  tests that only selected sections appear in the snapshot.
  */
 
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 
 vi.mock('server-only', () => ({}))
 
-// ─── Mocks (hoisted — vi.mock calls are hoisted to top) ──────────────────────
+// ─── Mocks (hoisted  vi.mock calls are hoisted to top) ──────────────────────
 
 const mockCreate = vi.hoisted(() => vi.fn())
 const mockUpdate = vi.hoisted(() => vi.fn())

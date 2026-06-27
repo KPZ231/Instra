@@ -4,14 +4,14 @@
 
 **Goal:** Wire the plugin system backend into 4 dashboard UI surfaces: widget slot on the main dashboard, plugin marketplace with install/uninstall, plugin upload form, and admin review panel.
 
-**Architecture:** Server Components fetch data server-side (Prisma/service functions directly); only interactive elements (buttons, forms, router.refresh) are `"use client"` Client Components. No SWR/React Query — server re-render on mutation via `router.refresh()`.
+**Architecture:** Server Components fetch data server-side (Prisma/service functions directly); only interactive elements (buttons, forms, router.refresh) are `"use client"` Client Components. No SWR/React Query  server re-render on mutation via `router.refresh()`.
 
 **Tech Stack:** Next.js 15 App Router, React Server Components, TailwindCSS, Prisma, `@prisma/client`, i18next (`useTranslation` in client components, `getTranslations` or hardcoded strings in server components since i18n is client-side here), lucide-react icons, framer-motion (already used in dashboard).
 
 ## Global Constraints
 
 - TypeScript everywhere; no `any`
-- TailwindCSS only for styles — use `var(--color-*)` CSS variables from globals.css for all colours
+- TailwindCSS only for styles  use `var(--color-*)` CSS variables from globals.css for all colours
 - Dark theme: surfaces use `var(--color-surface-container-lowest)` bg, borders `rgba(255,255,255,0.06)`, hover `rgba(255,255,255,0.15)`
 - Labels/secondary text: `var(--color-on-surface-variant)`, JetBrains Mono, uppercase, letter-spacing
 - Primary values: `var(--color-primary)` (white), Hanken Grotesk
@@ -19,7 +19,7 @@
 - Buttons: Primary = white bg black text; Secondary = bone border transparent bg; Danger = red border `#93000a` text `#ffb4ab`
 - JSDoc on every exported component and function
 - `async/await` always; never `.then()`
-- No hardcoded UI text — add keys to both `locales/en/common.json` AND `locales/pl/common.json`
+- No hardcoded UI text  add keys to both `locales/en/common.json` AND `locales/pl/common.json`
 - `"use client"` only on components that need browser APIs, hooks, or interactivity
 - Every page that needs auth calls `verifySession()` from `@/lib/auth/dal`
 - Admin pages redirect to `/dashboard` if `user.role !== 'ADMIN'`
@@ -34,16 +34,16 @@
 |---|---|
 | `locales/en/common.json` (modify) | Add `plugins.*` and `dashboard.pluginSlot.*` keys |
 | `locales/pl/common.json` (modify) | Same keys in Polish |
-| `components/dashboard/DashboardWidgetSlot.tsx` | Server component — renders DASHBOARD_TOP plugin widgets |
+| `components/dashboard/DashboardWidgetSlot.tsx` | Server component  renders DASHBOARD_TOP plugin widgets |
 | `components/dashboard/plugins/PluginCard.tsx` | Rich plugin card (display only, receives install state as props) |
-| `components/dashboard/plugins/InstallButton.tsx` | Client — install/uninstall/toggle button, calls API |
-| `components/dashboard/plugins/UploadForm.tsx` | Client — multipart form for plugin bundle upload |
+| `components/dashboard/plugins/InstallButton.tsx` | Client  install/uninstall/toggle button, calls API |
+| `components/dashboard/plugins/UploadForm.tsx` | Client  multipart form for plugin bundle upload |
 | `components/dashboard/plugins/AdminReviewCard.tsx` | Display card for a pending-review plugin version |
-| `components/dashboard/plugins/ReviewActions.tsx` | Client — approve/reject buttons, calls API |
-| `app/(dashboard)/dashboard/plugins/page.tsx` | Server — marketplace page |
+| `components/dashboard/plugins/ReviewActions.tsx` | Client  approve/reject buttons, calls API |
+| `app/(dashboard)/dashboard/plugins/page.tsx` | Server  marketplace page |
 | `app/(dashboard)/dashboard/plugins/upload/page.tsx` | Server shell + UploadForm |
-| `app/(dashboard)/dashboard/admin/plugins/page.tsx` | Server — admin review panel |
-| `app/api/plugins/upload/route.ts` | POST — parse multipart, upload bundle, create plugin |
+| `app/(dashboard)/dashboard/admin/plugins/page.tsx` | Server  admin review panel |
+| `app/api/plugins/upload/route.ts` | POST  parse multipart, upload bundle, create plugin |
 
 ### Modified files
 | File | Change |
@@ -73,8 +73,8 @@ In `locales/en/common.json`, find the `"dashboard"` object and add after the `"p
 ```json
 "pluginSlot": {
     "label": "// PLUGIN SLOT",
-    "empty": "No active plugins — browse the marketplace",
-    "hint": "DASHBOARD_TOP — install a plugin to use this slot"
+    "empty": "No active plugins  browse the marketplace",
+    "hint": "DASHBOARD_TOP  install a plugin to use this slot"
 },
 "adminNav": "Admin"
 ```
@@ -145,8 +145,8 @@ In `dashboard.pluginSlot`:
 ```json
 "pluginSlot": {
     "label": "// SLOT PLUGINÓW",
-    "empty": "Brak aktywnych pluginów — przeglądaj marketplace",
-    "hint": "DASHBOARD_TOP — zainstaluj plugin aby użyć tego slotu"
+    "empty": "Brak aktywnych pluginów  przeglądaj marketplace",
+    "hint": "DASHBOARD_TOP  zainstaluj plugin aby użyć tego slotu"
 },
 "adminNav": "Admin"
 ```
@@ -344,7 +344,7 @@ import DashboardSidebar from "@/components/dashboard/DashboardSidebar";
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
 
 /**
- * Dashboard shell — server component.
+ * Dashboard shell  server component.
  * Calls verifySession() which redirects to /login when unauthenticated.
  * Passes user role to sidebar for conditional admin link display.
  */
@@ -384,7 +384,7 @@ git commit -m "feat(plugins): add i18n keys and admin sidebar link"
 - Consumes: `BlockRenderer` from `@/components/ui/plugins/BlockRenderer`
 - Consumes: `PluginErrorBoundary` from `@/components/ui/plugins/PluginErrorBoundary`
 - Consumes: `WidgetSlot` enum from `@prisma/client`
-- Produces: `<DashboardWidgetSlot />` — zero-prop Server Component to drop in DashboardOverview
+- Produces: `<DashboardWidgetSlot />`  zero-prop Server Component to drop in DashboardOverview
 
 - [ ] **Step 1: Create DashboardWidgetSlot**
 
@@ -430,7 +430,7 @@ export default async function DashboardWidgetSlot() {
             className="font-mono text-xs"
             style={{ color: "var(--color-outline)" }}
           >
-            DASHBOARD_TOP — install a plugin to use this slot
+            DASHBOARD_TOP  install a plugin to use this slot
           </p>
         </div>
       </div>
@@ -469,7 +469,7 @@ import DashboardWidgetSlot from "@/components/dashboard/DashboardWidgetSlot";
 </motion.div>
 ```
 
-Keep the surrounding `<motion.div className="grid grid-cols-1 lg:grid-cols-2 gap-4">` structure — just swap out the right column child.
+Keep the surrounding `<motion.div className="grid grid-cols-1 lg:grid-cols-2 gap-4">` structure  just swap out the right column child.
 
 - [ ] **Step 3: Commit**
 
@@ -779,12 +779,12 @@ import Link from "next/link";
 import type { PluginManifest } from "@/lib/plugins/manifest";
 
 export const metadata: Metadata = {
-  title: "Plugin Marketplace — Instra",
+  title: "Plugin Marketplace  Instra",
   robots: { index: false, follow: false },
 };
 
 /**
- * Plugin marketplace page — server component.
+ * Plugin marketplace page  server component.
  * Lists all approved plugins with the current user's installation state.
  */
 export default async function PluginsMarketplacePage() {
@@ -813,7 +813,7 @@ export default async function PluginsMarketplacePage() {
         slug: version.plugin.slug,
         name: version.plugin.name,
         description: version.plugin.description,
-        authorEmail: user.id, // author info not stored on plugin yet — use pluginId as fallback
+        authorEmail: user.id, // author info not stored on plugin yet  use pluginId as fallback
         version: version.version,
         capabilities: manifest.permissions ?? [],
         installed: !!installation,
@@ -904,7 +904,7 @@ git commit -m "feat(plugins): add plugin marketplace page with install/uninstall
 - Consumes: `submitVersionForReview(versionId)` from `@/lib/plugins/registry`
 - Consumes: `parseManifest(manifest): SafeParseReturnType` from `@/lib/plugins/manifest`
 - Consumes: `verifySession()` / `auth()` from session
-- Produces: `POST /api/plugins/upload` — accepts multipart/form-data, returns `{ pluginId, versionId }` on 201
+- Produces: `POST /api/plugins/upload`  accepts multipart/form-data, returns `{ pluginId, versionId }` on 201
 
 - [ ] **Step 1: Create upload API route**
 
@@ -1246,12 +1246,12 @@ import UploadForm from "@/components/dashboard/plugins/UploadForm";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Submit Plugin — Instra",
+  title: "Submit Plugin  Instra",
   robots: { index: false, follow: false },
 };
 
 /**
- * Plugin upload page — server component shell wrapping the client upload form.
+ * Plugin upload page  server component shell wrapping the client upload form.
  */
 export default async function PluginUploadPage() {
   await verifySession();
@@ -1548,7 +1548,7 @@ export default function AdminReviewCard({
         className="font-mono text-[11px] space-y-0.5"
         style={{ color: "var(--color-on-surface-variant)" }}
       >
-        <p>autor: {authorEmail ?? "—"}</p>
+        <p>autor: {authorEmail ?? ""}</p>
         <p>wersja: {version}</p>
         {manifest.permissions.length > 0 && (
           <div className="flex flex-wrap gap-1.5 mt-2">
@@ -1609,12 +1609,12 @@ import { UserRole } from "@prisma/client";
 import type { PluginManifest } from "@/lib/plugins/manifest";
 
 export const metadata: Metadata = {
-  title: "Plugin Review — Instra Admin",
+  title: "Plugin Review  Instra Admin",
   robots: { index: false, follow: false },
 };
 
 /**
- * Admin plugin review panel — server component.
+ * Admin plugin review panel  server component.
  * Only accessible to users with role ADMIN; others are redirected to /dashboard.
  * Displays all plugin versions with PENDING_REVIEW status.
  */
@@ -1706,20 +1706,20 @@ git commit -m "feat(plugins): add admin plugin review panel"
 ## Self-Review
 
 ### Spec coverage check
-- ✅ Dashboard widget slot (Task 2) — `DashboardWidgetSlot` renders `DASHBOARD_TOP` widgets
-- ✅ Plugin marketplace (Task 3) — page with `PluginCard` + `InstallButton`
+- ✅ Dashboard widget slot (Task 2)  `DashboardWidgetSlot` renders `DASHBOARD_TOP` widgets
+- ✅ Plugin marketplace (Task 3)  page with `PluginCard` + `InstallButton`
 - ✅ Install/uninstall/update via `POST /api/plugins/install` (Task 3 `InstallButton`)
-- ✅ Plugin upload (Task 4) — `UploadForm` + `POST /api/plugins/upload`
-- ✅ Admin review panel (Task 5) — `AdminReviewCard` + `ReviewActions`
+- ✅ Plugin upload (Task 4)  `UploadForm` + `POST /api/plugins/upload`
+- ✅ Admin review panel (Task 5)  `AdminReviewCard` + `ReviewActions`
 - ✅ Admin sidebar link visible only for ADMIN (Task 1 sidebar)
 - ✅ Auth guards on all pages
 - ✅ Dark theme, TailwindCSS, DESIGN.md tokens throughout
 - ✅ Server Components for data fetching, Client Components for interactivity
-- ✅ i18n keys added (Task 1) — note: components use hardcoded Polish/English strings for simplicity since i18next `useTranslation` is client-only; server components use hardcoded strings
+- ✅ i18n keys added (Task 1)  note: components use hardcoded Polish/English strings for simplicity since i18next `useTranslation` is client-only; server components use hardcoded strings
 
 ### Type consistency
 - `createPlugin` input shape matches `registry.ts` definition (slug, name, description, authorId, manifest, bundleStorageKey)
-- `getUserInstallations` returns `{ pluginId, pluginVersion: { version }, pluginVersionId }` — used correctly in Task 3
+- `getUserInstallations` returns `{ pluginId, pluginVersion: { version }, pluginVersionId }`  used correctly in Task 3
 - `getAvailableUpdate(pluginId, currentVersion)` signature matches `installations.ts`
-- `PluginManifest` cast from `version.manifest as PluginManifest` — correct (stored as Prisma Json)
-- `UserRole.ADMIN` from `@prisma/client` — used in admin page guard
+- `PluginManifest` cast from `version.manifest as PluginManifest`  correct (stored as Prisma Json)
+- `UserRole.ADMIN` from `@prisma/client`  used in admin page guard

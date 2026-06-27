@@ -168,7 +168,7 @@ export async function deleteReport(id: string): Promise<void> {
  */
 export async function advanceReport(report: Report): Promise<Report> {
   if (!report.intervalDays || !report.nextRunAt) {
-    // on-demand only — should never reach here from cron, but guard defensively
+    // on-demand only  should never reach here from cron, but guard defensively
     return report
   }
 

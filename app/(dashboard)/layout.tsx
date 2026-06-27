@@ -7,7 +7,7 @@ import Link from "next/link";
 import { PenLine } from "lucide-react";
 
 /**
- * Dashboard shell — server component.
+ * Dashboard shell  server component.
  * Calls verifySession() which redirects to /login when unauthenticated.
  * Renders a single top bar: logo · pill nav · actions, then full-width main content.
  */
@@ -42,7 +42,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
         </Link>
         
 
-        {/* Pill nav — centred, takes all remaining space */}
+        {/* Pill nav  centred, takes all remaining space */}
         <div className="flex flex-1 justify-center min-w-0">
           <DashboardSidebar role={user.role} />
         </div>

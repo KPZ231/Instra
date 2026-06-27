@@ -13,7 +13,7 @@ required by the `DashboardOverview` component in a single cached call.
 
 Runs all Prisma queries in parallel via `Promise.all` then assembles four
 output shapes: KPI stats, chart series (normalised 0–100), recent activity events,
-and — where no data source exists (e.g. reach) — null placeholders.
+and  where no data source exists (e.g. reach)  null placeholders.
 
 ---
 
@@ -36,7 +36,7 @@ and — where no data source exists (e.g. reach) — null placeholders.
   id: string      // socialPostStatus.id
   platform: string // "FACEBOOK" | "INSTAGRAM" | "LINKEDIN"
   status: string  // "PUBLISHED" | "FAILED" | "PENDING" | "PUBLISHING"
-  at: string      // ISO string — publishedAt ?? createdAt
+  at: string      // ISO string  publishedAt ?? createdAt
 }
 ```
 
@@ -82,7 +82,7 @@ await invalidatePrefix('db', 'dashboardMetrics', userId)
 | posts      | `prisma.post.count`                       | Total + 7-day delta                |
 | likes      | `prisma.like.count`                       | Total + 7-day delta                |
 | accounts   | `getConnectedAccounts()` (socialAccounts) | No delta (point-in-time)           |
-| reach      | `null`                                    | No backend source; shows "—"       |
+| reach      | `null`                                    | No backend source; shows ""       |
 | chartSeries| `prisma.post.findMany` (90d window)       | Per-day counts, normalised 0–100   |
 | activity   | `prisma.socialPostStatus.findMany`        | Latest 7 publish-status events     |
 

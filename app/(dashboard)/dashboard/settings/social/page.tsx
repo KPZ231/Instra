@@ -22,7 +22,7 @@ function safeDecodeURIComponent(value: string): string {
 }
 
 /**
- * Social accounts settings page — connect/disconnect Facebook, Instagram, LinkedIn.
+ * Social accounts settings page  connect/disconnect Facebook, Instagram, LinkedIn.
  */
 export default function SocialSettingsPage() {
   const { t } = useTranslation('common')

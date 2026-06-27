@@ -13,14 +13,14 @@ export async function generateMetadata(
   const { postId } = await params
   return buildMetadata({
     slug: `dashboard/analytics/${postId}`,
-    title: 'Post Detail — Instra Analytics',
+    title: 'Post Detail  Instra Analytics',
     description: 'Detailed engagement metrics, trend chart, and content score for a single post.',
     robots: { index: false, follow: false },
   })
 }
 
 /**
- * Single-post analytics detail page — Server Component.
+ * Single-post analytics detail page  Server Component.
  * Shows full metric breakdown, trend chart with prediction, and content improvement issues.
  */
 export default async function PostAnalyticsDetailPage(

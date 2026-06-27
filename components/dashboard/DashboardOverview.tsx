@@ -24,7 +24,7 @@ const fadeUp: Variants = {
 };
 
 /**
- * Dashboard overview — assembles the full bento-grid layout with KPI cards,
+ * Dashboard overview  assembles the full bento-grid layout with KPI cards,
  * analytics chart, activity feed, and quick-action panel.
  * Receives real metrics from the server component to avoid any client-side
  * data fetching.
@@ -55,7 +55,7 @@ export default function DashboardOverview({ metrics }: DashboardOverviewProps) {
         </h1>
       </div>
 
-      {/* Row 1 — Stat cards */}
+      {/* Row 1  Stat cards */}
       <motion.div
         className="grid grid-cols-2 lg:grid-cols-4 gap-4"
         variants={stagger}
@@ -74,7 +74,7 @@ export default function DashboardOverview({ metrics }: DashboardOverviewProps) {
         ))}
       </motion.div>
 
-      {/* Row 2 — Chart + Activity */}
+      {/* Row 2  Chart + Activity */}
       <motion.div
         className="grid grid-cols-1 lg:grid-cols-4 gap-4"
         variants={stagger}
@@ -89,7 +89,7 @@ export default function DashboardOverview({ metrics }: DashboardOverviewProps) {
         </motion.div>
       </motion.div>
 
-      {/* Row 3 — Quick actions */}
+      {/* Row 3  Quick actions */}
       <motion.div
         className="grid grid-cols-1 gap-4"
         variants={stagger}

@@ -39,7 +39,7 @@ interface FeatureItem {
 ```
 
 ## Parameters
-`FeaturesSection` accepts no props — all data is driven by i18n.
+`FeaturesSection` accepts no props  all data is driven by i18n.
 
 ## Example
 ```tsx

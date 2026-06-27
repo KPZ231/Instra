@@ -12,7 +12,7 @@ Two bento cards presenting Instra CLI and Instra Desktop Agent with download/ins
 - `navigator.clipboard` for copy-to-clipboard
 
 ## Props
-None — all copy from i18n, all URLs from inline constants at top of file.
+None  all copy from i18n, all URLs from inline constants at top of file.
 
 ## i18n keys
 `download.badge`, `download.heading`, `download.cli.*`, `download.agent.*`, `installGuide.copy`, `installGuide.copied`

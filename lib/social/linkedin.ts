@@ -2,7 +2,7 @@ import 'server-only'
 import type { SocialPostPayload } from './types'
 
 const REST_BASE = 'https://api.linkedin.com/rest'
-/** LinkedIn versioning header — required for all rest/* endpoints since 2024-01 */
+/** LinkedIn versioning header  required for all rest/* endpoints since 2024-01 */
 const LINKEDIN_VERSION = '202401'
 
 /**
@@ -35,7 +35,7 @@ export async function publishToLinkedIn(
   // Upload images via rest/images initializeUpload flow
   const imageUrns: string[] = await Promise.all(
     images.map(async (img) => {
-      // Step 1: Initialize upload — get uploadUrl + image URN
+      // Step 1: Initialize upload  get uploadUrl + image URN
       const initRes = await fetch(`${REST_BASE}/images?action=initializeUpload`, {
         method: 'POST',
         headers,

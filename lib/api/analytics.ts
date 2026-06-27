@@ -38,7 +38,7 @@ type RawSnapshot = {
 
 /**
  * Converts a raw Prisma snapshot into the shape expected by buildSeries.
- * likes is 0 here — it's added by the caller from _count.likes.
+ * likes is 0 here  it's added by the caller from _count.likes.
  */
 function toSeriesEntry(snap: RawSnapshot): EngagementMetrics & { capturedAt: Date } {
   return {
@@ -126,10 +126,17 @@ function mapPostToAnalytics(post: PrismaPost): PostAnalytics {
  * @example
  * const overview = await getPostsAnalyticsOverview()
  */
-export async function getPostsAnalyticsOverview(): Promise<AnalyticsOverviewData | null> {
-  const userId = await getAuthenticatedUserId().catch(() => null)
-  if (!userId) return null
-
+/**
+ * Fetches full analytics overview for a given userId.
+ * Shared by the web session flow and the MCP route (where no NextAuth session exists).
+ *
+ * @param userId - The user's ID
+ * @returns AnalyticsOverviewData
+ *
+ * @example
+ * const overview = await getPostsAnalyticsOverviewByUser(user.id)
+ */
+export async function getPostsAnalyticsOverviewByUser(userId: string): Promise<AnalyticsOverviewData> {
   return getOrSet(
     'db',
     async () => {
@@ -225,6 +232,12 @@ export async function getPostsAnalyticsOverview(): Promise<AnalyticsOverviewData
     'overview',
     userId,
   )
+}
+
+export async function getPostsAnalyticsOverview(): Promise<AnalyticsOverviewData | null> {
+  const userId = await getAuthenticatedUserId().catch(() => null)
+  if (!userId) return null
+  return getPostsAnalyticsOverviewByUser(userId)
 }
 
 /**

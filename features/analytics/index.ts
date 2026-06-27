@@ -1,5 +1,5 @@
 /**
- * Post Analytics feature — public barrel export.
+ * Post Analytics feature  public barrel export.
  * Import from this file only; do not import from internal lib/* directly.
  */
 

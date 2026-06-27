@@ -2,10 +2,11 @@
 
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { RiDownloadLine } from 'react-icons/ri'
+import { SettingsSectionHeader } from './SettingsSectionHeader'
 
 /**
  * Section allowing the authenticated user to export all their account data as JSON.
- * Triggers a browser download by fetching /api/account/export and creating an object URL.
  * @example
  * <ExportAccountData />
  */
@@ -15,8 +16,7 @@ export function ExportAccountData() {
   const [error, setError] = useState<string | null>(null)
 
   /**
-   * Fetches the export endpoint, converts the response to a Blob,
-   * creates a temporary object URL, and triggers a file download.
+   * Fetches the export endpoint and triggers a file download.
    */
   async function handleExport() {
     setIsLoading(true)
@@ -24,10 +24,7 @@ export function ExportAccountData() {
 
     try {
       const response = await fetch('/api/account/export')
-
-      if (!response.ok) {
-        throw new Error(`Export failed: ${response.statusText}`)
-      }
+      if (!response.ok) throw new Error(`Export failed: ${response.statusText}`)
 
       const blob = await response.blob()
       const url = URL.createObjectURL(blob)
@@ -46,13 +43,14 @@ export function ExportAccountData() {
   }
 
   return (
-    <section className="space-y-3">
-      <h2
-        className="font-mono text-xs font-bold uppercase tracking-[0.1em]"
-        style={{ color: 'var(--color-on-surface)' }}
-      >
-        {t('account.export.title')}
-      </h2>
+    <section
+      className="rounded-lg p-5 space-y-3"
+      style={{
+        background: 'var(--color-surface-container-low)',
+        border: '1px solid rgba(255,255,255,0.07)',
+      }}
+    >
+      <SettingsSectionHeader labelKey="account.export.title" icon={<RiDownloadLine />} />
 
       <p className="text-sm" style={{ color: 'var(--color-on-surface-variant)' }}>
         {t('account.export.description')}
@@ -64,12 +62,7 @@ export function ExportAccountData() {
         </p>
       )}
 
-      <button
-        type="button"
-        onClick={handleExport}
-        disabled={isLoading}
-        className="btn btn-secondary disabled:opacity-40"
-      >
+      <button type="button" onClick={handleExport} disabled={isLoading} className="btn btn-secondary disabled:opacity-40">
         {isLoading ? t('account.export.loading') : t('account.export.button')}
       </button>
     </section>

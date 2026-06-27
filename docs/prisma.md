@@ -1,4 +1,4 @@
-# `lib/prisma.ts` — Prisma Client Singleton
+# `lib/prisma.ts`  Prisma Client Singleton
 
 ## Description
 
@@ -9,8 +9,8 @@ save, which would otherwise open a new database connection each time.
 
 ## Technologies
 
-- **Prisma ORM 7** (`@prisma/client`) — type-safe database access layer
-- **`@prisma/adapter-pg`** (`PrismaPg`) — driver adapter required by Prisma 7; the
+- **Prisma ORM 7** (`@prisma/client`)  type-safe database access layer
+- **`@prisma/adapter-pg`** (`PrismaPg`)  driver adapter required by Prisma 7; the
   client no longer self-connects and must receive an explicit adapter
 
 ## Prisma 7 Driver Adapter Requirement

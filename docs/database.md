@@ -50,8 +50,8 @@ Social media posts with optional text content and media attachments.
 - `authorId` has index for efficient feed queries by user
 
 **Indexes:**
-- `authorId` — for filtering posts by author
-- `createdAt` — for sorting newest-first
+- `authorId`  for filtering posts by author
+- `createdAt`  for sorting newest-first
 
 ---
 
@@ -75,7 +75,7 @@ Image files attached to posts, stored in Supabase Storage.
 - Max 10 items per post (enforced in validation)
 
 **Indexes:**
-- `postId` — for fetching media by post
+- `postId`  for fetching media by post
 
 ---
 
@@ -93,11 +93,11 @@ User likes on posts (one user per post, deduplicated).
 - `user` → User (many-to-one, required; cascade delete)
 
 **Constraints:**
-- `(postId, userId)` unique constraint — prevents duplicate likes
+- `(postId, userId)` unique constraint  prevents duplicate likes
 
 **Indexes:**
-- `postId` — for fetching like count per post
-- `userId` — for fetching user's liked posts
+- `postId`  for fetching like count per post
+- `userId`  for fetching user's liked posts
 
 ---
 
@@ -179,29 +179,29 @@ In-app notifications for users. Created by `createNotification()` in `lib/api/no
 - `createdAt` (DateTime): Creation timestamp
 
 **NotificationType enum values:**
-- `CAMPAIGN_COMPLETED` — all scheduled runs of a campaign finished
-- `CAMPAIGN_FAILED` — a campaign publish-post run failed
-- `WEBHOOK_FAILED` — a campaign webhook run failed
-- `POST_PUBLISHED` — a social post was successfully published
-- `POST_FAILED` — a social post failed to publish
-- `SOCIAL_CONNECTED` — a social account was connected via OAuth
-- `SOCIAL_DISCONNECTED` — a social account was disconnected
+- `CAMPAIGN_COMPLETED`  all scheduled runs of a campaign finished
+- `CAMPAIGN_FAILED`  a campaign publish-post run failed
+- `WEBHOOK_FAILED`  a campaign webhook run failed
+- `POST_PUBLISHED`  a social post was successfully published
+- `POST_FAILED`  a social post failed to publish
+- `SOCIAL_CONNECTED`  a social account was connected via OAuth
+- `SOCIAL_DISCONNECTED`  a social account was disconnected
 
 **Relations:**
 - `user` → User (many-to-one, required; cascade delete)
 
 **Indexes:**
-- `(userId, read)` — for fetching unread count
-- `(userId, createdAt)` — for listing newest-first per user
+- `(userId, read)`  for fetching unread count
+- `(userId, createdAt)`  for listing newest-first per user
 
 ---
 
-### User — new notification fields
+### User  new notification fields
 
 Two fields were added to the `User` model:
 
-- `notificationsMuted` (Boolean, default: false) — when `true`, no in-app notifications are written for this user
-- `emailNotificationsEnabled` (Boolean, default: true) — when `true`, eligible notification types (campaigns + social) also send an email
+- `notificationsMuted` (Boolean, default: false)  when `true`, no in-app notifications are written for this user
+- `emailNotificationsEnabled` (Boolean, default: true)  when `true`, eligible notification types (campaigns + social) also send an email
 
 ---
 
@@ -228,6 +228,6 @@ Like
 ## Environment Variables
 
 Defined in `.env`:
-- `DATABASE_URL` — PostgreSQL connection string (Supabase)
+- `DATABASE_URL`  PostgreSQL connection string (Supabase)
 
 Run `npx prisma db execute` (or `psql` directly) for raw queries (avoid in app code).

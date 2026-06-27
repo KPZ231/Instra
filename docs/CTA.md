@@ -18,7 +18,7 @@ Komponent celowo odrzuca krzykliwe tła na rzecz głębokich, technicznych struk
 ## Parametry (Props)
 
 ### Interfejs `CTAProps`
-Wszystkie właściwości są opcjonalne — komponent posiada domyślne klucze tłumaczeń dopasowane do pliku `common.json`.
+Wszystkie właściwości są opcjonalne  komponent posiada domyślne klucze tłumaczeń dopasowane do pliku `common.json`.
 
 | Właściwość | Typ | Domyślnie | Opis |
 | --- | --- | --- | --- |

@@ -121,7 +121,7 @@ function VisualBlock({
             ))}
           </div>
 
-          {/* Bottom accent line — success green */}
+          {/* Bottom accent line  success green */}
           <div className="h-px w-full bg-gradient-to-r from-transparent via-[#00FF41]/30 to-transparent" />
         </div>
       )}
@@ -180,7 +180,7 @@ function VisualBlock({
 
 interface AboutInstraProps {
   /** i18n key prefix. All keys are resolved as `${i18nPrefix}.*`.
-   *  Defaults to "aboutInstra" — the About page content.
+   *  Defaults to "aboutInstra"  the About page content.
    *  Pass a different prefix (e.g. "featuresHero") to reuse this layout
    *  with page-specific copy without duplicating markup.
    */
@@ -190,7 +190,7 @@ interface AboutInstraProps {
 /* ── Main component ───────────────────────────────────────────── */
 
 /**
- * Reusable editorial hero layout — split blocks, animated heading, stats row.
+ * Reusable editorial hero layout  split blocks, animated heading, stats row.
  * Content is fully driven by i18n using the provided `i18nPrefix`.
  *
  * @param i18nPrefix - i18n key namespace (default: "aboutInstra")
@@ -235,7 +235,7 @@ export default function AboutInstra({ i18nPrefix = "aboutInstra" }: AboutInstraP
         </h2>
       </div>
 
-      {/* ── Block 1: Visual left — Text right ───────────────────── */}
+      {/* ── Block 1: Visual left  Text right ───────────────────── */}
       <div className="grid grid-cols-1 md:grid-cols-2 border-b border-white/[0.07]">
         {/* Visual */}
         <motion.div
@@ -273,7 +273,7 @@ export default function AboutInstra({ i18nPrefix = "aboutInstra" }: AboutInstraP
         </motion.div>
       </div>
 
-      {/* ── Block 2: Text left — Visual right ───────────────────── */}
+      {/* ── Block 2: Text left  Visual right ───────────────────── */}
       <div className="grid grid-cols-1 md:grid-cols-2 border-b border-white/[0.07]">
         {/* Text */}
         <motion.div

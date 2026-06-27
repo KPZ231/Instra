@@ -47,7 +47,7 @@ function ValueCard({ item, position }: { item: ValueItem; position: number }) {
         {item.index}
       </motion.span>
 
-      {/* ── Envelope shell — clip-path only on this wrapper ── */}
+      {/* ── Envelope shell  clip-path only on this wrapper ── */}
       <div
         className="relative mt-6 cursor-pointer select-none"
         style={{ clipPath: CLIP }}
@@ -66,7 +66,7 @@ function ValueCard({ item, position }: { item: ValueItem; position: number }) {
           }}
         />
 
-        {/* ── LID — collapses upward (scaleY + translateY) ── */}
+        {/* ── LID  collapses upward (scaleY + translateY) ── */}
         <motion.div
           animate={isOpen ? { scaleY: 0, y: "-50%" } : { scaleY: 1, y: "0%" }}
           transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
@@ -117,7 +117,7 @@ function ValueCard({ item, position }: { item: ValueItem; position: number }) {
           </div>
         </motion.div>
 
-        {/* ── DETAIL PANEL — slides down from behind the lid ── */}
+        {/* ── DETAIL PANEL  slides down from behind the lid ── */}
         <AnimatePresence initial={false}>
           {isOpen && (
             <motion.div
@@ -147,7 +147,7 @@ function ValueCard({ item, position }: { item: ValueItem; position: number }) {
 }
 
 /**
- * Values section — showcases core brand values with numbered cards,
+ * Values section  showcases core brand values with numbered cards,
  * animated progress lines, and scroll-triggered entrance animations.
  *
  * @example

@@ -1,4 +1,4 @@
-# UseCase Page — Implementation Plan
+# UseCase Page  Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
@@ -77,7 +77,7 @@ Open `locales/en/common.json`. Before the closing `}` of the root object (after 
         },
         {
             "title": "Connect your tools",
-            "body": "Authorize integrations via OAuth or API key. Permissions are scoped — plugins only access what they need."
+            "body": "Authorize integrations via OAuth or API key. Permissions are scoped  plugins only access what they need."
         },
         {
             "title": "Automate your workflow",
@@ -125,7 +125,7 @@ Also add to `faq.questions`:
 "usecase": [
     {
         "q": "What plugins are available on the free plan?",
-        "a": "The free open-core plan includes all community plugins and core platform capabilities. Pro plugins — advanced automations, priority integrations, enterprise connectors — activate on any paid plan."
+        "a": "The free open-core plan includes all community plugins and core platform capabilities. Pro plugins  advanced automations, priority integrations, enterprise connectors  activate on any paid plan."
     },
     {
         "q": "How do I install a plugin?",
@@ -133,7 +133,7 @@ Also add to `faq.questions`:
     },
     {
         "q": "Can I connect my existing marketing tools?",
-        "a": "Yes. Instra integrates with HubSpot, Mailchimp, Google Analytics, Meta Ads, Slack, and dozens more via scoped OAuth — plugins only access what they need."
+        "a": "Yes. Instra integrates with HubSpot, Mailchimp, Google Analytics, Meta Ads, Slack, and dozens more via scoped OAuth  plugins only access what they need."
     },
     {
         "q": "What developer tools are supported?",
@@ -145,7 +145,7 @@ Also add to `faq.questions`:
     },
     {
         "q": "How are plugins sandboxed?",
-        "a": "Plugins communicate exclusively through the PluginContext API — no direct database or env access. Every plugin action is logged to an audit trail."
+        "a": "Plugins communicate exclusively through the PluginContext API  no direct database or env access. Every plugin action is logged to an audit trail."
     },
     {
         "q": "Can I build a custom private plugin?",
@@ -153,7 +153,7 @@ Also add to `faq.questions`:
     },
     {
         "q": "What happens if a plugin breaks?",
-        "a": "Each plugin slot is wrapped in an ErrorBoundary. A failing plugin is isolated and shows an error state — it never crashes the rest of your workspace."
+        "a": "Each plugin slot is wrapped in an ErrorBoundary. A failing plugin is isolated and shows an error state  it never crashes the rest of your workspace."
     }
 ]
 ```
@@ -200,7 +200,7 @@ Open `locales/pl/common.json`. Mirror the structure from Step 1 with Polish tran
         },
         {
             "title": "Połącz swoje narzędzia",
-            "body": "Autoryzuj integracje przez OAuth lub klucz API. Uprawnienia są ograniczone — pluginy dostają tylko co potrzebują."
+            "body": "Autoryzuj integracje przez OAuth lub klucz API. Uprawnienia są ograniczone  pluginy dostają tylko co potrzebują."
         },
         {
             "title": "Zautomatyzuj workflow",
@@ -249,7 +249,7 @@ Also add to `faq.questions.usecase` (Polish Q&A):
     },
     {
         "q": "Jak zainstalować plugin?",
-        "a": "Przejdź do Rejestru Pluginów w dashboardzie Instra, kliknij Zainstaluj przy wybranym pluginie — ładuje się natychmiast. Bez restartu ani konfiguracji."
+        "a": "Przejdź do Rejestru Pluginów w dashboardzie Instra, kliknij Zainstaluj przy wybranym pluginie  ładuje się natychmiast. Bez restartu ani konfiguracji."
     },
     {
         "q": "Czy mogę połączyć swoje narzędzia marketingowe?",
@@ -265,7 +265,7 @@ Also add to `faq.questions.usecase` (Polish Q&A):
     },
     {
         "q": "Jak pluginy są izolowane?",
-        "a": "Pluginy komunikują się wyłącznie przez PluginContext API — brak dostępu do bazy danych ani zmiennych środowiskowych. Każda akcja pluginu jest zapisywana w logu audytu."
+        "a": "Pluginy komunikują się wyłącznie przez PluginContext API  brak dostępu do bazy danych ani zmiennych środowiskowych. Każda akcja pluginu jest zapisywana w logu audytu."
     },
     {
         "q": "Czy mogę zbudować własny prywatny plugin?",
@@ -273,7 +273,7 @@ Also add to `faq.questions.usecase` (Polish Q&A):
     },
     {
         "q": "Co się stanie jeśli plugin przestanie działać?",
-        "a": "Każdy slot pluginu jest opakowany w ErrorBoundary. Wadliwy plugin jest izolowany i pokazuje stan błędu — nigdy nie crashuje reszty workspace'u."
+        "a": "Każdy slot pluginu jest opakowany w ErrorBoundary. Wadliwy plugin jest izolowany i pokazuje stan błędu  nigdy nie crashuje reszty workspace'u."
     }
 ]
 ```
@@ -370,7 +370,7 @@ const headerVariants = {
 /* ── Main component ─────────────────────────────────────────────── */
 
 /**
- * ProblemSection — communicates Instra's core problem: scattered tools
+ * ProblemSection  communicates Instra's core problem: scattered tools
  * causing context-switching and lost productivity.
  * Left: animated pain-point cards. Right: chaos visualization of tool names.
  *
@@ -545,7 +545,7 @@ Communicates the core user problem Instra solves: scattered tools causing contex
 ## i18n Keys
 - `usecaseProblem.badge`
 - `usecaseProblem.heading` (supports `\n` for line breaks)
-- `usecaseProblem.items[]` — array of `{ title, body }` (3 items)
+- `usecaseProblem.items[]`  array of `{ title, body }` (3 items)
 
 ## Layout
 - 2-column on desktop (58% left / 42% right), stacked on mobile
@@ -627,7 +627,7 @@ const headerVariants = {
 /* ── Main component ─────────────────────────────────────────────── */
 
 /**
- * HowItWorksSection — 2×2 bento grid of 4 numbered steps explaining
+ * HowItWorksSection  2×2 bento grid of 4 numbered steps explaining
  * how Instra's plugin workflow operates. Ghost numbers, staggered entrance.
  *
  * @example
@@ -764,7 +764,7 @@ Create `docs/HowItWorksSection.md`:
 ## i18n Keys
 - `usecaseHowItWorks.badge`
 - `usecaseHowItWorks.heading`
-- `usecaseHowItWorks.steps[]` — array of `{ title, body }` (4 items)
+- `usecaseHowItWorks.steps[]`  array of `{ title, body }` (4 items)
 
 ## Layout
 - 2×2 grid on desktop (`sm:grid-cols-2`), single column on mobile
@@ -833,7 +833,7 @@ const headerVariants = {
 /* ── Main component ─────────────────────────────────────────────── */
 
 /**
- * WorkflowSection — horizontal 4-step timeline on desktop, vertical on mobile.
+ * WorkflowSection  horizontal 4-step timeline on desktop, vertical on mobile.
  * Animated connector line (scaleX/scaleY) triggered by scroll via useInView.
  *
  * @example
@@ -977,7 +977,7 @@ export default function WorkflowSection() {
                   }}
                   className="flex gap-5 pb-10 last:pb-0"
                 >
-                  {/* Node icon — positioned over the track line */}
+                  {/* Node icon  positioned over the track line */}
                   <div
                     className="absolute left-0 flex items-center justify-center w-9 h-9 border border-white/30 bg-surface-container-lowest shrink-0 -translate-x-[1px]"
                     style={{ clipPath: CLIP_NODE_SM, marginTop: "2px" }}
@@ -1026,7 +1026,7 @@ Create `docs/WorkflowSection.md`:
 ## i18n Keys
 - `usecaseWorkflow.badge`
 - `usecaseWorkflow.heading`
-- `usecaseWorkflow.steps[]` — array of `{ title, body }` (4 items)
+- `usecaseWorkflow.steps[]`  array of `{ title, body }` (4 items)
 
 ## Animation
 - Connector line: `scaleX: 0→1` (desktop) / `scaleY: 0→1` (mobile), 0.8s duration
@@ -1166,7 +1166,7 @@ function IntegrationCard({
 /* ── Main component ─────────────────────────────────────────────── */
 
 /**
- * IntegrationsSection — masonry grid (CSS columns) of 10 integration chips
+ * IntegrationsSection  masonry grid (CSS columns) of 10 integration chips
  * across marketing and dev tool categories, plus a "+120 more" chip.
  *
  * @example
@@ -1363,7 +1363,7 @@ import CTA from "@/components/ui/CTA";
 
 export const metadata: Metadata = buildMetadata(pageMetadata.usecases);
 
-/** UseCase page — communicates problem, solution, workflow, integrations, and FAQs. */
+/** UseCase page  communicates problem, solution, workflow, integrations, and FAQs. */
 export default function UseCasesPage() {
   return (
     <>

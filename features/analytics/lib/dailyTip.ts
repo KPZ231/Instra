@@ -1,7 +1,7 @@
 /**
  * Daily tip builder.
  * Selects the single highest-priority improvement recommendation across all scored posts.
- * Returns an i18n key — no hardcoded strings.
+ * Returns an i18n key  no hardcoded strings.
  */
 
 import type { DailyTip, PostAnalytics } from '../types'

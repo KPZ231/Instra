@@ -93,7 +93,7 @@ async function assertSafeWebhookUrl(rawUrl: string): Promise<URL> {
     }
   }
 
-  // DNS resolution check — all returned addresses must be public
+  // DNS resolution check  all returned addresses must be public
   const addresses = await dns.lookup(hostname, { all: true })
   for (const { address, family } of addresses) {
     if (family === 4 && isPrivateIPv4(address)) {
@@ -108,12 +108,12 @@ async function assertSafeWebhookUrl(rawUrl: string): Promise<URL> {
 }
 
 // ─── Handler registry ─────────────────────────────────────────────────────────
-// ponytail: prosty registry — dorzucenie nowego typu = 1 wpis tutaj + wariant w schema.prisma
+// ponytail: prosty registry  dorzucenie nowego typu = 1 wpis tutaj + wariant w schema.prisma
 
 const handlers: Record<CampaignAction, (campaign: Campaign) => Promise<void>> = {
   /**
    * Publishes the referenced post to all platforms it targets.
-   * Delegates entirely to the existing publisher — token handling, per-platform
+   * Delegates entirely to the existing publisher  token handling, per-platform
    * status recording, and error capture are all managed there.
    */
   PUBLISH_POST: async (campaign) => {
@@ -159,7 +159,7 @@ const handlers: Record<CampaignAction, (campaign: Campaign) => Promise<void>> = 
 
 /**
  * Executes the appropriate handler for a campaign's actionType.
- * Throws on failure — caller is responsible for catching and recording the run.
+ * Throws on failure  caller is responsible for catching and recording the run.
  *
  * @param campaign - The campaign to execute
  * @returns void

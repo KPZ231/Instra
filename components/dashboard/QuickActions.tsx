@@ -8,7 +8,7 @@ interface QuickActionDef {
   id: string;
   icon: React.ReactNode;
   labelKey: string;
-  /** href to navigate to — undefined means the action is not yet available */
+  /** href to navigate to  undefined means the action is not yet available */
   href?: string;
 }
 

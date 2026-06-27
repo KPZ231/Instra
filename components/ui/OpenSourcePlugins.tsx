@@ -280,7 +280,7 @@ function StepRow({ step, index }: { readonly step: PluginStep; readonly index: n
 /* ── Main component ─────────────────────────────────────────────── */
 
 /**
- * OpenSourcePlugins — explains Instra's open plugin system and how to contribute.
+ * OpenSourcePlugins  explains Instra's open plugin system and how to contribute.
  * Left: mono label + heading + 3-step guide.
  * Right: decorative code block.
  * Bottom: full-width CTA bar with "Go to Docs" and "GitHub" buttons.

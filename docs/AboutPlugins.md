@@ -39,7 +39,7 @@ interface PluginItem {
 ```
 
 ## Parameters
-`AboutPlugins` accepts no props — all data is driven by i18n.
+`AboutPlugins` accepts no props  all data is driven by i18n.
 
 ## Example
 ```tsx

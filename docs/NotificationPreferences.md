@@ -8,8 +8,8 @@
 
 Settings section with two toggle checkboxes for notification preferences:
 
-1. **Mute in-app notifications** (`notificationsMuted`) — stops notifications from appearing in the bell dropdown
-2. **Email notifications** (`emailNotificationsEnabled`) — enables/disables email alerts for campaigns and connected accounts
+1. **Mute in-app notifications** (`notificationsMuted`)  stops notifications from appearing in the bell dropdown
+2. **Email notifications** (`emailNotificationsEnabled`)  enables/disables email alerts for campaigns and connected accounts
 
 Submits via `updatePreferences` server action (from `features/notifications/index.ts`) using `useActionState`. Displays a form-level error from `state.errors._form` and switches the submit button text to "Saved!" on `state.success`.
 
@@ -31,7 +31,7 @@ All under `account.notifications.*`:
 
 ## Rendered in
 
-`app/(dashboard)/dashboard/settings/page.tsx` — between `<ChangeUsernameForm>` and `<ExportAccountData>`.
+`app/(dashboard)/dashboard/settings/page.tsx`  between `<ChangeUsernameForm>` and `<ExportAccountData>`.
 
 ## Example usage
 

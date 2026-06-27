@@ -1,20 +1,20 @@
 # Instra
 
-A full-stack social media management platform built with Next.js 16, React 19, and TypeScript. Instra lets users create, schedule, and publish social media content — with an extensible plugin system, AI caption generation, analytics, campaign scheduling, and full i18n support.
+A full-stack social media management platform built with Next.js 16, React 19, and TypeScript. Instra lets users create, schedule, and publish social media content  with an extensible plugin system, AI caption generation, analytics, campaign scheduling, and full i18n support.
 
 ---
 
 ## Features
 
-- **Social Feed** — create posts with image carousels (up to 10 images), likes, cursor-based pagination, Redis-cached feed
-- **Campaign Scheduler** — schedule posts via Vercel Cron, webhook delivery, SSRF-guarded
-- **AI Captions** — generate captions via OpenRouter (Vercel AI SDK)
-- **Plugin System** — sandboxed, declarative plugins with widget slots, KV storage, audit log, and a marketplace
-- **Notifications** — bell UI + user preference management
-- **Analytics & Reports** — dashboards with metrics and scheduled report runs
-- **Authentication** — NextAuth v5 with email verification
-- **i18n** — English and Polish (easily extensible)
-- **Dark-first design** — "Executive Precision" design system, Tailwind CSS v4
+- **Social Feed**  create posts with image carousels (up to 10 images), likes, cursor-based pagination, Redis-cached feed
+- **Campaign Scheduler**  schedule posts via Vercel Cron, webhook delivery, SSRF-guarded
+- **AI Captions**  generate captions via OpenRouter (Vercel AI SDK)
+- **Plugin System**  sandboxed, declarative plugins with widget slots, KV storage, audit log, and a marketplace
+- **Notifications**  bell UI + user preference management
+- **Analytics & Reports**  dashboards with metrics and scheduled report runs
+- **Authentication**  NextAuth v5 with email verification
+- **i18n**  English and Polish (easily extensible)
+- **Dark-first design**  "Executive Precision" design system, Tailwind CSS v4
 
 ---
 
@@ -40,15 +40,15 @@ A full-stack social media management platform built with Next.js 16, React 19, a
 ## Project Structure
 
 ```
-/app            — App Router pages, layouts, API routes
-/components     — Shared UI components
-/features       — Feature modules (auth, ai, campaigns, posts, …)
-/plugins        — Plugin loader, registry, context API
-/lib            — Helpers, Prisma client, Supabase, cache, rate-limit, AI
-/prisma         — schema.prisma + migrations
-/locales        — /en/common.json, /pl/common.json
-/docs           — Module documentation
-/types          — Global TypeScript types
+/app             App Router pages, layouts, API routes
+/components      Shared UI components
+/features        Feature modules (auth, ai, campaigns, posts, …)
+/plugins         Plugin loader, registry, context API
+/lib             Helpers, Prisma client, Supabase, cache, rate-limit, AI
+/prisma          schema.prisma + migrations
+/locales         /en/common.json, /pl/common.json
+/docs            Module documentation
+/types           Global TypeScript types
 ```
 
 ---
@@ -137,10 +137,10 @@ Open [http://localhost:3000](http://localhost:3000).
 
 Instra supports community plugins. A plugin lives in `/plugins/my-plugin/` and must include:
 
-- `manifest.json` — name, version, permissions, widget slots
-- `index.ts` — exports `init()` and optionally `destroy()`
+- `manifest.json`  name, version, permissions, widget slots
+- `index.ts`  exports `init()` and optionally `destroy()`
 
-Plugins run in an isolated sandbox (`isolated-vm`). They communicate with the host only through `PluginContext` — no direct database, filesystem, or network access. See [`/docs/plugins.md`](docs/plugins.md) for the full API.
+Plugins run in an isolated sandbox (`isolated-vm`). They communicate with the host only through `PluginContext`  no direct database, filesystem, or network access. See [`/docs/plugins.md`](docs/plugins.md) for the full API.
 
 ---
 

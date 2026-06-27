@@ -10,7 +10,7 @@ export interface ScheduledCalendarItem {
   type: 'scheduled'
   date: Date
   campaignId: string
-  /** postId extracted from Campaign.payload — may be null if payload is malformed */
+  /** postId extracted from Campaign.payload  may be null if payload is malformed */
   postId: string | null
   campaignStatus: CampaignStatus
   postContent: string | null

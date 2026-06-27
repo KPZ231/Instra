@@ -1,4 +1,4 @@
-# Social Media Publishing — Implementation Plan
+# Social Media Publishing  Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
@@ -10,14 +10,14 @@
 
 ## Global Constraints
 
-- TypeScript wszędzie — brak `any`
+- TypeScript wszędzie  brak `any`
 - `'server-only'` na górze każdego pliku w `/lib/`
 - `'use server'` na górze server actions
 - JSDoc na każdej publicznej funkcji/komponencie
-- Każdy tekst UI przez `t("klucz")` — nigdy hardcoded
-- `async/await` zawsze — nigdy `.then()`
+- Każdy tekst UI przez `t("klucz")`  nigdy hardcoded
+- `async/await` zawsze  nigdy `.then()`
 - Logika biznesowa w hookach/serwisach, nie w komponentach
-- Nigdy `fetch`/Prisma bezpośrednio w komponencie — tylko przez serwisy w `/lib/api/`
+- Nigdy `fetch`/Prisma bezpośrednio w komponencie  tylko przez serwisy w `/lib/api/`
 - Po mutacji w Prisma wywołaj `invalidatePrefix()`
 - Brak stack trace'ów w odpowiedziach API
 
@@ -55,7 +55,7 @@ Modyfikowane:
 
 ---
 
-### Task 1: Prisma schema — nowe modele i enums
+### Task 1: Prisma schema  nowe modele i enums
 
 **Files:**
 - Modify: `prisma/schema.prisma`
@@ -120,7 +120,7 @@ model SocialPostStatus {
 }
 ```
 
-- [ ] **Step 2: Zaktualizuj model User — dodaj relację socialAccounts**
+- [ ] **Step 2: Zaktualizuj model User  dodaj relację socialAccounts**
 
 W modelu `User`, po `likes Like[]` dopisz:
 
@@ -128,7 +128,7 @@ W modelu `User`, po `likes Like[]` dopisz:
   socialAccounts SocialAccount[]
 ```
 
-- [ ] **Step 3: Zaktualizuj model Post — dodaj relację socialStatuses**
+- [ ] **Step 3: Zaktualizuj model Post  dodaj relację socialStatuses**
 
 W modelu `Post`, po `likes Like[]` dopisz:
 
@@ -161,7 +161,7 @@ git commit -m "feat(social): add SocialAccount and SocialPostStatus models"
 
 ---
 
-### Task 2: Crypto utility — szyfrowanie tokenów
+### Task 2: Crypto utility  szyfrowanie tokenów
 
 **Files:**
 - Create: `lib/social/crypto.ts`
@@ -208,13 +208,13 @@ describe('crypto', () => {
 })
 ```
 
-- [ ] **Step 2: Uruchom test — sprawdź że failuje**
+- [ ] **Step 2: Uruchom test  sprawdź że failuje**
 
 ```bash
 npx vitest run lib/social/__tests__/crypto.test.ts
 ```
 
-Oczekiwane: FAIL — "Cannot find module '../crypto'"
+Oczekiwane: FAIL  "Cannot find module '../crypto'"
 
 - [ ] **Step 3: Implementuj crypto.ts**
 
@@ -276,7 +276,7 @@ export function decrypt(ciphertext: string): string {
 }
 ```
 
-- [ ] **Step 4: Uruchom test — sprawdź że przechodzi**
+- [ ] **Step 4: Uruchom test  sprawdź że przechodzi**
 
 ```bash
 npx vitest run lib/social/__tests__/crypto.test.ts
@@ -419,13 +419,13 @@ describe('deleteSocialAccount', () => {
 })
 ```
 
-- [ ] **Step 2: Uruchom test — failuje**
+- [ ] **Step 2: Uruchom test  failuje**
 
 ```bash
 npx vitest run lib/api/__tests__/socialAccounts.test.ts
 ```
 
-Oczekiwane: FAIL — "Cannot find module '../socialAccounts'"
+Oczekiwane: FAIL  "Cannot find module '../socialAccounts'"
 
 - [ ] **Step 3: Implementuj socialAccounts.ts**
 
@@ -574,7 +574,7 @@ export async function getSocialPostStatuses(postId: string): Promise<SocialPostS
 }
 ```
 
-- [ ] **Step 4: Uruchom test — przechodzi**
+- [ ] **Step 4: Uruchom test  przechodzi**
 
 ```bash
 npx vitest run lib/api/__tests__/socialAccounts.test.ts
@@ -615,13 +615,13 @@ W pliku `lib/rate-limit/config.ts`, w obiekcie `RATE_LIMIT_PRESETS` dopisz po `t
 export { publishPost } from './actions/publishPost'
 ```
 
-(plik actions/publishPost.ts powstanie w Task 9 — barrel musi istnieć wcześniej)
+(plik actions/publishPost.ts powstanie w Task 9  barrel musi istnieć wcześniej)
 
 Utwórz tymczasowy plik `features/social/actions/publishPost.ts`:
 
 ```typescript
 'use server'
-// placeholder — implemented in Task 9
+// placeholder  implemented in Task 9
 export async function publishPost(_postId: string): Promise<void> {}
 ```
 
@@ -703,7 +703,7 @@ describe('publishToInstagram', () => {
 })
 ```
 
-- [ ] **Step 2: Uruchom test — failuje**
+- [ ] **Step 2: Uruchom test  failuje**
 
 ```bash
 npx vitest run lib/social/__tests__/meta.test.ts
@@ -806,7 +806,7 @@ export async function publishToInstagram(
   const caption = payload.content ?? ''
 
   if (images.length === 0) {
-    // Text as caption without media — Instagram requires at least one media item.
+    // Text as caption without media  Instagram requires at least one media item.
     // Use a single-item container with caption only (reel not supported; fallback: skip)
     throw new Error(
       'Instagram requires at least one image. Add media to publish on Instagram.',
@@ -856,7 +856,7 @@ export async function publishToInstagram(
 }
 ```
 
-- [ ] **Step 4: Uruchom test — przechodzi**
+- [ ] **Step 4: Uruchom test  przechodzi**
 
 ```bash
 npx vitest run lib/social/__tests__/meta.test.ts
@@ -927,7 +927,7 @@ describe('publishToLinkedIn', () => {
 })
 ```
 
-- [ ] **Step 2: Uruchom test — failuje**
+- [ ] **Step 2: Uruchom test  failuje**
 
 ```bash
 npx vitest run lib/social/__tests__/linkedin.test.ts
@@ -1061,7 +1061,7 @@ export async function publishToLinkedIn(
 }
 ```
 
-- [ ] **Step 4: Uruchom test — przechodzi**
+- [ ] **Step 4: Uruchom test  przechodzi**
 
 ```bash
 npx vitest run lib/social/__tests__/linkedin.test.ts
@@ -1178,7 +1178,7 @@ describe('publishPost', () => {
 })
 ```
 
-- [ ] **Step 2: Uruchom test — failuje**
+- [ ] **Step 2: Uruchom test  failuje**
 
 ```bash
 npx vitest run lib/social/__tests__/publisher.test.ts
@@ -1238,7 +1238,7 @@ export async function publishPost(postId: string, userId: string): Promise<Publi
         })
         if (!account) throw new Error('Account not connected')
         if (account.expiresAt && account.expiresAt < new Date()) {
-          throw new Error('Token expired — reconnect your account')
+          throw new Error('Token expired  reconnect your account')
         }
 
         const token = decrypt(account.accessToken)
@@ -1276,7 +1276,7 @@ export async function publishPost(postId: string, userId: string): Promise<Publi
 }
 ```
 
-- [ ] **Step 4: Uruchom test — przechodzi**
+- [ ] **Step 4: Uruchom test  przechodzi**
 
 ```bash
 npx vitest run lib/social/__tests__/publisher.test.ts
@@ -1334,7 +1334,7 @@ describe('publishPost action', () => {
 })
 ```
 
-- [ ] **Step 2: Uruchom test — failuje**
+- [ ] **Step 2: Uruchom test  failuje**
 
 ```bash
 npx vitest run features/social/__tests__/publishPost.test.ts
@@ -1394,7 +1394,7 @@ Zaktualizuj `features/social/index.ts`:
 export { publishPost } from './actions/publishPost'
 ```
 
-- [ ] **Step 4: Uruchom test — przechodzi**
+- [ ] **Step 4: Uruchom test  przechodzi**
 
 ```bash
 npx vitest run features/social/__tests__/publishPost.test.ts
@@ -1435,7 +1435,7 @@ import { randomUUID } from 'crypto'
 
 const OAUTH_URLS: Record<string, string> = {
   facebook: 'https://www.facebook.com/v19.0/dialog/oauth',
-  instagram: 'https://www.facebook.com/v19.0/dialog/oauth', // same as FB — Meta handles both
+  instagram: 'https://www.facebook.com/v19.0/dialog/oauth', // same as FB  Meta handles both
   linkedin: 'https://www.linkedin.com/oauth/v2/authorization',
 }
 
@@ -1845,7 +1845,7 @@ import type { SocialPlatform, ConnectedAccount } from '@/lib/social/types'
 const PLATFORMS: SocialPlatform[] = ['FACEBOOK', 'INSTAGRAM', 'LINKEDIN']
 
 /**
- * Social accounts settings page — connect/disconnect Facebook, Instagram, LinkedIn.
+ * Social accounts settings page  connect/disconnect Facebook, Instagram, LinkedIn.
  */
 export default async function SocialSettingsPage({
   searchParams,
@@ -1914,7 +1914,7 @@ git commit -m "feat(social): add settings page and SocialConnectCard component"
 - Create: `components/ui/posts/SocialPublishButton.tsx`
 - Create: `components/ui/posts/SocialStatusBadge.tsx`
 - Modify: `components/ui/posts/PostCard.tsx`
-- Modify: `lib/api/posts.ts` — extend `FeedPost` type with `socialStatuses`
+- Modify: `lib/api/posts.ts`  extend `FeedPost` type with `socialStatuses`
 
 **Interfaces:**
 - Consumes: `publishPost` from `@/features/social`; `SocialPostStatusRow` from `@/lib/api/socialAccounts`
@@ -1922,7 +1922,7 @@ git commit -m "feat(social): add settings page and SocialConnectCard component"
 
 - [ ] **Step 1: Rozszerz FeedPost o socialStatuses**
 
-W `lib/api/posts.ts` zaktualizuj typ `FeedPost` — dopisz pole po `likedByMe`:
+W `lib/api/posts.ts` zaktualizuj typ `FeedPost`  dopisz pole po `likedByMe`:
 
 ```typescript
   socialStatuses: {
@@ -2094,7 +2094,7 @@ W `components/ui/posts/PostCard.tsx` dopisz import:
 import { SocialPublishButton } from './SocialPublishButton'
 ```
 
-Zaktualizuj interfejs `PostCardProps` — dodaj `post: FeedPost` (już jest), upewnij się, że `FeedPost` ma `socialStatuses`.
+Zaktualizuj interfejs `PostCardProps`  dodaj `post: FeedPost` (już jest), upewnij się, że `FeedPost` ma `socialStatuses`.
 
 W JSX, po bloku z `Like button`, dopisz (tylko dla autora, jeśli post ma platformy):
 

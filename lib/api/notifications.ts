@@ -35,7 +35,7 @@ const EMAIL_TYPES = new Set<NotificationType>([
  * await createNotification({ userId, type: 'CAMPAIGN_COMPLETED', title: 'Done', message: 'All runs complete.' })
  */
 export async function createNotification(input: CreateNotificationInput): Promise<void> {
-  // ponytail: never throw into caller — all errors logged, never surfaced
+  // ponytail: never throw into caller  all errors logged, never surfaced
   try {
     const user = await prisma.user.findUnique({
       where: { id: input.userId },
@@ -102,7 +102,7 @@ export async function getUnreadCount(userId: string): Promise<number> {
 /**
  * Marks a single notification as read.
  *
- * @param userId - Owner check — only marks if the notification belongs to this user
+ * @param userId - Owner check  only marks if the notification belongs to this user
  * @param id     - Notification ID
  * @returns void
  *

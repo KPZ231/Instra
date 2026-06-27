@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* ─────────────────────────────────────────────
-   Design tokens — Executive Precision
+   Design tokens  Executive Precision
    Source: DESIGN.md
 ───────────────────────────────────────────── */
 
@@ -104,7 +104,7 @@
 
 
 /* ─────────────────────────────────────────────
-   Tailwind v4 theme — maps tokens to utilities
+   Tailwind v4 theme  maps tokens to utilities
    Fonts are injected by next/font via CSS vars
 ───────────────────────────────────────────── */
 
@@ -222,7 +222,7 @@ body {
 }
 
 
-/* ── Primary — white fill, dark text ── */
+/* ── Primary  white fill, dark text ── */
 
 .btn-primary {
     background-color: var(--color-primary);
@@ -246,7 +246,7 @@ body {
 }
 
 
-/* ── Secondary — ghost with bone outline ── */
+/* ── Secondary  ghost with bone outline ── */
 
 .btn-secondary {
     background-color: transparent;

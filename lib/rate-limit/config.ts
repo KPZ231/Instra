@@ -9,7 +9,7 @@ export interface RateLimitPreset {
 
 /**
  * Central registry of rate-limit presets.
- * One place to audit and tune all limits — add a new entry here and use the key in rateLimit().
+ * One place to audit and tune all limits  add a new entry here and use the key in rateLimit().
  */
 export const RATE_LIMIT_PRESETS = {
   login:          { limit: 5,  window: '1 m'  },
@@ -27,6 +27,8 @@ export const RATE_LIMIT_PRESETS = {
   updatePreferences:  { limit: 10, window: '1 h'  },
   generateReport:     { limit: 5,  window: '1 h'  }, // expensive analytics aggregation
   createReport:       { limit: 10, window: '1 h'  },
+  createToken:        { limit: 5,  window: '1 h'  },
+  mcpRequest:         { limit: 120, window: '1 m' }, // per-token MCP calls
 } satisfies Record<string, RateLimitPreset>
 
 export type RateLimitPresetKey = keyof typeof RATE_LIMIT_PRESETS

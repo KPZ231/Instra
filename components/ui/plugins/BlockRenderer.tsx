@@ -10,7 +10,7 @@ interface BlockRendererProps {
 
 /**
  * Renders a declarative plugin UIBlock tree using only trusted host
- * components — plugins never ship their own JSX/CSS.
+ * components  plugins never ship their own JSX/CSS.
  *
  * @param blocks - Block tree produced by a plugin's widget/route handler
  * @example

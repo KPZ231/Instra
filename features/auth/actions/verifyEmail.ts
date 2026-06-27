@@ -57,7 +57,7 @@ export async function verifyEmail(
   })
 
   if (updated.attempts >= MAX_ATTEMPTS) {
-    // Too many failed attempts — delete the record to force a fresh registration
+    // Too many failed attempts  delete the record to force a fresh registration
     await prisma.pendingRegistration.delete({ where: { email } })
     return {
       errors: {
@@ -77,7 +77,7 @@ export async function verifyEmail(
     }
   }
 
-  // Code is correct — atomically create the User and delete the pending record
+  // Code is correct  atomically create the User and delete the pending record
   await prisma.$transaction([
     prisma.user.create({
       data: {

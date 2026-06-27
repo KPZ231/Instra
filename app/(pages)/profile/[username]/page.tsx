@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: ProfilePageProps): Promise<Me
   const canonical = `/profile/${username}`
 
   return {
-    title: `${displayName} — Instra`,
+    title: `${displayName}  Instra`,
     description: `Posts by ${displayName} on Instra.`,
     robots: { index: true, follow: true },
     alternates: {
@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: ProfilePageProps): Promise<Me
   }
 }
 
-/** Public user profile page — Server Component with ISR. */
+/** Public user profile page  Server Component with ISR. */
 export default async function ProfilePage({ params }: ProfilePageProps) {
   const { username } = await params
 

@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: DocsPageProps): Promise<Metad
     .replace(/\b\w/g, (c) => c.toUpperCase());
 
   return {
-    title: `${title} — Instra Docs`,
+    title: `${title}  Instra Docs`,
     description: `Instra documentation: ${title}`,
   };
 }

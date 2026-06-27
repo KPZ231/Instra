@@ -5,7 +5,7 @@ const globalForPrisma = globalThis as unknown as { prisma: PrismaClient }
 
 /**
  * Creates a new PrismaClient instance using the PrismaPg driver adapter.
- * Prisma 7 requires an explicit driver adapter — the client no longer self-connects.
+ * Prisma 7 requires an explicit driver adapter  the client no longer self-connects.
  *
  * @returns A configured PrismaClient instance
  */

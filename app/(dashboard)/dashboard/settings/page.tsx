@@ -5,21 +5,19 @@ import { ChangeUsernameForm } from '@/components/ui/account/ChangeUsernameForm'
 import { ExportAccountData } from '@/components/ui/account/ExportAccountData'
 import { DeleteAccountSection } from '@/components/ui/account/DeleteAccountSection'
 import { NotificationPreferences } from '@/components/ui/account/NotificationPreferences'
+import { SettingsPageTitle } from '@/components/ui/account/SettingsPageTitle'
 
 /**
- * Account settings page — allows the user to change their username,
- * export their data, and delete their account.
- * Server component: fetches user and username-change count before rendering.
+ * Account settings page  change username, manage notifications,
+ * export data, and delete account.
  */
 export default async function AccountSettingsPage() {
   const user = await getCurrentUser()
   if (!user) return null
 
-  // Count username changes in the last 12 months to enforce the yearly limit
   const changesCount = await prisma.usernameChange.count({
     where: {
       userId: user.id,
-      // eslint-disable-next-line react-hooks/purity
       createdAt: { gte: new Date(Date.now() - 365 * 24 * 60 * 60 * 1000) },
     },
   })
@@ -27,32 +25,17 @@ export default async function AccountSettingsPage() {
   const remaining = MAX_USERNAME_CHANGES_PER_YEAR - changesCount
 
   return (
-    <main className="max-w-xl mx-auto py-10 px-4 space-y-8">
-      <h1
-        className="font-mono text-lg font-bold uppercase tracking-[0.1em]"
-        style={{ color: 'var(--color-on-surface)' }}
-      >
-        Account Settings
-      </h1>
+    <main className="max-w-2xl mx-auto py-10 px-4 space-y-4">
+      <SettingsPageTitle />
 
       <ChangeUsernameForm
         initialUsername={user.username ?? null}
         initialRemaining={remaining}
       />
 
-      <div
-        className="border-t"
-        style={{ borderColor: 'rgba(255,255,255,0.08)' }}
-      />
-
       <NotificationPreferences
         initialMuted={user.notificationsMuted}
         initialEmailEnabled={user.emailNotificationsEnabled}
-      />
-
-      <div
-        className="border-t"
-        style={{ borderColor: 'rgba(255,255,255,0.08)' }}
       />
 
       <ExportAccountData />

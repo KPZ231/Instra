@@ -2,8 +2,10 @@
 
 import { useActionState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { RiBellLine } from 'react-icons/ri'
 import { updatePreferences } from '@/features/notifications'
 import type { UpdatePreferencesState } from '@/features/notifications'
+import { SettingsSectionHeader } from './SettingsSectionHeader'
 
 interface NotificationPreferencesProps {
   /** Current value of the notificationsMuted user field */
@@ -14,12 +16,8 @@ interface NotificationPreferencesProps {
 
 /**
  * Settings section for notification preferences.
- * Allows the user to mute in-app notifications and disable email notifications.
- * Uses useActionState with the updatePreferences server action.
- *
  * @param initialMuted        - Current notificationsMuted value
  * @param initialEmailEnabled - Current emailNotificationsEnabled value
- *
  * @example
  * <NotificationPreferences initialMuted={user.notificationsMuted} initialEmailEnabled={user.emailNotificationsEnabled} />
  */
@@ -34,18 +32,19 @@ export function NotificationPreferences({
   )
 
   return (
-    <section className="space-y-4">
-      <h2
-        className="font-mono text-xs font-bold uppercase tracking-[0.1em]"
-        style={{ color: 'var(--color-on-surface)' }}
-      >
-        {t('account.notifications.title')}
-      </h2>
+    <section
+      className="rounded-lg p-5 space-y-4"
+      style={{
+        background: 'var(--color-surface-container-low)',
+        border: '1px solid rgba(255,255,255,0.07)',
+      }}
+    >
+      <SettingsSectionHeader labelKey="account.notifications.title" icon={<RiBellLine />} />
 
       <form action={action} className="space-y-4">
         {/* Hidden inputs come BEFORE checkboxes so formData.get() returns checkbox value when checked */}
         <input type="hidden" name="notificationsMuted" value="false" />
-        <label className="flex items-start gap-3 cursor-pointer">
+        <label className="flex items-start gap-3 cursor-pointer group">
           <input
             type="checkbox"
             name="notificationsMuted"
@@ -57,17 +56,14 @@ export function NotificationPreferences({
             <span className="block text-sm" style={{ color: 'var(--color-on-surface)' }}>
               {t('account.notifications.muteLabel')}
             </span>
-            <span
-              className="block text-xs mt-0.5"
-              style={{ color: 'var(--color-on-surface-variant)' }}
-            >
+            <span className="block text-xs mt-0.5" style={{ color: 'var(--color-on-surface-variant)' }}>
               {t('account.notifications.muteHelper')}
             </span>
           </span>
         </label>
 
         <input type="hidden" name="emailNotificationsEnabled" value="false" />
-        <label className="flex items-start gap-3 cursor-pointer">
+        <label className="flex items-start gap-3 cursor-pointer group">
           <input
             type="checkbox"
             name="emailNotificationsEnabled"
@@ -79,10 +75,7 @@ export function NotificationPreferences({
             <span className="block text-sm" style={{ color: 'var(--color-on-surface)' }}>
               {t('account.notifications.emailLabel')}
             </span>
-            <span
-              className="block text-xs mt-0.5"
-              style={{ color: 'var(--color-on-surface-variant)' }}
-            >
+            <span className="block text-xs mt-0.5" style={{ color: 'var(--color-on-surface-variant)' }}>
               {t('account.notifications.emailHelper')}
             </span>
           </span>

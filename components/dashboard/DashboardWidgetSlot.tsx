@@ -38,7 +38,7 @@ export default async function DashboardWidgetSlot() {
             className="font-mono text-xs"
             style={{ color: "var(--color-outline)" }}
           >
-            DASHBOARD_TOP — install a plugin to use this slot
+            DASHBOARD_TOP  install a plugin to use this slot
           </p>
         </div>
       </div>

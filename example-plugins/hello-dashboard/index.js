@@ -1,5 +1,5 @@
 /**
- * hello-dashboard — przykładowy plugin dla Instra
+ * hello-dashboard  przykładowy plugin dla Instra
  *
  * Co robi:
  *  - Rejestruje widget w slocie DASHBOARD_TOP
@@ -10,7 +10,7 @@
  *  1. Uploaduj ten plik + manifest.json przez /dashboard/plugins/upload
  *  2. Admin zatwierdza plugin w /dashboard/admin/plugins
  *  3. Zainstaluj plugin z /dashboard/plugins
- *  4. Wejdź na /dashboard — widget pojawi się automatycznie
+ *  4. Wejdź na /dashboard  widget pojawi się automatycznie
  */
 
 /** @param {import('@/types/plugin').PluginContext} context */
@@ -27,7 +27,7 @@ export async function init(context) {
     // Zwiększ i zapisz licznik
     await context.api.storage.set('visit_count', count + 1)
 
-    // Zwróć UIBlock[] — BlockRenderer wyrenderuje je na dashboardzie
+    // Zwróć UIBlock[]  BlockRenderer wyrenderuje je na dashboardzie
     return [
       {
         type: 'card',
@@ -59,7 +59,7 @@ export async function init(context) {
 }
 
 /**
- * Opcjonalna funkcja czyszcząca — wywoływana przy odinstalowaniu pluginu.
+ * Opcjonalna funkcja czyszcząca  wywoływana przy odinstalowaniu pluginu.
  * Tutaj można anulować subskrypcje, timery itp.
  */
 export async function destroy() {

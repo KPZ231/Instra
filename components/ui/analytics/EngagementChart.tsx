@@ -186,7 +186,7 @@ export default function EngagementChart({ series, prediction }: EngagementChartP
               <polygon points={buildArea(predPts, H)} fill="url(#predGrad)" />
             )}
 
-            {/* Prediction line — dashed green */}
+            {/* Prediction line  dashed green */}
             {predPts.length > 1 && (
               <polyline points={pointsToPolyline(predPts)} fill="none"
                 stroke="#00FF41" strokeWidth={1.5} strokeDasharray="4 3"

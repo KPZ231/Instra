@@ -5,7 +5,7 @@ import { CreateCampaignForm } from '@/components/ui/campaigns/CreateCampaignForm
 import { Zap, Clock, RefreshCw } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'New Campaign — Instra',
+  title: 'New Campaign  Instra',
   robots: { index: false, follow: false },
 }
 
@@ -18,7 +18,7 @@ const HOW_IT_WORKS = [
   {
     icon: Clock,
     title: 'Interval-based',
-    body: 'Set how often the action fires — every 15 minutes, hourly, or once a day. Your choice.',
+    body: 'Set how often the action fires  every 15 minutes, hourly, or once a day. Your choice.',
   },
   {
     icon: RefreshCw,

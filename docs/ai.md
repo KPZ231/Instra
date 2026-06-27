@@ -7,8 +7,8 @@ Built on the [Vercel AI SDK](https://sdk.vercel.ai/). One model, one action, no 
 
 ## Technologies
 
-- `ai` (Vercel AI SDK) — `generateText`
-- `@openrouter/ai-sdk-provider` — OpenRouter adapter
+- `ai` (Vercel AI SDK)  `generateText`
+- `@openrouter/ai-sdk-provider`  OpenRouter adapter
 - Default model: `openai/gpt-oss-120b:free`
 
 ## Files
@@ -26,8 +26,8 @@ Built on the [Vercel AI SDK](https://sdk.vercel.ai/). One model, one action, no 
 
 | Variable | Required | Default | Description |
 |----------|----------|---------|-------------|
-| `OPENROUTER_API_KEY` | ✅ | — | OpenRouter account key |
-| `OPENROUTER_MODEL` | ❌ | `openai/gpt-oss-120b:free` | Model slug — swap with one env change |
+| `OPENROUTER_API_KEY` | ✅ |  | OpenRouter account key |
+| `OPENROUTER_MODEL` | ❌ | `openai/gpt-oss-120b:free` | Model slug  swap with one env change |
 
 ### Swapping Models
 
@@ -49,7 +49,7 @@ Defined in `lib/rate-limit/config.ts`. Increase if a paid model is used.
 verifySession() → rateLimit('generateCaption') → Zod safeParse → generateCaption() → { text } | { errors }
 ```
 
-Errors from the LLM call are caught and returned as `{ errors: { _form: ['ai.error'] } }` — no stack traces exposed.
+Errors from the LLM call are caught and returned as `{ errors: { _form: ['ai.error'] } }`  no stack traces exposed.
 
 ## Parameters
 
@@ -60,7 +60,7 @@ Errors from the LLM call are caught and returned as `{ errors: { _form: ['ai.err
 | `prompt` | `string` | Topic / draft text (max 500 chars) |
 | `language` | `'pl' \| 'en'` | Output language |
 
-Returns: `Promise<string>` — trimmed caption.
+Returns: `Promise<string>`  trimmed caption.
 
 ## Example
 

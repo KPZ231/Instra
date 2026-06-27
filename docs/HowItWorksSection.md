@@ -8,7 +8,7 @@
 ## i18n Keys
 - `usecaseHowItWorks.badge`
 - `usecaseHowItWorks.heading`
-- `usecaseHowItWorks.steps[]` — array of `{ title, body }` (4 items)
+- `usecaseHowItWorks.steps[]`  array of `{ title, body }` (4 items)
 
 ## Layout
 - 2×2 grid on desktop (`sm:grid-cols-2`), single column on mobile

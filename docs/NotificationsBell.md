@@ -13,27 +13,27 @@ Self-contained bell button that shows the notification dropdown panel. Polls `GE
 - Each notification item can be clicked to mark it read and optionally navigate to `n.link` via `useRouter`
 - "Mark all read" button sends `POST /api/notifications/read` with an empty body
 - Click-outside closes the dropdown via a `mousedown` listener + `useRef`
-- Relative time is formatted using `Intl.RelativeTimeFormat` — no external date library
+- Relative time is formatted using `Intl.RelativeTimeFormat`  no external date library
 
 ## Props
 
-None — fully self-contained.
+None  fully self-contained.
 
 ## API calls
 
 | Method | URL | Body | Purpose |
 |--------|-----|------|---------|
-| GET | `/api/notifications` | — | Fetch notification list + unread count |
+| GET | `/api/notifications` |  | Fetch notification list + unread count |
 | POST | `/api/notifications/read` | `{ id: string }` | Mark single notification read |
 | POST | `/api/notifications/read` | `{}` | Mark all notifications read |
 
 ## i18n keys used
 
-- `dashboard.header.notifications` — aria-label when unread count is 0
-- `dashboard.notifications.unreadAria` — aria-label with count when unread > 0
-- `dashboard.notifications.title` — dropdown header
-- `dashboard.notifications.markAllRead` — "mark all" button
-- `dashboard.notifications.empty` — empty state message
+- `dashboard.header.notifications`  aria-label when unread count is 0
+- `dashboard.notifications.unreadAria`  aria-label with count when unread > 0
+- `dashboard.notifications.title`  dropdown header
+- `dashboard.notifications.markAllRead`  "mark all" button
+- `dashboard.notifications.empty`  empty state message
 
 ## Example usage
 

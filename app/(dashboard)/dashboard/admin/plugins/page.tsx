@@ -7,12 +7,12 @@ import { UserRole } from "@/types/auth";
 import type { PluginManifest } from "@/lib/plugins/manifest";
 
 export const metadata: Metadata = {
-  title: "Plugin Review — Instra Admin",
+  title: "Plugin Review  Instra Admin",
   robots: { index: false, follow: false },
 };
 
 /**
- * Admin plugin review panel — server component.
+ * Admin plugin review panel  server component.
  * Only accessible to users with role ADMIN; others are redirected to /dashboard.
  * Displays all plugin versions with PENDING_REVIEW status, ordered oldest first.
  */

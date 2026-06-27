@@ -101,6 +101,30 @@ export async function getUserPosts(userId: string): Promise<UserPostOption[]> {
   })
 }
 
+/**
+ * Creates a text-only post (no media) for a given userId.
+ * Used by the MCP route where no NextAuth session exists.
+ *
+ * @param userId    - Author's user ID
+ * @param content   - Post text content
+ * @param platforms - Array of platform names (e.g. ["INSTAGRAM"])
+ * @returns Created post ID and creation time
+ *
+ * @example
+ * const post = await createPostByUser(userId, 'Hello world', ['INSTAGRAM'])
+ */
+export async function createPostByUser(
+  userId: string,
+  content: string,
+  platforms: string[],
+): Promise<{ id: string; createdAt: Date }> {
+  const post = await prisma.post.create({
+    data: { content, platforms, authorId: userId },
+    select: { id: true, createdAt: true },
+  })
+  return post
+}
+
 export async function getFeed(
   cursor?: string,
 ): Promise<{ posts: FeedPost[]; nextCursor: string | null }> {

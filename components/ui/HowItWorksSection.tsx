@@ -47,7 +47,7 @@ const headerVariants = {
 /* ── Main component ─────────────────────────────────────────────── */
 
 /**
- * HowItWorksSection — 2×2 bento grid of 4 numbered steps explaining
+ * HowItWorksSection  2×2 bento grid of 4 numbered steps explaining
  * how Instra's plugin workflow operates. Ghost numbers, staggered entrance.
  *
  * @example

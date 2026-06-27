@@ -99,7 +99,7 @@ export default function AdminReviewCard({
         className="font-mono text-[11px] space-y-0.5"
         style={{ color: "var(--color-on-surface-variant)" }}
       >
-        <p>author: {authorEmail ?? "—"}</p>
+        <p>author: {authorEmail ?? ""}</p>
         <p>version: {version}</p>
         {manifest.permissions.length > 0 && (
           <div className="flex flex-wrap gap-1.5 mt-2">

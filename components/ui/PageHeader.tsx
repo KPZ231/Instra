@@ -9,12 +9,12 @@ import { useTranslation } from "react-i18next";
 interface PageHeaderProps {
   /**
    * i18n key prefix. Reads the following keys:
-   *   `${i18nPrefix}.label`       — mono eyebrow label (required)
-   *   `${i18nPrefix}.heading`     — display heading, may contain `\n` for line breaks (required)
-   *   `${i18nPrefix}.description` — optional body paragraph
+   *   `${i18nPrefix}.label`        mono eyebrow label (required)
+   *   `${i18nPrefix}.heading`      display heading, may contain `\n` for line breaks (required)
+   *   `${i18nPrefix}.description`  optional body paragraph
    */
   i18nPrefix: string;
-  /** Optional HTML id for the <h1> element — useful for aria-labelledby on the page. */
+  /** Optional HTML id for the <h1> element  useful for aria-labelledby on the page. */
   headingId?: string;
 }
 
@@ -43,7 +43,7 @@ const ruleVariant = {
 /* ── Main component ─────────────────────────────────────────────── */
 
 /**
- * Reusable page header — eyebrow label, display heading, optional description.
+ * Reusable page header  eyebrow label, display heading, optional description.
  * All copy is resolved from i18n using `i18nPrefix`.
  * Supports multi-line headings via `\n` in the translation value.
  *

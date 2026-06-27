@@ -210,7 +210,7 @@ function HeroFeatureCard({ feature }: { readonly feature: FeatureItem }) {
 /* ── Main component ─────────────────────────────────────────────── */
 
 /**
- * FeaturesSection — bento layout with a tall hero card on the left and a
+ * FeaturesSection  bento layout with a tall hero card on the left and a
  * 2-column grid of smaller cards on the right. Supports optional images per card.
  * Entrance: stagger on scroll via useInView.
  *
@@ -290,14 +290,14 @@ export default function FeaturesSection() {
             initial="hidden"
             animate={gridInView ? "visible" : "hidden"}
           >
-            {/* Hero card — fixed width on lg, full height */}
+            {/* Hero card  fixed width on lg, full height */}
             {heroFeature && (
               <div className="w-full lg:w-[38%] lg:shrink-0">
                 <HeroFeatureCard feature={heroFeature} />
               </div>
             )}
 
-            {/* Remaining cards — 2-column grid */}
+            {/* Remaining cards  2-column grid */}
             <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-3 content-start">
               {restFeatures.map((feature) => (
                 <FeatureCard key={feature.id} feature={feature} />

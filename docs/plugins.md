@@ -8,46 +8,46 @@ Pluginy rozszerzają Instę przez rejestrację widgetów w predefiniowanych sło
 
 ## Technologie
 
-- **Next.js** (App Router) — API routes do zarządzania pluginami, rejestracji
-- **Prisma 7** + **PostgreSQL** — rejestr pluginów, wersje, instalacje per-user, KV storage, audit log
-- **node:vm** — sandboksowanie kodu pluginu, brak dostępu do fs/network/process, timeouty
-- **Supabase Storage** (`plugin-bundles` bucket) — hosting bundlów pluginów (CommonJS `dist/index.js`)
-- **Zod** — walidacja manifest.json
-- **i18next** — rejestracja lokalizacji pluginów pod namespace `plugin:<slug>`
-- **Vitest** — testy jednostkowe dla modułów sandbox, render, registry
+- **Next.js** (App Router)  API routes do zarządzania pluginami, rejestracji
+- **Prisma 7** + **PostgreSQL**  rejestr pluginów, wersje, instalacje per-user, KV storage, audit log
+- **node:vm**  sandboksowanie kodu pluginu, brak dostępu do fs/network/process, timeouty
+- **Supabase Storage** (`plugin-bundles` bucket)  hosting bundlów pluginów (CommonJS `dist/index.js`)
+- **Zod**  walidacja manifest.json
+- **i18next**  rejestracja lokalizacji pluginów pod namespace `plugin:<slug>`
+- **Vitest**  testy jednostkowe dla modułów sandbox, render, registry
 
 ## Architektura
 
 ```
 lib/plugins/
-  ├── config.ts           — PLUGIN_CAPABILITIES enum, WIDGET_SLOT_CAPABILITY map
-  ├── blocks.ts           — UIBlock discriminated union (text, card, list, table, button)
-  ├── manifest.ts         — parseManifest(), walidacja schematu manifest.json
-  ├── storage.ts          — uploadBundle(), downloadBundle() (Supabase Storage)
-  ├── sandbox.ts          — loadPluginModule(), callPluginExport() (node:vm)
-  ├── kv.ts               — getPluginData(), setPluginData() (per-plugin-per-user KV)
-  ├── audit.ts            — logPluginAction(), listPluginAuditLog()
-  ├── context.ts          — createPluginContext() (PluginContext builder)
-  ├── registry.ts         — createPlugin(), submitVersionForReview(), approveVersion(), rejectVersion(), listApprovedPlugins()
-  ├── installations.ts    — installPlugin(), uninstallPlugin(), togglePlugin(), getUserInstallations(), getAvailableUpdate()
-  ├── render.ts           — renderWidgetsForUser(userId, slot) → UIBlock[]
-  └── i18n.ts             — registerPluginLocales(pluginId, locales)
+  ├── config.ts            PLUGIN_CAPABILITIES enum, WIDGET_SLOT_CAPABILITY map
+  ├── blocks.ts            UIBlock discriminated union (text, card, list, table, button)
+  ├── manifest.ts          parseManifest(), walidacja schematu manifest.json
+  ├── storage.ts           uploadBundle(), downloadBundle() (Supabase Storage)
+  ├── sandbox.ts           loadPluginModule(), callPluginExport() (node:vm)
+  ├── kv.ts                getPluginData(), setPluginData() (per-plugin-per-user KV)
+  ├── audit.ts             logPluginAction(), listPluginAuditLog()
+  ├── context.ts           createPluginContext() (PluginContext builder)
+  ├── registry.ts          createPlugin(), submitVersionForReview(), approveVersion(), rejectVersion(), listApprovedPlugins()
+  ├── installations.ts     installPlugin(), uninstallPlugin(), togglePlugin(), getUserInstallations(), getAvailableUpdate()
+  ├── render.ts            renderWidgetsForUser(userId, slot) → UIBlock[]
+  └── i18n.ts              registerPluginLocales(pluginId, locales)
 
 components/ui/plugins/
-  ├── BlockRenderer.tsx            — renders UIBlock tree → HTML/React
-  └── PluginErrorBoundary.tsx      — React error boundary + audit logging
+  ├── BlockRenderer.tsx             renders UIBlock tree → HTML/React
+  └── PluginErrorBoundary.tsx       React error boundary + audit logging
 
 app/api/
-  ├── admin/plugins/route.ts                          — GET list PENDING_REVIEW versions
-  ├── admin/plugins/[versionId]/review/route.ts       — POST approve/reject version
-  ├── plugins/route.ts                                — GET list approved plugins
-  └── plugins/install/route.ts                        — POST install/uninstall/toggle/checkUpdate
+  ├── admin/plugins/route.ts                           GET list PENDING_REVIEW versions
+  ├── admin/plugins/[versionId]/review/route.ts        POST approve/reject version
+  ├── plugins/route.ts                                 GET list approved plugins
+  └── plugins/install/route.ts                         POST install/uninstall/toggle/checkUpdate
 
 types/
-  └── plugin.ts           — InstraPlugin, PluginContext, PluginManifest interfaces
+  └── plugin.ts            InstraPlugin, PluginContext, PluginManifest interfaces
 
 prisma/
-  └── schema.prisma       — Plugin, PluginVersion, PluginInstallation, PluginData, PluginAuditLog models
+  └── schema.prisma        Plugin, PluginVersion, PluginInstallation, PluginData, PluginAuditLog models
 ```
 
 ## Przepływ publikacji
@@ -59,11 +59,11 @@ Developer tworzy plugin:
 ```
 my-plugin/
   ├── package.json
-  ├── manifest.json        — metadane, uprawnienia, słoty
+  ├── manifest.json         metadane, uprawnienia, słoty
   ├── src/
-  │   └── index.ts         — export { init }
+  │   └── index.ts          export { init }
   └── dist/
-      └── index.js         — CommonJS bundle (built)
+      └── index.js          CommonJS bundle (built)
 ```
 
 **manifest.json** przykład:
@@ -426,7 +426,7 @@ export async function init(context: PluginContext) {
 }
 ```
 
-Brak namespace izolacji — wszystkie klucze są per-plugin per-user. Rekomendacja: używaj prefiksu, np. `"feature:subkey"`.
+Brak namespace izolacji  wszystkie klucze są per-plugin per-user. Rekomendacja: używaj prefiksu, np. `"feature:subkey"`.
 
 ## Events i Event Bus
 
@@ -443,17 +443,17 @@ context.off("user:login", handler);
 ```
 
 **Wbudowane eventy:**
-- `user:login` — użytkownik zalogował się
-- `user:logout` — użytkownik wylogował się
-- `plugin:installed` — plugin zainstalowany
-- `plugin:uninstalled` — plugin odinstalowany
-- `plugin:error` — plugin rzucił wyjątek
+- `user:login`  użytkownik zalogował się
+- `user:logout`  użytkownik wylogował się
+- `plugin:installed`  plugin zainstalowany
+- `plugin:uninstalled`  plugin odinstalowany
+- `plugin:error`  plugin rzucił wyjątek
 
 Event bus przechowywany w-memorii (będzie utrwalony po dodaniu pub/sub layer, np. Redis).
 
 ## Renderowanie (UIBlock)
 
-Pluginy **nie** dostarczają JSX/React. Zamiast tego zwracają `UIBlock[]` — deklaratywne drzewo strukturalne.
+Pluginy **nie** dostarczają JSX/React. Zamiast tego zwracają `UIBlock[]`  deklaratywne drzewo strukturalne.
 
 **UIBlock schema** (`lib/plugins/blocks.ts`):
 
@@ -580,17 +580,17 @@ model PluginAuditLog {
 
 **Działania logowane:**
 
-- `PLUGIN_CREATED` — developer stworzył plugin
-- `PLUGIN_SUBMITTED_FOR_REVIEW` — dev zasubmitował wersję
-- `PLUGIN_APPROVED` — admin zatwierdził wersję
-- `PLUGIN_REJECTED` — admin odrzucił wersję
-- `PLUGIN_INSTALLED` — user zainstalował plugin
-- `PLUGIN_UNINSTALLED` — user odinstalował plugin
-- `PLUGIN_UPDATED` — user zainstalował nową wersję
-- `PLUGIN_ENABLED` — user włączył plugin
-- `PLUGIN_DISABLED` — user wyłączył plugin
-- `PLUGIN_EXECUTED` — plugin ran successfully at render time
-- `PLUGIN_ERROR` — plugin threw error at render time
+- `PLUGIN_CREATED`  developer stworzył plugin
+- `PLUGIN_SUBMITTED_FOR_REVIEW`  dev zasubmitował wersję
+- `PLUGIN_APPROVED`  admin zatwierdził wersję
+- `PLUGIN_REJECTED`  admin odrzucił wersję
+- `PLUGIN_INSTALLED`  user zainstalował plugin
+- `PLUGIN_UNINSTALLED`  user odinstalował plugin
+- `PLUGIN_UPDATED`  user zainstalował nową wersję
+- `PLUGIN_ENABLED`  user włączył plugin
+- `PLUGIN_DISABLED`  user wyłączył plugin
+- `PLUGIN_EXECUTED`  plugin ran successfully at render time
+- `PLUGIN_ERROR`  plugin threw error at render time
 
 **API:**
 
@@ -702,7 +702,7 @@ Odpowiedź: `{ "ok": true }`
 
 Odpowiedź: `{ "update": { ... } | null }`
 
-Update nigdy nie jest instalowany automatycznie — user musi jawnie wywołać `install` z nowym `pluginVersionId`.
+Update nigdy nie jest instalowany automatycznie  user musi jawnie wywołać `install` z nowym `pluginVersionId`.
 
 ### GET /api/admin/plugins
 
@@ -881,8 +881,8 @@ Na stronie dashboard: `renderWidgetsForUser(userId, "DASHBOARD_TOP")` → pokazu
 
 - **Routing:** `registerRoute()` deklaruje się w manifest, ale front-end routing TBD
 - **Menu:** `registerMenuItem()` dostępne, ale wiring do nav komponentu TBD
-- **Event bus:** In-memory, nie persisted/clustered — będzie Redis pub/sub
-- **Upload endpoint:** API do wysłania bundla + manifest TBD — wymaga walidacji MIME + size limits
+- **Event bus:** In-memory, nie persisted/clustered  będzie Redis pub/sub
+- **Upload endpoint:** API do wysłania bundla + manifest TBD  wymaga walidacji MIME + size limits
 - **UI customization:** Pluginy mogą zwrócić tylko predefiniowane bloki (text, card, list, table, button); brak custom React komponentów
 
 ## Troubleshooting
@@ -905,7 +905,7 @@ Na stronie dashboard: `renderWidgetsForUser(userId, "DASHBOARD_TOP")` → pokazu
 
 ### Plugin nie ma dostępu do danych innego usera
 
-- By design — KV storage scoped per `(pluginId, userId, key)`
+- By design  KV storage scoped per `(pluginId, userId, key)`
 - Admin users mogą logować się jako inny user (future feature), wtedy widzą ich dane
 
 ## API dla Plugin Developers (PluginContext)

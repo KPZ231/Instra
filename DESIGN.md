@@ -126,7 +126,7 @@ A secondary "Bone" color (`#E8E3D9`) is utilized for secondary text and borders 
 
 Typography is used as a structural element. The primary typeface, **Hanken Grotesk**, provides a sharp, modern sans-serif look for headlines and primary UI elements. It is chosen for its precise geometry and professional neutrality.
 
-For data-heavy areas—transaction hashes, balances, timestamps, and secondary labels—**JetBrains Mono** is employed. This monospaced font reinforces the "fintech" and "developer-friendly" nature of the product, ensuring that numerical data aligns perfectly for easy scanning. Headlines use tight letter spacing for a more aggressive, premium feel, while mono-spaced labels use increased letter spacing for clarity at small sizes.
+For data-heavy areastransaction hashes, balances, timestamps, and secondary labels**JetBrains Mono** is employed. This monospaced font reinforces the "fintech" and "developer-friendly" nature of the product, ensuring that numerical data aligns perfectly for easy scanning. Headlines use tight letter spacing for a more aggressive, premium feel, while mono-spaced labels use increased letter spacing for clarity at small sizes.
 
 ## Layout & Spacing
 
@@ -141,7 +141,7 @@ In this dark-centric system, depth is conveyed through **Tonal Layers** rather t
 - **Level 1 (Cards/Surfaces):** `#040503` or a subtle 1px border of `#FFFFFF` with 10% opacity.
 - **Level 2 (Popovers/Modals):** A slightly lighter charcoal (`#121212`) with a subtle 1px bone-colored border.
 
-Shadows, when used, are "Ambient Shadows"—extremely soft, blurred, and low-opacity black glows that serve to lift an element just enough to define its edges against the background. We avoid heavy drop shadows in favor of hair-line borders (0.5pt to 1pt).
+Shadows, when used, are "Ambient Shadows"extremely soft, blurred, and low-opacity black glows that serve to lift an element just enough to define its edges against the background. We avoid heavy drop shadows in favor of hair-line borders (0.5pt to 1pt).
 
 ## Shapes
 

@@ -65,7 +65,7 @@ const ClientUsernameSchema = z
     path: ['confirmPassword'],
   })
 
-// All fields from both modes combined — used to type the single useForm instance.
+// All fields from both modes combined  used to type the single useForm instance.
 type RegisterFormData = {
   name?: string
   email?: string
@@ -76,7 +76,7 @@ type RegisterFormData = {
 }
 
 /**
- * SignUpPage — two-panel registration screen following Executive Precision design system.
+ * SignUpPage  two-panel registration screen following Executive Precision design system.
  * Supports two modes via tabs: email registration and username registration.
  * Uses react-hook-form + zodResolver with hybrid validation (on-blur, silent before first submit).
  * @returns JSX.Element

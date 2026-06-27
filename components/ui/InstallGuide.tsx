@@ -52,7 +52,7 @@ const stepVariants = {
 
 /* ── CopyButton ─────────────────────────────────────────────────── */
 
-// ponytail: inline — no need for a separate component for one use case
+// ponytail: inline  no need for a separate component for one use case
 function CopyButton({ text, labelCopy, labelCopied }: { text: string; labelCopy: string; labelCopied: string }) {
   const [copied, setCopied] = useState(false);
 
@@ -77,7 +77,7 @@ function CopyButton({ text, labelCopy, labelCopied }: { text: string; labelCopy:
 /* ── Main component ─────────────────────────────────────────────── */
 
 /**
- * InstallGuide — tabbed OS installation instructions for Instra CLI and Desktop Agent.
+ * InstallGuide  tabbed OS installation instructions for Instra CLI and Desktop Agent.
  * Tabs: macOS / Windows / Linux. Each step shows a copyable command block.
  * All copy is resolved from i18n (`installGuide.*`).
  *

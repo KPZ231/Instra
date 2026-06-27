@@ -1,1290 +1,1327 @@
 {
-    "nav": {
-        "home": "Strona główna",
-        "about": "O nas",
-        "features": "Funkcje",
-        "usecases": "Zastosowania",
-        "docs": "Dokumentacja",
-        "download": "Pobierz",
-        "singup": "Zarejestruj się",
-        "singin": "Zaloguj się",
-        "dashboard": "Panel",
-        "profile": "Profil",
-        "signout": "Wyloguj się",
-        "plugins": "Pluginy",
-        "menu_open": "Otwórz menu",
-        "menu_close": "Zamknij menu"
+  "nav": {
+    "home": "Strona główna",
+    "about": "O nas",
+    "features": "Funkcje",
+    "usecases": "Zastosowania",
+    "docs": "Dokumentacja",
+    "download": "Pobierz",
+    "singup": "Zarejestruj się",
+    "singin": "Zaloguj się",
+    "dashboard": "Panel",
+    "profile": "Profil",
+    "signout": "Wyloguj się",
+    "plugins": "Pluginy",
+    "menu_open": "Otwórz menu",
+    "menu_close": "Zamknij menu"
+  },
+  "hero": {
+    "title": "Planuj, Publikuj i Rozwijaj się  Wszystko w Jednym Miejscu",
+    "section1": "Treści tworzone przez AI na każdy kanał",
+    "section2": "Planuj posty na Instagramie, LinkedIn i X",
+    "section3": "Analityka w czasie rzeczywistym  widz co naprawdę działa"
+  },
+  "aboutInstra": {
+    "badge": "ZAŁ. 2024  Twój Towarzysz Marketingowy",
+    "heading_line1": "O NAS",
+    "heading_line2": "INSTRA",
+    "block1": {
+      "label": "// 01  PLATFORMA",
+      "body1": "Instra to platforma intelligence marketingowego stworzona dla założycieli, operatorów wzrostu i zespołów marketingowych, które wymagają precyzji, szybkości i mierzalnych wyników. Jedno miejsce dla treści AI, harmonogramowania wieloplatformowego i głębokiej analityki.",
+      "body2": "Naszym celem jest pomoc 1 000 000 firm w skalowaniu operacji marketingowych za pomocą narzędzi opartych na AI, które myślą i działają jak doświadczony operator  dostępnych przez całą dobę."
     },
-    "hero": {
-        "title": "Lorem Ipsum Dolor Sit Amet",
-        "section1": "Lorem Ipsum Dolor Sit Amet",
-        "section2": "Lorem Ipsum Dolor Sit Amet",
-        "section3": "Lorem Ipsum Dolor Sit Amet"
+    "block2": {
+      "label": "// 02  FILOZOFIA",
+      "body": "Jeśli nie widzisz nas na konferencji ani nie pitchujemy kolejnego decku, wiedz, że budujemy  ciągle iterujemy nad kolejną funkcją, która zmieni Twoje podejście do rynku. Wierzymy, że intelligence marketingowy powinien być tak ostry jak zespoły, które go używają  i nie zatrzymamy się, dopóki tak nie będzie."
     },
-    "aboutInstra": {
-        "badge": "ZAŁ. 2024 — Twój Towarzysz Marketingowy",
-        "heading_line1": "O NAS",
-        "heading_line2": "INSTRA",
-        "block1": {
-            "label": "// 01 — PLATFORMA",
-            "body1": "Instra to nagradzana platforma intelligence marketingowego, która zmienia sposób, w jaki marki angażują swoich odbiorców. Stworzona dla założycieli, operatorów wzrostu i zespołów marketingowych, które wymagają precyzji, szybkości i mierzalnych wyników.",
-            "body2": "Naszym celem jest pomoc 1 000 000 firm w skalowaniu operacji marketingowych za pomocą narzędzi opartych na AI, które myślą i działają jak doświadczony operator — dostępnych przez całą dobę."
-        },
-        "block2": {
-            "label": "// 02 — FILOZOFIA",
-            "body": "Jeśli nie widzisz nas na konferencji ani nie pitchujemy kolejnego decku, wiedz, że budujemy — ciągle iterujemy nad kolejną funkcją, która zmieni Twoje podejście do rynku. Wierzymy, że intelligence marketingowy powinien być tak ostry jak zespoły, które go używają — i nie zatrzymamy się, dopóki tak nie będzie."
-        },
-        "stats": {
-            "aria_label": "Statystyki platformy Instra"
-        },
-        "stat1": {
-            "value": "500K+",
-            "label": "Aktywnych Użytkowników"
-        },
-        "stat2": {
-            "value": "10M+",
-            "label": "Uruchomionych Kampanii"
-        },
-        "stat3": {
-            "value": "98%",
-            "label": "Wskaźnik Zadowolenia"
-        }
+    "stats": {
+      "aria_label": "Statystyki platformy Instra"
     },
-    "about": {
-        "mission": {
-            "title": "Nasza Misja",
-            "desc": "Umożliwić zespołom osiągnięcie doskonałości w marketingu"
-        },
-        "vision": {
-            "title": "Nasza Wizja",
-            "desc": "Być platformą, która redefiniuje marketing"
-        },
-        "values": {
-            "title": "Nasze Wartości",
-            "desc": "Innowacyjność, przejrzystość i projekt zorientowany na użytkownika"
-        },
-        "main": {
-            "title": "Stworzone dla Nowoczesnego Marketera",
-            "description": "Wierzymy, że marketing powinien być intuicyjny, potężny i dostępny dla każdego. Instra łączy najnowocześniejszą technologię z przemyślanym designem, aby pomóc Ci dotrzeć do swojej grupy docelowej z precyzją i kreatywnością."
-        },
-        "cta": "Dowiedz się Więcej",
-        "stat1": {
-            "value": "500K+",
-            "label": "Aktywnych Użytkowników"
-        },
-        "stat2": {
-            "value": "10M+",
-            "label": "Uruchomionych Kampanii"
-        },
-        "stat3": {
-            "value": "98%",
-            "label": "Wskaźnik Zadowolenia"
-        }
+    "stat1": {
+      "value": "500K+",
+      "label": "Aktywnych Użytkowników"
     },
-    "marquee": {
-        "heading": "Znajdujesz się w dobrym towarzystwie",
-        "adroll": {
-            "quote": "Instra oszczędza mi 1-2 godziny na raportowaniu każdego tygodnia, ponieważ wszystkie moje elementy są już udokumentowane.",
-            "title": "Dyrektor ds. Marketingu Produktu",
-            "linkText": "Zobacz studium przypadku AdRoll"
-        },
-        "fireclay": {
-            "quote": "Umożliwienie ludziom wspólnego działania zwiększa widoczność, co jest kluczowe w produkcji.",
-            "title": "Dyrektor Kreatywny",
-            "linkText": "Zobacz studium przypadku Fireclay Tile"
-        },
-        "lorem": {
-            "quote": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            "title": "Dyrektor Generalny",
-            "linkText": "Przeczytaj case study Lorem"
-        }
+    "stat2": {
+      "value": "10M+",
+      "label": "Uruchomionych Kampanii"
     },
-    "cta": {
-        "line1": "Niech Twój Następny Krok",
-        "line2": "Będzie Najlepszym",
-        "button": "Umów Rozmowę Wstępną",
-        "feature1": "Brak opłat z góry",
-        "feature2": "Łatwa anulacja"
+    "stat3": {
+      "value": "98%",
+      "label": "Wskaźnik Zadowolenia"
+    }
+  },
+  "about": {
+    "mission": {
+      "title": "Nasza Misja",
+      "desc": "Umożliwić zespołom osiągnięcie doskonałości w marketingu"
     },
-    "faq": {
-        "title": "Często zadawane pytania",
-        "subtitle": "Znajdź odpowiedzi na najczęstsze pytania dotyczące platformy Instra i dowiedz się, jak może pomóc Twojej firmie.",
-        "categories": {
-            "general": "Informacje Ogólne",
-            "pricing": "Plany i Cennik",
-            "security": "Bezpieczeństwo i Prywatność",
-            "usecase": "Pluginy i Workflow"
-        },
-        "questions": {
-            "general": [
-                {
-                    "q": "Czym jest Instra?",
-                    "a": "Instra to zaawansowana platforma marketingowa zaprojektowana do obsługi niestandardowych procesów biznesowych tak, jak zrobiłby to żywy operator. Odpowiada na zapytania klientów, poprawiając ich doświadczenia z marką."
-                },
-                {
-                    "q": "Jak to działa?",
-                    "a": "Integruje się bezpośrednio z Twoją obecną infrastrukturą i wykorzystuje najnowocześniejsze modele sztucznej inteligencji, aby stale automatyzować i optymalizować operacje marketingowe."
-                }
-            ],
-            "pricing": [
-                {
-                    "q": "Czy istnieje darmowy okres próbny?",
-                    "a": "Tak, oferujemy 14-dniowy bezpłatny okres próbny dla wszystkich naszych standardowych planów, abyś mógł przetestować nasze funkcje."
-                }
-            ],
-            "security": [
-                {
-                    "q": "Czy moje dane są bezpieczne?",
-                    "a": "Zdecydowanie. Stosujemy szyfrowanie AES-256 dla danych w spoczynku i TLS 1.3 dla wszystkich danych przesyłanych."
-                }
-            ],
-            "usecase": [
-                {
-                    "q": "Jakie pluginy są dostępne w darmowym planie?",
-                    "a": "Darmowy plan open-core zawiera wszystkie pluginy społecznościowe i podstawowe możliwości platformy. Pluginy Pro aktywują się na każdym płatnym planie."
-                },
-                {
-                    "q": "Jak zainstalować plugin?",
-                    "a": "Przejdź do Rejestru Pluginów w dashboardzie Instra, kliknij Zainstaluj przy wybranym pluginie — ładuje się natychmiast. Bez restartu ani konfiguracji."
-                },
-                {
-                    "q": "Czy mogę połączyć swoje narzędzia marketingowe?",
-                    "a": "Tak. Instra integruje się z HubSpot, Mailchimp, Google Analytics, Meta Ads, Slack i dziesiątkami innych przez OAuth z ograniczonymi uprawnieniami."
-                },
-                {
-                    "q": "Jakie narzędzia deweloperskie są obsługiwane?",
-                    "a": "Ekosystem pluginów obsługuje GitHub, Jira, Vercel, Supabase, Stripe i więcej. Pluginy deweloperskie umożliwiają triggery webhook, hooki CI/CD i niestandardowe pipelines zdarzeń."
-                },
-                {
-                    "q": "Czy system pluginów jest naprawdę open source?",
-                    "a": "Tak. Rdzeń platformy jest na licencji MIT, a API pluginów jest w pełni otwarte. Każdy deweloper może budować i publikować pluginy przez pull request lub npm pod @instra."
-                },
-                {
-                    "q": "Jak pluginy są izolowane?",
-                    "a": "Pluginy komunikują się wyłącznie przez PluginContext API — brak dostępu do bazy danych ani zmiennych środowiskowych. Każda akcja pluginu jest zapisywana w logu audytu."
-                },
-                {
-                    "q": "Czy mogę zbudować własny prywatny plugin?",
-                    "a": "Oczywiście. Prywatne pluginy zostają w Twoim workspace i nigdy nie są publikowane w rejestrze. Napisz je w TypeScript zgodnie z interfejsem InstraPlugin."
-                },
-                {
-                    "q": "Co się stanie jeśli plugin przestanie działać?",
-                    "a": "Każdy slot pluginu jest opakowany w ErrorBoundary. Wadliwy plugin jest izolowany i pokazuje stan błędu — nigdy nie crashuje reszty workspace'u."
-                }
-            ]
-        },
-        "contact": {
-            "title": "Nadal masz pytanie?",
-            "desc": "Jeśli nie znalazłeś odpowiedzi, skontaktuj się z nami.",
-            "button": "Skontaktuj się"
-        }
-    },
-    "footer": {
-        "tagline": "Twój Towarzysz Marketingowy",
-        "rights": "Wszelkie prawa zastrzeżone.",
-        "nav": {
-            "product": "Produkt",
-            "pricing": "Cennik",
-            "docs": "Dokumentacja",
-            "blog": "Blog",
-            "careers": "Kariera"
-        },
-        "legal": {
-            "privacy": "Polityka Prywatności",
-            "terms": "Warunki Usługi",
-            "cookies": "Polityka Cookies"
-        }
-    },
-    "signin": {
-        "title": "Witaj z powrotem.",
-        "subtitle": "Zaloguj się do swojego konta Instra",
-        "email_label": "Adres e-mail",
-        "email_placeholder": "ty@firma.pl",
-        "password_label": "Hasło",
-        "password_placeholder": "••••••••",
-        "remember_me": "Nie wylogowuj mnie",
-        "submit": "Zaloguj się",
-        "no_account": "Jesteś tu pierwszy raz?",
-        "signup_link": "Utwórz konto",
-        "forgot_password": "Nie pamiętasz hasła?",
-        "or_continue": "Lub kontynuuj przez",
-        "google": "Google",
-        "github": "GitHub",
-        "panel_brand": "Instra",
-        "panel_title": "Marketing z prędkością Twoich pomysłów.",
-        "panel_desc": "Koniec z łączeniem dziesiątek narzędzi. Instra daje founderom i teamom growth jedno miejsce do planowania, egzekucji i mierzenia kampanii — z przejrzystością, która zamienia wysiłek w przychód.",
-        "panel_social": "17 000+ marketerów już działa szybciej",
-        "panel_card_title": "Mniej żmudnej roboty. Więcej przełomów.",
-        "panel_card_desc": "Zautomatyzuj powtarzalne, wzmocnij kreatywne — i w końcu skup się na pracy, która naprawdę przesuwa igłę.",
-        "error_invalid": "Nieprawidłowy e-mail lub hasło.",
-        "error_generic": "Wystąpił nieoczekiwany błąd. Spróbuj ponownie."
-    },
-    "signup": {
-        "title": "Utwórz konto.",
-        "subtitle": "Dołącz do 17 000+ marketerów działających szybciej z Instra.",
-        "tab_email": "E-mail",
-        "tab_username": "Nazwa użytkownika",
-        "name_label": "Imię i nazwisko",
-        "name_placeholder": "Jan Kowalski",
-        "optional": "(opcjonalne)",
-        "email_label": "Adres e-mail",
-        "email_placeholder": "ty@firma.pl",
-        "username_label": "Nazwa użytkownika",
-        "username_placeholder": "twoj_nick",
-        "password_label": "Hasło",
-        "password_placeholder": "Min. 8 znaków, 1 cyfra, 1 symbol",
-        "password_hint": "8+ znaków · min. 1 litera, 1 cyfra, 1 znak specjalny",
-        "confirm_label": "Powtórz hasło",
-        "confirm_placeholder": "Powtórz hasło",
-        "terms_prefix": "Akceptuję",
-        "terms_link": "Regulamin",
-        "terms_and": "i",
-        "privacy_link": "Politykę Prywatności",
-        "submit": "Utwórz konto",
-        "have_account": "Masz już konto?",
-        "signin_link": "Zaloguj się",
-        "or_continue": "Lub zarejestruj się przez",
-        "google": "Google",
-        "github": "GitHub",
-        "panel_title": "Tu zaczyna się Twoja przewaga.",
-        "panel_desc": "Od pierwszej kampanii do pełnowymiarowego wzrostu — Instra daje Twojemu teamowi przejrzystość, szybkość i dane, by wyprzedzić konkurencję.",
-        "panel_social": "14 dni za darmo · Bez karty kredytowej",
-        "panel_card_title": "Konfiguracja w minuty. Skalowanie bez granic.",
-        "panel_card_desc": "Połącz kanały, zbuduj pierwszą kampanię i wróć z wynikami — zanim skończy się lunch.",
-        "panel_card_members": "dołączyło w tym tygodniu"
-    },
-    "forgot_password": {
-        "title": "Resetuj hasło.",
-        "subtitle": "Podaj adres e-mail przypisany do konta, a wyślemy Ci link do resetowania.",
-        "email_label": "Adres e-mail",
-        "email_placeholder": "ty@firma.pl",
-        "submit": "Wyślij link resetujący",
-        "remembered": "Przypomniałeś sobie?",
-        "signin_link": "Wróć do logowania",
-        "success_title": "Sprawdź skrzynkę.",
-        "success_desc": "Link do resetowania hasła został wysłany na adres",
-        "success_hint": "Nie ma e-maila? Sprawdź folder spam lub spróbuj ponownie za kilka minut.",
-        "back_to_signin": "Wróć do logowania",
-        "panel_title": "Twoje konto jest bezpieczne.",
-        "panel_desc": "Stosujemy standardy branżowe, aby chronić Twoje dane. Linki resetujące wygasają po 15 minutach i działają tylko raz.",
-        "panel_social": "Szyfrowanie AES-256 · Zgodność SOC 2",
-        "panel_badge": "Bezpieczeństwo",
-        "panel_card_title": "Twoje dane pozostają Twoje.",
-        "panel_card_desc": "Nigdy nie przechowujemy haseł w postaci jawnej. Każde poświadczenie jest hashowane i solone, zanim dotrze do naszych serwerów."
-    },
-    "reset_password": {
-        "title": "Wybierz nowe hasło.",
-        "subtitle": "Twoja tożsamość została zweryfikowana. Wpisz poniżej silne nowe hasło.",
-        "password_label": "Nowe hasło",
-        "password_placeholder": "Min. 8 znaków, 1 cyfra, 1 symbol",
-        "password_hint": "8+ znaków · min. 1 litera, 1 cyfra, 1 znak specjalny",
-        "confirm_label": "Powtórz nowe hasło",
-        "confirm_placeholder": "Powtórz nowe hasło",
-        "submit": "Resetuj hasło",
-        "remembered": "Przypomniałeś sobie?",
-        "signin_link": "Wróć do logowania",
-        "success_title": "Hasło zostało zmienione.",
-        "success_desc": "Twoje hasło zostało zaktualizowane. Możesz teraz zalogować się używając nowych danych.",
-        "goto_signin": "Przejdź do logowania",
-        "invalid_title": "Link wygasł lub jest nieprawidłowy.",
-        "invalid_desc": "Ten link do resetowania wygasł lub został już wykorzystany. Linki są ważne przez 15 minut i można ich użyć tylko raz.",
-        "request_new": "Wyślij nowy link"
+    "vision": {
+      "title": "Nasza Wizja",
+      "desc": "Być platformą, która redefiniuje marketing"
     },
     "values": {
-        "label": "Nasze zasady",
-        "heading": "W co wierzymy",
-        "items": [
-            {
-                "index": "01",
-                "title": "Przejrzystość",
-                "description": "Każda metryka, każda decyzja — otwarta i weryfikowalna. Żadnych czarnych skrzynek. Twoje dane należą do Ciebie.",
-                "detail": "Każdy punkt danych, który prezentujemy, jest identyfikowalny do swojego źródła. Ścieżka audytu obejmuje każdy krok potoku — pozyskiwanie, transformację i wynik. Możesz sprawdzić, wyeksportować i zweryfikować każdy wynik w dowolnym momencie."
-            },
-            {
-                "index": "02",
-                "title": "Precyzja",
-                "description": "Marketing bez danych to zgadywanie. Pokazujemy tylko te sygnały, które naprawdę mają znaczenie.",
-                "detail": "Zbudowaliśmy precyzję w samym rdzeniu. Zamiast zasypywać Cię dashboardami, Instra identyfikuje jeden sygnał o najwyższej dźwigni w Twoim zbiorze danych i prezentuje go jako pierwszy. Mniej szumu, szybsze decyzje, lepsze wyniki."
-            },
-            {
-                "index": "03",
-                "title": "Integralność",
-                "description": "Nie idziemy na skróty. Każdy insight jest wielokrotnie weryfikowany, a każda rekomendacja oparta na faktach.",
-                "detail": "Każda rekomendacja generowana przez Instra jest krzyżowo walidowana wobec co najmniej trzech niezależnych sygnałów przed dotarciem do Ciebie. Nasze modele są audytowane kwartalnie, a każda anomalia w jakości wyników wyzwala natychmiastowy rollback."
-            }
-        ]
+      "title": "Nasze Wartości",
+      "desc": "Innowacyjność, przejrzystość i projekt zorientowany na użytkownika"
     },
-    "aboutPlugins": {
-        "label": "// Platforma open-core",
-        "heading": "Rozszerzaj wszystko za pomocą pluginów",
-        "body1": "Instra opiera się na modelu open-core — fundamenty platformy są otwarte i dostępne do przeglądu, forkowania oraz samodzielnego hostowania. Plany subskrypcyjne odblokowują kuratorowany marketplace premium pluginów przyspieszających Twoje działania marketingowe.",
-        "body2": "Każdy plugin jest izolowany w sandboksie, ma ograniczone uprawnienia i jest audytowalny. Zewnętrzni deweloperzy publikują do Instra Plugin Registry po weryfikacji bezpieczeństwa — dając Twojemu zespołowi zaufany ekosystem bez vendor lock-in.",
-        "modelLabel": "// Model platformy",
-        "tierFree": "Core (Darmowy)",
-        "tierPro": "Pluginy Pro",
-        "modelDesc": "Podstawowe funkcje dostępne są na każdym koncie. Pluginy Pro aktywują się na każdym płatnym planie — bez opłat za poszczególne pluginy, bez niespodzianek.",
-        "stat1": {
-            "value": "40+",
-            "label": "Dostępnych pluginów"
-        },
-        "stat2": {
-            "value": "MIT",
-            "label": "Licencja core"
-        },
-        "morePlugins": "+ Więcej już wkrótce",
-        "morePluginsHint": "Nowe pluginy wychodzą co sprint. Przeglądaj pełny rejestr.",
-        "plugins": [
-            {
-                "name": "Plugin Alpha",
-                "tier": "free",
-                "description": "Podstawowe narzędzie dostępne na każdym koncie Instra. Integruje się z głównym workflow od pierwszego dnia.",
-                "icon": "◈"
-            },
-            {
-                "name": "Plugin Beta",
-                "tier": "free",
-                "description": "Lekki moduł automatyzacji dla powtarzalnych zadań. Dostępny w open-core bez żadnej konfiguracji.",
-                "icon": "◇"
-            },
-            {
-                "name": "Plugin Gamma",
-                "tier": "pro",
-                "description": "Zaawansowane rozszerzenie pipeline'u danych z synchronizacją w czasie rzeczywistym. Dostępne w planach Professional i Enterprise.",
-                "icon": "◉"
-            },
-            {
-                "name": "Plugin Delta",
-                "tier": "pro",
-                "description": "Moduł raportowania klasy enterprise. Eksportuje ustrukturyzowane dane do dowolnego narzędzia BI jednym kliknięciem.",
-                "icon": "◎"
-            }
-        ]
+    "main": {
+      "title": "Stworzone dla Nowoczesnego Marketera",
+      "description": "Wierzymy, że marketing powinien być intuicyjny, potężny i dostępny dla każdego. Instra łączy najnowocześniejszą technologię z przemyślanym designem, aby pomóc Ci dotrzeć do swojej grupy docelowej z precyzją i kreatywnością."
     },
-    "whyUs": {
-        "label": "Liczby mówią same za siebie",
-        "heading": "Dlaczego zespoły wybierają Instra",
-        "items": [
-            {
-                "value": "98%",
-                "description": "Użytkowników poczuło się naprawdę wysłuchanych i zrozumianych podczas pierwszej sesji z naszą platformą."
-            },
-            {
-                "value": "88%",
-                "description": "Zauważyło wyraźną poprawę wyników kampanii w ciągu pierwszych kilku tygodni korzystania z serwisu."
-            },
-            {
-                "value": "71%",
-                "description": "Kontynuuje regularne korzystanie z platformy po pierwszym uruchomieniu, co świadczy o trwałym zaangażowaniu i zaufaniu."
-            }
-        ]
+    "cta": "Zobacz platformę",
+    "stat1": {
+      "value": "500K+",
+      "label": "Aktywnych Użytkowników"
     },
-    "pricing": {
-        "title": "Cennik",
-        "billing": {
-            "annual": "Rocznie",
-            "monthly": "Miesięcznie"
+    "stat2": {
+      "value": "10M+",
+      "label": "Uruchomionych Kampanii"
+    },
+    "stat3": {
+      "value": "98%",
+      "label": "Wskaźnik Zadowolenia"
+    }
+  },
+  "marquee": {
+    "heading": "Znajdujesz się w dobrym towarzystwie",
+    "adroll": {
+      "quote": "Instra oszczędza mi 1-2 godziny na raportowaniu każdego tygodnia, ponieważ wszystkie moje elementy są już udokumentowane.",
+      "title": "Dyrektor ds. Marketingu Produktu",
+      "linkText": "Zobacz studium przypadku AdRoll"
+    },
+    "fireclay": {
+      "quote": "Umożliwienie ludziom wspólnego działania zwiększa widoczność, co jest kluczowe w produkcji.",
+      "title": "Dyrektor Kreatywny",
+      "linkText": "Zobacz studium przypadku Fireclay Tile"
+    },
+    "lorem": {
+      "quote": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "title": "Dyrektor Generalny",
+      "linkText": "Przeczytaj case study Lorem"
+    }
+  },
+  "cta": {
+    "line1": "Gotowy na szybszy marketing",
+    "line2": "bez zgadywania?",
+    "button": "Umów 15-minutowe demo",
+    "feature1": "Brak opłat z góry",
+    "feature2": "Anuluj kiedy chcesz"
+  },
+  "faq": {
+    "title": "Często zadawane pytania",
+    "subtitle": "Znajdź odpowiedzi na najczęstsze pytania dotyczące platformy Instra i dowiedz się, jak może pomóc Twojej firmie.",
+    "categories": {
+      "general": "Informacje Ogólne",
+      "pricing": "Plany i Cennik",
+      "security": "Bezpieczeństwo i Prywatność",
+      "usecase": "Pluginy i Workflow"
+    },
+    "questions": {
+      "general": [
+        {
+          "q": "Czym jest Instra?",
+          "a": "Instra to zaawansowana platforma marketingowa zaprojektowana do obsługi niestandardowych procesów biznesowych tak, jak zrobiłby to żywy operator. Odpowiada na zapytania klientów, poprawiając ich doświadczenia z marką."
         },
-        "plans": {
-            "basic": {
-                "name": "Starter",
-                "badge": "Aktywny",
-                "price": {
-                    "monthly": 17,
-                    "annual": 15
-                },
-                "period": "/ miesiąc (USD)",
-                "billedYearly": "180$ płatne rocznie",
-                "desc": "Rozpocznij z niezbędnymi narzędziami do wydajnego zarządzania zespołem. Idealny dla małych zespołów.",
-                "button": "Zacznij za darmo",
-                "features": [
-                    {
-                        "name": "Dostęp do podstawowych funkcji",
-                        "included": true
-                    },
-                    {
-                        "name": "Zarządzanie rekordami",
-                        "included": true
-                    },
-                    {
-                        "name": "Podstawowe narzędzia raportowania",
-                        "included": true
-                    },
-                    {
-                        "name": "Zarządzaj do 10 członków",
-                        "included": true
-                    },
-                    {
-                        "name": "Śledź obecność",
-                        "included": false
-                    },
-                    {
-                        "name": "Przydzielaj i monitoruj zadania",
-                        "included": false
-                    },
-                    {
-                        "name": "Wsparcie e-mail",
-                        "included": false
-                    }
-                ]
-            },
-            "pro": {
-                "name": "Profesjonalny",
-                "badge": "Oszczędź 27%",
-                "price": {
-                    "monthly": 26,
-                    "annual": 19
-                },
-                "period": "/ miesiąc (USD)",
-                "billedYearly": "228$ płatne rocznie",
-                "desc": "Kompleksowe rozwiązanie dla rosnących zespołów, oferujące rozszerzone funkcje do usprawnienia procesów.",
-                "button": "Rozpocznij 7-dniowy okres próbny",
-                "features": [
-                    {
-                        "name": "Dostęp do podstawowych funkcji",
-                        "included": true
-                    },
-                    {
-                        "name": "Zarządzanie rekordami",
-                        "included": true
-                    },
-                    {
-                        "name": "Podstawowe narzędzia raportowania",
-                        "included": true
-                    },
-                    {
-                        "name": "Zarządzaj do 50 członków",
-                        "included": true
-                    },
-                    {
-                        "name": "Śledź obecność",
-                        "included": true
-                    },
-                    {
-                        "name": "Przydzielaj i monitoruj zadania",
-                        "included": true
-                    },
-                    {
-                        "name": "Wsparcie e-mail",
-                        "included": false
-                    }
-                ]
-            },
-            "enterprise": {
-                "name": "Enterprise",
-                "badge": "Popularny",
-                "price": {
-                    "monthly": 34,
-                    "annual": 29
-                },
-                "period": "/ miesiąc (USD)",
-                "billedYearly": "348$ płatne rocznie",
-                "desc": "Maksymalizuj wydajność dzięki narzędziom premium i pełnej konfiguracji, idealne dla dużych organizacji.",
-                "button": "Skontaktuj się z działem sprzedaży",
-                "features": [
-                    {
-                        "name": "Dostęp do podstawowych funkcji",
-                        "included": true
-                    },
-                    {
-                        "name": "Zarządzanie rekordami",
-                        "included": true
-                    },
-                    {
-                        "name": "Podstawowe narzędzia raportowania",
-                        "included": true
-                    },
-                    {
-                        "name": "Nielimitowana ilość członków",
-                        "included": true
-                    },
-                    {
-                        "name": "Śledź obecność",
-                        "included": true
-                    },
-                    {
-                        "name": "Przydzielaj i monitoruj zadania",
-                        "included": true
-                    },
-                    {
-                        "name": "Priorytetowe wsparcie 24/7",
-                        "included": true
-                    }
-                ]
-            }
+        {
+          "q": "Jak to działa?",
+          "a": "Integruje się bezpośrednio z Twoją obecną infrastrukturą i wykorzystuje najnowocześniejsze modele sztucznej inteligencji, aby stale automatyzować i optymalizować operacje marketingowe."
         }
-    },
-    "featuresHeader": {
-        "label": "// KLUCZOWE MOŻLIWOŚCI",
-        "heading": "Stworzone by\nDziałać",
-        "description": "Wszystko, czego potrzebuje Twój zespół marketingowy — treści AI, harmonogramowanie, analityka i otwarty system pluginów — w jednej platformie."
-    },
-    "featuresHero": {
-        "badge": "MOŻLIWOŚCI — Co potrafi Instra",
-        "heading_line1": "STWORZONE BY",
-        "heading_line2": "DZIAŁAĆ",
-        "block1": {
-            "label": "// 01 — INTELIGENCJA",
-            "body1": "Instra łączy tworzenie treści oparte na AI, harmonogramowanie wieloplatformowe i zaawansowaną analitykę w jednym przepływie pracy. Przestań przełączać się między narzędziami — każda potrzebna możliwość jest tutaj.",
-            "body2": "Od pierwszego szkicu do opublikowanego posta — Instra przejmuje ciężką pracę, aby Twój zespół mógł skupić się na strategii, kreatywności i wzroście."
-        },
-        "block2": {
-            "label": "// 02 — ROZSZERZALNOŚĆ",
-            "body": "Każda funkcja w Instra to fundament, nie sufit. Otwarty system pluginów pozwala rozszerzać, integrować i automatyzować poza możliwościami zamkniętych platform. Wdrażaj własne przepływy pracy w godzinach, nie sprintach."
-        },
-        "stats": {
-            "aria_label": "Statystyki funkcji Instra"
-        },
-        "stat1": {
-            "value": "6+",
-            "label": "Kluczowych Funkcji"
-        },
-        "stat2": {
-            "value": "40+",
-            "label": "Dostępnych Pluginów"
-        },
-        "stat3": {
-            "value": "3×",
-            "label": "Szybsza Publikacja"
+      ],
+      "pricing": [
+        {
+          "q": "Czy istnieje darmowy okres próbny?",
+          "a": "Tak, oferujemy 14-dniowy bezpłatny okres próbny dla wszystkich naszych standardowych planów, abyś mógł przetestować nasze funkcje."
         }
-    },
-    "downloadHeader": {
-        "label": "// POBIERZ INSTRE LOKALNIE",
-        "heading": "Zbuduj własną instancję\nInstra",
-        "description": "Wszystko, czego potrzebuje Twój zespół marketingowy — treści AI, harmonogramowanie, analityka i otwarty system pluginów — w jednej platformie."
-    },
-    "download": {
-        "badge": "// NARZĘDZIA",
-        "heading": "Dwa sposoby uruchomienia\nInstra lokalnie",
-        "cli": {
-            "label": "// CLI",
-            "name": "Instra CLI",
-            "version": "v1.0.0",
-            "description": "W pełni funkcjonalny interfejs wiersza poleceń do automatyzacji kampanii, synchronizacji kont społecznościowych i skryptowania przepływów marketingowych. Działa wszędzie tam, gdzie Node.js.",
-            "copyButton": "Skopiuj polecenie instalacji",
-            "copyAriaLabel": "Skopiuj polecenie npm install do schowka",
-            "npmButton": "Zobacz na npm",
-            "npmAriaLabel": "Zobacz @instra/cli na npm (otwiera nową kartę)"
-        },
-        "agent": {
-            "label": "// DESKTOP",
-            "name": "Instra Desktop Agent",
-            "version": "Najnowsze wydanie",
-            "description": "Natywny klient desktopowy utrzymujący instancję Instra w tle — obsługuje zaplanowane posty, monitoruje analitykę i wyświetla powiadomienia bez konieczności otwierania przeglądarki.",
-            "downloadButton": "Pobierz Desktop Agenta",
-            "downloadAriaLabel": "Pobierz najnowsze wydanie Instra Desktop Agent z GitHub",
-            "githubButton": "Zobacz na GitHub",
-            "githubAriaLabel": "Zobacz Instra Desktop Agent na GitHub (otwiera nową kartę)"
+      ],
+      "security": [
+        {
+          "q": "Czy moje dane są bezpieczne?",
+          "a": "Zdecydowanie. Stosujemy szyfrowanie AES-256 dla danych w spoczynku i TLS 1.3 dla wszystkich danych przesyłanych."
         }
-    },
-    "installGuide": {
-        "badge": "// INSTALACJA",
-        "heading": "Uruchom w\nkilka minut",
-        "tabs": {
-            "macos": "macOS",
-            "windows": "Windows",
-            "linux": "Linux"
+      ],
+      "usecase": [
+        {
+          "q": "Jakie pluginy są dostępne w darmowym planie?",
+          "a": "Darmowy plan open-core zawiera wszystkie pluginy społecznościowe i podstawowe możliwości platformy. Pluginy Pro aktywują się na każdym płatnym planie."
         },
-        "copy": "Kopiuj",
-        "copied": "Skopiowano!",
-        "macos": {
-            "steps": [
-                {
-                    "title": "Zainstaluj Node.js (jeśli potrzebne)",
-                    "command": "brew install node",
-                    "description": "Wymaga Node.js 18+. Użyj Homebrew lub pobierz z nodejs.org."
-                },
-                {
-                    "title": "Zainstaluj Instra CLI",
-                    "command": "npm install -g @instra/cli",
-                    "description": "Instaluje CLI globalnie. Uruchom instra --version, aby potwierdzić."
-                },
-                {
-                    "title": "Pobierz Desktop Agenta",
-                    "command": "open Instra-Desktop-Agent.dmg",
-                    "description": "Pobierz .dmg z GitHub Releases, otwórz i przeciągnij Instra do folderu Aplikacje."
-                }
-            ]
+        {
+          "q": "Jak zainstalować plugin?",
+          "a": "Przejdź do Rejestru Pluginów w dashboardzie Instra, kliknij Zainstaluj przy wybranym pluginie  ładuje się natychmiast. Bez restartu ani konfiguracji."
         },
-        "windows": {
-            "steps": [
-                {
-                    "title": "Zainstaluj Node.js (jeśli potrzebne)",
-                    "command": "winget install OpenJS.NodeJS.LTS",
-                    "description": "Wymaga Node.js 18+. Użyj winget lub pobierz instalator z nodejs.org."
-                },
-                {
-                    "title": "Zainstaluj Instra CLI",
-                    "command": "npm install -g @instra/cli",
-                    "description": "Instaluje CLI globalnie. Uruchom instra --version w nowym terminalu, aby potwierdzić."
-                },
-                {
-                    "title": "Pobierz Desktop Agenta",
-                    "command": "Start-Process Instra-Desktop-Agent-Setup.exe",
-                    "description": "Pobierz instalator .exe z GitHub Releases i uruchom go."
-                }
-            ]
+        {
+          "q": "Czy mogę połączyć swoje narzędzia marketingowe?",
+          "a": "Tak. Instra integruje się z HubSpot, Mailchimp, Google Analytics, Meta Ads, Slack i dziesiątkami innych przez OAuth z ograniczonymi uprawnieniami."
         },
-        "linux": {
-            "steps": [
-                {
-                    "title": "Zainstaluj Node.js (jeśli potrzebne)",
-                    "command": "curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - && sudo apt-get install -y nodejs",
-                    "description": "Wymaga Node.js 18+. Użyj menedżera pakietów dystrybucji lub instalatora NodeSource."
-                },
-                {
-                    "title": "Zainstaluj Instra CLI",
-                    "command": "npm install -g @instra/cli",
-                    "description": "Instaluje CLI globalnie. Uruchom instra --version, aby potwierdzić."
-                },
-                {
-                    "title": "Pobierz Desktop Agenta",
-                    "command": "chmod +x Instra-Desktop-Agent.AppImage && ./Instra-Desktop-Agent.AppImage",
-                    "description": "Pobierz .AppImage z GitHub Releases, nadaj uprawnienia wykonywania i uruchom."
-                }
-            ]
+        {
+          "q": "Jakie narzędzia deweloperskie są obsługiwane?",
+          "a": "Ekosystem pluginów obsługuje GitHub, Jira, Vercel, Supabase, Stripe i więcej. Pluginy deweloperskie umożliwiają triggery webhook, hooki CI/CD i niestandardowe pipelines zdarzeń."
+        },
+        {
+          "q": "Czy system pluginów jest naprawdę open source?",
+          "a": "Tak. Rdzeń platformy jest na licencji MIT, a API pluginów jest w pełni otwarte. Każdy deweloper może budować i publikować pluginy przez pull request lub npm pod @instra."
+        },
+        {
+          "q": "Jak pluginy są izolowane?",
+          "a": "Pluginy komunikują się wyłącznie przez PluginContext API  brak dostępu do bazy danych ani zmiennych środowiskowych. Każda akcja pluginu jest zapisywana w logu audytu."
+        },
+        {
+          "q": "Czy mogę zbudować własny prywatny plugin?",
+          "a": "Oczywiście. Prywatne pluginy zostają w Twoim workspace i nigdy nie są publikowane w rejestrze. Napisz je w TypeScript zgodnie z interfejsem InstraPlugin."
+        },
+        {
+          "q": "Co się stanie jeśli plugin przestanie działać?",
+          "a": "Każdy slot pluginu jest opakowany w ErrorBoundary. Wadliwy plugin jest izolowany i pokazuje stan błędu  nigdy nie crashuje reszty workspace'u."
         }
+      ]
     },
-    "openSourcePlugins": {
-        "label": "// OPEN SOURCE",
-        "heading": "Zbuduj własny\nplugin",
-        "body": "System pluginów Instra jest w pełni otwarty. Każdy developer może rozszerzyć platformę — dodawać widżety, rejestrować trasy, nasłuchiwać zdarzeń i publikować w rejestrze społeczności. Zero gatekeepingu.",
-        "ctaTagline": "Pełna dokumentacja API, schemat manifestu i przykładowe pluginy dostępne są w dokumentacji.",
-        "docsButton": "Przejdź do dokumentacji",
-        "githubButton": "GitHub",
-        "githubAriaLabel": "Zobacz Instra na GitHub (otwiera nową kartę)",
-        "steps": [
-            {
-                "icon": "code",
-                "title": "Napisz swój plugin",
-                "description": "Utwórz index.ts z eksportem InstraPlugin. Zaimplementuj init(ctx), aby rejestrować widżety, trasy lub nasłuchy zdarzeń przez API PluginContext."
-            },
-            {
-                "icon": "package",
-                "title": "Dodaj manifest",
-                "description": "Zadeklaruj nazwę, wersję, uprawnienia i autora w manifest.json. Manifest jest walidowany wobec JSON Schema przed załadowaniem pluginu."
-            },
-            {
-                "icon": "send",
-                "title": "Opublikuj w rejestrze",
-                "description": "Wyślij pull request lub opublikuj przez npm w zakresie @instra. Pluginy społeczności przechodzą przegląd bezpieczeństwa przed pojawieniem się w marketplace."
-            }
-        ]
+    "contact": {
+      "title": "Nadal masz pytanie?",
+      "desc": "Jeśli nie znalazłeś odpowiedzi, skontaktuj się z nami.",
+      "button": "Skontaktuj się"
+    }
+  },
+  "footer": {
+    "tagline": "Twój Towarzysz Marketingowy",
+    "rights": "Wszelkie prawa zastrzeżone.",
+    "nav": {
+      "product": "Produkt",
+      "pricing": "Cennik",
+      "docs": "Dokumentacja",
+      "blog": "Blog",
+      "careers": "Kariera"
     },
-    "verify_email": {
-        "title": "Sprawdź skrzynkę.",
-        "subtitle": "Wysłaliśmy 6-cyfrowy kod na adres",
-        "code_label": "Kod weryfikacyjny",
-        "submit": "Zweryfikuj email",
-        "no_code": "Nie otrzymałeś kodu?",
-        "resend": "Wyślij ponownie",
-        "resend_wait": "Wyślij ponownie za {{seconds}}s",
-        "resend_success": "Nowy kod został wysłany na Twój adres email.",
-        "back_to_signup": "← Wróć do rejestracji",
-        "panel_title": "Jeden krok do przodu.",
-        "panel_desc": "Sprawdź email i wpisz 6-cyfrowy kod, aby aktywować konto Instra. Kod wygasa po 10 minutach.",
-        "panel_social": "Bezpieczna rejestracja · Bez spamu",
-        "panel_card_label": "// Bezpieczeństwo",
-        "panel_card_title": "Kody są jednorazowe i ograniczone czasowo.",
-        "panel_card_desc": "Każdy kod weryfikacyjny wygasa po 10 minutach i może być użyty tylko raz. Jeśli Twój wygaśnie, poproś o nowy."
+    "legal": {
+      "privacy": "Polityka Prywatności",
+      "terms": "Warunki Usługi",
+      "cookies": "Polityka Cookies"
+    }
+  },
+  "signin": {
+    "title": "Witaj z powrotem.",
+    "subtitle": "Zaloguj się do swojego konta Instra",
+    "email_label": "Adres e-mail",
+    "email_placeholder": "ty@firma.pl",
+    "password_label": "Hasło",
+    "password_placeholder": "••••••••",
+    "remember_me": "Nie wylogowuj mnie",
+    "submit": "Zaloguj się",
+    "no_account": "Jesteś tu pierwszy raz?",
+    "signup_link": "Utwórz konto",
+    "forgot_password": "Nie pamiętasz hasła?",
+    "or_continue": "Lub kontynuuj przez",
+    "google": "Google",
+    "github": "GitHub",
+    "panel_brand": "Instra",
+    "panel_title": "Marketing z prędkością Twoich pomysłów.",
+    "panel_desc": "Koniec z łączeniem dziesiątek narzędzi. Instra daje founderom i teamom growth jedno miejsce do planowania, egzekucji i mierzenia kampanii  z przejrzystością, która zamienia wysiłek w przychód.",
+    "panel_social": "17 000+ marketerów już działa szybciej",
+    "panel_card_title": "Mniej żmudnej roboty. Więcej przełomów.",
+    "panel_card_desc": "Zautomatyzuj powtarzalne, wzmocnij kreatywne  i w końcu skup się na pracy, która naprawdę przesuwa igłę.",
+    "error_invalid": "Nieprawidłowy e-mail lub hasło.",
+    "error_generic": "Wystąpił nieoczekiwany błąd. Spróbuj ponownie."
+  },
+  "signup": {
+    "title": "Utwórz konto.",
+    "subtitle": "Dołącz do 17 000+ marketerów działających szybciej z Instra.",
+    "tab_email": "E-mail",
+    "tab_username": "Nazwa użytkownika",
+    "name_label": "Imię i nazwisko",
+    "name_placeholder": "Jan Kowalski",
+    "optional": "(opcjonalne)",
+    "email_label": "Adres e-mail",
+    "email_placeholder": "ty@firma.pl",
+    "username_label": "Nazwa użytkownika",
+    "username_placeholder": "twoj_nick",
+    "password_label": "Hasło",
+    "password_placeholder": "Min. 8 znaków, 1 cyfra, 1 symbol",
+    "password_hint": "8+ znaków · min. 1 litera, 1 cyfra, 1 znak specjalny",
+    "confirm_label": "Powtórz hasło",
+    "confirm_placeholder": "Powtórz hasło",
+    "terms_prefix": "Akceptuję",
+    "terms_link": "Regulamin",
+    "terms_and": "i",
+    "privacy_link": "Politykę Prywatności",
+    "submit": "Utwórz konto",
+    "have_account": "Masz już konto?",
+    "signin_link": "Zaloguj się",
+    "or_continue": "Lub zarejestruj się przez",
+    "google": "Google",
+    "github": "GitHub",
+    "panel_title": "Tu zaczyna się Twoja przewaga.",
+    "panel_desc": "Od pierwszej kampanii do pełnowymiarowego wzrostu  Instra daje Twojemu teamowi przejrzystość, szybkość i dane, by wyprzedzić konkurencję.",
+    "panel_social": "14 dni za darmo · Bez karty kredytowej",
+    "panel_card_title": "Konfiguracja w minuty. Skalowanie bez granic.",
+    "panel_card_desc": "Połącz kanały, zbuduj pierwszą kampanię i wróć z wynikami  zanim skończy się lunch.",
+    "panel_card_members": "dołączyło w tym tygodniu"
+  },
+  "forgot_password": {
+    "title": "Resetuj hasło.",
+    "subtitle": "Podaj adres e-mail przypisany do konta, a wyślemy Ci link do resetowania.",
+    "email_label": "Adres e-mail",
+    "email_placeholder": "ty@firma.pl",
+    "submit": "Wyślij link resetujący",
+    "remembered": "Przypomniałeś sobie?",
+    "signin_link": "Wróć do logowania",
+    "success_title": "Sprawdź skrzynkę.",
+    "success_desc": "Link do resetowania hasła został wysłany na adres",
+    "success_hint": "Nie ma e-maila? Sprawdź folder spam lub spróbuj ponownie za kilka minut.",
+    "back_to_signin": "Wróć do logowania",
+    "panel_title": "Twoje konto jest bezpieczne.",
+    "panel_desc": "Stosujemy standardy branżowe, aby chronić Twoje dane. Linki resetujące wygasają po 15 minutach i działają tylko raz.",
+    "panel_social": "Szyfrowanie AES-256 · Zgodność SOC 2",
+    "panel_badge": "Bezpieczeństwo",
+    "panel_card_title": "Twoje dane pozostają Twoje.",
+    "panel_card_desc": "Nigdy nie przechowujemy haseł w postaci jawnej. Każde poświadczenie jest hashowane i solone, zanim dotrze do naszych serwerów."
+  },
+  "reset_password": {
+    "title": "Wybierz nowe hasło.",
+    "subtitle": "Twoja tożsamość została zweryfikowana. Wpisz poniżej silne nowe hasło.",
+    "password_label": "Nowe hasło",
+    "password_placeholder": "Min. 8 znaków, 1 cyfra, 1 symbol",
+    "password_hint": "8+ znaków · min. 1 litera, 1 cyfra, 1 znak specjalny",
+    "confirm_label": "Powtórz nowe hasło",
+    "confirm_placeholder": "Powtórz nowe hasło",
+    "submit": "Resetuj hasło",
+    "remembered": "Przypomniałeś sobie?",
+    "signin_link": "Wróć do logowania",
+    "success_title": "Hasło zostało zmienione.",
+    "success_desc": "Twoje hasło zostało zaktualizowane. Możesz teraz zalogować się używając nowych danych.",
+    "goto_signin": "Przejdź do logowania",
+    "invalid_title": "Link wygasł lub jest nieprawidłowy.",
+    "invalid_desc": "Ten link do resetowania wygasł lub został już wykorzystany. Linki są ważne przez 15 minut i można ich użyć tylko raz.",
+    "request_new": "Wyślij nowy link"
+  },
+  "values": {
+    "label": "Nasze zasady",
+    "heading": "W co wierzymy",
+    "items": [
+      {
+        "index": "01",
+        "title": "Przejrzystość",
+        "description": "Każda metryka, każda decyzja  otwarta i weryfikowalna. Żadnych czarnych skrzynek. Twoje dane należą do Ciebie.",
+        "detail": "Każdy punkt danych, który prezentujemy, jest identyfikowalny do swojego źródła. Ścieżka audytu obejmuje każdy krok potoku  pozyskiwanie, transformację i wynik. Możesz sprawdzić, wyeksportować i zweryfikować każdy wynik w dowolnym momencie."
+      },
+      {
+        "index": "02",
+        "title": "Precyzja",
+        "description": "Marketing bez danych to zgadywanie. Pokazujemy tylko te sygnały, które naprawdę mają znaczenie.",
+        "detail": "Zbudowaliśmy precyzję w samym rdzeniu. Zamiast zasypywać Cię dashboardami, Instra identyfikuje jeden sygnał o najwyższej dźwigni w Twoim zbiorze danych i prezentuje go jako pierwszy. Mniej szumu, szybsze decyzje, lepsze wyniki."
+      },
+      {
+        "index": "03",
+        "title": "Integralność",
+        "description": "Nie idziemy na skróty. Każdy insight jest wielokrotnie weryfikowany, a każda rekomendacja oparta na faktach.",
+        "detail": "Każda rekomendacja generowana przez Instra jest krzyżowo walidowana wobec co najmniej trzech niezależnych sygnałów przed dotarciem do Ciebie. Nasze modele są audytowane kwartalnie, a każda anomalia w jakości wyników wyzwala natychmiastowy rollback."
+      }
+    ]
+  },
+  "aboutPlugins": {
+    "label": "// Platforma open-core",
+    "heading": "Rozszerzaj wszystko za pomocą pluginów",
+    "body1": "Instra opiera się na modelu open-core  fundamenty platformy są otwarte i dostępne do przeglądu, forkowania oraz samodzielnego hostowania. Plany subskrypcyjne odblokowują kuratorowany marketplace premium pluginów przyspieszających Twoje działania marketingowe.",
+    "body2": "Każdy plugin jest izolowany w sandboksie, ma ograniczone uprawnienia i jest audytowalny. Zewnętrzni deweloperzy publikują do Instra Plugin Registry po weryfikacji bezpieczeństwa  dając Twojemu zespołowi zaufany ekosystem bez vendor lock-in.",
+    "modelLabel": "// Model platformy",
+    "tierFree": "Core (Darmowy)",
+    "tierPro": "Pluginy Pro",
+    "modelDesc": "Podstawowe funkcje dostępne są na każdym koncie. Pluginy Pro aktywują się na każdym płatnym planie  bez opłat za poszczególne pluginy, bez niespodzianek.",
+    "stat1": {
+      "value": "40+",
+      "label": "Dostępnych pluginów"
     },
-    "featuresSection": {
-        "label": "// KLUCZOWE MOŻLIWOŚCI",
-        "heading": "Wszystko, czego potrzebujesz do rozwoju",
+    "stat2": {
+      "value": "MIT",
+      "label": "Licencja core"
+    },
+    "morePlugins": "+ Więcej już wkrótce",
+    "morePluginsHint": "Nowe pluginy wychodzą co sprint. Przeglądaj pełny rejestr.",
+    "plugins": [
+      {
+        "name": "Plugin Alpha",
+        "tier": "free",
+        "description": "Podstawowe narzędzie dostępne na każdym koncie Instra. Integruje się z głównym workflow od pierwszego dnia.",
+        "icon": "◈"
+      },
+      {
+        "name": "Plugin Beta",
+        "tier": "free",
+        "description": "Lekki moduł automatyzacji dla powtarzalnych zadań. Dostępny w open-core bez żadnej konfiguracji.",
+        "icon": "◇"
+      },
+      {
+        "name": "Plugin Gamma",
+        "tier": "pro",
+        "description": "Zaawansowane rozszerzenie pipeline'u danych z synchronizacją w czasie rzeczywistym. Dostępne w planach Professional i Enterprise.",
+        "icon": "◉"
+      },
+      {
+        "name": "Plugin Delta",
+        "tier": "pro",
+        "description": "Moduł raportowania klasy enterprise. Eksportuje ustrukturyzowane dane do dowolnego narzędzia BI jednym kliknięciem.",
+        "icon": "◎"
+      }
+    ]
+  },
+  "whyUs": {
+    "label": "Liczby mówią same za siebie",
+    "heading": "Dlaczego zespoły wybierają Instra",
+    "items": [
+      {
+        "value": "98%",
+        "description": "Użytkowników poczuło się naprawdę wysłuchanych i zrozumianych podczas pierwszej sesji z naszą platformą."
+      },
+      {
+        "value": "88%",
+        "description": "Zauważyło wyraźną poprawę wyników kampanii w ciągu pierwszych kilku tygodni korzystania z serwisu."
+      },
+      {
+        "value": "71%",
+        "description": "Kontynuuje regularne korzystanie z platformy po pierwszym uruchomieniu, co świadczy o trwałym zaangażowaniu i zaufaniu."
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Cennik",
+    "billing": {
+      "annual": "Rocznie",
+      "monthly": "Miesięcznie"
+    },
+    "plans": {
+      "basic": {
+        "name": "Starter",
+        "badge": "Aktywny",
+        "price": {
+          "monthly": 17,
+          "annual": 15
+        },
+        "period": "/ miesiąc (USD)",
+        "billedYearly": "180$ płatne rocznie",
+        "desc": "Rozpocznij z niezbędnymi narzędziami do wydajnego zarządzania zespołem. Idealny dla małych zespołów.",
+        "button": "Zacznij bezpłatny okres próbny",
         "features": [
-            {
-                "id": "ai-content",
-                "icon": "✦",
-                "title": "Generowanie treści AI",
-                "description": "Twórz posty, podpisy i teksty reklamowe w kilka sekund. Instra uczy się Twojego głosu i skaluje go na każdym kanale.",
-                "image": "/images/features/ai-content.png"
-            },
-            {
-                "id": "scheduling",
-                "icon": "◈",
-                "title": "Harmonogramowanie multi-platforma",
-                "description": "Kolejkuj i publikuj treści na Instagramie, LinkedIn i X z jednego zunifikowanego kalendarza.",
-                "image": "/images/features/scheduling.png"
-            },
-            {
-                "id": "analytics",
-                "icon": "▦",
-                "title": "Panel analityczny",
-                "description": "Śledź zasięg, zaangażowanie i konwersje w jednym widoku. Dane w czasie rzeczywistym, zero arkuszy."
-            },
-            {
-                "id": "plugins",
-                "icon": "⬡",
-                "title": "Ekosystem pluginów",
-                "description": "Rozszerzaj Instra o pluginy tworzone przez społeczność lub własne. Open-core oznacza, że masz pełną kontrolę."
-            },
-            {
-                "id": "brand-voice",
-                "icon": "◎",
-                "title": "Profile głosu marki",
-                "description": "Zapisuj ton, styl i wytyczne dla każdej marki. Przełączaj konteksty natychmiastowo bez utraty spójności."
-            },
-            {
-                "id": "campaigns",
-                "icon": "◻",
-                "title": "Menedżer kampanii",
-                "description": "Planuj, realizuj i mierz pełne kampanie marketingowe od briefu do raportu."
-            }
+          {
+            "name": "Dostęp do podstawowych funkcji",
+            "included": true
+          },
+          {
+            "name": "Zarządzanie rekordami",
+            "included": true
+          },
+          {
+            "name": "Podstawowe narzędzia raportowania",
+            "included": true
+          },
+          {
+            "name": "Zarządzaj do 10 członków",
+            "included": true
+          },
+          {
+            "name": "Śledź obecność",
+            "included": false
+          },
+          {
+            "name": "Przydzielaj i monitoruj zadania",
+            "included": false
+          },
+          {
+            "name": "Wsparcie e-mail",
+            "included": false
+          }
         ]
-    },
-    "usecaseHeader": {
-        "label": "// ZASTOSOWANIA W PRAKTYCE",
-        "heading": "Jedna platforma.\nKażdy workflow.",
-        "description": "Marketerzy i deweloperzy używają ekosystemu pluginów Instra, by wyeliminować przełączanie kontekstu i budować zunifikowane, zautomatyzowane procesy."
-    },
-    "usecaseProblem": {
-        "badge": "// PROBLEM",
-        "heading": "Twoje narzędzia\nnie rozmawiają ze sobą.",
-        "items": [
-            {
-                "title": "Ciągłe przełączanie kontekstu",
-                "body": "Zespoły przeskakują między 8–12 narzędziami dziennie. Każde przełączenie niszczy skupienie i marnuje czas."
-            },
-            {
-                "title": "Dane uwięzione w silosach",
-                "body": "Analityka w jednej zakładce, CRM w drugiej, komunikacja w trzeciej. Nic się nie łączy, nic nie kumuluje."
-            },
-            {
-                "title": "Podatek integracyjny",
-                "body": "Każde nowe narzędzie to nowy ręczny proces lub kruchy łańcuch automatyzacji. Stack rośnie, produktywność nie."
-            }
+      },
+      "pro": {
+        "name": "Profesjonalny",
+        "badge": "Oszczędź 27%",
+        "price": {
+          "monthly": 26,
+          "annual": 19
+        },
+        "period": "/ miesiąc (USD)",
+        "billedYearly": "228$ płatne rocznie",
+        "desc": "Kompleksowe rozwiązanie dla rosnących zespołów, oferujące rozszerzone funkcje do usprawnienia procesów.",
+        "button": "Przetestuj za darmo przez 7 dni",
+        "features": [
+          {
+            "name": "Dostęp do podstawowych funkcji",
+            "included": true
+          },
+          {
+            "name": "Zarządzanie rekordami",
+            "included": true
+          },
+          {
+            "name": "Podstawowe narzędzia raportowania",
+            "included": true
+          },
+          {
+            "name": "Zarządzaj do 50 członków",
+            "included": true
+          },
+          {
+            "name": "Śledź obecność",
+            "included": true
+          },
+          {
+            "name": "Przydzielaj i monitoruj zadania",
+            "included": true
+          },
+          {
+            "name": "Wsparcie e-mail",
+            "included": false
+          }
         ]
-    },
-    "usecaseHowItWorks": {
-        "badge": "// JAK TO DZIAŁA",
-        "heading": "Proste z założenia.\nPotężne z natury.",
-        "steps": [
-            {
-                "title": "Wybierz plugin",
-                "body": "Przeglądaj otwarty rejestr. Filtruj po kategorii, kompatybilności lub ocenie. Podgląd przed instalacją."
-            },
-            {
-                "title": "Zainstaluj jednym kliknięciem",
-                "body": "Pluginy ładują się do workspace'u natychmiast. Bez plików konfiguracyjnych, bez CLI, bez restartu."
-            },
-            {
-                "title": "Połącz swoje narzędzia",
-                "body": "Autoryzuj integracje przez OAuth lub klucz API. Uprawnienia są ograniczone — pluginy dostają tylko co potrzebują."
-            },
-            {
-                "title": "Zautomatyzuj workflow",
-                "body": "Wyzwalaj akcje w narzędziach używając zdarzeń pluginu. Ustaw raz, niech działa. Audytuj każdą akcję."
-            }
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "badge": "Popularny",
+        "price": {
+          "monthly": 34,
+          "annual": 29
+        },
+        "period": "/ miesiąc (USD)",
+        "billedYearly": "348$ płatne rocznie",
+        "desc": "Maksymalizuj wydajność dzięki narzędziom premium i pełnej konfiguracji, idealne dla dużych organizacji.",
+        "button": "Porozmawiaj z zespołem sprzedaży",
+        "features": [
+          {
+            "name": "Dostęp do podstawowych funkcji",
+            "included": true
+          },
+          {
+            "name": "Zarządzanie rekordami",
+            "included": true
+          },
+          {
+            "name": "Podstawowe narzędzia raportowania",
+            "included": true
+          },
+          {
+            "name": "Nielimitowana ilość członków",
+            "included": true
+          },
+          {
+            "name": "Śledź obecność",
+            "included": true
+          },
+          {
+            "name": "Przydzielaj i monitoruj zadania",
+            "included": true
+          },
+          {
+            "name": "Priorytetowe wsparcie 24/7",
+            "included": true
+          }
         ]
+      }
+    }
+  },
+  "featuresHeader": {
+    "label": "// KLUCZOWE MOŻLIWOŚCI",
+    "heading": "Stworzone by\nDziałać",
+    "description": "Wszystko, czego potrzebuje Twój zespół marketingowy  treści AI, harmonogramowanie, analityka i otwarty system pluginów  w jednej platformie."
+  },
+  "featuresHero": {
+    "badge": "MOŻLIWOŚCI  Co potrafi Instra",
+    "heading_line1": "STWORZONE BY",
+    "heading_line2": "DZIAŁAĆ",
+    "block1": {
+      "label": "// 01  INTELIGENCJA",
+      "body1": "Instra łączy tworzenie treści oparte na AI, harmonogramowanie wieloplatformowe i zaawansowaną analitykę w jednym przepływie pracy. Przestań przełączać się między narzędziami  każda potrzebna możliwość jest tutaj.",
+      "body2": "Od pierwszego szkicu do opublikowanego posta  Instra przejmuje ciężką pracę, aby Twój zespół mógł skupić się na strategii, kreatywności i wzroście."
     },
-    "usecaseWorkflow": {
-        "badge": "// TWÓJ WORKFLOW",
-        "heading": "Od konfiguracji do\nautomatyzacji w minuty.",
-        "steps": [
-            {
-                "title": "Wybierz",
-                "body": "Wybierz spośród 40+ pluginów społecznościowych i premium w rejestrze."
-            },
-            {
-                "title": "Zainstaluj",
-                "body": "Instalacja jednym kliknięciem bezpośrednio w Twoim workspace Instra."
-            },
-            {
-                "title": "Połącz",
-                "body": "Autoryzuj istniejące narzędzia z uprawnieniami OAuth."
-            },
-            {
-                "title": "Automatyzuj",
-                "body": "Skonfiguruj wyzwalacze i pozwól workflow działać bez nadzoru."
-            }
-        ]
+    "block2": {
+      "label": "// 02  ROZSZERZALNOŚĆ",
+      "body": "Każda funkcja w Instra to fundament, nie sufit. Otwarty system pluginów pozwala rozszerzać, integrować i automatyzować poza możliwościami zamkniętych platform. Wdrażaj własne przepływy pracy w godzinach, nie sprintach."
     },
-    "usecaseIntegrations": {
-        "badge": "// INTEGRACJE",
-        "heading": "Działa z narzędziami,\nktórych już używasz.",
-        "subtitle": "Połącz platformy marketingowe i narzędzia deweloperskie bez pisania ani jednej linii kodu kleju.",
-        "moreLabel": "+ 120 kolejnych integracji"
+    "stats": {
+      "aria_label": "Statystyki funkcji Instra"
     },
-    "pluginsHeader": {
-        "label": "// EKOSYSTEM PLUGINÓW",
-        "heading": "Rozszerzaj Instra\nna swój sposób.",
-        "description": "System pluginów Instra jest w pełni otwarty. Każdy developer może rozszerzyć platformę — dodawać widżety, rejestrować trasy lub nasłuchiwać zdarzeń przez API PluginContext."
+    "stat1": {
+      "value": "6+",
+      "label": "Kluczowych Funkcji"
     },
-    "dashboard": {
-        "nav": {
-            "overview": "Przegląd",
-            "analytics": "Analityka",
-            "campaigns": "Kampanie",
-            "schedule": "Harmonogram",
-            "plugins": "Pluginy",
-            "settings": "Ustawienia",
-            "profile": "Profil",
-            "social": "Social",
-            "openMenu": "Otwórz menu nawigacyjne",
-            "closeMenu": "Zamknij menu nawigacyjne"
-        },
-        "header": {
-            "search": "Szukaj...",
-            "notifications": "Powiadomienia"
-        },
-        "notifications": {
-            "title": "Powiadomienia",
-            "empty": "Wszystko przeczytane",
-            "markAllRead": "Oznacz wszystkie",
-            "unreadAria": "{{count}} nieprzeczytane powiadomienia"
-        },
-        "overview": {
-            "label": "// PRZEGLĄD",
-            "heading": "Dzień dobry"
-        },
-        "stats": {
-            "posts": "Opublikowane posty",
-            "likes": "Łączne polubienia",
-            "accounts": "Połączone konta",
-            "reach": "Łączny zasięg",
-            "vsLastWeek": "vs poprzedni tydzień",
-            "noData": "Brak danych"
-        },
-        "chart": {
-            "label": "// ANALITYKA",
-            "title": "Posty w czasie",
-            "aria": "Wykres postów w czasie",
-            "empty": "Brak postów — opublikuj coś, aby zobaczyć wykres"
-        },
-        "activity": {
-            "label": "// AKTYWNOŚĆ",
-            "title": "Ostatnia aktywność",
-            "published": "Opublikowano · {{platform}}",
-            "failed": "Błąd · {{platform}}",
-            "pending": "Oczekuje · {{platform}}",
-            "processing": "Przetwarzanie · {{platform}}",
-            "empty": "Brak aktywności — opublikuj post, aby zacząć"
-        },
-        "quickActions": {
-            "label": "// AKCJE",
-            "title": "Szybkie akcje",
-            "newPost": "Nowy post",
-            "newCampaign": "Nowa kampania",
-            "viewReport": "Pokaż raport",
-            "addPlugin": "Dodaj plugin"
-        },
-        "pluginSlot": {
-            "label": "// SLOT PLUGINÓW",
-            "empty": "Brak aktywnych pluginów — przeglądaj marketplace",
-            "hint": "DASHBOARD_TOP — zainstaluj plugin aby użyć tego slotu"
-        },
-        "adminNav": "Admin"
+    "stat2": {
+      "value": "40+",
+      "label": "Dostępnych Pluginów"
     },
-    "analytics": {
-        "page": {
-            "title": "Analityka postów",
-            "description": "Śledź wyniki, trendy zaangażowania i otrzymuj wskazówki dotyczące poprawy treści Twoich postów."
+    "stat3": {
+      "value": "3×",
+      "label": "Szybsza Publikacja"
+    }
+  },
+  "downloadHeader": {
+    "label": "// POBIERZ INSTRE LOKALNIE",
+    "heading": "Zbuduj własną instancję\nInstra",
+    "description": "Wszystko, czego potrzebuje Twój zespół marketingowy  treści AI, harmonogramowanie, analityka i otwarty system pluginów  w jednej platformie."
+  },
+  "download": {
+    "badge": "// NARZĘDZIA",
+    "heading": "Dwa sposoby uruchomienia\nInstra lokalnie",
+    "cli": {
+      "label": "// CLI",
+      "name": "Instra CLI",
+      "version": "v1.0.0",
+      "description": "W pełni funkcjonalny interfejs wiersza poleceń do automatyzacji kampanii, synchronizacji kont społecznościowych i skryptowania przepływów marketingowych. Działa wszędzie tam, gdzie Node.js.",
+      "copyButton": "Skopiuj polecenie instalacji",
+      "copyAriaLabel": "Skopiuj polecenie npm install do schowka",
+      "npmButton": "Zobacz na npm",
+      "npmAriaLabel": "Zobacz @instra/cli na npm (otwiera nową kartę)"
+    },
+    "agent": {
+      "label": "// DESKTOP",
+      "name": "Instra Desktop Agent",
+      "version": "Najnowsze wydanie",
+      "description": "Natywny klient desktopowy utrzymujący instancję Instra w tle  obsługuje zaplanowane posty, monitoruje analitykę i wyświetla powiadomienia bez konieczności otwierania przeglądarki.",
+      "downloadButton": "Pobierz Desktop Agenta",
+      "downloadAriaLabel": "Pobierz najnowsze wydanie Instra Desktop Agent z GitHub",
+      "githubButton": "Zobacz na GitHub",
+      "githubAriaLabel": "Zobacz Instra Desktop Agent na GitHub (otwiera nową kartę)"
+    }
+  },
+  "installGuide": {
+    "badge": "// INSTALACJA",
+    "heading": "Uruchom w\nkilka minut",
+    "tabs": {
+      "macos": "macOS",
+      "windows": "Windows",
+      "linux": "Linux"
+    },
+    "copy": "Kopiuj",
+    "copied": "Skopiowano!",
+    "macos": {
+      "steps": [
+        {
+          "title": "Zainstaluj Node.js (jeśli potrzebne)",
+          "command": "brew install node",
+          "description": "Wymaga Node.js 18+. Użyj Homebrew lub pobierz z nodejs.org."
         },
-        "overview": {
-            "label": "// PRZEGLĄD ANALITYKI",
-            "heading": "Twoja Analityka"
+        {
+          "title": "Zainstaluj Instra CLI",
+          "command": "npm install -g @instra/cli",
+          "description": "Instaluje CLI globalnie. Uruchom instra --version, aby potwierdzić."
         },
-        "stats": {
-            "impressions": "Wyświetlenia",
-            "reach": "Zasięg",
-            "views": "Obejrzenia",
-            "likes": "Łączne polubienia",
-            "comments": "Komentarze",
-            "shares": "Udostępnienia",
-            "clicks": "Kliknięcia",
-            "engagementRate": "Współczynnik zaangażowania",
-            "vsLastPeriod": "vs poprzedni okres"
-        },
-        "chart": {
-            "label": "// TREND ZAANGAŻOWANIA",
-            "title": "Zaangażowanie w czasie",
-            "aria": "Wykres zaangażowania w czasie z prognozą",
-            "prediction": "Prognoza",
-            "confidence": {
-                "high": "Wysoka pewność",
-                "medium": "Średnia pewność",
-                "low": "Niska pewność (dodaj więcej postów)"
-            },
-            "empty": "Brak danych metryk — zapisz pierwszy snapshot, aby zobaczyć wykres"
-        },
-        "tip": {
-            "label": "// PORADA DNIA",
-            "title": "Porada dnia",
-            "priority": {
-                "high": "Wysoki priorytet",
-                "medium": "Średni priorytet",
-                "low": "Niski priorytet"
-            },
-            "relatedPost": "Powiązany post"
-        },
-        "posts": {
-            "label": "// TWOJE POSTY",
-            "title": "Wyniki postów",
-            "empty": "Brak postów — opublikuj swój pierwszy post, aby zobaczyć analitykę.",
-            "score": "Ocena treści",
-            "engagement": "Zaangażowanie",
-            "viewDetails": "Szczegóły"
-        },
-        "detail": {
-            "label": "// SZCZEGÓŁY POSTA",
-            "back": "← Wróć do Analityki",
-            "published": "Opublikowano",
-            "platforms": "Platformy"
-        },
-        "issues": {
-            "no_content": "Twój post nie ma treści tekstowej.",
-            "content_too_short": "Tekst posta jest zbyt krótki ({{length}} zn.). Celuj w minimum 30 znaków.",
-            "content_too_long": "Tekst posta jest bardzo długi ({{length}} zn.). Rozważ skrócenie dla lepszej czytelności.",
-            "no_media": "Dodaj zdjęcie lub wideo, aby zwiększyć zaangażowanie.",
-            "no_hashtags": "Nie wykryto hashtagów. Dodaj odpowiednie hashtagi, aby zwiększyć zasięg.",
-            "too_many_hashtags": "Za dużo hashtagów ({{count}}). Celuj w 5–15 dla optymalnego zasięgu.",
-            "no_platforms": "Post nie ma wybranych platform.",
-            "single_platform": "Post jest tylko na jednej platformie. Rozważ cross-posting, by dotrzeć do większej liczby osób.",
-            "poor_timing": "Post został opublikowany o {{hour}}:00 — poza szczytem zaangażowania (7:00–22:00).",
-            "no_cta": "Nie wykryto wezwania do działania. Zachęć odbiorców do reakcji."
-        },
-        "tips": {
-            "no_posts": "Opublikuj swój pierwszy post, aby zacząć otrzymywać spersonalizowane wskazówki analityczne.",
-            "all_good": "Świetna robota! Wszystkie ostatnie posty mają wysoką ocenę. Utrzymaj jakość.",
-            "no_content": "Spróbuj dodać tekst do następnego posta — posty z opisem uzyskują znacznie więcej zaangażowania.",
-            "content_too_short": "Tekst posta jest bardzo krótki. Rozwiń go do co najmniej 30 znaków, by dać odbiorcom więcej kontekstu.",
-            "content_too_long": "Rozważ skrócenie tekstu posta dla lepszej czytelności na urządzeniach mobilnych.",
-            "no_media": "Posty ze zdjęciami lub filmami otrzymują średnio 2–3× więcej zaangażowania. Dodaj media do następnego posta.",
-            "no_hashtags": "Dodaj 5–15 trafnych hashtagów do postów, aby dotrzeć do szerszego grona odbiorców.",
-            "too_many_hashtags": "Zmniejsz liczbę hashtagów do 5–15 na post — zbyt wiele może wyglądać jak spam.",
-            "no_platforms": "Wybierz przynajmniej jedną platformę przed publikacją, aby post był widoczny.",
-            "single_platform": "Publikuj na wielu platformach, aby zmaksymalizować zasięg treści.",
-            "poor_timing": "Spróbuj zaplanować następny post między 7:00 a 22:00, by uzyskać większą widoczność.",
-            "no_cta": "Zakończ post wyraźnym wezwaniem do działania — zadaj pytanie lub zaproś do kliknięcia linku."
+        {
+          "title": "Pobierz Desktop Agenta",
+          "command": "open Instra-Desktop-Agent.dmg",
+          "description": "Pobierz .dmg z GitHub Releases, otwórz i przeciągnij Instra do folderu Aplikacje."
         }
+      ]
     },
-    "account": {
-        "profile": {
-            "title": "Mój profil",
-            "edit_link": "Edytuj w ustawieniach"
+    "windows": {
+      "steps": [
+        {
+          "title": "Zainstaluj Node.js (jeśli potrzebne)",
+          "command": "winget install OpenJS.NodeJS.LTS",
+          "description": "Wymaga Node.js 18+. Użyj winget lub pobierz instalator z nodejs.org."
         },
-        "settings": {
-            "title": "Ustawienia konta"
+        {
+          "title": "Zainstaluj Instra CLI",
+          "command": "npm install -g @instra/cli",
+          "description": "Instaluje CLI globalnie. Uruchom instra --version w nowym terminalu, aby potwierdzić."
         },
-        "username": {
-            "label": "Nazwa użytkownika",
-            "section_title": "Zmień nazwę użytkownika",
-            "helper": "Pozostało {{remaining}} z 3 zmian w tym roku",
-            "limit_reached": "Osiągnąłeś limit 3 zmian nazwy użytkownika w ciągu roku.",
-            "taken": "Ta nazwa użytkownika jest już zajęta",
-            "save": "Zapisz nazwę",
-            "success": "Nazwa użytkownika została zaktualizowana"
-        },
-        "export": {
-            "title": "Eksport danych konta",
-            "description": "Pobierz wszystkie dane konta jako plik JSON.",
-            "button": "Pobierz dane (JSON)",
-            "loading": "Przygotowywanie eksportu..."
-        },
-        "delete": {
-            "title": "Usuń konto",
-            "warning": "Ta akcja jest nieodwracalna. Wszystkie Twoje posty, połączenia social i dane zostaną usunięte.",
-            "button": "Usuń moje konto",
-            "confirm_label": "Wpisz swoją nazwę użytkownika, aby potwierdzić",
-            "confirm_placeholder": "twoja-nazwa",
-            "confirm_action": "Trwale usuń konto"
-        },
-        "notifications": {
-            "title": "Preferencje powiadomień",
-            "muteLabel": "Wycisz powiadomienia",
-            "muteHelper": "Nowe powiadomienia nie będą pojawiać się w dzwonku.",
-            "emailLabel": "Powiadomienia e-mail",
-            "emailHelper": "Otrzymuj e-maile o ważnych zdarzeniach, takich jak ukończone kampanie i połączone konta.",
-            "save": "Zapisz preferencje",
-            "saved": "Zapisano!"
+        {
+          "title": "Pobierz Desktop Agenta",
+          "command": "Start-Process Instra-Desktop-Agent-Setup.exe",
+          "description": "Pobierz instalator .exe z GitHub Releases i uruchom go."
         }
+      ]
+    },
+    "linux": {
+      "steps": [
+        {
+          "title": "Zainstaluj Node.js (jeśli potrzebne)",
+          "command": "curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - && sudo apt-get install -y nodejs",
+          "description": "Wymaga Node.js 18+. Użyj menedżera pakietów dystrybucji lub instalatora NodeSource."
+        },
+        {
+          "title": "Zainstaluj Instra CLI",
+          "command": "npm install -g @instra/cli",
+          "description": "Instaluje CLI globalnie. Uruchom instra --version, aby potwierdzić."
+        },
+        {
+          "title": "Pobierz Desktop Agenta",
+          "command": "chmod +x Instra-Desktop-Agent.AppImage && ./Instra-Desktop-Agent.AppImage",
+          "description": "Pobierz .AppImage z GitHub Releases, nadaj uprawnienia wykonywania i uruchom."
+        }
+      ]
+    }
+  },
+  "openSourcePlugins": {
+    "label": "// OPEN SOURCE",
+    "heading": "Zbuduj własny\nplugin",
+    "body": "System pluginów Instra jest w pełni otwarty. Każdy developer może rozszerzyć platformę  dodawać widżety, rejestrować trasy, nasłuchiwać zdarzeń i publikować w rejestrze społeczności. Zero gatekeepingu.",
+    "ctaTagline": "Pełna dokumentacja API, schemat manifestu i przykładowe pluginy dostępne są w dokumentacji.",
+    "docsButton": "Przejdź do dokumentacji",
+    "githubButton": "GitHub",
+    "githubAriaLabel": "Zobacz Instra na GitHub (otwiera nową kartę)",
+    "steps": [
+      {
+        "icon": "code",
+        "title": "Napisz swój plugin",
+        "description": "Utwórz index.ts z eksportem InstraPlugin. Zaimplementuj init(ctx), aby rejestrować widżety, trasy lub nasłuchy zdarzeń przez API PluginContext."
+      },
+      {
+        "icon": "package",
+        "title": "Dodaj manifest",
+        "description": "Zadeklaruj nazwę, wersję, uprawnienia i autora w manifest.json. Manifest jest walidowany wobec JSON Schema przed załadowaniem pluginu."
+      },
+      {
+        "icon": "send",
+        "title": "Opublikuj w rejestrze",
+        "description": "Wyślij pull request lub opublikuj przez npm w zakresie @instra. Pluginy społeczności przechodzą przegląd bezpieczeństwa przed pojawieniem się w marketplace."
+      }
+    ]
+  },
+  "verify_email": {
+    "title": "Sprawdź skrzynkę.",
+    "subtitle": "Wysłaliśmy 6-cyfrowy kod na adres",
+    "code_label": "Kod weryfikacyjny",
+    "submit": "Zweryfikuj email",
+    "no_code": "Nie otrzymałeś kodu?",
+    "resend": "Wyślij ponownie",
+    "resend_wait": "Wyślij ponownie za {{seconds}}s",
+    "resend_success": "Nowy kod został wysłany na Twój adres email.",
+    "back_to_signup": "← Wróć do rejestracji",
+    "panel_title": "Jeden krok do przodu.",
+    "panel_desc": "Sprawdź email i wpisz 6-cyfrowy kod, aby aktywować konto Instra. Kod wygasa po 10 minutach.",
+    "panel_social": "Bezpieczna rejestracja · Bez spamu",
+    "panel_card_label": "// Bezpieczeństwo",
+    "panel_card_title": "Kody są jednorazowe i ograniczone czasowo.",
+    "panel_card_desc": "Każdy kod weryfikacyjny wygasa po 10 minutach i może być użyty tylko raz. Jeśli Twój wygaśnie, poproś o nowy."
+  },
+  "featuresSection": {
+    "label": "// KLUCZOWE MOŻLIWOŚCI",
+    "heading": "Wszystko, czego potrzebujesz do rozwoju",
+    "features": [
+      {
+        "id": "ai-content",
+        "icon": "✦",
+        "title": "Generowanie treści AI",
+        "description": "Twórz posty, podpisy i teksty reklamowe w kilka sekund. Instra uczy się Twojego głosu i skaluje go na każdym kanale.",
+        "image": "/images/features/ai-content.png"
+      },
+      {
+        "id": "scheduling",
+        "icon": "◈",
+        "title": "Harmonogramowanie multi-platforma",
+        "description": "Kolejkuj i publikuj treści na Instagramie, LinkedIn i X z jednego zunifikowanego kalendarza.",
+        "image": "/images/features/scheduling.png"
+      },
+      {
+        "id": "analytics",
+        "icon": "▦",
+        "title": "Panel analityczny",
+        "description": "Śledź zasięg, zaangażowanie i konwersje w jednym widoku. Dane w czasie rzeczywistym, zero arkuszy."
+      },
+      {
+        "id": "plugins",
+        "icon": "⬡",
+        "title": "Ekosystem pluginów",
+        "description": "Rozszerzaj Instra o pluginy tworzone przez społeczność lub własne. Open-core oznacza, że masz pełną kontrolę."
+      },
+      {
+        "id": "brand-voice",
+        "icon": "◎",
+        "title": "Profile głosu marki",
+        "description": "Zapisuj ton, styl i wytyczne dla każdej marki. Przełączaj konteksty natychmiastowo bez utraty spójności."
+      },
+      {
+        "id": "campaigns",
+        "icon": "◻",
+        "title": "Menedżer kampanii",
+        "description": "Planuj, realizuj i mierz pełne kampanie marketingowe od briefu do raportu."
+      }
+    ]
+  },
+  "usecaseHeader": {
+    "label": "// ZASTOSOWANIA W PRAKTYCE",
+    "heading": "Jedna platforma.\nKażdy workflow.",
+    "description": "Marketerzy i deweloperzy używają ekosystemu pluginów Instra, by wyeliminować przełączanie kontekstu i budować zunifikowane, zautomatyzowane procesy."
+  },
+  "usecaseProblem": {
+    "badge": "// PROBLEM",
+    "heading": "Twój marketing stack\ndziała przeciwko Tobie.",
+    "items": [
+      {
+        "title": "8–12 zakładek, zero skupienia",
+        "body": "Zespoły przełączają się między narzędziami dziesiątki razy dziennie. Każde przełączenie niszczy skupienie i dokłada godziny niewidocznego overhead'u."
+      },
+      {
+        "title": "Dane, które się nie kumulują",
+        "body": "Analityka w jednej zakładce, CRM w drugiej, kalendarz treści w trzeciej. Nic się nie łączy  więc insighty znikają zamiast na sobie budować."
+      },
+      {
+        "title": "Więcej narzędzi, mniej efektów",
+        "body": "Każda nowa integracja to kolejny ręczny proces lub kruchy łańcuch automatyzacji. Stack staje się cięższy, a zespół nie działa szybciej."
+      }
+    ]
+  },
+  "usecaseHowItWorks": {
+    "badge": "// JAK TO DZIAŁA",
+    "heading": "Proste z założenia.\nPotężne z natury.",
+    "steps": [
+      {
+        "title": "Wybierz plugin",
+        "body": "Przeglądaj otwarty rejestr. Filtruj po kategorii, kompatybilności lub ocenie. Podgląd przed instalacją."
+      },
+      {
+        "title": "Zainstaluj jednym kliknięciem",
+        "body": "Pluginy ładują się do workspace'u natychmiast. Bez plików konfiguracyjnych, bez CLI, bez restartu."
+      },
+      {
+        "title": "Połącz swoje narzędzia",
+        "body": "Autoryzuj integracje przez OAuth lub klucz API. Uprawnienia są ograniczone  pluginy dostają tylko co potrzebują."
+      },
+      {
+        "title": "Zautomatyzuj workflow",
+        "body": "Wyzwalaj akcje w narzędziach używając zdarzeń pluginu. Ustaw raz, niech działa. Audytuj każdą akcję."
+      }
+    ]
+  },
+  "usecaseWorkflow": {
+    "badge": "// TWÓJ WORKFLOW",
+    "heading": "Od konfiguracji do\nautomatyzacji w minuty.",
+    "steps": [
+      {
+        "title": "Wybierz",
+        "body": "Wybierz spośród 40+ pluginów społecznościowych i premium w rejestrze."
+      },
+      {
+        "title": "Zainstaluj",
+        "body": "Instalacja jednym kliknięciem bezpośrednio w Twoim workspace Instra."
+      },
+      {
+        "title": "Połącz",
+        "body": "Autoryzuj istniejące narzędzia z uprawnieniami OAuth."
+      },
+      {
+        "title": "Automatyzuj",
+        "body": "Skonfiguruj wyzwalacze i pozwól workflow działać bez nadzoru."
+      }
+    ]
+  },
+  "usecaseIntegrations": {
+    "badge": "// INTEGRACJE",
+    "heading": "Działa z narzędziami,\nktórych już używasz.",
+    "subtitle": "Połącz platformy marketingowe i narzędzia deweloperskie bez pisania ani jednej linii kodu kleju.",
+    "moreLabel": "+ 120 kolejnych integracji"
+  },
+  "pluginsHeader": {
+    "label": "// EKOSYSTEM PLUGINÓW",
+    "heading": "Rozszerzaj Instra\nna swój sposób.",
+    "description": "System pluginów Instra jest w pełni otwarty. Każdy developer może rozszerzyć platformę  dodawać widżety, rejestrować trasy lub nasłuchiwać zdarzeń przez API PluginContext."
+  },
+  "dashboard": {
+    "nav": {
+      "overview": "Przegląd",
+      "analytics": "Analityka",
+      "campaigns": "Kampanie",
+      "schedule": "Harmonogram",
+      "plugins": "Pluginy",
+      "settings": "Ustawienia",
+      "profile": "Profil",
+      "social": "Social",
+      "openMenu": "Otwórz menu nawigacyjne",
+      "closeMenu": "Zamknij menu nawigacyjne"
+    },
+    "header": {
+      "search": "Szukaj...",
+      "notifications": "Powiadomienia"
+    },
+    "notifications": {
+      "title": "Powiadomienia",
+      "empty": "Wszystko przeczytane",
+      "markAllRead": "Oznacz wszystkie",
+      "unreadAria": "{{count}} nieprzeczytane powiadomienia"
+    },
+    "overview": {
+      "label": "// PRZEGLĄD",
+      "heading": "Dzień dobry"
+    },
+    "stats": {
+      "posts": "Opublikowane posty",
+      "likes": "Łączne polubienia",
+      "accounts": "Połączone konta",
+      "reach": "Łączny zasięg",
+      "vsLastWeek": "vs poprzedni tydzień",
+      "noData": "Brak danych"
+    },
+    "chart": {
+      "label": "// ANALITYKA",
+      "title": "Posty w czasie",
+      "aria": "Wykres postów w czasie",
+      "empty": "Brak postów  opublikuj coś, aby zobaczyć wykres"
+    },
+    "activity": {
+      "label": "// AKTYWNOŚĆ",
+      "title": "Ostatnia aktywność",
+      "published": "Opublikowano · {{platform}}",
+      "failed": "Błąd · {{platform}}",
+      "pending": "Oczekuje · {{platform}}",
+      "processing": "Przetwarzanie · {{platform}}",
+      "empty": "Brak aktywności  opublikuj post, aby zacząć"
+    },
+    "quickActions": {
+      "label": "// AKCJE",
+      "title": "Szybkie akcje",
+      "newPost": "Nowy post",
+      "newCampaign": "Nowa kampania",
+      "viewReport": "Pokaż raport",
+      "addPlugin": "Dodaj plugin"
+    },
+    "pluginSlot": {
+      "label": "// SLOT PLUGINÓW",
+      "empty": "Brak aktywnych pluginów  przeglądaj marketplace",
+      "hint": "DASHBOARD_TOP  zainstaluj plugin aby użyć tego slotu"
+    },
+    "adminNav": "Admin"
+  },
+  "analytics": {
+    "page": {
+      "title": "Analityka postów",
+      "description": "Śledź wyniki, trendy zaangażowania i otrzymuj wskazówki dotyczące poprawy treści Twoich postów."
+    },
+    "overview": {
+      "label": "// PRZEGLĄD ANALITYKI",
+      "heading": "Twoja Analityka"
+    },
+    "stats": {
+      "impressions": "Wyświetlenia",
+      "reach": "Zasięg",
+      "views": "Obejrzenia",
+      "likes": "Łączne polubienia",
+      "comments": "Komentarze",
+      "shares": "Udostępnienia",
+      "clicks": "Kliknięcia",
+      "engagementRate": "Współczynnik zaangażowania",
+      "vsLastPeriod": "vs poprzedni okres"
+    },
+    "chart": {
+      "label": "// TREND ZAANGAŻOWANIA",
+      "title": "Zaangażowanie w czasie",
+      "aria": "Wykres zaangażowania w czasie z prognozą",
+      "prediction": "Prognoza",
+      "confidence": {
+        "high": "Wysoka pewność",
+        "medium": "Średnia pewność",
+        "low": "Niska pewność (dodaj więcej postów)"
+      },
+      "empty": "Brak danych metryk  zapisz pierwszy snapshot, aby zobaczyć wykres"
+    },
+    "tip": {
+      "label": "// PORADA DNIA",
+      "title": "Porada dnia",
+      "priority": {
+        "high": "Wysoki priorytet",
+        "medium": "Średni priorytet",
+        "low": "Niski priorytet"
+      },
+      "relatedPost": "Powiązany post"
     },
     "posts": {
-        "composer": {
-            "placeholder": "Co masz na myśli?",
-            "placeholder_instagram": "Napisz podpis do Instagrama...",
-            "placeholder_facebook": "Co się dzieje na Facebooku?",
-            "placeholder_twitter": "Co się dzieje?",
-            "placeholder_tiktok": "Napisz opis TikToka...",
-            "placeholder_linkedin": "Podziel się profesjonalnymi przemyśleniami...",
-            "placeholder_youtube": "Opisz swój film na YouTube...",
-            "platforms_label": "Platformy",
-            "composing_for": "Tworzysz dla {{platform}}",
-            "limit_exceeded_warning": "Treść przekracza limit {{platform}} wynoszący {{limit}} znaków.",
-            "multi_platform_limit_note": "Najbardziej restrykcyjny limit: {{platform}} ({{limit}} znaków)",
-            "char_counter_label": "{{current}} z {{max}} znaków",
-            "platform_fields": {
-                "section_label_single": "Ustawienia platformy",
-                "section_label_multi": "Ustawienia per platforma"
-            },
-            "existing_media_alt": "Media {{n}}",
-            "remove_media_label": "Usuń media {{n}}",
-            "add_photo": "Dodaj zdjęcie",
-            "cancel": "Anuluj",
-            "publish": "Opublikuj",
-            "publish_to": "Opublikuj ({{count}})",
-            "save_draft": "Zapisz szkic",
-            "publishing": "Publikowanie...",
-            "save": "Zapisz",
-            "success": "Post opublikowany pomyślnie.",
-            "instagram_needs_media": "Instagram wymaga co najmniej jednego zdjęcia. Dodaj zdjęcie, aby opublikować.",
-            "platform_not_connected": "{{platform}} nie jest podłączony — przejdź do ustawień kont",
-            "platform_disconnected_badge": "off",
-            "ai": {
-                "generate": "Generuj",
-                "generating": "Generowanie...",
-                "generate_aria": "Generuj podpis z AI",
-                "error": "Nie udało się wygenerować podpisu. Spróbuj ponownie."
-            }
-        }
+      "label": "// TWOJE POSTY",
+      "title": "Wyniki postów",
+      "empty": "Brak postów  opublikuj swój pierwszy post, aby zobaczyć analitykę.",
+      "score": "Ocena treści",
+      "engagement": "Zaangażowanie",
+      "viewDetails": "Szczegóły"
     },
-    "plugins": {
-        "marketplace": {
-            "label": "// MARKETPLACE",
-            "heading": "Marketplace Pluginów",
-            "empty": "Brak dostępnych pluginów.",
-            "installed": "ZAINSTALOWANY",
-            "update": "AKTUALIZACJA",
-            "install": "Zainstaluj",
-            "uninstall": "Odinstaluj",
-            "update_action": "Aktualizuj",
-            "author": "autor",
-            "capabilities": "uprawnienia",
-            "installing": "Instalowanie...",
-            "uninstalling": "Odinstalowywanie..."
-        },
-        "upload": {
-            "label": "// PRZEŚLIJ PLUGIN",
-            "heading": "Prześlij Plugin",
-            "slug_label": "Slug",
-            "slug_placeholder": "moj-plugin",
-            "name_label": "Nazwa",
-            "name_placeholder": "Mój Plugin",
-            "description_label": "Opis",
-            "description_placeholder": "Co robi ten plugin?",
-            "version_label": "Wersja",
-            "version_placeholder": "1.0.0",
-            "manifest_label": "Manifest JSON",
-            "manifest_placeholder": "{\"name\": \"moj-plugin\", \"version\": \"1.0.0\", \"description\": \"\", \"author\": \"\", \"permissions\": []}",
-            "bundle_label": "Bundle (.js)",
-            "submit": "Prześlij do recenzji",
-            "submitting": "Przesyłanie...",
-            "success": "Plugin przesłany do recenzji.",
-            "error": "Błąd przesyłania pluginu."
-        },
-        "admin": {
-            "label": "// ADMIN",
-            "heading": "Kolejka Recenzji Pluginów",
-            "empty": "Brak pluginów oczekujących na recenzję.",
-            "approve": "Zatwierdź",
-            "reject": "Odrzuć",
-            "reject_reason_label": "Powód odrzucenia",
-            "reject_reason_placeholder": "Wyjaśnij dlaczego ten plugin jest odrzucany...",
-            "confirm_reject": "Potwierdź odrzucenie",
-            "cancel": "Anuluj",
-            "approving": "Zatwierdzanie...",
-            "rejecting": "Odrzucanie...",
-            "pending_badge": "OCZEKUJE NA RECENZJĘ",
-            "submitted": "przesłano",
-            "version_label": "wersja",
-            "author_label": "autor",
-            "capabilities_label": "uprawnienia",
-            "manifest_label": "Manifest"
-        }
+    "detail": {
+      "label": "// SZCZEGÓŁY POSTA",
+      "back": "← Wróć do Analityki",
+      "published": "Opublikowano",
+      "platforms": "Platformy"
     },
-    "campaigns": {
-        "page": {
-            "eyebrow": "// KAMPANIE",
-            "title": "Kampanie",
-            "empty": "Brak kampanii — utwórz pierwszą, aby zacząć",
-            "new": "+ Nowa kampania"
-        },
-        "new": {
-            "eyebrow": "// NOWA KAMPANIA",
-            "title": "Nowa kampania",
-            "save": "Utwórz kampanię",
-            "saving": "Tworzenie..."
-        },
-        "status": {
-            "active": "Aktywna",
-            "paused": "Wstrzymana",
-            "completed": "Zakończona",
-            "failed": "Błąd"
-        },
-        "filter": {
-            "all": "Wszystkie",
-            "active": "Aktywne",
-            "paused": "Wstrzymane",
-            "completed": "Zakończone",
-            "failed": "Błędy"
-        },
-        "action": {
-            "publish_post": "Publikacja posta",
-            "webhook": "Webhook"
-        },
-        "field": {
-            "name": "Nazwa kampanii",
-            "name_placeholder": "np. Promocja tygodniowa",
-            "action_type": "Typ akcji",
-            "post_id": "ID posta",
-            "post_id_placeholder": "Wpisz ID posta",
-            "url": "URL webhooka",
-            "url_placeholder": "https://example.com/webhook",
-            "method": "Metoda HTTP",
-            "body": "Treść żądania (opcjonalnie)",
-            "body_placeholder": "{ \"klucz\": \"wartość\" }",
-            "interval": "Interwał (minuty)",
-            "total_runs": "Liczba uruchomień",
-            "start_at": "Czas startu (opcjonalnie)",
-            "start_at_hint": "Zostaw puste, aby zacząć natychmiast",
-            "name_help": "Krótka, rozpoznawalna nazwa kampanii (maks. 100 znaków).",
-            "action_type_help": "Wybierz, co kampania robi przy każdym uruchomieniu.",
-            "posts": "Posty",
-            "posts_help": "Wybierz jeden lub więcej swoich postów do automatycznej publikacji.",
-            "posts_empty": "Nie masz jeszcze żadnych postów. Utwórz posta, a potem skonfiguruj kampanię.",
-            "posts_selected": "{{count}} post wybrany",
-            "posts_selected_plural": "{{count}} posty wybrane",
-            "url_help": "Adres URL, który otrzymuje żądanie HTTP przy każdym uruchomieniu. Musi używać https lub http.",
-            "method_help": "Metoda HTTP wysyłana do webhooka. POST jest zalecana w większości przypadków.",
-            "body_help": "Opcjonalna treść JSON wysyłana z żądaniami POST/PUT/PATCH.",
-            "interval_help": "Jak często kampania się uruchamia. Minimum 1 minuta. Użyj presetów powyżej dla typowych interwałów.",
-            "total_runs_help": "Łączna liczba uruchomień kampanii przed jej zakończeniem (1–10 000).",
-            "start_at_help": "Zaplanuj pierwsze uruchomienie na przyszłą datę i godzinę. Zostaw puste, aby zacząć natychmiast.",
-            "posts_search": "Szukaj postów…",
-            "posts_no_results": "Brak wyników dla tego zapytania",
-            "no_content": "(brak treści)"
-        },
-        "interval_preset": {
-            "15m": "15m",
-            "1h": "1h",
-            "6h": "6h",
-            "24h": "24h"
-        },
-        "actions": {
-            "pause": "Wstrzymaj",
-            "resume": "Wznów",
-            "delete": "Usuń",
-            "history": "Historia",
-            "hide_history": "Ukryj",
-            "pausing": "Wstrzymywanie...",
-            "resuming": "Wznawianie...",
-            "deleting": "Usuwanie..."
-        },
-        "progress": "{{done}}/{{total}} uruchomień",
-        "next_run": "Następne uruchomienie",
-        "last_run": "Ostatnie uruchomienie",
-        "interval_label": "co {{minutes}} min",
-        "runs": {
-            "title": "Historia uruchomień",
-            "empty": "Brak uruchomień",
-            "success": "Sukces",
-            "failed": "Błąd",
-            "at": "o"
-        },
-        "confirm_delete": {
-            "title": "Usuń kampanię",
-            "description": "Trwale usunie kampanię i całą historię uruchomień. Nie można cofnąć tej operacji.",
-            "label": "Wpisz nazwę kampanii, aby potwierdzić",
-            "confirm": "Usuń kampanię"
-        },
-        "toast": {
-            "paused": "Kampania wstrzymana",
-            "resumed": "Kampania wznowiona",
-            "deleted": "Kampania usunięta",
-            "created": "Kampania utworzona pomyślnie"
-        }
+    "issues": {
+      "no_content": "Twój post nie ma treści tekstowej.",
+      "content_too_short": "Tekst posta jest zbyt krótki ({{length}} zn.). Celuj w minimum 30 znaków.",
+      "content_too_long": "Tekst posta jest bardzo długi ({{length}} zn.). Rozważ skrócenie dla lepszej czytelności.",
+      "no_media": "Dodaj zdjęcie lub wideo, aby zwiększyć zaangażowanie.",
+      "no_hashtags": "Nie wykryto hashtagów. Dodaj odpowiednie hashtagi, aby zwiększyć zasięg.",
+      "too_many_hashtags": "Za dużo hashtagów ({{count}}). Celuj w 5–15 dla optymalnego zasięgu.",
+      "no_platforms": "Post nie ma wybranych platform.",
+      "single_platform": "Post jest tylko na jednej platformie. Rozważ cross-posting, by dotrzeć do większej liczby osób.",
+      "poor_timing": "Post został opublikowany o {{hour}}:00  poza szczytem zaangażowania (7:00–22:00).",
+      "no_cta": "Nie wykryto wezwania do działania. Zachęć odbiorców do reakcji."
     },
-    "schedule": {
-        "label": "// HARMONOGRAM",
-        "heading": "Kalendarz postów",
-        "prev_month": "Poprzedni miesiąc",
-        "next_month": "Następny miesiąc",
-        "today": "Dziś",
-        "weekdays": ["Pon", "Wt", "Śr", "Czw", "Pt", "Sob", "Nd"],
-        "empty_day": "Brak postów tego dnia.",
-        "schedule_post": "Zaplanuj post",
-        "pick_post": "Wybierz post",
-        "pick_time": "Data i godzina",
-        "submit_schedule": "Zaplanuj",
-        "scheduling": "Planowanie…",
-        "reschedule": "Przesuń",
-        "rescheduling": "Przesuwanie…",
-        "cancel_post": "Anuluj",
-        "cancel_title": "Anuluj zaplanowany post",
-        "cancel_description": "Post nie zostanie opublikowany o zaplanowanej godzinie. Możesz go ponownie zaplanować na stronie Kampanie.",
-        "cancel_confirm": "Anuluj post",
-        "more": "+{{count}} więcej",
-        "published_on": "Opublikowano na {{platforms}}",
-        "toast": {
-            "scheduled": "Post zaplanowany",
-            "rescheduled": "Post przesunięty",
-            "cancelled": "Zaplanowany post anulowany"
-        }
-    },
-    "reports": {
-        "page": {
-            "title": "Raporty",
-            "empty": "Brak raportów",
-            "new": "+ Nowy raport"
-        },
-        "sections": {
-            "stats": "Statystyki",
-            "chart": "Wykres zaangażowania",
-            "posts": "Najlepsze posty",
-            "prediction": "Predykcja",
-            "tip": "Wskazówka dnia"
-        },
-        "form": {
-            "name": "Nazwa raportu",
-            "name_placeholder": "np. Tygodniowy przegląd",
-            "sections": "Sekcje do uwzględnienia",
-            "interval": "Automatyczne generowanie",
-            "interval_none": "Tylko na żądanie",
-            "interval_week": "Co tydzień",
-            "interval_2weeks": "Co 2 tygodnie",
-            "interval_month": "Co miesiąc",
-            "create": "Utwórz raport",
-            "creating": "Tworzę…"
-        },
-        "row": {
-            "generate": "Generuj teraz",
-            "view": "Podgląd",
-            "pause": "Wstrzymaj",
-            "resume": "Wznów",
-            "delete": "Usuń",
-            "interval": "co {{days}} dni",
-            "on_demand": "Na żądanie",
-            "last_run": "Ostatni raport:",
-            "runs": "uruchomień",
-            "pause_na": "Wstrzymanie dotyczy tylko raportów z harmonogramem",
-            "confirm_delete": "Usunąć ten raport i całą historię? Tej operacji nie można cofnąć.",
-            "generated_ok": "Raport wygenerowany pomyślnie."
-        },
-        "status": {
-            "active": "Aktywny",
-            "paused": "Wstrzymany"
-        },
-        "view": {
-            "generated": "Wygenerowano:",
-            "chart_last30": "Ostatnie 30 punktów danych",
-            "title": "Raport",
-            "confidence": "Pewność predykcji",
-            "download": "Pobierz PDF"
-        },
-        "notification": {
-            "title": "Raport gotowy",
-            "message": "Raport \"{{name}}\" został wygenerowany."
-        },
-        "detail": {
-            "back": "← Raporty",
-            "every_days": "Co {{days}} dni",
-            "on_demand": "Na żądanie",
-            "runs_one": "{{count}} uruchomienie",
-            "runs_other": "{{count}} uruchomień",
-            "no_runs": "Brak uruchomień. Wygeneruj raport z listy raportów.",
-            "popup_blocked": "Popup zablokowany — zezwól na wyskakujące okna, aby wydrukować raport."
-        }
-    },
-    "announcement": {
-        "wip": "Aplikacja w trakcie tworzenia — mogą pojawić się błędy."
+    "tips": {
+      "no_posts": "Opublikuj swój pierwszy post, aby zacząć otrzymywać spersonalizowane wskazówki analityczne.",
+      "all_good": "Świetna robota! Wszystkie ostatnie posty mają wysoką ocenę. Utrzymaj jakość.",
+      "no_content": "Spróbuj dodać tekst do następnego posta  posty z opisem uzyskują znacznie więcej zaangażowania.",
+      "content_too_short": "Tekst posta jest bardzo krótki. Rozwiń go do co najmniej 30 znaków, by dać odbiorcom więcej kontekstu.",
+      "content_too_long": "Rozważ skrócenie tekstu posta dla lepszej czytelności na urządzeniach mobilnych.",
+      "no_media": "Posty ze zdjęciami lub filmami otrzymują średnio 2–3× więcej zaangażowania. Dodaj media do następnego posta.",
+      "no_hashtags": "Dodaj 5–15 trafnych hashtagów do postów, aby dotrzeć do szerszego grona odbiorców.",
+      "too_many_hashtags": "Zmniejsz liczbę hashtagów do 5–15 na post  zbyt wiele może wyglądać jak spam.",
+      "no_platforms": "Wybierz przynajmniej jedną platformę przed publikacją, aby post był widoczny.",
+      "single_platform": "Publikuj na wielu platformach, aby zmaksymalizować zasięg treści.",
+      "poor_timing": "Spróbuj zaplanować następny post między 7:00 a 22:00, by uzyskać większą widoczność.",
+      "no_cta": "Zakończ post wyraźnym wezwaniem do działania  zadaj pytanie lub zaproś do kliknięcia linku."
     }
+  },
+  "account": {
+    "profile": {
+      "title": "Mój profil",
+      "edit_link": "Edytuj w ustawieniach"
+    },
+    "settings": {
+      "title": "Ustawienia konta"
+    },
+    "username": {
+      "label": "Nazwa użytkownika",
+      "section_title": "Zmień nazwę użytkownika",
+      "helper": "Pozostało {{remaining}} z 3 zmian w tym roku",
+      "limit_reached": "Osiągnąłeś limit 3 zmian nazwy użytkownika w ciągu roku.",
+      "taken": "Ta nazwa użytkownika jest już zajęta",
+      "save": "Zapisz nazwę",
+      "success": "Nazwa użytkownika została zaktualizowana"
+    },
+    "export": {
+      "title": "Eksport danych konta",
+      "description": "Pobierz wszystkie dane konta jako plik JSON.",
+      "button": "Pobierz dane (JSON)",
+      "loading": "Przygotowywanie eksportu..."
+    },
+    "delete": {
+      "title": "Usuń konto",
+      "warning": "Ta akcja jest nieodwracalna. Wszystkie Twoje posty, połączenia social i dane zostaną usunięte.",
+      "button": "Usuń moje konto",
+      "confirm_label": "Wpisz swoją nazwę użytkownika, aby potwierdzić",
+      "confirm_placeholder": "twoja-nazwa",
+      "confirm_action": "Trwale usuń konto"
+    },
+    "notifications": {
+      "title": "Preferencje powiadomień",
+      "muteLabel": "Wycisz powiadomienia",
+      "muteHelper": "Nowe powiadomienia nie będą pojawiać się w dzwonku.",
+      "emailLabel": "Powiadomienia e-mail",
+      "emailHelper": "Otrzymuj e-maile o ważnych zdarzeniach, takich jak ukończone kampanie i połączone konta.",
+      "save": "Zapisz preferencje",
+      "saved": "Zapisano!"
+    }
+  },
+  "social": {
+    "settings": {
+      "title": "Konta społecznościowe"
+    },
+    "connect": "Połącz",
+    "disconnect": "Rozłącz",
+    "connected_as": "Połączono jako @{{username}}",
+    "not_connected": "Nie połączono",
+    "expires": "Wygasa",
+    "connect_success": "Konto zostało pomyślnie połączone.",
+    "disconnect_error": "Nie udało się rozłączyć. Spróbuj ponownie."
+  },
+  "posts": {
+    "composer": {
+      "placeholder": "Co masz na myśli?",
+      "placeholder_instagram": "Napisz podpis do Instagrama...",
+      "placeholder_facebook": "Co się dzieje na Facebooku?",
+      "placeholder_twitter": "Co się dzieje?",
+      "placeholder_tiktok": "Napisz opis TikToka...",
+      "placeholder_linkedin": "Podziel się profesjonalnymi przemyśleniami...",
+      "placeholder_youtube": "Opisz swój film na YouTube...",
+      "platforms_label": "Platformy",
+      "composing_for": "Tworzysz dla {{platform}}",
+      "limit_exceeded_warning": "Treść przekracza limit {{platform}} wynoszący {{limit}} znaków.",
+      "multi_platform_limit_note": "Najbardziej restrykcyjny limit: {{platform}} ({{limit}} znaków)",
+      "char_counter_label": "{{current}} z {{max}} znaków",
+      "platform_fields": {
+        "section_label_single": "Ustawienia platformy",
+        "section_label_multi": "Ustawienia per platforma"
+      },
+      "existing_media_alt": "Media {{n}}",
+      "remove_media_label": "Usuń media {{n}}",
+      "add_photo": "Dodaj zdjęcie",
+      "cancel": "Anuluj",
+      "publish": "Opublikuj",
+      "publish_to": "Opublikuj ({{count}})",
+      "save_draft": "Zapisz szkic",
+      "publishing": "Publikowanie...",
+      "save": "Zapisz",
+      "success": "Post opublikowany pomyślnie.",
+      "instagram_needs_media": "Instagram wymaga co najmniej jednego zdjęcia. Dodaj zdjęcie, aby opublikować.",
+      "platform_not_connected": "{{platform}} nie jest podłączony  przejdź do ustawień kont",
+      "platform_disconnected_badge": "off",
+      "ai": {
+        "generate": "Generuj",
+        "generating": "Generowanie...",
+        "generate_aria": "Generuj podpis z AI",
+        "error": "Nie udało się wygenerować podpisu. Spróbuj ponownie."
+      }
+    }
+  },
+  "plugins": {
+    "marketplace": {
+      "label": "// MARKETPLACE",
+      "heading": "Marketplace Pluginów",
+      "empty": "Brak dostępnych pluginów.",
+      "installed": "ZAINSTALOWANY",
+      "update": "AKTUALIZACJA",
+      "install": "Zainstaluj",
+      "uninstall": "Odinstaluj",
+      "update_action": "Aktualizuj",
+      "author": "autor",
+      "capabilities": "uprawnienia",
+      "installing": "Instalowanie...",
+      "uninstalling": "Odinstalowywanie..."
+    },
+    "upload": {
+      "label": "// PRZEŚLIJ PLUGIN",
+      "heading": "Prześlij Plugin",
+      "slug_label": "Slug",
+      "slug_placeholder": "moj-plugin",
+      "name_label": "Nazwa",
+      "name_placeholder": "Mój Plugin",
+      "description_label": "Opis",
+      "description_placeholder": "Co robi ten plugin?",
+      "version_label": "Wersja",
+      "version_placeholder": "1.0.0",
+      "manifest_label": "Manifest JSON",
+      "manifest_placeholder": "{\"name\": \"moj-plugin\", \"version\": \"1.0.0\", \"description\": \"\", \"author\": \"\", \"permissions\": []}",
+      "bundle_label": "Bundle (.js)",
+      "submit": "Prześlij do recenzji",
+      "submitting": "Przesyłanie...",
+      "success": "Plugin przesłany do recenzji.",
+      "error": "Błąd przesyłania pluginu."
+    },
+    "admin": {
+      "label": "// ADMIN",
+      "heading": "Kolejka Recenzji Pluginów",
+      "empty": "Brak pluginów oczekujących na recenzję.",
+      "approve": "Zatwierdź",
+      "reject": "Odrzuć",
+      "reject_reason_label": "Powód odrzucenia",
+      "reject_reason_placeholder": "Wyjaśnij dlaczego ten plugin jest odrzucany...",
+      "confirm_reject": "Potwierdź odrzucenie",
+      "cancel": "Anuluj",
+      "approving": "Zatwierdzanie...",
+      "rejecting": "Odrzucanie...",
+      "pending_badge": "OCZEKUJE NA RECENZJĘ",
+      "submitted": "przesłano",
+      "version_label": "wersja",
+      "author_label": "autor",
+      "capabilities_label": "uprawnienia",
+      "manifest_label": "Manifest"
+    }
+  },
+  "campaigns": {
+    "page": {
+      "eyebrow": "// KAMPANIE",
+      "title": "Kampanie",
+      "empty": "Brak kampanii  utwórz pierwszą, aby zacząć",
+      "new": "+ Nowa kampania"
+    },
+    "new": {
+      "eyebrow": "// NOWA KAMPANIA",
+      "title": "Nowa kampania",
+      "save": "Utwórz kampanię",
+      "saving": "Tworzenie..."
+    },
+    "status": {
+      "active": "Aktywna",
+      "paused": "Wstrzymana",
+      "completed": "Zakończona",
+      "failed": "Błąd"
+    },
+    "filter": {
+      "all": "Wszystkie",
+      "active": "Aktywne",
+      "paused": "Wstrzymane",
+      "completed": "Zakończone",
+      "failed": "Błędy"
+    },
+    "action": {
+      "publish_post": "Publikacja posta",
+      "webhook": "Webhook"
+    },
+    "field": {
+      "name": "Nazwa kampanii",
+      "name_placeholder": "np. Promocja tygodniowa",
+      "action_type": "Typ akcji",
+      "post_id": "ID posta",
+      "post_id_placeholder": "Wpisz ID posta",
+      "url": "URL webhooka",
+      "url_placeholder": "https://example.com/webhook",
+      "method": "Metoda HTTP",
+      "body": "Treść żądania (opcjonalnie)",
+      "body_placeholder": "{ \"klucz\": \"wartość\" }",
+      "interval": "Interwał (minuty)",
+      "total_runs": "Liczba uruchomień",
+      "start_at": "Czas startu (opcjonalnie)",
+      "start_at_hint": "Zostaw puste, aby zacząć natychmiast",
+      "name_help": "Krótka, rozpoznawalna nazwa kampanii (maks. 100 znaków).",
+      "action_type_help": "Wybierz, co kampania robi przy każdym uruchomieniu.",
+      "posts": "Posty",
+      "posts_help": "Wybierz jeden lub więcej swoich postów do automatycznej publikacji.",
+      "posts_empty": "Nie masz jeszcze żadnych postów. Utwórz posta, a potem skonfiguruj kampanię.",
+      "posts_selected": "{{count}} post wybrany",
+      "posts_selected_plural": "{{count}} posty wybrane",
+      "url_help": "Adres URL, który otrzymuje żądanie HTTP przy każdym uruchomieniu. Musi używać https lub http.",
+      "method_help": "Metoda HTTP wysyłana do webhooka. POST jest zalecana w większości przypadków.",
+      "body_help": "Opcjonalna treść JSON wysyłana z żądaniami POST/PUT/PATCH.",
+      "interval_help": "Jak często kampania się uruchamia. Minimum 1 minuta. Użyj presetów powyżej dla typowych interwałów.",
+      "total_runs_help": "Łączna liczba uruchomień kampanii przed jej zakończeniem (1–10 000).",
+      "start_at_help": "Zaplanuj pierwsze uruchomienie na przyszłą datę i godzinę. Zostaw puste, aby zacząć natychmiast.",
+      "posts_search": "Szukaj postów…",
+      "posts_no_results": "Brak wyników dla tego zapytania",
+      "no_content": "(brak treści)"
+    },
+    "interval_preset": {
+      "15m": "15m",
+      "1h": "1h",
+      "6h": "6h",
+      "24h": "24h"
+    },
+    "actions": {
+      "pause": "Wstrzymaj",
+      "resume": "Wznów",
+      "delete": "Usuń",
+      "history": "Historia",
+      "hide_history": "Ukryj",
+      "pausing": "Wstrzymywanie...",
+      "resuming": "Wznawianie...",
+      "deleting": "Usuwanie..."
+    },
+    "progress": "{{done}}/{{total}} uruchomień",
+    "next_run": "Następne uruchomienie",
+    "last_run": "Ostatnie uruchomienie",
+    "interval_label": "co {{minutes}} min",
+    "runs": {
+      "title": "Historia uruchomień",
+      "empty": "Brak uruchomień",
+      "success": "Sukces",
+      "failed": "Błąd",
+      "at": "o"
+    },
+    "confirm_delete": {
+      "title": "Usuń kampanię",
+      "description": "Trwale usunie kampanię i całą historię uruchomień. Nie można cofnąć tej operacji.",
+      "label": "Wpisz nazwę kampanii, aby potwierdzić",
+      "confirm": "Usuń kampanię"
+    },
+    "toast": {
+      "paused": "Kampania wstrzymana",
+      "resumed": "Kampania wznowiona",
+      "deleted": "Kampania usunięta",
+      "created": "Kampania utworzona pomyślnie"
+    }
+  },
+  "schedule": {
+    "label": "// HARMONOGRAM",
+    "heading": "Kalendarz postów",
+    "prev_month": "Poprzedni miesiąc",
+    "next_month": "Następny miesiąc",
+    "today": "Dziś",
+    "weekdays": [
+      "Pon",
+      "Wt",
+      "Śr",
+      "Czw",
+      "Pt",
+      "Sob",
+      "Nd"
+    ],
+    "empty_day": "Brak postów tego dnia.",
+    "schedule_post": "Zaplanuj post",
+    "pick_post": "Wybierz post",
+    "pick_time": "Data i godzina",
+    "submit_schedule": "Zaplanuj",
+    "scheduling": "Planowanie…",
+    "reschedule": "Przesuń",
+    "rescheduling": "Przesuwanie…",
+    "cancel_post": "Anuluj",
+    "cancel_title": "Anuluj zaplanowany post",
+    "cancel_description": "Post nie zostanie opublikowany o zaplanowanej godzinie. Możesz go ponownie zaplanować na stronie Kampanie.",
+    "cancel_confirm": "Anuluj post",
+    "more": "+{{count}} więcej",
+    "published_on": "Opublikowano na {{platforms}}",
+    "toast": {
+      "scheduled": "Post zaplanowany",
+      "rescheduled": "Post przesunięty",
+      "cancelled": "Zaplanowany post anulowany"
+    }
+  },
+  "reports": {
+    "page": {
+      "title": "Raporty",
+      "empty": "Brak raportów",
+      "new": "+ Nowy raport"
+    },
+    "sections": {
+      "stats": "Statystyki",
+      "chart": "Wykres zaangażowania",
+      "posts": "Najlepsze posty",
+      "prediction": "Predykcja",
+      "tip": "Wskazówka dnia"
+    },
+    "form": {
+      "name": "Nazwa raportu",
+      "name_placeholder": "np. Tygodniowy przegląd",
+      "sections": "Sekcje do uwzględnienia",
+      "interval": "Automatyczne generowanie",
+      "interval_none": "Tylko na żądanie",
+      "interval_week": "Co tydzień",
+      "interval_2weeks": "Co 2 tygodnie",
+      "interval_month": "Co miesiąc",
+      "create": "Utwórz raport",
+      "creating": "Tworzę…"
+    },
+    "row": {
+      "generate": "Generuj teraz",
+      "view": "Podgląd",
+      "pause": "Wstrzymaj",
+      "resume": "Wznów",
+      "delete": "Usuń",
+      "interval": "co {{days}} dni",
+      "on_demand": "Na żądanie",
+      "last_run": "Ostatni raport:",
+      "runs": "uruchomień",
+      "pause_na": "Wstrzymanie dotyczy tylko raportów z harmonogramem",
+      "confirm_delete": "Usunąć ten raport i całą historię? Tej operacji nie można cofnąć.",
+      "generated_ok": "Raport wygenerowany pomyślnie."
+    },
+    "status": {
+      "active": "Aktywny",
+      "paused": "Wstrzymany"
+    },
+    "view": {
+      "generated": "Wygenerowano:",
+      "chart_last30": "Ostatnie 30 punktów danych",
+      "title": "Raport",
+      "confidence": "Pewność predykcji",
+      "download": "Pobierz PDF"
+    },
+    "notification": {
+      "title": "Raport gotowy",
+      "message": "Raport \"{{name}}\" został wygenerowany."
+    },
+    "detail": {
+      "back": "← Raporty",
+      "every_days": "Co {{days}} dni",
+      "on_demand": "Na żądanie",
+      "runs_one": "{{count}} uruchomienie",
+      "runs_other": "{{count}} uruchomień",
+      "no_runs": "Brak uruchomień. Wygeneruj raport z listy raportów.",
+      "popup_blocked": "Popup zablokowany  zezwól na wyskakujące okna, aby wydrukować raport."
+    }
+  },
+  "announcement": {
+    "wip": "Aplikacja w trakcie tworzenia  mogą pojawić się błędy."
+  },
+  "cli": {
+    "token_show_once": "Ten token jest wyświetlany tylko raz. Przechowuj go bezpiecznie.",
+    "no_tokens": "Brak tokenów.",
+    "token_created": "Token utworzony  skopiuj go teraz. Nie zostanie pokazany ponownie.",
+    "token_name_placeholder": "np. CLI laptop",
+    "days": "dni",
+    "col_expires": "Wygasa",
+    "copy": "Kopiuj",
+    "col_last_used": "Ostatnie użycie",
+    "generating": "Generuję…",
+    "col_prefix": "Prefiks",
+    "generate": "Generuj",
+    "expires_label": "Wygasa za",
+    "token_name_label": "Nazwa tokena",
+    "col_name": "Nazwa",
+    "revoke": "Odwołaj"
+  }
 }

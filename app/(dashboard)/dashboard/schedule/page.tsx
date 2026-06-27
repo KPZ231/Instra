@@ -5,7 +5,7 @@ import { getUserPosts } from '@/lib/api/posts'
 import { PostCalendar } from '@/components/ui/calendar/PostCalendar'
 
 export const metadata: Metadata = {
-  title: 'Schedule — Instra',
+  title: 'Schedule  Instra',
   robots: { index: false, follow: false },
 }
 
@@ -66,7 +66,7 @@ export default async function SchedulePage({ searchParams }: SchedulePageProps) 
         </h1>
       </div>
 
-      {/* Calendar — Next.js 15 RSC serializes Date natively across the boundary */}
+      {/* Calendar  Next.js 15 RSC serializes Date natively across the boundary */}
       <PostCalendar month={monthParam} items={items} posts={posts} />
     </div>
   )

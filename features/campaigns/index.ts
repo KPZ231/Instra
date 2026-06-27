@@ -1,4 +1,4 @@
-// Public barrel — import from this file only.
+// Public barrel  import from this file only.
 
 export { createCampaign } from './actions/createCampaign'
 export { pauseCampaign } from './actions/pauseCampaign'

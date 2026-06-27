@@ -1,4 +1,4 @@
-# Language Switcher in Navbar — Implementation Plan
+# Language Switcher in Navbar  Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
@@ -10,8 +10,8 @@
 
 ## Global Constraints
 
-- TypeScript strict — no `any`
-- All UI strings via `t("key")` — no hardcoded labels
+- TypeScript strict  no `any`
+- All UI strings via `t("key")`  no hardcoded labels
 - Styling must match existing Navbar glassmorphism: `rgba(26,28,24,0.92)` background, `border: 1px solid rgba(255,255,255,0.08)`
 - Components go in `/components/ui/`
 - framer-motion for dropdown animation (fade + slide, same as profile dropdown)
@@ -65,7 +65,7 @@ git commit -m "feat(i18n): add language name keys for switcher"
 
 **Interfaces:**
 - Consumes: `supportedLocales` from `lib/i18n/config.ts`, `t("lang.en")` / `t("lang.pl")` from Task 1
-- Produces: `<LanguageSwitcher />` — zero props, self-contained
+- Produces: `<LanguageSwitcher />`  zero props, self-contained
 
 - [ ] **Step 1: Create the component**
 

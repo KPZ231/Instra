@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Implement a secure, extensible authentication backend for Instra — email/password registration, credentials login, Google + GitHub OAuth, database-backed user/account storage, and anti-hijacking session protection via a fingerprint cookie.
+**Goal:** Implement a secure, extensible authentication backend for Instra  email/password registration, credentials login, Google + GitHub OAuth, database-backed user/account storage, and anti-hijacking session protection via a fingerprint cookie.
 
 **Architecture:** Auth.js v5 (`next-auth@beta`) handles OAuth flows and JWT session cookies via the Prisma adapter. Passwords are hashed with bcryptjs. A separate `__fp` cookie containing `HMAC(userAgent, SECRET)` is set at sign-in time and validated on every protected request in `proxy.ts`. Server Actions perform all mutations. A Data Access Layer (DAL) centralises `verifySession`.
 
@@ -20,7 +20,7 @@
 | `lib/auth/passwords.ts` | bcryptjs hash + compare helpers |
 | `lib/auth/session.ts` | Fingerprint utilities + cookie helpers |
 | `lib/auth/config.ts` | Auth.js v5 providers, callbacks, JWT config |
-| `lib/auth/dal.ts` | `verifySession`, `getCurrentUser` — server-only DAL |
+| `lib/auth/dal.ts` | `verifySession`, `getCurrentUser`  server-only DAL |
 | `app/api/auth/[...nextauth]/route.ts` | Auth.js route handler; injects `__fp` cookie on OAuth callbacks |
 | `features/auth/actions/registerUser.ts` | Server Action: validate → hash → create user → sign in → set `__fp` |
 | `features/auth/actions/loginUser.ts` | Server Action: validate → verify credentials → sign in → set `__fp` |
@@ -72,7 +72,7 @@ git commit -m "chore: install auth dependencies (next-auth, prisma, bcryptjs, zo
 
 **Files:**
 - Create: `.env.example`
-- Create: `.env.local` (not committed — add to .gitignore)
+- Create: `.env.local` (not committed  add to .gitignore)
 
 - [ ] **Step 1: Write `.env.example`**
 
@@ -197,7 +197,7 @@ npx prisma generate
 
 Expected: "Generated Prisma Client".
 
-- [ ] **Step 3: Run migration** (requires a running DB — skip for now if no DB yet, come back to this step after DB is available)
+- [ ] **Step 3: Run migration** (requires a running DB  skip for now if no DB yet, come back to this step after DB is available)
 
 ```bash
 npx prisma migrate dev --name init-auth
@@ -209,7 +209,7 @@ Expected: migration file created in `prisma/migrations/`.
 
 ```bash
 git add prisma/
-git commit -m "feat(db): add auth schema — User, Account, Session, VerificationToken"
+git commit -m "feat(db): add auth schema  User, Account, Session, VerificationToken"
 ```
 
 ---
@@ -242,7 +242,7 @@ describe('prisma singleton', () => {
 npx vitest run lib/__tests__/prisma.test.ts
 ```
 
-Expected: FAIL — `../prisma` not found.
+Expected: FAIL  `../prisma` not found.
 
 - [ ] **Step 3: Create `lib/prisma.ts`**
 
@@ -367,7 +367,7 @@ describe('LoginSchema', () => {
 npx vitest run lib/auth/__tests__/validation.test.ts
 ```
 
-Expected: FAIL — module not found.
+Expected: FAIL  module not found.
 
 - [ ] **Step 3: Create `lib/auth/validation.ts`**
 
@@ -1072,7 +1072,7 @@ git commit -m "feat(auth): add server-only Data Access Layer (verifySession, get
 
 ---
 
-## Task 14: Proxy — route protection + fingerprint validation
+## Task 14: Proxy  route protection + fingerprint validation
 
 **Files:**
 - Create: `proxy.ts`
@@ -1180,11 +1180,11 @@ and anti-session-hijacking protection.
 
 ## Technologies
 
-- **Auth.js v5** (`next-auth@beta`) — OAuth providers, JWT session cookies
-- **@auth/prisma-adapter** — stores Users + OAuth Accounts in PostgreSQL via Prisma
-- **bcryptjs** — password hashing (12 rounds)
-- **Zod** — server-side input validation
-- **HMAC-SHA256** (`crypto` built-in) — session fingerprint for hijacking detection
+- **Auth.js v5** (`next-auth@beta`)  OAuth providers, JWT session cookies
+- **@auth/prisma-adapter**  stores Users + OAuth Accounts in PostgreSQL via Prisma
+- **bcryptjs**  password hashing (12 rounds)
+- **Zod**  server-side input validation
+- **HMAC-SHA256** (`crypto` built-in)  session fingerprint for hijacking detection
 
 ## Session Security
 
@@ -1195,34 +1195,34 @@ __fp = HMAC-SHA256(userAgent, AUTH_SECRET)
 ```
 
 The proxy validates `__fp` on every request to `/dashboard/**`. A user-agent mismatch
-causes immediate sign-out — this prevents a stolen JWT session cookie from being replayed
+causes immediate sign-out  this prevents a stolen JWT session cookie from being replayed
 from a different device or tool.
 
 ## File Structure
 
 ```
 lib/
-  prisma.ts              — Prisma client singleton
+  prisma.ts               Prisma client singleton
   auth/
-    config.ts            — Auth.js providers + JWT callbacks
-    dal.ts               — verifySession, getCurrentUser (server-only)
-    passwords.ts         — hashPassword, verifyPassword
-    session.ts           — computeFingerprint, cookie constants
-    validation.ts        — Zod schemas for register + login
+    config.ts             Auth.js providers + JWT callbacks
+    dal.ts                verifySession, getCurrentUser (server-only)
+    passwords.ts          hashPassword, verifyPassword
+    session.ts            computeFingerprint, cookie constants
+    validation.ts         Zod schemas for register + login
 
 features/auth/
   actions/
-    registerUser.ts      — Server Action: create user + sign in
-    loginUser.ts         — Server Action: sign in with credentials
-    logoutUser.ts        — Server Action: sign out + clear fingerprint
-  types/index.ts         — AuthActionState
-  index.ts               — barrel exports
+    registerUser.ts       Server Action: create user + sign in
+    loginUser.ts          Server Action: sign in with credentials
+    logoutUser.ts         Server Action: sign out + clear fingerprint
+  types/index.ts          AuthActionState
+  index.ts                barrel exports
 
 app/api/auth/[...nextauth]/
-  route.ts               — Auth.js route handler (injects __fp on OAuth callbacks)
+  route.ts                Auth.js route handler (injects __fp on OAuth callbacks)
 
-proxy.ts                 — Route guard + fingerprint validation
-types/auth.ts            — SessionUser, UserRole, NextAuth module augmentations
+proxy.ts                  Route guard + fingerprint validation
+types/auth.ts             SessionUser, UserRole, NextAuth module augmentations
 ```
 
 ## Usage Examples
@@ -1292,7 +1292,7 @@ export async function updateProfile(formData: FormData) {
 - [x] Session hijacking: user-agent fingerprint validated on every protected request
 - [x] Input validated server-side with Zod before any DB call
 - [x] OAuth account data stored via official `@auth/prisma-adapter`
-- [x] All secrets in environment variables — never in code
+- [x] All secrets in environment variables  never in code
 - [x] Least-privilege DB queries (`select` only needed fields)
 - [x] Error messages do not expose internal details
 ```

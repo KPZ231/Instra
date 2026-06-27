@@ -2,7 +2,7 @@
  * Heuristic engagement prediction engine.
  * Uses EWMA (Exponentially Weighted Moving Average) when sufficient history is available,
  * falls back to a content-feature-based estimate otherwise.
- * No external dependencies — pure TypeScript.
+ * No external dependencies  pure TypeScript.
  */
 
 import type { MetricDataPoint, EngagementPrediction } from '../types'
@@ -88,7 +88,7 @@ export function predictEngagement(
   const confidence = getConfidence(series.length)
 
   if (series.length === 0) {
-    // No data — use content-feature fallback with gentle growth assumption
+    // No data  use content-feature fallback with gentle growth assumption
     const startDate = new Date().toISOString().slice(0, 10)
     return {
       confidence: 'low',

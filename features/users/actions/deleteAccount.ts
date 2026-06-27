@@ -13,7 +13,7 @@ import type { DeleteAccountState } from './types'
  * deletes the user record (cascades handle related data), then signs out.
  *
  * @param state    - Previous action state (from useActionState)
- * @param formData - Fields: confirm (string — must match current username)
+ * @param formData - Fields: confirm (string  must match current username)
  * @returns DeleteAccountState with field errors, or signs out on success
  *
  * @example

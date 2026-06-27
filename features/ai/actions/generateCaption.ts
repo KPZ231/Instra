@@ -12,7 +12,7 @@ import type { GenerateCaptionState } from '@/features/ai/types'
  *
  * @param _state - Previous action state (unused; included for useActionState compat)
  * @param input  - { prompt, language }
- * @returns GenerateCaptionState — { text } on success or { errors } on failure
+ * @returns GenerateCaptionState  { text } on success or { errors } on failure
  *
  * @example
  * const result = await generateCaption({}, { prompt: 'morning coffee', language: 'en' })

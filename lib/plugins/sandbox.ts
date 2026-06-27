@@ -8,7 +8,7 @@ import { z } from 'zod'
  * Callbacks exposed from the host to the plugin isolate.
  * All functions execute in the host V8 context and are invoked from inside
  * the sandboxed isolate via `ivm.Callback`. Functions that cannot cross the
- * boundary (e.g. guest function References) are handled differently — see
+ * boundary (e.g. guest function References) are handled differently  see
  * implementation notes in `runPluginInIsolate`.
  */
 export interface PluginContextCallbacks {
@@ -30,7 +30,7 @@ export interface PluginContextCallbacks {
  * Context shim injected into the isolate so the plugin sees a `context` global
  * that mirrors the PluginContext interface. Handlers (widgets, routes, event
  * listeners) are stored into isolate-side maps and retrieved by the host after
- * `init()` via `ivm.Reference` lookups — they never cross the boundary as
+ * `init()` via `ivm.Reference` lookups  they never cross the boundary as
  * callback arguments, which isolated-vm does not support.
  */
 const CONTEXT_SHIM = `
@@ -80,7 +80,7 @@ var context = {
 
 /**
  * Runs a plugin bundle in a fresh V8 Isolate (via `isolated-vm`) with a 32 MB
- * memory cap and zero access to the host Node.js runtime — no `require`, no
+ * memory cap and zero access to the host Node.js runtime  no `require`, no
  * `process`, no `fs`, not even via `Function` constructor prototype tricks.
  *
  * Widget and route handlers stay inside the isolate as `ivm.Reference` objects.
@@ -156,7 +156,7 @@ export async function runPluginInIsolate(
     }),
   )
 
-  // Inject the context shim — defines `context`, `__widgetHandlers`, etc.
+  // Inject the context shim  defines `context`, `__widgetHandlers`, etc.
   await ctx.eval(CONTEXT_SHIM, { timeout: SANDBOX_COMPILE_TIMEOUT_MS })
 
   // Compile and run the plugin bundle. We wrap it in a minimal CommonJS shim

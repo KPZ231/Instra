@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Build the core post system for Instra — a social feed where authenticated users create/edit/delete posts (text + image carousel), like posts, and view a public global feed and per-user profiles.
+**Goal:** Build the core post system for Instra  a social feed where authenticated users create/edit/delete posts (text + image carousel), like posts, and view a public global feed and per-user profiles.
 
 **Architecture:** Posts live in three new Prisma models (`Post`, `Media`, `Like`); media files are stored in Supabase Storage; mutations are Next.js Server Actions in `features/posts/actions/` mirroring `features/auth/actions/`; reads go through `lib/api/posts.ts` wrapped in Redis `getOrSet`; all pages are Server Components with ISR + cursor pagination.
 
@@ -10,11 +10,11 @@
 
 ## Global Constraints
 
-- No `any` TypeScript — all types must be explicit.
+- No `any` TypeScript  all types must be explicit.
 - All business logic in services/actions, never directly in components.
 - Every public function must have JSDoc with `@param`, `@returns`, `@example`.
-- All UI text via `t("posts.*")` — never hardcoded strings in JSX.
-- Supabase client **lazy-init** — no crash at module load when env vars are missing.
+- All UI text via `t("posts.*")`  never hardcoded strings in JSX.
+- Supabase client **lazy-init**  no crash at module load when env vars are missing.
 - Server actions follow the pattern: `verifySession()` → `rateLimit()` → Zod parse → Prisma → `invalidatePrefix()` → `revalidatePath()`.
 - Upload validation: `image/jpeg`, `image/png`, `image/webp` only; ≤ 5 MB per file; ≤ 10 files per post.
 - Post must have content OR at least one media item (not both empty).
@@ -26,41 +26,41 @@
 ## File Map
 
 **New files:**
-- `prisma/schema.prisma` — add `Post`, `Media`, `Like` models; add relations to `User`
-- `lib/storage/supabase.ts` — Supabase Storage client: `uploadPostMedia`, `deletePostMedia`
-- `lib/rate-limit/config.ts` — add `createPost`, `toggleLike` presets
-- `features/posts/validation.ts` — Zod schemas: `CreatePostSchema`, `UpdatePostSchema`
-- `features/posts/types/index.ts` — `PostActionState` type
-- `features/posts/actions/createPost.ts` — server action
-- `features/posts/actions/updatePost.ts` — server action
-- `features/posts/actions/deletePost.ts` — server action
-- `features/posts/actions/toggleLike.ts` — server action
-- `features/posts/actions/loadMorePosts.ts` — server action for cursor pagination
-- `features/posts/index.ts` — barrel export
-- `lib/api/posts.ts` — read layer: `getFeed`, `getPostsByUsername`, `getPostById`
-- `components/ui/Textarea.tsx` — reusable textarea primitive
-- `components/ui/Card.tsx` — reusable card primitive
-- `components/ui/posts/MediaCarousel.tsx` — image carousel for PostCard
-- `components/ui/posts/MediaUploadPreview.tsx` — multi-file upload preview in composer
-- `components/ui/posts/PostCard.tsx` — single post display
-- `components/ui/posts/PostComposer.tsx` — create/edit form (inline + full-page mode)
-- `components/ui/posts/PostFeed.tsx` — paginated list of PostCards
-- `app/(dashboard)/dashboard/posts/new/page.tsx` — full composer page
-- `app/(dashboard)/dashboard/posts/[id]/edit/page.tsx` — edit page
-- `app/(pages)/feed/page.tsx` — public global feed
-- `app/(pages)/profile/[username]/page.tsx` — public user profile
-- `docs/posts.md` — module documentation
-- `docs/storage.md` — Supabase Storage documentation
+- `prisma/schema.prisma`  add `Post`, `Media`, `Like` models; add relations to `User`
+- `lib/storage/supabase.ts`  Supabase Storage client: `uploadPostMedia`, `deletePostMedia`
+- `lib/rate-limit/config.ts`  add `createPost`, `toggleLike` presets
+- `features/posts/validation.ts`  Zod schemas: `CreatePostSchema`, `UpdatePostSchema`
+- `features/posts/types/index.ts`  `PostActionState` type
+- `features/posts/actions/createPost.ts`  server action
+- `features/posts/actions/updatePost.ts`  server action
+- `features/posts/actions/deletePost.ts`  server action
+- `features/posts/actions/toggleLike.ts`  server action
+- `features/posts/actions/loadMorePosts.ts`  server action for cursor pagination
+- `features/posts/index.ts`  barrel export
+- `lib/api/posts.ts`  read layer: `getFeed`, `getPostsByUsername`, `getPostById`
+- `components/ui/Textarea.tsx`  reusable textarea primitive
+- `components/ui/Card.tsx`  reusable card primitive
+- `components/ui/posts/MediaCarousel.tsx`  image carousel for PostCard
+- `components/ui/posts/MediaUploadPreview.tsx`  multi-file upload preview in composer
+- `components/ui/posts/PostCard.tsx`  single post display
+- `components/ui/posts/PostComposer.tsx`  create/edit form (inline + full-page mode)
+- `components/ui/posts/PostFeed.tsx`  paginated list of PostCards
+- `app/(dashboard)/dashboard/posts/new/page.tsx`  full composer page
+- `app/(dashboard)/dashboard/posts/[id]/edit/page.tsx`  edit page
+- `app/(pages)/feed/page.tsx`  public global feed
+- `app/(pages)/profile/[username]/page.tsx`  public user profile
+- `docs/posts.md`  module documentation
+- `docs/storage.md`  Supabase Storage documentation
 
 **Modified files:**
-- `app/(dashboard)/dashboard/page.tsx` — replace mock with real feed + inline composer
-- `locales/en/common.json` — add `posts` keys
-- `locales/pl/common.json` — add `posts` keys
-- `docs/database.md` — document new models
+- `app/(dashboard)/dashboard/page.tsx`  replace mock with real feed + inline composer
+- `locales/en/common.json`  add `posts` keys
+- `locales/pl/common.json`  add `posts` keys
+- `docs/database.md`  document new models
 
 ---
 
-### Task 1: Prisma Schema — Post, Media, Like models
+### Task 1: Prisma Schema  Post, Media, Like models
 
 **Files:**
 - Modify: `prisma/schema.prisma`
@@ -174,7 +174,7 @@ const ALLOWED_EXTENSIONS: Record<string, string> = {
   'image/webp': 'webp',
 }
 
-/** Lazy-init Supabase client — safe to import when env vars are missing. */
+/** Lazy-init Supabase client  safe to import when env vars are missing. */
 function getSupabase() {
   const url = process.env.SUPABASE_URL
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY
@@ -289,8 +289,8 @@ Returns `{ url, storagePath, mimeType }`.
 Bulk delete from bucket. Errors are logged, not thrown.
 
 ## Environment Variables
-- `SUPABASE_URL` — project URL
-- `SUPABASE_SERVICE_ROLE_KEY` — service role key (never expose client-side)
+- `SUPABASE_URL`  project URL
+- `SUPABASE_SERVICE_ROLE_KEY`  service role key (never expose client-side)
 ```
 
 - [ ] **Step 5: Commit**
@@ -312,8 +312,8 @@ git commit -m "feat(storage): add Supabase Storage service for post media upload
 **Interfaces:**
 - Produces:
   - Rate limit keys: `'createPost'`, `'toggleLike'`
-  - `CreatePostSchema` — validates `{ content?: string; mediaCount: number }`
-  - `UpdatePostSchema` — validates `{ postId: string; content?: string; mediaCount: number }`
+  - `CreatePostSchema`  validates `{ content?: string; mediaCount: number }`
+  - `UpdatePostSchema`  validates `{ postId: string; content?: string; mediaCount: number }`
   - `PostActionState` type
 
 - [ ] **Step 1: Add rate-limit presets**
@@ -392,7 +392,7 @@ git commit -m "feat(posts): add rate-limit presets, Zod schemas, and PostActionS
 
 ---
 
-### Task 4: Server actions — createPost, updatePost, deletePost, toggleLike, loadMorePosts
+### Task 4: Server actions  createPost, updatePost, deletePost, toggleLike, loadMorePosts
 
 **Files:**
 - Create: `features/posts/actions/createPost.ts`
@@ -749,7 +749,7 @@ git commit -m "feat(posts): add server actions for create, update, delete, toggl
 
 ---
 
-### Task 5: Read layer — lib/api/posts.ts
+### Task 5: Read layer  lib/api/posts.ts
 
 **Files:**
 - Create: `lib/api/posts.ts`
@@ -994,7 +994,7 @@ git commit -m "feat(posts): add read layer with getFeed, getPostsByUsername, get
 
 ---
 
-### Task 6: UI primitives — Textarea and Card
+### Task 6: UI primitives  Textarea and Card
 
 **Files:**
 - Create: `components/ui/Textarea.tsx`
@@ -1002,8 +1002,8 @@ git commit -m "feat(posts): add read layer with getFeed, getPostsByUsername, get
 
 **Interfaces:**
 - Produces:
-  - `<Textarea name rows className onChange value ref .../>` — styled textarea matching project's CSS vars
-  - `<Card className children />` — styled card wrapper
+  - `<Textarea name rows className onChange value ref .../>`  styled textarea matching project's CSS vars
+  - `<Card className children />`  styled card wrapper
 
 - [ ] **Step 1: Create `components/ui/Textarea.tsx`**
 
@@ -1115,8 +1115,8 @@ git commit -m "feat(ui): add Textarea and Card primitives"
 
 **Interfaces:**
 - Produces:
-  - `<MediaCarousel items={[{ id, url, mimeType, order }]} />` — swipeable image carousel
-  - `<MediaUploadPreview files onRemove onReorder />` — drag-free multi-file preview with remove buttons
+  - `<MediaCarousel items={[{ id, url, mimeType, order }]} />`  swipeable image carousel
+  - `<MediaUploadPreview files onRemove onReorder />`  drag-free multi-file preview with remove buttons
 
 - [ ] **Step 1: Create `components/ui/posts/MediaCarousel.tsx`**
 
@@ -1279,7 +1279,7 @@ git commit -m "feat(ui): add MediaCarousel and MediaUploadPreview components"
   - `MediaCarousel` from `./MediaCarousel`
   - `Card` from `components/ui/Card`
 - Produces:
-  - `<PostCard post currentUserId currentUserRole />` — single post display with like button and author controls
+  - `<PostCard post currentUserId currentUserRole />`  single post display with like button and author controls
 
 - [ ] **Step 1: Create `components/ui/posts/PostCard.tsx`**
 
@@ -1441,7 +1441,7 @@ git commit -m "feat(ui): add PostCard component with like toggle and author cont
   - `MediaUploadPreview` from `./MediaUploadPreview`
   - `FeedPost` from `lib/api/posts`
 - Produces:
-  - `<PostComposer mode="inline|full" existingPost? />` — create/edit form
+  - `<PostComposer mode="inline|full" existingPost? />`  create/edit form
 
 - [ ] **Step 1: Create `components/ui/posts/PostComposer.tsx`**
 
@@ -1665,7 +1665,7 @@ export function PostComposer({ mode, existingPost }: PostComposerProps) {
 }
 ```
 
-> **Note on file inputs:** The `createPost` server action receives `formData.getAll('media')` — to correctly pass the selected `File` objects through a Server Action form, wrap each `File` in a dedicated named `<input type="file">`. The pattern above uses a `ref` + `onChange` to collect files in state; however, Server Actions with file uploads require the `<input type="file" name="media">` elements to be part of the actual `<form>`. Refactor `PostComposer` so each selected file is stored as a DataTransfer item in a hidden `<input type="file">` OR use a route handler approach. The simplest correct solution: keep one `<input type="file" name="media" multiple>` (not hidden), style it with Tailwind's `file:` modifier, and show the selected count. Use `MediaUploadPreview` only for visual feedback without removing from the actual input. This avoids the DataTransfer complexity in Server Actions.
+> **Note on file inputs:** The `createPost` server action receives `formData.getAll('media')`  to correctly pass the selected `File` objects through a Server Action form, wrap each `File` in a dedicated named `<input type="file">`. The pattern above uses a `ref` + `onChange` to collect files in state; however, Server Actions with file uploads require the `<input type="file" name="media">` elements to be part of the actual `<form>`. Refactor `PostComposer` so each selected file is stored as a DataTransfer item in a hidden `<input type="file">` OR use a route handler approach. The simplest correct solution: keep one `<input type="file" name="media" multiple>` (not hidden), style it with Tailwind's `file:` modifier, and show the selected count. Use `MediaUploadPreview` only for visual feedback without removing from the actual input. This avoids the DataTransfer complexity in Server Actions.
 
 - [ ] **Step 2: Commit**
 
@@ -1687,7 +1687,7 @@ git commit -m "feat(ui): add PostComposer with inline/full modes, multi-image up
   - `loadMorePosts` from `features/posts`
   - `FeedPost` from `lib/api/posts`
 - Produces:
-  - `<PostFeed initialPosts nextCursor currentUserId currentUserRole />` — paginated feed
+  - `<PostFeed initialPosts nextCursor currentUserId currentUserRole />`  paginated feed
 
 - [ ] **Step 1: Create `components/ui/posts/PostFeed.tsx`**
 
@@ -1792,7 +1792,7 @@ git commit -m "feat(ui): add PostFeed with cursor pagination and Load more butto
 
 ---
 
-### Task 11: Dashboard page — inline composer + real feed
+### Task 11: Dashboard page  inline composer + real feed
 
 **Files:**
 - Modify: `app/(dashboard)/dashboard/page.tsx`
@@ -1823,12 +1823,12 @@ export const revalidate = 60
 
 export const metadata: Metadata = buildMetadata({
   slug: 'dashboard',
-  title: 'Dashboard — Instra',
+  title: 'Dashboard  Instra',
   description: 'Your Instra feed. Create posts and see what\'s happening.',
   robots: { index: false, follow: false },
 })
 
-/** Dashboard feed page — Server Component. Renders inline post composer and live feed. */
+/** Dashboard feed page  Server Component. Renders inline post composer and live feed. */
 export default async function DashboardPage() {
   const [{ posts, nextCursor }, user] = await Promise.all([getFeed(), getCurrentUser()])
 
@@ -1863,7 +1863,7 @@ import { PostComposer } from '@/components/ui/posts/PostComposer'
 
 export const metadata: Metadata = buildMetadata({
   slug: 'new-post',
-  title: 'New Post — Instra',
+  title: 'New Post  Instra',
   description: 'Create a new post on Instra.',
   robots: { index: false, follow: false },
 })
@@ -1900,7 +1900,7 @@ import { UserRole } from '@/types/auth'
 
 export const metadata: Metadata = buildMetadata({
   slug: 'edit-post',
-  title: 'Edit Post — Instra',
+  title: 'Edit Post  Instra',
   description: 'Edit your post on Instra.',
   robots: { index: false, follow: false },
 })
@@ -1909,7 +1909,7 @@ interface EditPostPageProps {
   params: Promise<{ id: string }>
 }
 
-/** Edit page — authorisation enforced server-side before rendering. */
+/** Edit page  authorisation enforced server-side before rendering. */
 export default async function EditPostPage({ params }: EditPostPageProps) {
   const { id } = await params
   const [post, { user }] = await Promise.all([getPostById(id), verifySession()])
@@ -1970,11 +1970,11 @@ export const revalidate = 60
 
 export const metadata: Metadata = buildMetadata({
   slug: 'feed',
-  title: 'Feed — Instra',
+  title: 'Feed  Instra',
   description: 'Discover the latest posts from the Instra community.',
 })
 
-/** Public global feed — Server Component with ISR. */
+/** Public global feed  Server Component with ISR. */
 export default async function FeedPage() {
   const [{ posts, nextCursor }, session] = await Promise.all([getFeed(), auth()])
 
@@ -2022,13 +2022,13 @@ export async function generateMetadata({ params }: ProfilePageProps): Promise<Me
   const user = await prisma.user.findUnique({ where: { username }, select: { name: true } })
   if (!user) return {}
   return {
-    title: `${user.name ?? username} — Instra`,
+    title: `${user.name ?? username}  Instra`,
     description: `Posts by ${user.name ?? username} on Instra.`,
     alternates: { canonical: `/profile/${username}` },
   }
 }
 
-/** Public user profile page — Server Component with ISR. */
+/** Public user profile page  Server Component with ISR. */
 export default async function ProfilePage({ params }: ProfilePageProps) {
   const { username } = await params
 
@@ -2178,11 +2178,11 @@ Core social feed feature for Instra.
 
 ## Architecture
 
-- **Mutations:** `features/posts/actions/` — Server Actions (create, update, delete, toggleLike, loadMore)
-- **Read layer:** `lib/api/posts.ts` — cached Prisma queries
-- **Validation:** `features/posts/validation.ts` — Zod schemas
-- **Storage:** `lib/storage/supabase.ts` — Supabase Storage upload/delete
-- **UI:** `components/ui/posts/` — PostCard, PostComposer, PostFeed, MediaCarousel, MediaUploadPreview
+- **Mutations:** `features/posts/actions/`  Server Actions (create, update, delete, toggleLike, loadMore)
+- **Read layer:** `lib/api/posts.ts`  cached Prisma queries
+- **Validation:** `features/posts/validation.ts`  Zod schemas
+- **Storage:** `lib/storage/supabase.ts`  Supabase Storage upload/delete
+- **UI:** `components/ui/posts/`  PostCard, PostComposer, PostFeed, MediaCarousel, MediaUploadPreview
 
 ## Limits
 
@@ -2230,5 +2230,5 @@ git commit -m "docs: add posts module documentation and update database.md"
 9. **Public feed:** Navigate to `/feed` while logged out → posts are visible, server-rendered (view-source shows post content).
 10. **Profile:** Navigate to `/profile/{username}` → shows user avatar, name, their posts only.
 11. **Rate limit:** With Upstash env vars set, submit > 10 posts in an hour → `RateLimitError` message shown in form.
-12. **Cache:** Second load of `/feed` is served from Redis (add `console.log` in `getFeed` fetcher — should not log on cached hit).
+12. **Cache:** Second load of `/feed` is served from Redis (add `console.log` in `getFeed` fetcher  should not log on cached hit).
 13. **SEO:** Lighthouse SEO score ≥ 90 on `/feed` and `/profile/{username}`.

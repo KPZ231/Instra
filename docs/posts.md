@@ -6,12 +6,12 @@ Core social feed feature for Instra. Users can create, edit, and delete posts wi
 
 The posts system is distributed across multiple layers:
 
-- **Mutations:** `features/posts/actions/` — Server Actions (createPost, updatePost, deletePost, toggleLike, loadMorePosts)
-- **Read layer:** `lib/api/posts.ts` — cached Prisma queries with Redis integration
-- **Validation:** `features/posts/validation.ts` — Zod schemas for input validation
-- **Storage:** `lib/storage/supabase.ts` — Supabase Storage for image upload/delete
-- **UI components:** `components/ui/posts/` — PostCard, PostComposer, PostFeed, MediaCarousel, MediaUploadPreview
-- **Database:** `prisma/schema.prisma` — Post, Media, Like models with relations to User
+- **Mutations:** `features/posts/actions/`  Server Actions (createPost, updatePost, deletePost, toggleLike, loadMorePosts)
+- **Read layer:** `lib/api/posts.ts`  cached Prisma queries with Redis integration
+- **Validation:** `features/posts/validation.ts`  Zod schemas for input validation
+- **Storage:** `lib/storage/supabase.ts`  Supabase Storage for image upload/delete
+- **UI components:** `components/ui/posts/`  PostCard, PostComposer, PostFeed, MediaCarousel, MediaUploadPreview
+- **Database:** `prisma/schema.prisma`  Post, Media, Like models with relations to User
 
 ## Constraints & Limits
 
@@ -172,8 +172,8 @@ Located in `components/ui/posts/` and `components/ui/`.
 ### PostComposer
 
 **Props:**
-- `mode: 'inline' | 'full'` — collapsible (on feed) or always-visible (dedicated page)
-- `existingPost?: FeedPost` — when provided, switches to edit mode with prefilled content
+- `mode: 'inline' | 'full'`  collapsible (on feed) or always-visible (dedicated page)
+- `existingPost?: FeedPost`  when provided, switches to edit mode with prefilled content
 
 **Behavior:**
 - Inline mode: collapses to a clickable placeholder until focused
@@ -348,6 +348,6 @@ function LikeButton({ postId, isLiked }) {
 
 ## Related Documentation
 
-- `docs/storage.md` — Supabase Storage integration
-- `docs/cache.md` — Redis caching layer
-- `docs/database.md` — Post, Media, Like models
+- `docs/storage.md`  Supabase Storage integration
+- `docs/cache.md`  Redis caching layer
+- `docs/database.md`  Post, Media, Like models

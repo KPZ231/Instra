@@ -15,12 +15,12 @@ Stores in-progress email registrations until verification is complete.
 | Field          | Type     | Description                                         |
 |----------------|----------|-----------------------------------------------------|
 | `id`           | String   | CUID primary key                                    |
-| `email`        | String   | Unique — the email being registered                 |
+| `email`        | String   | Unique  the email being registered                 |
 | `passwordHash` | String   | bcrypt hash of the chosen password                  |
 | `name`         | String?  | Optional display name                               |
 | `code`         | String   | 6-digit plain code (100000–999999)                  |
 | `expiresAt`    | DateTime | 10 minutes from creation/resend                     |
-| `lastSentAt`   | DateTime | Timestamp of last send — used for 60s resend cooldown |
+| `lastSentAt`   | DateTime | Timestamp of last send  used for 60s resend cooldown |
 | `createdAt`    | DateTime | Record creation timestamp                           |
 
 ---
@@ -33,7 +33,7 @@ User fills sign-up form (email mode)
         ▼
 registerUser() server action
   1. Validate with RegisterSchema (Zod)
-  2. Check User table — reject if email already exists
+  2. Check User table  reject if email already exists
   3. Hash password with bcryptjs
   4. Generate cryptographically random 6-digit code
   5. Upsert PendingRegistration (allows re-registration before verification)
@@ -65,7 +65,7 @@ User logs in on /signin with their credentials
 
 ### `registerUser` (`/features/auth/actions/registerUser.ts`)
 
-Modified to support the new email verification step. Email-mode registrations no longer create a `User` directly — they create a `PendingRegistration` and redirect to `/verify-email`.
+Modified to support the new email verification step. Email-mode registrations no longer create a `User` directly  they create a `PendingRegistration` and redirect to `/verify-email`.
 
 ### `verifyEmail` (`/features/auth/actions/verifyEmail.ts`)
 
@@ -97,9 +97,9 @@ Key prefix: `verify_email.*`
 
 ## Technologies
 
-- **Next.js 15** App Router — page at `app/(auth)/verify-email/page.tsx`
-- **React** `useActionState` — for form submissions
-- **Prisma ORM** — `PendingRegistration` model
-- **Nodemailer / Google SMTP** — via `/lib/email/mailer.ts`
-- **Web Crypto API** — `crypto.getRandomValues()` for secure code generation
-- **react-i18next** — `useTranslation('common')` for all UI strings
+- **Next.js 15** App Router  page at `app/(auth)/verify-email/page.tsx`
+- **React** `useActionState`  for form submissions
+- **Prisma ORM**  `PendingRegistration` model
+- **Nodemailer / Google SMTP**  via `/lib/email/mailer.ts`
+- **Web Crypto API**  `crypto.getRandomValues()` for secure code generation
+- **react-i18next**  `useTranslation('common')` for all UI strings

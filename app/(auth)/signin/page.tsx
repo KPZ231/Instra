@@ -14,7 +14,7 @@ import type { AuthActionState } from '@/features/auth/types'
 
 const initialState: AuthActionState = { errors: {} }
 
-/** Client-side pre-validation schema — mirrors backend LoginSchema for instant feedback. */
+/** Client-side pre-validation schema  mirrors backend LoginSchema for instant feedback. */
 const ClientLoginSchema = z.object({
   email: z
     .string()
@@ -29,7 +29,7 @@ const ClientLoginSchema = z.object({
 type LoginFormData = z.infer<typeof ClientLoginSchema>
 
 /**
- * SignInPage — two-panel sign-in screen following Executive Precision design system.
+ * SignInPage  two-panel sign-in screen following Executive Precision design system.
  * Left: credential form + OAuth buttons. Right: brand/visual panel.
  * Uses react-hook-form + zodResolver for hybrid validation (errors on blur, silent before first submit).
  * @returns JSX.Element

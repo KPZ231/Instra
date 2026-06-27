@@ -97,7 +97,7 @@ export function CampaignActions({
           {isHistoryOpen ? t('campaigns.actions.hide_history') : t('campaigns.actions.history')}
         </button>
 
-        {/* Pause / Resume — conditional */}
+        {/* Pause / Resume  conditional */}
         {status === 'ACTIVE' && (
           <button
             type="button"
@@ -128,7 +128,7 @@ export function CampaignActions({
           </button>
         )}
 
-        {/* Delete — always visible, separated, destructive color */}
+        {/* Delete  always visible, separated, destructive color */}
         <button
           type="button"
           onClick={() => setShowDeleteDialog(true)}

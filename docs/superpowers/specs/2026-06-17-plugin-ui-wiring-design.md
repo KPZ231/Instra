@@ -1,13 +1,13 @@
-# Plugin UI Wiring — Design Spec
+# Plugin UI Wiring  Design Spec
 _2026-06-17_
 
 ## Overview
 
 Wire the plugin system backend (Tasks 1-18) into the dashboard UI. Four surfaces:
-1. Dashboard widget slot — renders plugin UIBlocks on the main dashboard
-2. Plugin marketplace — browse, install, uninstall, update
-3. Plugin upload — any user submits a bundle for review
-4. Admin review panel — admin approves/rejects pending plugins
+1. Dashboard widget slot  renders plugin UIBlocks on the main dashboard
+2. Plugin marketplace  browse, install, uninstall, update
+3. Plugin upload  any user submits a bundle for review
+4. Admin review panel  admin approves/rejects pending plugins
 
 Architecture: **Server Components first**. Pages fetch data server-side (Prisma/service functions). Only interactive elements (buttons, forms) are Client Components.
 
@@ -30,7 +30,7 @@ Architecture: **Server Components first**. Pages fetch data server-side (Prisma/
 - Calls `renderWidgetsForUser(userId, WidgetSlot.DASHBOARD_TOP)` from `lib/plugins/render.ts`
 - Wraps result in `PluginErrorBoundary`
 - Renders `UIBlock[]` via `BlockRenderer`
-- When no plugins installed or no widgets registered: shows subtle empty state ("Brak aktywnych pluginów — przeglądaj marketplace")
+- When no plugins installed or no widgets registered: shows subtle empty state ("Brak aktywnych pluginów  przeglądaj marketplace")
 
 **Integration:** Replace dashed placeholder in `DashboardOverview.tsx` (Row 3, right column) with `<DashboardWidgetSlot />`.
 
@@ -63,7 +63,7 @@ Author · v1.2.0 · 3 caps       ← mono outline color
 - On success: `router.refresh()`
 - Loading state: button disabled + spinner
 
-**Empty state:** When 0 approved plugins — mono text "Brak dostępnych pluginów".
+**Empty state:** When 0 approved plugins  mono text "Brak dostępnych pluginów".
 
 ---
 
@@ -74,12 +74,12 @@ Author · v1.2.0 · 3 caps       ← mono outline color
 **Component:** `components/dashboard/plugins/UploadForm.tsx` (Client Component)
 
 Fields:
-- `slug` — kebab-case identifier (unique)
-- `name` — display name
-- `description` — short description
-- `version` — semver (e.g. `1.0.0`)
-- `manifest` — JSON textarea or file upload of manifest.json
-- `bundle` — file input, accepts `.js` only
+- `slug`  kebab-case identifier (unique)
+- `name`  display name
+- `description`  short description
+- `version`  semver (e.g. `1.0.0`)
+- `manifest`  JSON textarea or file upload of manifest.json
+- `bundle`  file input, accepts `.js` only
 
 Flow:
 1. User fills form, selects files
@@ -122,7 +122,7 @@ manifest.json preview (collapsible)
 - Reject: reveals textarea for reason, then `{ decision: 'reject', reason }`
 - On success: `router.refresh()`
 
-**Sidebar:** `DashboardSidebar.tsx` — add Admin link (`/dashboard/admin/plugins`) visible only when `user.role === 'ADMIN'`. Requires sidebar to receive `role` prop from layout.
+**Sidebar:** `DashboardSidebar.tsx`  add Admin link (`/dashboard/admin/plugins`) visible only when `user.role === 'ADMIN'`. Requires sidebar to receive `role` prop from layout.
 
 ---
 
@@ -141,10 +141,10 @@ manifest.json preview (collapsible)
 ## i18n Keys
 
 New keys needed in `locales/pl/common.json` and `locales/en/common.json`:
-- `plugins.marketplace.*` — marketplace headings, empty states
-- `plugins.upload.*` — form labels, success/error messages
-- `plugins.admin.*` — admin panel headings, actions
-- `dashboard.plugins.*` — widget slot labels
+- `plugins.marketplace.*`  marketplace headings, empty states
+- `plugins.upload.*`  form labels, success/error messages
+- `plugins.admin.*`  admin panel headings, actions
+- `dashboard.plugins.*`  widget slot labels
 
 ---
 
@@ -163,7 +163,7 @@ New files:
 - `components/dashboard/DashboardWidgetSlot.tsx`
 
 Modified files:
-- `components/dashboard/DashboardOverview.tsx` — replace placeholder with DashboardWidgetSlot
-- `components/dashboard/DashboardSidebar.tsx` — admin link, role prop
-- `app/(dashboard)/layout.tsx` — pass role to sidebar
-- `locales/pl/common.json` + `locales/en/common.json` — new i18n keys
+- `components/dashboard/DashboardOverview.tsx`  replace placeholder with DashboardWidgetSlot
+- `components/dashboard/DashboardSidebar.tsx`  admin link, role prop
+- `app/(dashboard)/layout.tsx`  pass role to sidebar
+- `locales/pl/common.json` + `locales/en/common.json`  new i18n keys

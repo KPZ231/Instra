@@ -1,6 +1,6 @@
 /**
  * Heuristic rule definitions for content scoring and daily-tip generation.
- * Add new rules here — the engine in contentScore.ts and dailyTip.ts will pick them up.
+ * Add new rules here  the engine in contentScore.ts and dailyTip.ts will pick them up.
  * Open/Closed: extend by adding entries; never modify the engine code.
  */
 

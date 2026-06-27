@@ -46,7 +46,7 @@ const headerVariants = {
 /* ── Main component ─────────────────────────────────────────────── */
 
 /**
- * DownloadInstra — two bento cards presenting Instra CLI and Desktop Agent.
+ * DownloadInstra  two bento cards presenting Instra CLI and Desktop Agent.
  * CLI card includes a clipboard copy button for the npm install command.
  * Desktop Agent card links to GitHub Releases.
  *

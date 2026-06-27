@@ -1,4 +1,4 @@
-# Post Calendar — dokumentacja
+# Post Calendar  dokumentacja
 
 ## Opis
 
@@ -9,7 +9,7 @@ System kalendarza postów agreguje zaplanowane i opublikowane posty w jeden, pos
 - **Brak nowego modelu w Prisma.** Zaplanowany post = jednorazowa kampania `PUBLISH_POST` (`totalRuns: 1`, `nextRunAt` = wybrany czas). Cron na `/api/cron/campaigns` już obsługuje uruchomienie o właściwej godzinie.
 - **Brak nowego crona.** Istniejący polling co minutę wystarczy.
 
-## Kształt danych — `CalendarItem`
+## Kształt danych  `CalendarItem`
 
 Dyskryminowany union (pole `type`):
 
@@ -43,7 +43,7 @@ getCalendarItems(userId: string, from: Date, to: Date): Promise<CalendarItem[]>
 
 Cachowane w Redis pod kluczem `db:calendar:<userId>:<from>:<to>` (TTL 300 s, domyślny preset `db`).
 
-### Write (Server Actions — eksportowane z `features/campaigns`)
+### Write (Server Actions  eksportowane z `features/campaigns`)
 
 | Akcja | Opis |
 |-------|------|
@@ -60,10 +60,10 @@ Cachowane w Redis pod kluczem `db:calendar:<userId>:<from>:<to>` (TTL 300 s, dom
 
 ## Powiązane pliki
 
-- `lib/api/calendar.ts` — serwis read
+- `lib/api/calendar.ts`  serwis read
 - `features/campaigns/actions/schedulePost.ts`
 - `features/campaigns/actions/reschedulePost.ts`
-- `features/campaigns/validation.ts` — `SchedulePostSchema`, `ReschedulePostSchema`
-- `lib/api/campaigns.ts` — `updateNextRunAt`, `getDueCampaigns`
-- `lib/campaigns/handlers.ts` — handler `PUBLISH_POST`
-- `app/api/cron/campaigns/route.ts` — cron endpoint
+- `features/campaigns/validation.ts`  `SchedulePostSchema`, `ReschedulePostSchema`
+- `lib/api/campaigns.ts`  `updateNextRunAt`, `getDueCampaigns`
+- `lib/campaigns/handlers.ts`  handler `PUBLISH_POST`
+- `app/api/cron/campaigns/route.ts`  cron endpoint

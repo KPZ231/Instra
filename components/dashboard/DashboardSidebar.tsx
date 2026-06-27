@@ -9,10 +9,8 @@ import {
   BarChart2,
   CalendarDays,
   Puzzle,
-  Settings,
   Zap,
   ShieldCheck,
-  Share2,
   Menu,
   X,
 } from "lucide-react";
@@ -51,16 +49,6 @@ const NAV_ITEMS: NavItem[] = [
     href: "/dashboard/plugins",
     labelKey: "dashboard.nav.plugins",
     icon: <Puzzle size={16} />,
-  },
-  {
-    href: "/dashboard/settings",
-    labelKey: "dashboard.nav.settings",
-    icon: <Settings size={16} />,
-  },
-  {
-    href: "/dashboard/settings/social",
-    labelKey: "dashboard.nav.social",
-    icon: <Share2 size={16} />,
   },
   {
     href: "/dashboard/admin/plugins",

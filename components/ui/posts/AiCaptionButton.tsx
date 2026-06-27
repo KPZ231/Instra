@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 import { generateCaption } from '@/features/ai'
 
 interface AiCaptionButtonProps {
-  /** Current content of the composer — used as the generation prompt. */
+  /** Current content of the composer  used as the generation prompt. */
   prompt: string
   /** Called with the generated caption text on success. */
   onGenerated: (text: string) => void

@@ -8,7 +8,7 @@ import type { PlatformId } from '@/components/ui/posts/PlatformSelector'
 
 export const metadata: Metadata = buildMetadata({
   slug: 'new-post',
-  title: 'New Post — Instra',
+  title: 'New Post  Instra',
   description: 'Create a new post on Instra.',
   robots: { index: false, follow: false },
 })

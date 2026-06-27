@@ -250,7 +250,7 @@ function VerifyEmailForm() {
 }
 
 /**
- * VerifyEmailPage — prompts the user to enter the 6-digit verification code
+ * VerifyEmailPage  prompts the user to enter the 6-digit verification code
  * sent to their email during registration. Wraps the form in Suspense (required
  * by useSearchParams in Next.js 15). Matches the Executive Precision dark design
  * system used across the auth flow.
@@ -298,7 +298,7 @@ export default function VerifyEmailPage() {
           {/* Main copy */}
           <div className="relative z-10 mb-8 mt-auto">
             <h2 className="mb-3 mt-0 text-[36px] font-semibold leading-[1.1] tracking-[-0.03em] text-white">
-              {/* Static text in right panel — not user-facing so not translated */}
+              {/* Static text in right panel  not user-facing so not translated */}
               One step away.
             </h2>
             <p className="mb-3 max-w-[400px] text-[15px] leading-relaxed text-outline">

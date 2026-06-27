@@ -5,7 +5,7 @@ import { listReports, listReportRuns } from '@/lib/api/reports'
 import { ReportList } from '@/components/ui/reports/ReportList'
 
 export const metadata: Metadata = {
-  title: 'Reports — Instra',
+  title: 'Reports  Instra',
   robots: { index: false, follow: false },
 }
 

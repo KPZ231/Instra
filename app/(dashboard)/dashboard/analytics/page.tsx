@@ -5,14 +5,14 @@ import AnalyticsOverview from '@/components/ui/analytics/AnalyticsOverview'
 
 export const metadata: Metadata = buildMetadata({
   slug: 'dashboard/analytics',
-  title: 'Post Analytics — Instra',
+  title: 'Post Analytics  Instra',
   description:
     'Track reach, engagement, and content quality across all your posts. Heuristic predictions and daily improvement tips included.',
   robots: { index: false, follow: false },
 })
 
 /**
- * Analytics overview page — Server Component.
+ * Analytics overview page  Server Component.
  * Fetches real aggregated analytics for the authenticated user's posts
  * and passes them to the client-side AnalyticsOverview bento grid.
  */

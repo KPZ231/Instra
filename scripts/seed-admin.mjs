@@ -6,7 +6,7 @@ import { PrismaClient, UserRole } from '@prisma/client'
 
 const prisma = new PrismaClient()
 
-// Argon2/bcrypt nie jest dostępny w czystym node — używamy bcryptjs
+// Argon2/bcrypt nie jest dostępny w czystym node  używamy bcryptjs
 let bcrypt
 try {
   bcrypt = (await import('bcryptjs')).default
@@ -37,7 +37,7 @@ async function main() {
       })
       console.log(`✅ Rola zaktualizowana na ADMIN`)
     } else {
-      console.log(`✅ Już jest ADMIN — brak zmian`)
+      console.log(`✅ Już jest ADMIN  brak zmian`)
     }
   } else {
     const passwordHash = await bcrypt.hash(PASSWORD, 12)

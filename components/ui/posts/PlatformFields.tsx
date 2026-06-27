@@ -77,7 +77,7 @@ export function PlatformFields({ platforms, data, onChange, mode }: PlatformFiel
 
   return (
     <div className="space-y-3">
-      {/* Tab bar — multi mode only */}
+      {/* Tab bar  multi mode only */}
       {mode === 'multi' && (
         <div
           className="flex gap-1 flex-wrap border-b pb-2"

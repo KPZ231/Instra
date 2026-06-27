@@ -2,15 +2,15 @@
 
 ## Opis
 
-Centralny system metadanych SEO dla Instra oparty na Next.js App Router. Zamiast definiować `metadata` osobno w każdej stronie, wszystkie definicje żyją w jednym pliku — `lib/seo/metadata.ts`. Każda strona importuje gotowy obiekt i opcjonalnie go nadpisuje.
+Centralny system metadanych SEO dla Instra oparty na Next.js App Router. Zamiast definiować `metadata` osobno w każdej stronie, wszystkie definicje żyją w jednym pliku  `lib/seo/metadata.ts`. Każda strona importuje gotowy obiekt i opcjonalnie go nadpisuje.
 
 System automatycznie generuje: canonical URL, hreflang (en/pl), Open Graph, Twitter Card, metadataBase, oraz domyślne pola autora/publishera.
 
 ## Technologie
 
-- Next.js App Router — `export const metadata` (server-side, nie React component)
-- TypeScript — pełne typowanie przez `Metadata` z `next`
-- `lib/seo/metadata.ts` — jedyne miejsce edycji metadanych per-strona
+- Next.js App Router  `export const metadata` (server-side, nie React component)
+- TypeScript  pełne typowanie przez `Metadata` z `next`
+- `lib/seo/metadata.ts`  jedyne miejsce edycji metadanych per-strona
 
 ## API
 
@@ -46,7 +46,7 @@ Obiekt z gotowymi definicjami dla każdej strony. Klucze:
 
 ## Przykład użycia
 
-### Podstawowe — importuj i użyj gotowego obiektu
+### Podstawowe  importuj i użyj gotowego obiektu
 
 ```ts
 // app/(pages)/about/page.tsx
@@ -63,7 +63,7 @@ export default function AboutPage() { ... }
 ```ts
 export const metadata: Metadata = buildMetadata({
   ...pageMetadata.about,
-  title: "Instra — Kim jesteśmy",
+  title: "Instra  Kim jesteśmy",
 });
 ```
 
@@ -78,7 +78,7 @@ export async function generateMetadata({ params }: { params: { slug: string[] } 
   const title = params.slug.at(-1) ?? "Docs";
   return buildMetadata({
     slug: `docs/${params.slug.join("/")}`,
-    title: `${title} — Instra Docs`,
+    title: `${title}  Instra Docs`,
     description: `Dokumentacja: ${title}`,
   });
 }
@@ -92,7 +92,7 @@ Aby zmienić tytuł lub opis konkretnej strony, edytuj odpowiedni wpis w `lib/se
 export const pageMetadata = {
   about: {
     slug: "about",
-    title: "Nowy tytuł — Instra",        // max 60 znaków
+    title: "Nowy tytuł  Instra",        // max 60 znaków
     description: "Nowy opis strony.",     // 120–155 znaków
     openGraph: { ... },
     twitter: { ... },

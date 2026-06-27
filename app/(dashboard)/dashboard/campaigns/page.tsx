@@ -5,7 +5,7 @@ import { listCampaigns, listCampaignRuns } from '@/lib/api/campaigns'
 import { CampaignsList } from '@/components/ui/campaigns/CampaignsList'
 
 export const metadata: Metadata = {
-  title: 'Campaigns — Instra',
+  title: 'Campaigns  Instra',
   robots: { index: false, follow: false },
 }
 

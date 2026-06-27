@@ -1,6 +1,6 @@
 /**
  * Pure engagement computation functions.
- * No side effects, no I/O — easily unit-testable.
+ * No side effects, no I/O  easily unit-testable.
  */
 
 import type { EngagementMetrics, AggregatedMetrics, MetricDataPoint } from '../types'

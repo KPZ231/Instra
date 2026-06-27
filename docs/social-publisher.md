@@ -4,17 +4,17 @@
 Moduł do publikowania postów na platformach społecznościowych (Facebook, Instagram, LinkedIn).
 
 ## Pliki
-- `lib/social/publisher.ts` — orkiestrator: pobiera post, wywołuje platformy równolegle, zapisuje statusy
-- `lib/social/meta.ts` — Facebook Graph API v19.0 (feed + photos) i Instagram Content Publishing API (single/carousel)
-- `lib/social/linkedin.ts` — LinkedIn rest/posts API (wersja 202401)
-- `lib/social/refresh.ts` — leniwy auto-refresh tokenów Meta
-- `lib/social/crypto.ts` — AES-256-GCM szyfrowanie tokenów w DB
-- `lib/social/types.ts` — typy: `SocialPlatform`, `PublishResult`, `SocialPostPayload`
+- `lib/social/publisher.ts`  orkiestrator: pobiera post, wywołuje platformy równolegle, zapisuje statusy
+- `lib/social/meta.ts`  Facebook Graph API v19.0 (feed + photos) i Instagram Content Publishing API (single/carousel)
+- `lib/social/linkedin.ts`  LinkedIn rest/posts API (wersja 202401)
+- `lib/social/refresh.ts`  leniwy auto-refresh tokenów Meta
+- `lib/social/crypto.ts`  AES-256-GCM szyfrowanie tokenów w DB
+- `lib/social/types.ts`  typy: `SocialPlatform`, `PublishResult`, `SocialPostPayload`
 
 ## Technologie
 - Meta Graph API v19.0
-- LinkedIn REST API (versioned `202401`) — `rest/posts`, `rest/images`
-- LinkedIn OpenID Connect — `/v2/userinfo` do profilu użytkownika
+- LinkedIn REST API (versioned `202401`)  `rest/posts`, `rest/images`
+- LinkedIn OpenID Connect  `/v2/userinfo` do profilu użytkownika
 - Prisma ORM (tabele `Post`, `SocialAccount`, `SocialPostStatus`)
 
 ## LinkedIn API (aktualne endpointy)
@@ -36,7 +36,7 @@ Moduł do publikowania postów na platformach społecznościowych (Facebook, Ins
 
 > ⚠ LinkedIn basic tier ("Share on LinkedIn") nie udostępnia refresh tokenów. Po wygaśnięciu tokena user musi reconnectować konto ręcznie.
 
-## Meta — auto-refresh tokenów
+## Meta  auto-refresh tokenów
 
 Obsługiwany przez `lib/social/refresh.ts` → `ensureFreshToken(account)`:
 

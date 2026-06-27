@@ -2,7 +2,7 @@ import { redirect } from "next/navigation";
 import { getFirstDocSlug } from "@/lib/api/docs";
 
 /**
- * /docs root — redirects to the first available document in the tree.
+ * /docs root  redirects to the first available document in the tree.
  * If /docs/ is empty, shows a placeholder.
  */
 export default function DocsIndexPage() {

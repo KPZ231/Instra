@@ -3,7 +3,7 @@ import 'server-only'
 import { generateText } from 'ai'
 import { createOpenRouter } from '@openrouter/ai-sdk-provider'
 
-// ponytail: single-function core — no provider registry/abstraction.
+// ponytail: single-function core  no provider registry/abstraction.
 // Upgrade path: add a registry only when a 2nd model or streaming is needed.
 
 const openrouter = createOpenRouter({
@@ -19,7 +19,7 @@ interface GenerateCaptionInput {
 
 /**
  * Generates a single social-media caption via OpenRouter.
- * Language is inferred from the prompt content — no explicit language param needed.
+ * Language is inferred from the prompt content  no explicit language param needed.
  * Model is configurable via the OPENROUTER_MODEL env var (default: gpt-oss-120b:free).
  *
  * @param input - { prompt }
@@ -34,7 +34,7 @@ export async function generateCaption({ prompt }: GenerateCaptionInput): Promise
 
   const { text } = await generateText({
     model: openrouter(model),
-    system: `You are a social-media copywriter. Write exactly one caption in the same language as the user's input. No preamble, no explanation, no quotes — just the caption text.`,
+    system: `You are a social-media copywriter. Write exactly one caption in the same language as the user's input. No preamble, no explanation, no quotes  just the caption text.`,
     prompt,
     maxOutputTokens: 200,
   })

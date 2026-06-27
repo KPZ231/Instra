@@ -97,5 +97,5 @@ export function buildNotificationEmail({ title, message, link }: NotificationEma
  * @returns Plain-text string
  */
 export function buildNotificationText({ title, message, link }: NotificationEmailOptions): string {
-  return `${title}\n\n${message}${link ? `\n\nView details: ${link}` : ''}\n\n— Instra`
+  return `${title}\n\n${message}${link ? `\n\nView details: ${link}` : ''}\n\n Instra`
 }

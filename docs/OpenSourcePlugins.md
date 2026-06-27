@@ -37,7 +37,7 @@ interface PluginStep {
 ```
 
 ## Parameters
-`OpenSourcePlugins` accepts no props — all data is driven by i18n.
+`OpenSourcePlugins` accepts no props  all data is driven by i18n.
 
 ## Example
 ```tsx

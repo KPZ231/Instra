@@ -39,7 +39,7 @@ export function PostCalendar({ month, items, posts }: PostCalendarProps) {
   // Monday=0 offset for first day (JS getDay: 0=Sun,1=Mon…)
   const startOffset = (firstDay.getDay() + 6) % 7
 
-  // Today ISO string "YYYY-MM-DD" (server-rendered default; client may differ by timezone—acceptable)
+  // Today ISO string "YYYY-MM-DD" (server-rendered default; client may differ by timezoneacceptable)
   const todayISO = new Date().toISOString().slice(0, 10)
 
   // Group items by "YYYY-MM-DD"
@@ -183,7 +183,7 @@ export function PostCalendar({ month, items, posts }: PostCalendarProps) {
                 key={iso}
                 type="button"
                 onClick={() => setOpenDay(iso)}
-                aria-label={`${dayNum} — ${dayItems.length} posts`}
+                aria-label={`${dayNum}  ${dayItems.length} posts`}
                 aria-pressed={openDay === iso}
                 className="text-left p-1.5 sm:p-2 transition-colors focus:outline-none focus:ring-1 focus:ring-inset group"
                 style={{

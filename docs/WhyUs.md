@@ -1,6 +1,6 @@
 # WhyUs
 
-Full-width stat section displaying three key platform metrics as bold, animated cards — description on the left, large percentage value on the right. Matches the `Executive Precision` dark design system.
+Full-width stat section displaying three key platform metrics as bold, animated cards  description on the left, large percentage value on the right. Matches the `Executive Precision` dark design system.
 
 ## Technologies
 - Next.js (App Router, `"use client"`)
@@ -17,7 +17,7 @@ Full-width stat section displaying three key platform metrics as bold, animated 
 | `whyUs.items` | Array of `{ value: string, description: string }` |
 
 ## Parameters
-`WhyUs` takes no props — all data is driven by the `whyUs.items` i18n array.
+`WhyUs` takes no props  all data is driven by the `whyUs.items` i18n array.
 
 `StatRow` (internal):
 | Prop | Type | Description |

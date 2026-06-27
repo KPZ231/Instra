@@ -10,7 +10,7 @@ interface WhyUsStatItem {
 }
 
 /**
- * Single stat row — full-width card with description on the left and large percentage on the right.
+ * Single stat row  full-width card with description on the left and large percentage on the right.
  * Animates in from below on scroll with a staggered delay.
  *
  * @param item     - Stat data: value string and description text
@@ -74,7 +74,7 @@ function StatRow({ item, index }: { item: WhyUsStatItem; index: number }) {
 }
 
 /**
- * WhyUs section — showcases key platform statistics as bold full-width stat cards,
+ * WhyUs section  showcases key platform statistics as bold full-width stat cards,
  * matching the high-contrast dark design system with scroll-triggered animations.
  *
  * @example

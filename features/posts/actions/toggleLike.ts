@@ -36,7 +36,7 @@ export async function toggleLike(postId: string): Promise<void> {
       await prisma.like.create({ data: { postId, userId: user.id } })
     }
   } catch {
-    // Graceful failure — e.g. foreign key violation on non-existent postId
+    // Graceful failure  e.g. foreign key violation on non-existent postId
     return
   }
 

@@ -54,7 +54,7 @@ describe('publishPost', () => {
       platforms: ['FACEBOOK', 'LINKEDIN'],
       media: [],
     })
-    // Return account by platform — parallel calls safe
+    // Return account by platform  parallel calls safe
     mockAccountFindUnique.mockImplementation(({ where }: { where: { userId_platform: { platform: string } } }) => {
       return Promise.resolve(
         where.userId_platform.platform === 'FACEBOOK' ? FB_ACCOUNT : LI_ACCOUNT,

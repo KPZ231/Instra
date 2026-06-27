@@ -156,7 +156,7 @@ function ModelDiagram({ labelFree, labelPro }: { readonly labelFree: string; rea
 /* ── Main component ─────────────────────────────────────────────── */
 
 /**
- * AboutPlugins section — describes Instra's open-core + subscription plugin model.
+ * AboutPlugins section  describes Instra's open-core + subscription plugin model.
  * Left column: editorial prose with model diagram.
  * Right column: stagger-animated plugin card grid.
  *

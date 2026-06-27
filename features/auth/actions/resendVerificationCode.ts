@@ -50,7 +50,7 @@ export async function resendVerificationCode(
   const secondsSinceLastSent = (Date.now() - pending.lastSentAt.getTime()) / 1000
 
   if (secondsSinceLastSent < 60) {
-    // Return the same generic response to prevent enumeration — attacker can't distinguish
+    // Return the same generic response to prevent enumeration  attacker can't distinguish
     // "no record" from "record exists but in cooldown" via the response.
     return {
       success: true,
@@ -61,7 +61,7 @@ export async function resendVerificationCode(
   const newCode = generateVerificationCode()
   const newExpiresAt = new Date(Date.now() + 10 * 60 * 1000)
 
-  // Send the email FIRST — only persist the new code if delivery succeeds.
+  // Send the email FIRST  only persist the new code if delivery succeeds.
   // This prevents a scenario where the DB holds a new code that was never delivered.
   try {
     await sendMail({

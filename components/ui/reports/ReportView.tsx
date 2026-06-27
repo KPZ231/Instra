@@ -115,7 +115,7 @@ export function ReportView({ run }: ReportViewProps) {
       {/* Chart */}
       {data.chart && data.chart.series.length > 0 && (
         <Section title={t('reports.sections.chart')}>
-          {/* ponytail: sparkline text fallback — no chart lib added for snapshots */}
+          {/* ponytail: sparkline text fallback  no chart lib added for snapshots */}
           <div className="flex items-end gap-1 h-16 overflow-x-auto">
             {data.chart.series.slice(-30).map((point) => {
               const h = Math.max(4, Math.round((point.value / 100) * 64))

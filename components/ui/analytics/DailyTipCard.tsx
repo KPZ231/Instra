@@ -17,7 +17,7 @@ const PRIORITY_COLORS: Record<DailyTip["priority"], string> = {
 
 /**
  * Card showing the daily content improvement tip.
- * Tip text is resolved from i18n keys — no hardcoded strings.
+ * Tip text is resolved from i18n keys  no hardcoded strings.
  *
  * @param tip - DailyTip from the analytics engine
  *

@@ -4,12 +4,12 @@ import UploadForm from "@/components/dashboard/plugins/UploadForm";
 import UploadPageHeader from "@/components/dashboard/plugins/UploadPageHeader";
 
 export const metadata: Metadata = {
-  title: "Submit Plugin — Instra",
+  title: "Submit Plugin  Instra",
   robots: { index: false, follow: false },
 };
 
 /**
- * Plugin upload page — server component shell wrapping the client upload form.
+ * Plugin upload page  server component shell wrapping the client upload form.
  * Requires an authenticated session; redirects to login otherwise.
  */
 export default async function PluginUploadPage() {

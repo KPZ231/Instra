@@ -27,7 +27,7 @@ export default function UploadForm() {
   const [focusedField, setFocusedField] = useState<string | null>(null);
 
   /**
-   * Handles form submission — sends multipart data to the upload API.
+   * Handles form submission  sends multipart data to the upload API.
    * @param e - Form submit event
    */
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {

@@ -12,7 +12,7 @@ export interface DeleteReportState {
 
 /**
  * Server Action: permanently deletes a report and all its runs.
- * Ownership is checked — only the report owner can delete.
+ * Ownership is checked  only the report owner can delete.
  *
  * @param state - Previous action state
  * @param input - { id }

@@ -11,7 +11,7 @@ Tabbed installation instructions for Instra CLI and Desktop Agent across macOS, 
 - react-icons/fi (`FiCopy`, `FiCheck`)
 
 ## Props
-None — all copy and commands from i18n (`installGuide.<os>.steps[]`).
+None  all copy and commands from i18n (`installGuide.<os>.steps[]`).
 
 ## i18n keys
 `installGuide.badge`, `installGuide.heading`, `installGuide.tabs.*`, `installGuide.copy`, `installGuide.copied`, `installGuide.macos.steps`, `installGuide.windows.steps`, `installGuide.linux.steps`

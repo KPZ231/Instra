@@ -12,7 +12,7 @@ Communicates the core user problem Instra solves: scattered tools causing contex
 ## i18n Keys
 - `usecaseProblem.badge`
 - `usecaseProblem.heading` (supports `\n` for line breaks)
-- `usecaseProblem.items[]` — array of `{ title, body }` (3 items)
+- `usecaseProblem.items[]`  array of `{ title, body }` (3 items)
 
 ## Layout
 - 2-column on desktop (58% left / 42% right), stacked on mobile

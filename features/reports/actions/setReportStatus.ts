@@ -12,7 +12,7 @@ export interface SetReportStatusState {
 
 /**
  * Server Action: pauses or resumes a report.
- * Ownership is checked — only the report owner can change status.
+ * Ownership is checked  only the report owner can change status.
  *
  * @param state - Previous action state
  * @param input - { id, status }

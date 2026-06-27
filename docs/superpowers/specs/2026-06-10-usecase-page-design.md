@@ -1,4 +1,4 @@
-# UseCase Page — Design Spec
+# UseCase Page  Design Spec
 **Date:** 2026-06-10  
 **Status:** Approved  
 **Stack:** Next.js 14, React, TypeScript, Framer Motion v12, react-i18next, TailwindCSS v4
@@ -13,7 +13,7 @@ The `/usecase` page is currently an empty skeleton. It targets **marketers and d
 
 ## Design Direction: Visual-First Interactive
 
-Each section is "show don't tell" — animations and visual metaphors carry the message. Consistent with existing Executive Precision design system: dark surfaces, cut-corner clip-paths (12–20px), Framer Motion scroll-triggered entrance animations, Hanken Grotesk headings + JetBrains Mono data labels.
+Each section is "show don't tell"  animations and visual metaphors carry the message. Consistent with existing Executive Precision design system: dark surfaces, cut-corner clip-paths (12–20px), Framer Motion scroll-triggered entrance animations, Hanken Grotesk headings + JetBrains Mono data labels.
 
 ---
 
@@ -41,7 +41,7 @@ UseCasesPage
 - **Left (60%):** Badge "The Problem" + large headline + 3 pain-point cards
   - Each card: icon + short text, 16px clip-path corners, border white/10%
   - Entrance: staggered fade+y(28) with `delay: index * 0.13s`
-- **Right (40%):** "Chaos visualization" — scattered tool-name chips overlapping at random rotations, animated in on scroll
+- **Right (40%):** "Chaos visualization"  scattered tool-name chips overlapping at random rotations, animated in on scroll
 - **Background:** `surface-container-lowest` (#0d0f0b)
 - **Animation trigger:** `useInView({ once: true, margin: "-80px" })`
 
@@ -103,7 +103,7 @@ UseCasesPage
 ---
 
 ### 5. FAQ (reuse `FAQ.tsx`)
-**No new file** — existing `FAQ.tsx` is reused. New i18n category `usecase` added to:
+**No new file**  existing `FAQ.tsx` is reused. New i18n category `usecase` added to:
 - `faq.categories.usecase`
 - `faq.questions.usecase[]` (8 Q&A pairs covering: plugin installation, open-core model, integrations, pricing, self-hosting, API access, support, custom plugins)
 
@@ -164,16 +164,16 @@ New keys to add under top-level sections in `common.json`:
 - `docs/IntegrationsSection.md`
 
 ### Modified files
-- `app/(pages)/usecase/page.tsx` — import and assemble all sections
-- `locales/en/common.json` — add usecase* keys + faq.usecase
-- `locales/pl/common.json` — add Polish translations
+- `app/(pages)/usecase/page.tsx`  import and assemble all sections
+- `locales/en/common.json`  add usecase* keys + faq.usecase
+- `locales/pl/common.json`  add Polish translations
 
 ---
 
 ## Anti-patterns to Avoid
 
-- No hardcoded strings in JSX — all text via `t()`
+- No hardcoded strings in JSX  all text via `t()`
 - No `any` TypeScript types
 - No direct `fetch`/Prisma in components
-- No emoji as icons — use `react-icons` only
-- No `width`/`height` animations — use `transform`/`opacity` only
+- No emoji as icons  use `react-icons` only
+- No `width`/`height` animations  use `transform`/`opacity` only

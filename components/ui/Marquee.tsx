@@ -61,7 +61,7 @@ export const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) =
             {t(company)}
           </span>
           <span className="text-xs text-on-surface-variant font-mono">
-            {author} — {t(titleKey)}
+            {author}  {t(titleKey)}
           </span>
         </div>
 

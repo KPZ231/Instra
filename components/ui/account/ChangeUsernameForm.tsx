@@ -2,7 +2,9 @@
 
 import { useActionState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { RiUserLine } from 'react-icons/ri'
 import { changeUsername } from '@/features/users/actions/changeUsername'
+import { SettingsSectionHeader } from './SettingsSectionHeader'
 
 interface ChangeUsernameState {
   errors?: { username?: string[]; _form?: string[] }
@@ -37,13 +39,14 @@ export function ChangeUsernameForm({ initialUsername, initialRemaining }: Change
   const isLimitReached = remaining === 0
 
   return (
-    <section className="space-y-4">
-      <h2
-        className="font-mono text-xs font-bold uppercase tracking-[0.1em]"
-        style={{ color: 'var(--color-on-surface)' }}
-      >
-        {t('account.username.section_title')}
-      </h2>
+    <section
+      className="rounded-lg p-5 space-y-4"
+      style={{
+        background: 'var(--color-surface-container-low)',
+        border: '1px solid rgba(255,255,255,0.07)',
+      }}
+    >
+      <SettingsSectionHeader labelKey="account.username.section_title" icon={<RiUserLine />} />
 
       <form action={formAction} className="space-y-3">
         <div className="space-y-1.5">
@@ -61,7 +64,7 @@ export function ChangeUsernameForm({ initialUsername, initialRemaining }: Change
             type="text"
             defaultValue={initialUsername ?? ''}
             disabled={isLimitReached || isPending}
-            className="w-full rounded-sm border px-3 py-2 text-sm bg-transparent outline-none focus:ring-1 disabled:opacity-40"
+            className="w-full rounded-sm border px-3 py-2 text-sm bg-transparent outline-none focus:ring-1 disabled:opacity-40 transition-colors"
             style={{
               borderColor: 'rgba(255,255,255,0.15)',
               color: 'var(--color-on-surface)',
@@ -70,14 +73,12 @@ export function ChangeUsernameForm({ initialUsername, initialRemaining }: Change
             autoComplete="username"
           />
 
-          {/* Field error */}
           {state.errors?.username?.map((err) => (
             <p key={err} className="text-xs" style={{ color: 'var(--color-error)' }}>
               {err}
             </p>
           ))}
 
-          {/* Limit reached message */}
           {isLimitReached ? (
             <p className="text-xs" style={{ color: 'var(--color-error)' }}>
               {t('account.username.limit_reached')}
@@ -89,25 +90,19 @@ export function ChangeUsernameForm({ initialUsername, initialRemaining }: Change
           )}
         </div>
 
-        {/* Form-level error */}
         {state.errors?._form?.map((err) => (
           <p key={err} className="text-xs" style={{ color: 'var(--color-error)' }}>
             {err}
           </p>
         ))}
 
-        {/* Success message */}
         {state.success && (
           <p className="text-xs" style={{ color: '#a8d5a2' }}>
             {t('account.username.success')}
           </p>
         )}
 
-        <button
-          type="submit"
-          disabled={isLimitReached || isPending}
-          className="btn btn-primary disabled:opacity-40"
-        >
+        <button type="submit" disabled={isLimitReached || isPending} className="btn btn-primary disabled:opacity-40">
           {isPending ? '...' : t('account.username.save')}
         </button>
       </form>

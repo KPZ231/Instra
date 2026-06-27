@@ -49,7 +49,7 @@ export async function createPost(
     return { errors: { media: [`Maximum ${MAX_POST_MEDIA} images allowed`] } }
   }
 
-  // Upload media files — track storagePaths for rollback on DB failure
+  // Upload media files  track storagePaths for rollback on DB failure
   let uploadedMedia: { url: string; storagePath: string; mimeType: string; order: number }[] = []
   const uploadedPaths: string[] = []
   try {

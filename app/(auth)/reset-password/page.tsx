@@ -270,7 +270,7 @@ function ResetPasswordForm() {
 }
 
 /**
- * ResetPasswordPage — wraps the form in Suspense (required by useSearchParams).
+ * ResetPasswordPage  wraps the form in Suspense (required by useSearchParams).
  */
 export default function ResetPasswordPage() {
   return (

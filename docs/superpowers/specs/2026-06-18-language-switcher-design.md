@@ -1,4 +1,4 @@
-# Language Switcher in Navbar — Design Spec
+# Language Switcher in Navbar  Design Spec
 
 **Date:** 2026-06-18  
 **Status:** Approved
@@ -29,9 +29,9 @@ Isolated client component. Responsibilities:
 - Close dropdown on outside click (`useRef` + `useEffect`)
 - Active locale marked with a checkmark (`✓`)
 
-**Styling:** matches existing profile dropdown — glassmorphism `rgba(26,28,24,0.92)`, `border: 1px solid rgba(255,255,255,0.08)`, `framer-motion` fade-in animation, font-mono labels.
+**Styling:** matches existing profile dropdown  glassmorphism `rgba(26,28,24,0.92)`, `border: 1px solid rgba(255,255,255,0.08)`, `framer-motion` fade-in animation, font-mono labels.
 
-**No persistence** — language resets on page refresh (localStorage persistence is out of scope).
+**No persistence**  language resets on page refresh (localStorage persistence is out of scope).
 
 ---
 

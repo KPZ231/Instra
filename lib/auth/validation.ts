@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-/** Reusable email rule — trimmed, lowercased, RFC-compliant. */
+/** Reusable email rule  trimmed, lowercased, RFC-compliant. */
 const emailField = z
   .string()
   .min(1, 'Email is required')
@@ -8,7 +8,7 @@ const emailField = z
   .trim()
   .toLowerCase()
 
-/** Optional email — can be empty string or valid email. */
+/** Optional email  can be empty string or valid email. */
 const optionalEmailField = z
   .string()
   .trim()
@@ -71,7 +71,7 @@ export const RegisterByUsernameSchema = z
     path: ['confirmPassword'],
   })
 
-/** Union schema for the register form — discriminated by the hidden `mode` field. */
+/** Union schema for the register form  discriminated by the hidden `mode` field. */
 export const RegisterSchema = z.discriminatedUnion('mode', [
   RegisterByEmailSchema,
   RegisterByUsernameSchema,

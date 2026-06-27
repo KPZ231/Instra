@@ -2,7 +2,7 @@ import { getCurrentUser } from '@/lib/auth/dal'
 import Link from 'next/link'
 
 /**
- * Dashboard profile page — displays the current user's profile details.
+ * Dashboard profile page  displays the current user's profile details.
  * Server component: reads session and renders user info without client-side hydration.
  */
 export default async function ProfilePage() {

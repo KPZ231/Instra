@@ -2,7 +2,7 @@ import { z } from 'zod'
 
 export const MAX_USERNAME_CHANGES_PER_YEAR = 3
 
-/** Reusable username rule — alphanumeric + underscore, 3–32 chars. */
+/** Reusable username rule  alphanumeric + underscore, 3–32 chars. */
 const usernameField = z
   .string()
   .min(3, 'Username must be at least 3 characters')

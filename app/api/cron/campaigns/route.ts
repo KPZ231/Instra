@@ -11,7 +11,7 @@ export const maxDuration = 60
  * Cron endpoint: processes all campaigns due for execution.
  * Called by Vercel Cron (see vercel.json). Gated by CRON_SECRET.
  *
- * ponytail: brak per-campaign lockowania — jeden cron co minutę.
+ * ponytail: brak per-campaign lockowania  jeden cron co minutę.
  * Jeśli ticki zaczną się nakładać przy dużym wolumenie →
  * claim kampanii (UPDATE status=RUNNING) przed wykonaniem.
  *

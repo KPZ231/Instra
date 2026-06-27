@@ -37,7 +37,7 @@ function relativeTime(iso: string): string {
 /**
  * Notifications bell button with dropdown panel and 30-second polling.
  * Shows an unread count badge; supports per-item mark-read and mark-all-read.
- * Self-contained — no props required.
+ * Self-contained  no props required.
  *
  * @example
  * <NotificationsBell />
@@ -58,7 +58,7 @@ export default function NotificationsBell() {
       setNotifications(data.notifications)
       setUnreadCount(data.unreadCount)
     } catch {
-      // ponytail: silent — bell failure must not break the dashboard
+      // ponytail: silent  bell failure must not break the dashboard
     }
   }, [])
 

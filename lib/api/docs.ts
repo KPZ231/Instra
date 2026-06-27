@@ -75,7 +75,7 @@ function buildTree(dir: string, baseSlug: string[] = []): DocNode[] {
 
 /**
  * Returns the full docs navigation tree.
- * Called at render time — always reflects the current state of /docs/.
+ * Called at render time  always reflects the current state of /docs/.
  */
 export function getDocsTree(): DocNode[] {
   return buildTree(DOCS_ROOT);
@@ -116,7 +116,7 @@ export function getFirstDocSlug(nodes: DocNode[] = getDocsTree()): string[] | nu
 }
 
 /**
- * Flattens the tree into a list of all doc slugs — used for generateStaticParams.
+ * Flattens the tree into a list of all doc slugs  used for generateStaticParams.
  */
 export function getAllDocSlugs(): { slug: string[] }[] {
   function collect(nodes: DocNode[]): string[][] {

@@ -9,12 +9,12 @@ export const revalidate = 60
 
 export const metadata: Metadata = buildMetadata({
   slug: 'feed',
-  title: 'Feed — Instra',
+  title: 'Feed  Instra',
   description: 'Discover the latest posts from the Instra community.',
   robots: { index: true, follow: true },
 })
 
-/** Public global feed — Server Component with ISR. */
+/** Public global feed  Server Component with ISR. */
 export default async function FeedPage() {
   const [{ posts, nextCursor }, session] = await Promise.all([getFeed(), auth()])
 

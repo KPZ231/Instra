@@ -1,4 +1,4 @@
-# Redis Cache Module — Design Spec
+# Redis Cache Module  Design Spec
 
 **Date:** 2026-06-15  
 **Status:** Approved  
@@ -74,7 +74,7 @@ Per-call TTL override is always available.
 ## Public API
 
 ```ts
-// Read with generic type — returns null on miss or Redis error
+// Read with generic type  returns null on miss or Redis error
 get<T>(namespace: "db" | "api", ...segments: string[]): Promise<T | null>
 
 // Write with optional TTL override (defaults to TTL_PRESETS[namespace])
@@ -140,6 +140,6 @@ await invalidatePrefix("db", "user", id)
 
 ## File Dependencies
 
-- `@upstash/redis` — already installed (used by `lib/rate-limit/client.ts`)
-- `UPSTASH_REDIS_REST_URL` + `UPSTASH_REDIS_REST_TOKEN` — already in `.env`
+- `@upstash/redis`  already installed (used by `lib/rate-limit/client.ts`)
+- `UPSTASH_REDIS_REST_URL` + `UPSTASH_REDIS_REST_TOKEN`  already in `.env`
 - No new packages required

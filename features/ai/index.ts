@@ -1,5 +1,5 @@
 /**
- * features/ai — public barrel
+ * features/ai  public barrel
  * Import from this file only; do not import internal files directly.
  */
 export { generateCaption } from './actions/generateCaption'

@@ -78,7 +78,7 @@ export async function registerUser(
     if (existing) {
       const secondsSince = (Date.now() - existing.lastSentAt.getTime()) / 1000
       if (secondsSince < 60) {
-        // Cooldown active — do not reveal that a record exists; just tell them to check their inbox
+        // Cooldown active  do not reveal that a record exists; just tell them to check their inbox
         return { errors: { email: ['A verification code was already sent. Check your email.'] } }
       }
       // Outside cooldown: refresh code AND credentials so the verified record reflects this request
@@ -127,7 +127,7 @@ export async function registerUser(
 
     redirect(`/verify-email?email=${encodeURIComponent(email)}`)
   } else {
-    // Username mode — create user directly, no email verification
+    // Username mode  create user directly, no email verification
     const passwordHash = await hashPassword(password)
     const { username, email } = parsed.data
     const resolvedEmail = email && email.trim() !== '' ? email : null
@@ -145,7 +145,7 @@ export async function registerUser(
       return { errors: { username: ['This username is already taken.'] } }
     }
 
-    // username field added via migration — types update after `prisma migrate dev`
+    // username field added via migration  types update after `prisma migrate dev`
     await prisma.user.create({
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       data: { username, name: username, email: resolvedEmail, passwordHash } as any,

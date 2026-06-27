@@ -11,7 +11,7 @@ import { UserRole } from '@/types/auth'
 
 export const metadata: Metadata = buildMetadata({
   slug: 'edit-post',
-  title: 'Edit Post — Instra',
+  title: 'Edit Post  Instra',
   description: 'Edit your post on Instra.',
   robots: { index: false, follow: false },
 })
@@ -20,7 +20,7 @@ interface EditPostPageProps {
   params: Promise<{ id: string }>
 }
 
-/** Edit page — authorisation enforced server-side before rendering. */
+/** Edit page  authorisation enforced server-side before rendering. */
 export default async function EditPostPage({ params }: EditPostPageProps) {
   const { id } = await params
   const [post, { user }] = await Promise.all([getPostById(id), verifySession()])

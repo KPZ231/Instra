@@ -7,9 +7,9 @@ import { useTranslation } from "react-i18next";
 interface StatCardProps {
   /** Metric name (already translated) */
   label: string;
-  /** Formatted value string, or null when data is unavailable (renders "—") */
+  /** Formatted value string, or null when data is unavailable (renders "") */
   value: string | null;
-  /** Percentage change — positive = up, negative = down, null = hidden */
+  /** Percentage change  positive = up, negative = down, null = hidden */
   delta: number | null;
   /** Human-readable delta context (already translated) */
   deltaLabel: string;
@@ -18,7 +18,7 @@ interface StatCardProps {
 /**
  * KPI metric card for the dashboard stats row.
  * Shows a large value, a label, and an optional positive/negative delta indicator.
- * When `value` is null the card renders a "—" placeholder without a trend row.
+ * When `value` is null the card renders a "" placeholder without a trend row.
  *
  * @param label      - Metric name (e.g. "Total Likes")
  * @param value      - Formatted value string (e.g. "1.2K"), or null
@@ -56,7 +56,7 @@ export default function StatCard({ label, value, delta, deltaLabel }: StatCardPr
         className="font-sans text-3xl font-semibold leading-none tracking-tight tabular-nums"
         style={{ color: hasData ? "var(--color-primary)" : "var(--color-on-surface-variant)" }}
       >
-        {hasData ? value : "—"}
+        {hasData ? value : ""}
       </p>
 
       {hasDelta ? (

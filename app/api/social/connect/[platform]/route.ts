@@ -6,7 +6,7 @@ import { randomUUID } from 'crypto'
 
 const OAUTH_URLS: Record<string, string> = {
   facebook: 'https://www.facebook.com/v19.0/dialog/oauth',
-  instagram: 'https://www.facebook.com/v19.0/dialog/oauth', // same as FB — Meta handles both
+  instagram: 'https://www.facebook.com/v19.0/dialog/oauth', // same as FB  Meta handles both
   linkedin: 'https://www.linkedin.com/oauth/v2/authorization',
 }
 

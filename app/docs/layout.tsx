@@ -7,7 +7,7 @@ export const metadata: Metadata = buildMetadata(pageMetadata.docs);
 
 /**
  * Two-column docs layout: sticky sidebar on the left, scrollable content on the right.
- * The sidebar tree is built at render time from the /docs/ filesystem — fully dynamic.
+ * The sidebar tree is built at render time from the /docs/ filesystem  fully dynamic.
  */
 export default function DocsLayout({ children }: { children: React.ReactNode }) {
   const tree = getDocsTree();

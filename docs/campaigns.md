@@ -2,13 +2,13 @@
 
 Zautomatyzowany system kampanii marketingowych. Kampania = zadanie wykonywane
 `totalRuns` razy, co `intervalMinutes` minut, **bez konieczności trzymania
-otwartej przeglądarki** — napędzany przez Vercel Cron.
+otwartej przeglądarki**  napędzany przez Vercel Cron.
 
 ## Technologie
-- **Prisma** — modele `Campaign`, `CampaignRun`
-- **Vercel Cron** — `vercel.json`, cron co minutę (plan Pro) lub co godzinę (Hobby)
-- **Next.js Server Actions** — CRUD kampanii po stronie użytkownika
-- **`lib/social/publisher`** — reużywany handler `PUBLISH_POST`
+- **Prisma**  modele `Campaign`, `CampaignRun`
+- **Vercel Cron**  `vercel.json`, cron co minutę (plan Pro) lub co godzinę (Hobby)
+- **Next.js Server Actions**  CRUD kampanii po stronie użytkownika
+- **`lib/social/publisher`**  reużywany handler `PUBLISH_POST`
 
 ## Architektura
 
@@ -40,7 +40,7 @@ vercel.json                ← Vercel Cron schedule
 | `nextRunAt`      | `DateTime`      | Kiedy cron ma wykonać następne zadanie   |
 
 ### CampaignRun
-Niemodyfikowalny log każdego wykonania — `success`, `error`, `runAt`.
+Niemodyfikowalny log każdego wykonania  `success`, `error`, `runAt`.
 
 ## Przepływ crona
 

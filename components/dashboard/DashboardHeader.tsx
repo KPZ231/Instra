@@ -7,6 +7,7 @@ import NotificationsBell from "@/components/ui/NotificationsBell";
 import { signOut } from "next-auth/react";
 import { motion } from "framer-motion";
 import Button from "@/components/ui/Button";
+import { Settings, Share2 } from "lucide-react";
 import type { SessionUser } from "@/types/auth";
 
 interface DashboardHeaderProps {
@@ -14,7 +15,7 @@ interface DashboardHeaderProps {
 }
 
 /**
- * Top-bar action group — search trigger, notifications bell, user avatar with dropdown.
+ * Top-bar action group  search trigger, notifications bell, user avatar with dropdown.
  * Dropdown matches the style of Navbar.tsx (glassmorphism, framer-motion, Button sign-out).
  *
  * @param user - The current authenticated session user.
@@ -124,6 +125,28 @@ export default function DashboardHeader({ user }: DashboardHeaderProps) {
               onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
             >
               {t("nav.profile")}
+            </Link>
+            <Link
+              href="/dashboard/settings"
+              onClick={() => setOpen(false)}
+              className="flex items-center gap-2.5 px-4 py-2.5 text-sm transition-colors duration-100"
+              style={{ color: "var(--color-on-surface)" }}
+              onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.04)")}
+              onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
+            >
+              <Settings size={14} style={{ color: "var(--color-on-surface-variant)" }} />
+              {t("dashboard.nav.settings")}
+            </Link>
+            <Link
+              href="/dashboard/settings/social"
+              onClick={() => setOpen(false)}
+              className="flex items-center gap-2.5 px-4 py-2.5 text-sm transition-colors duration-100"
+              style={{ color: "var(--color-on-surface)" }}
+              onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.04)")}
+              onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
+            >
+              <Share2 size={14} style={{ color: "var(--color-on-surface-variant)" }} />
+              {t("dashboard.nav.social")}
             </Link>
 
             <div

@@ -1,11 +1,11 @@
 ---
 name: dashboard-design
-description: Dashboard UI layout and design vision — adapted from user reference image to DESIGN.md Executive Precision dark theme
+description: Dashboard UI layout and design vision  adapted from user reference image to DESIGN.md Executive Precision dark theme
 metadata:
   type: project
 ---
 
-Dashboard visual direction — adapted to DESIGN.md "Executive Precision" dark theme. DO NOT implement until user asks.
+Dashboard visual direction  adapted to DESIGN.md "Executive Precision" dark theme. DO NOT implement until user asks.
 
 ## Overall Structure
 
@@ -28,10 +28,10 @@ Dashboard visual direction — adapted to DESIGN.md "Executive Precision" dark t
 - Active state: white text + 2px left accent border (white)
 - Plugin slot: `sidebar` widget area (dashed border placeholder when empty)
 
-## Bento Grid — Main Content
+## Bento Grid  Main Content
 Cards use 8px base spacing, 8px border-radius (Soft-lg).
 
-### Row 1 — Stats (4 cards, equal width)
+### Row 1  Stats (4 cards, equal width)
 Each card shows:
 - Metric name: JetBrains Mono caption-mono, `#c4c7c8` (on-surface-variant)
 - Large number: Hanken Grotesk headline-lg (48px/600), white `#FFFFFF`
@@ -39,7 +39,7 @@ Each card shows:
 
 Metrics: Posts Published · Total Reach · Avg. Engagement · Followers Growth
 
-### Row 2 — Chart + Activity Feed
+### Row 2  Chart + Activity Feed
 **Chart card (2/3 width):**
 - Area/line chart, dark bg, axes in JetBrains Mono caption-mono bone
 - Title: Hanken Grotesk body-lg white
@@ -50,7 +50,7 @@ Metrics: Posts Published · Total Reach · Avg. Engagement · Followers Growth
 - Rows: icon + text + timestamp (JetBrains Mono caption), separated by 1px `rgba(255,255,255,0.05)`
 - Plugin slot: `dashboard:sidebar` widget area
 
-### Row 3 — Quick Actions + Plugin Slots
+### Row 3  Quick Actions + Plugin Slots
 - Quick Actions card: ghost buttons (bone border, bone text, no fill)
 - Plugin slot placeholders: dashed 1px bone border, centered label "Plugin Slot"
 
@@ -59,5 +59,5 @@ Metrics: Posts Published · Total Reach · Avg. Engagement · Followers Growth
 - All labels, timestamps, percentages, codes: JetBrains Mono
 - Body copy: Hanken Grotesk 400, `#c4c7c8`
 
-**Why:** User provided a reference screenshot of desired dashboard layout and asked to memorize it adapted to DESIGN.md style — implementation deferred.
+**Why:** User provided a reference screenshot of desired dashboard layout and asked to memorize it adapted to DESIGN.md style  implementation deferred.
 **How to apply:** When user asks to build the dashboard, use this as the spec; cross-reference with DESIGN.md for exact color tokens.

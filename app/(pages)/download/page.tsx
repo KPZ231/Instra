@@ -7,7 +7,7 @@ import CTA from "@/components/ui/CTA";
 
 export const metadata: Metadata = buildMetadata(pageMetadata.download);
 
-/** Download page — presents Instra CLI and Desktop Agent with install instructions. */
+/** Download page  presents Instra CLI and Desktop Agent with install instructions. */
 export default function DownloadPage() {
   return (
     <>

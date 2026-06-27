@@ -23,7 +23,7 @@ interface ButtonActionProps extends ButtonBaseProps {
 type ButtonProps = ButtonLinkProps | ButtonActionProps;
 
 /**
- * Universal button component — renders a Link when `href` is provided,
+ * Universal button component  renders a Link when `href` is provided,
  * or a `<button>` element when `onClick` is provided.
  * @param variant - Visual style: "primary" (white fill) or "secondary" (bone outline)
  * @param href    - Navigation target; makes the button render as a Next.js Link

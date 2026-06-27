@@ -106,7 +106,7 @@ function IntegrationCard({
 /* ── Main component ─────────────────────────────────────────────── */
 
 /**
- * IntegrationsSection — masonry grid (CSS columns) of 10 integration chips
+ * IntegrationsSection  masonry grid (CSS columns) of 10 integration chips
  * across marketing and dev tool categories, plus a "+120 more" chip.
  *
  * @example

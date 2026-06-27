@@ -1,4 +1,4 @@
-# Social Media Publishing — Design Spec
+# Social Media Publishing  Design Spec
 **Data:** 2026-06-18  
 **Status:** Approved
 
@@ -37,8 +37,8 @@ model SocialAccount {
   expiresAt         DateTime?
   platformUserId    String
   platformUsername  String
-  pageId            String?   // tylko Facebook — ID strony
-  pageAccessToken   String?   // tylko Facebook — zaszyfrowany AES-256
+  pageId            String?   // tylko Facebook  ID strony
+  pageAccessToken   String?   // tylko Facebook  zaszyfrowany AES-256
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -87,31 +87,31 @@ model Post {
 ```
 lib/
   social/
-    crypto.ts          — szyfrowanie/deszyfrowanie tokenów (AES-256, klucz z env)
-    types.ts           — wspólne typy (PublishResult, SocialMediaPost)
-    meta.ts            — klient Meta Graph API (Facebook + Instagram)
-    linkedin.ts        — klient LinkedIn API
-    publisher.ts       — orkiestrator publikacji
+    crypto.ts           szyfrowanie/deszyfrowanie tokenów (AES-256, klucz z env)
+    types.ts            wspólne typy (PublishResult, SocialMediaPost)
+    meta.ts             klient Meta Graph API (Facebook + Instagram)
+    linkedin.ts         klient LinkedIn API
+    publisher.ts        orkiestrator publikacji
 
 lib/api/
-  socialAccounts.ts    — CRUD dla SocialAccount (z cache Redis)
+  socialAccounts.ts     CRUD dla SocialAccount (z cache Redis)
 
 features/social/
-  actions.ts           — server actions: publishPost, disconnectAccount
-  index.ts             — barrel export
+  actions.ts            server actions: publishPost, disconnectAccount
+  index.ts              barrel export
 
 app/api/social/
-  connect/[platform]/route.ts    — inicjuje OAuth redirect
-  callback/[platform]/route.ts   — odbiera code, wymienia na token, zapisuje w DB
-  disconnect/[platform]/route.ts — usuwa SocialAccount
+  connect/[platform]/route.ts     inicjuje OAuth redirect
+  callback/[platform]/route.ts    odbiera code, wymienia na token, zapisuje w DB
+  disconnect/[platform]/route.ts  usuwa SocialAccount
 
 app/(dashboard)/settings/social/
-  page.tsx             — strona zarządzania połączonymi kontami
+  page.tsx              strona zarządzania połączonymi kontami
 
 components/ui/
-  SocialConnectCard.tsx    — karta połącz/rozłącz per platforma
-  SocialPublishButton.tsx  — przycisk "Opublikuj na social media" na poście
-  SocialStatusBadge.tsx    — znaczek PUBLISHED / FAILED / PENDING per platforma
+  SocialConnectCard.tsx     karta połącz/rozłącz per platforma
+  SocialPublishButton.tsx   przycisk "Opublikuj na social media" na poście
+  SocialStatusBadge.tsx     znaczek PUBLISHED / FAILED / PENDING per platforma
 ```
 
 ---
@@ -158,7 +158,7 @@ components/ui/
 ### Publikacja z mediami
 
 - **Zdjęcia:** URL z Supabase Storage przekazywany bezpośrednio do Meta Graph API / LinkedIn API
-- **Instagram carousel:** max 10 zdjęć — tworzone jako `media objects`, potem `carousel post`
+- **Instagram carousel:** max 10 zdjęć  tworzone jako `media objects`, potem `carousel post`
 - **Facebook:** Post z załącznikiem photo/video
 - **LinkedIn:** Post z `shareMediaCategory: IMAGE` lub `VIDEO`
 
@@ -169,7 +169,7 @@ components/ui/
 | Sytuacja | Zachowanie |
 |---|---|
 | Brak połączonego konta | `status = FAILED`, błąd: "Brak połączonego konta" |
-| Wygasły token | `status = FAILED`, błąd: "Token wygasł — połącz konto ponownie" |
+| Wygasły token | `status = FAILED`, błąd: "Token wygasł  połącz konto ponownie" |
 | Błąd API platformy | `status = FAILED`, błąd: treść z odpowiedzi API |
 | Sukces jednej, błąd drugiej | Niezależne statusy per platforma |
 | Przekroczony rate limit | `status = FAILED`, błąd z kodem 429 |
@@ -180,7 +180,7 @@ components/ui/
 
 - Tokeny szyfrowane AES-256 (`lib/social/crypto.ts`), klucz w `SOCIAL_ENCRYPTION_KEY` w `.env`
 - Tokeny nigdy nie wychodzą przez API do frontendu
-- OAuth state parameter (CSRF protection) — losowy UUID zapisywany w sesji, weryfikowany w callbacku
+- OAuth state parameter (CSRF protection)  losowy UUID zapisywany w sesji, weryfikowany w callbacku
 - Rate limiting na akcję `publishPost`: 10 postów/godzinę per użytkownik (istniejąca warstwa `/lib/rate-limit/`)
 
 ---

@@ -12,7 +12,7 @@ const ALLOWED_EXTENSIONS: Record<string, string> = {
   'image/webp': 'webp',
 }
 
-/** Lazy-init Supabase client — safe to import when env vars are missing. */
+/** Lazy-init Supabase client  safe to import when env vars are missing. */
 function getSupabase() {
   const url = process.env.SUPABASE_URL
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY

@@ -139,7 +139,7 @@ async function handleMeta(
   const appId = process.env.META_APP_ID!
   const appSecret = process.env.META_APP_SECRET!
 
-  // Short-lived token — POST keeps secrets and code out of URL/logs
+  // Short-lived token  POST keeps secrets and code out of URL/logs
   const tokenRes = await fetch('https://graph.facebook.com/v19.0/oauth/access_token', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -153,7 +153,7 @@ async function handleMeta(
   if (!tokenRes.ok) throw new Error('Meta token exchange failed')
   const tokenData = (await tokenRes.json()) as { access_token: string }
 
-  // Exchange for long-lived token (60 days) — POST keeps secrets out of URL/logs
+  // Exchange for long-lived token (60 days)  POST keeps secrets out of URL/logs
   const longRes = await fetch('https://graph.facebook.com/v19.0/oauth/access_token', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },

@@ -3,7 +3,7 @@
 import { Toaster } from 'sonner'
 
 /**
- * InstraToaster — global Sonner toast container styled to Executive Precision design system.
+ * InstraToaster  global Sonner toast container styled to Executive Precision design system.
  * Mount once in the root layout. Toasts are triggered via `toast()` from 'sonner' anywhere in the app.
  * @example
  * import { toast } from 'sonner'

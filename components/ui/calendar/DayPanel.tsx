@@ -223,7 +223,7 @@ export function DayPanel({ date, items, posts, onClose }: DayPanelProps) {
                             className="text-sm leading-snug line-clamp-2 flex-1"
                             style={{ color: 'var(--color-on-surface)' }}
                           >
-                            {item.postContent ?? '—'}
+                            {item.postContent ?? ''}
                           </p>
                           <span
                             className="font-mono text-[9px] tabular-nums shrink-0 mt-0.5"
@@ -314,7 +314,7 @@ export function DayPanel({ date, items, posts, onClose }: DayPanelProps) {
                           className="text-sm leading-snug line-clamp-2"
                           style={{ color: 'var(--color-on-surface)' }}
                         >
-                          {item.content ?? '—'}
+                          {item.content ?? ''}
                         </p>
                         {item.socialStatuses.length > 0 && (
                           <div className="flex gap-1.5 flex-wrap">

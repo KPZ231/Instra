@@ -3,18 +3,18 @@
 ## Overview
 
 The analytics module provides a complete heuristic-based post performance system at `/dashboard/analytics`.
-It operates on real data from the authenticated user's own posts — no mocks.
+It operates on real data from the authenticated user's own posts  no mocks.
 
 ## Architecture
 
 ```
-features/analytics/          # Pure logic — no DB/UI dependencies
+features/analytics/          # Pure logic  no DB/UI dependencies
   types.ts                   # All shared types (EngagementMetrics, PostAnalytics, …)
   lib/rules.ts               # Heuristic scoring rules registry (Open/Closed)
   lib/engagement.ts          # computeEngagementRate, aggregateSnapshots, buildSeries, formatMetricValue
   lib/contentScore.ts        # scoreContent() → 0-100 score + issues[]
-  lib/predict.ts             # predictEngagement() — EWMA + linear regression
-  lib/dailyTip.ts            # buildDailyTip() — selects highest-priority i18n tip
+  lib/predict.ts             # predictEngagement()  EWMA + linear regression
+  lib/dailyTip.ts            # buildDailyTip()  selects highest-priority i18n tip
   actions/recordMetrics.ts   # Server Action: write PostMetricSnapshot to DB
   index.ts                   # Public barrel
 
@@ -24,14 +24,14 @@ lib/api/analytics.ts         # server-only data layer (Prisma + cache + engine)
 
 components/ui/analytics/
   AnalyticsOverview.tsx      # Bento-grid wrapper
-  EngagementChart.tsx        # SVG chart — history + dashed prediction line
+  EngagementChart.tsx        # SVG chart  history + dashed prediction line
   DailyTipCard.tsx           # Daily tip card (i18n key resolved at render)
   PostAnalyticsList.tsx      # Scrollable post list
   PostAnalyticsRow.tsx       # Single post row (score badge, engagement %, links)
 
 app/(dashboard)/dashboard/analytics/
-  page.tsx                   # Server Component — fetches overview, renders AnalyticsOverview
-  [postId]/page.tsx          # Server Component — single post detail
+  page.tsx                   # Server Component  fetches overview, renders AnalyticsOverview
+  [postId]/page.tsx          # Server Component  single post detail
 ```
 
 ## Data Flow
@@ -51,7 +51,7 @@ app/(dashboard)/dashboard/analytics/
 
 - `scoreContent(post)` in `features/analytics/lib/contentScore.ts`
 - Starts at **100**, deducts penalty per triggered rule
-- Rules defined in `features/analytics/lib/rules.ts` — add new rules there only (Open/Closed)
+- Rules defined in `features/analytics/lib/rules.ts`  add new rules there only (Open/Closed)
 - Each rule has `key` (i18n), `penalty` (1-20), `priority` (1-10), `check(post)`, optional `params(post)`
 
 | Rule key | Penalty | Priority | Condition |
@@ -72,17 +72,17 @@ app/(dashboard)/dashboard/analytics/
 - `buildDailyTip(posts, daySeed)` in `features/analytics/lib/dailyTip.ts`
 - Selects the highest-priority issue across all posts
 - Returns a `DailyTip` with `key` (maps to `analytics.tips.<key>` in locale), optional `params`, `postId`, and `priority`
-- `daySeed` = `Math.floor(Date.now() / 86_400_000)` — deterministic per day, passed from the server
+- `daySeed` = `Math.floor(Date.now() / 86_400_000)`  deterministic per day, passed from the server
 
 ## i18n
 
 All user-visible strings are in `locales/{en,pl}/common.json` under the `analytics` block:
-- `analytics.stats.*` — metric labels
-- `analytics.chart.*` — chart labels and confidence levels
-- `analytics.tip.*` — daily tip labels
-- `analytics.tips.*` — one key per rule (mapped from `DailyTip.key`)
-- `analytics.issues.*` — per-issue descriptions (used in detail page)
-- `analytics.posts.*` — post list labels
+- `analytics.stats.*`  metric labels
+- `analytics.chart.*`  chart labels and confidence levels
+- `analytics.tip.*`  daily tip labels
+- `analytics.tips.*`  one key per rule (mapped from `DailyTip.key`)
+- `analytics.issues.*`  per-issue descriptions (used in detail page)
+- `analytics.posts.*`  post list labels
 
 ## Cache
 
@@ -94,4 +94,4 @@ All user-visible strings are in `locales/{en,pl}/common.json` under the `analyti
 
 1. Add an entry to `SCORING_RULES` in `features/analytics/lib/rules.ts`
 2. Add i18n keys `analytics.issues.<key>` and `analytics.tips.<key>` to both locale files
-3. No other code changes needed — the engine picks it up automatically
+3. No other code changes needed  the engine picks it up automatically

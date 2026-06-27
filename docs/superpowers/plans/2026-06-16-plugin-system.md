@@ -2,9 +2,9 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Build the full backend for Instra's plugin system — a registry, sandboxed execution, and declarative-UI rendering that lets installed plugins extend dashboard widgets, custom routes, menu items, events, and per-user KV storage.
+**Goal:** Build the full backend for Instra's plugin system  a registry, sandboxed execution, and declarative-UI rendering that lets installed plugins extend dashboard widgets, custom routes, menu items, events, and per-user KV storage.
 
-**Architecture:** Plugin code is a prebuilt JS bundle uploaded to Supabase Storage and registered in Postgres (`Plugin` → `PluginVersion`, semver, review workflow `DRAFT → PENDING_REVIEW → APPROVED/REJECTED`). Users install a specific `PluginVersion` (`PluginInstallation`, per-user, manual updates). At render time, the bundle is loaded and executed per-request in a `node:vm` sandbox with no network access; `init(context)` registers widget/route/menuItem/event handlers, gated by granular capability strings. Output is a declarative JSON block tree (`UIBlock`), rendered by trusted React components — plugins never ship JSX. Per-plugin i18n strings load into i18next under namespace `plugin:<id>`.
+**Architecture:** Plugin code is a prebuilt JS bundle uploaded to Supabase Storage and registered in Postgres (`Plugin` → `PluginVersion`, semver, review workflow `DRAFT → PENDING_REVIEW → APPROVED/REJECTED`). Users install a specific `PluginVersion` (`PluginInstallation`, per-user, manual updates). At render time, the bundle is loaded and executed per-request in a `node:vm` sandbox with no network access; `init(context)` registers widget/route/menuItem/event handlers, gated by granular capability strings. Output is a declarative JSON block tree (`UIBlock`), rendered by trusted React components  plugins never ship JSX. Per-plugin i18n strings load into i18next under namespace `plugin:<id>`.
 
 **Tech Stack:** Next.js 16 (App Router), Prisma 7 + Postgres, `node:vm`, Supabase Storage (`@supabase/supabase-js`), Zod, i18next, Vitest.
 
@@ -12,30 +12,30 @@
 
 ## File Structure
 
-- `prisma/schema.prisma` — new models: `Plugin`, `PluginVersion`, `PluginInstallation`, `PluginData`, `PluginAuditLog`; new enums `PluginReviewStatus`, `WidgetSlot`.
-- `types/plugin.ts` — `InstraPlugin`, `PluginContext`, `PluginManifest`, `PluginCapability`, `UIBlock` types.
-- `lib/plugins/config.ts` — capability list, widget-slot→capability map, sandbox timeout constants.
-- `lib/plugins/manifest.ts` — Zod schema + `parseManifest()`.
-- `lib/plugins/blocks.ts` — Zod schema + type for declarative `UIBlock`.
-- `lib/plugins/storage.ts` — Supabase Storage upload/download for plugin bundles.
-- `lib/plugins/sandbox.ts` — `node:vm` module loader + timeout-bound export caller.
-- `lib/plugins/context.ts` — builds a capability-checked `PluginContext` + captures registrations.
-- `lib/plugins/registry.ts` — create plugin/version, submit, approve, reject, list approved.
-- `lib/plugins/installations.ts` — install/uninstall/toggle/list-for-user/check-update.
-- `lib/plugins/kv.ts` — scoped per-plugin-per-user KV storage on `PluginData`.
-- `lib/plugins/audit.ts` — `logPluginAction()` / `listPluginAuditLog()`.
-- `lib/plugins/i18n.ts` — registers plugin locale bundles into i18next.
-- `lib/plugins/render.ts` — orchestrates sandbox load + capability context + handler call → `UIBlock[]`, with per-plugin error isolation.
-- `components/ui/plugins/BlockRenderer.tsx` + `PluginErrorBoundary.tsx` — renders `UIBlock[]` trees safely.
-- `app/api/admin/plugins/route.ts` — admin: list pending versions.
-- `app/api/admin/plugins/[versionId]/review/route.ts` — admin: approve/reject a version.
-- `app/api/plugins/route.ts` — list approved plugins (browse/install UI).
-- `app/api/plugins/install/route.ts` — user: install/uninstall/toggle/update.
-- `docs/plugins.md` — module documentation (per CLAUDE.md doc requirement).
+- `prisma/schema.prisma`  new models: `Plugin`, `PluginVersion`, `PluginInstallation`, `PluginData`, `PluginAuditLog`; new enums `PluginReviewStatus`, `WidgetSlot`.
+- `types/plugin.ts`  `InstraPlugin`, `PluginContext`, `PluginManifest`, `PluginCapability`, `UIBlock` types.
+- `lib/plugins/config.ts`  capability list, widget-slot→capability map, sandbox timeout constants.
+- `lib/plugins/manifest.ts`  Zod schema + `parseManifest()`.
+- `lib/plugins/blocks.ts`  Zod schema + type for declarative `UIBlock`.
+- `lib/plugins/storage.ts`  Supabase Storage upload/download for plugin bundles.
+- `lib/plugins/sandbox.ts`  `node:vm` module loader + timeout-bound export caller.
+- `lib/plugins/context.ts`  builds a capability-checked `PluginContext` + captures registrations.
+- `lib/plugins/registry.ts`  create plugin/version, submit, approve, reject, list approved.
+- `lib/plugins/installations.ts`  install/uninstall/toggle/list-for-user/check-update.
+- `lib/plugins/kv.ts`  scoped per-plugin-per-user KV storage on `PluginData`.
+- `lib/plugins/audit.ts`  `logPluginAction()` / `listPluginAuditLog()`.
+- `lib/plugins/i18n.ts`  registers plugin locale bundles into i18next.
+- `lib/plugins/render.ts`  orchestrates sandbox load + capability context + handler call → `UIBlock[]`, with per-plugin error isolation.
+- `components/ui/plugins/BlockRenderer.tsx` + `PluginErrorBoundary.tsx`  renders `UIBlock[]` trees safely.
+- `app/api/admin/plugins/route.ts`  admin: list pending versions.
+- `app/api/admin/plugins/[versionId]/review/route.ts`  admin: approve/reject a version.
+- `app/api/plugins/route.ts`  list approved plugins (browse/install UI).
+- `app/api/plugins/install/route.ts`  user: install/uninstall/toggle/update.
+- `docs/plugins.md`  module documentation (per CLAUDE.md doc requirement).
 
 ---
 
-### Task 1: Prisma schema — plugin models
+### Task 1: Prisma schema  plugin models
 
 **Files:**
 - Modify: `prisma/schema.prisma`
@@ -200,7 +200,7 @@ describe('plugin config', () => {
 - [ ] **Step 2: Run test to verify it fails**
 
 Run: `npx vitest run lib/plugins/config.test.ts`
-Expected: FAIL — `./config` does not exist.
+Expected: FAIL  `./config` does not exist.
 
 - [ ] **Step 3: Write implementation**
 
@@ -286,7 +286,7 @@ describe('uiBlockSchema', () => {
 - [ ] **Step 2: Run test to verify it fails**
 
 Run: `npx vitest run lib/plugins/blocks.test.ts`
-Expected: FAIL — `./blocks` does not exist.
+Expected: FAIL  `./blocks` does not exist.
 
 - [ ] **Step 3: Write implementation**
 
@@ -387,7 +387,7 @@ describe('parseManifest', () => {
 - [ ] **Step 2: Run test to verify it fails**
 
 Run: `npx vitest run lib/plugins/manifest.test.ts`
-Expected: FAIL — `./manifest` does not exist.
+Expected: FAIL  `./manifest` does not exist.
 
 - [ ] **Step 3: Write implementation**
 
@@ -439,7 +439,7 @@ git commit -m "feat(plugins): add manifest.json validation schema"
 **Files:**
 - Create: `types/plugin.ts`
 
-- [ ] **Step 1: Write the types (no test — pure type declarations)**
+- [ ] **Step 1: Write the types (no test  pure type declarations)**
 
 ```ts
 import type { WidgetSlot } from '@prisma/client'
@@ -561,7 +561,7 @@ describe('plugin bundle storage', () => {
 - [ ] **Step 3: Run test to verify it fails**
 
 Run: `npx vitest run lib/plugins/storage.test.ts`
-Expected: FAIL — `./storage` does not exist.
+Expected: FAIL  `./storage` does not exist.
 
 - [ ] **Step 4: Write implementation**
 
@@ -683,7 +683,7 @@ describe('callPluginExport', () => {
 - [ ] **Step 2: Run test to verify it fails**
 
 Run: `npx vitest run lib/plugins/sandbox.test.ts`
-Expected: FAIL — `./sandbox` does not exist.
+Expected: FAIL  `./sandbox` does not exist.
 
 - [ ] **Step 3: Write implementation**
 
@@ -813,7 +813,7 @@ describe('plugin kv storage', () => {
 - [ ] **Step 2: Run test to verify it fails**
 
 Run: `npx vitest run lib/plugins/kv.test.ts`
-Expected: FAIL — `./kv` does not exist.
+Expected: FAIL  `./kv` does not exist.
 
 - [ ] **Step 3: Write implementation**
 
@@ -920,7 +920,7 @@ describe('plugin audit log', () => {
 - [ ] **Step 2: Run test to verify it fails**
 
 Run: `npx vitest run lib/plugins/audit.test.ts`
-Expected: FAIL — `./audit` does not exist.
+Expected: FAIL  `./audit` does not exist.
 
 - [ ] **Step 3: Write implementation**
 
@@ -1035,7 +1035,7 @@ describe('createPluginContext', () => {
 - [ ] **Step 2: Run test to verify it fails**
 
 Run: `npx vitest run lib/plugins/context.test.ts`
-Expected: FAIL — `./context` does not exist.
+Expected: FAIL  `./context` does not exist.
 
 - [ ] **Step 3: Write implementation**
 
@@ -1237,7 +1237,7 @@ describe('plugin registry', () => {
 - [ ] **Step 2: Run test to verify it fails**
 
 Run: `npx vitest run lib/plugins/registry.test.ts`
-Expected: FAIL — `./registry` does not exist.
+Expected: FAIL  `./registry` does not exist.
 
 - [ ] **Step 3: Write implementation**
 
@@ -1401,7 +1401,7 @@ describe('plugin installations', () => {
 - [ ] **Step 2: Run test to verify it fails**
 
 Run: `npx vitest run lib/plugins/installations.test.ts`
-Expected: FAIL — `./installations` does not exist.
+Expected: FAIL  `./installations` does not exist.
 
 - [ ] **Step 3: Write implementation**
 
@@ -1543,7 +1543,7 @@ describe('renderWidgetsForUser', () => {
 - [ ] **Step 2: Run test to verify it fails**
 
 Run: `npx vitest run lib/plugins/render.test.ts`
-Expected: FAIL — `./render` does not exist.
+Expected: FAIL  `./render` does not exist.
 
 - [ ] **Step 3: Write implementation**
 
@@ -1655,7 +1655,7 @@ describe('registerPluginLocales', () => {
 - [ ] **Step 2: Run test to verify it fails**
 
 Run: `npx vitest run lib/plugins/i18n.test.ts`
-Expected: FAIL — `./i18n` does not exist.
+Expected: FAIL  `./i18n` does not exist.
 
 - [ ] **Step 3: Write implementation**
 
@@ -1745,7 +1745,7 @@ interface BlockRendererProps {
 
 /**
  * Renders a declarative plugin UIBlock tree using only trusted host
- * components — plugins never ship their own JSX/CSS.
+ * components  plugins never ship their own JSX/CSS.
  * @param blocks - Block tree produced by a plugin's widget/route handler
  * @example <BlockRenderer blocks={blocks} />
  */
@@ -2050,10 +2050,10 @@ Next.js (App Router), Prisma 7 + Postgres, `node:vm`, Supabase Storage, Zod, i18
 5. Tylko `APPROVED` widoczne w `GET /api/plugins`.
 
 ## Instalacja (per-user)
-`POST /api/plugins/install` z akcją `install`/`uninstall`/`toggle`/`checkUpdate`. Aktualizacje są manualne — instalacja jest przypięta (`pluginVersionId`) do konkretnej wersji aż użytkownik sam zainstaluje nową.
+`POST /api/plugins/install` z akcją `install`/`uninstall`/`toggle`/`checkUpdate`. Aktualizacje są manualne  instalacja jest przypięta (`pluginVersionId`) do konkretnej wersji aż użytkownik sam zainstaluje nową.
 
 ## Uprawnienia
-Lista w `lib/plugins/config.ts` (`PLUGIN_CAPABILITIES`). Każda metoda `PluginContext` (np. `registerWidget`, `api.storage.get`) sprawdza wymaganą capability przed wykonaniem — brak zgody = `Error`.
+Lista w `lib/plugins/config.ts` (`PLUGIN_CAPABILITIES`). Każda metoda `PluginContext` (np. `registerWidget`, `api.storage.get`) sprawdza wymaganą capability przed wykonaniem  brak zgody = `Error`.
 
 ## Renderowanie
 `lib/plugins/render.ts::renderWidgetsForUser(userId, slot)`:
@@ -2063,14 +2063,14 @@ Lista w `lib/plugins/config.ts` (`PLUGIN_CAPABILITIES`). Każda metoda `PluginCo
 4. Woła zarejestrowany handler dla danego slotu, z timeoutem (`SANDBOX_TIMEOUT_MS`).
 5. Błąd pojedynczego pluginu → blok błędu + wpis w `PluginAuditLog`, reszta renderuje się normalnie.
 
-Wynik (`UIBlock[]`) renderowany przez `components/ui/plugins/BlockRenderer.tsx` — plugin nigdy nie dostarcza własnego JSX.
+Wynik (`UIBlock[]`) renderowany przez `components/ui/plugins/BlockRenderer.tsx`  plugin nigdy nie dostarcza własnego JSX.
 
 ## Storage i18n
 Manifest może zawierać `locales: { en: {...}, pl: {...} }`; `lib/plugins/i18n.ts::registerPluginLocales()` rejestruje je w i18next pod namespace `plugin:<slug>`.
 
 ## Bezpieczeństwo
 - Brak network access w sandboksie (brak `fetch`, brak `require`, brak `process`).
-- Brak bezpośredniego dostępu do Prisma/DB — wyłącznie przez `PluginContext.api.storage` (KV, scoped per plugin+user).
+- Brak bezpośredniego dostępu do Prisma/DB  wyłącznie przez `PluginContext.api.storage` (KV, scoped per plugin+user).
 - Timeout na wykonanie (`SANDBOX_TIMEOUT_MS`) chroni przed zawieszonym pluginem.
 - Każda instalacja/zmiana/recenzja loguje się do `PluginAuditLog` (`lib/plugins/audit.ts`).
 ```
@@ -2086,5 +2086,5 @@ git commit -m "docs(plugins): document plugin system architecture and flows"
 
 ## Self-Review Notes
 
-- **Spec coverage:** sandbox (Task 7), no network (Task 7 — no `fetch`/`require` exposed), declarative UI (Tasks 3, 15), granular capabilities (Tasks 2, 10), registry in same Prisma DB (Tasks 1, 11), prebuilt bundle in Supabase Storage (Task 6), semver + per-version review (Tasks 1, 11), per-user install (Task 12), manual update (Task 12's `getAvailableUpdate`, never auto-applied), i18n via manifest namespace (Task 14), widgets+routes+menuItems+events+KV (Tasks 5, 10, 13), audit log (Task 9), docs (Task 18).
-- **Not yet covered — flag for a follow-up plan:** admin/user-facing dashboard pages (`/app/(dashboard)/admin/plugins`, `/app/(dashboard)/plugins`) that call these API routes, the upload endpoint for new plugin versions (bundle + manifest validation wired together end-to-end), `registerRoute` page rendering (a catch-all App Router route resolving registered plugin paths), and `registerMenuItem` wiring into the actual nav component. This plan delivers the complete backend; UI wiring is a natural next plan.
+- **Spec coverage:** sandbox (Task 7), no network (Task 7  no `fetch`/`require` exposed), declarative UI (Tasks 3, 15), granular capabilities (Tasks 2, 10), registry in same Prisma DB (Tasks 1, 11), prebuilt bundle in Supabase Storage (Task 6), semver + per-version review (Tasks 1, 11), per-user install (Task 12), manual update (Task 12's `getAvailableUpdate`, never auto-applied), i18n via manifest namespace (Task 14), widgets+routes+menuItems+events+KV (Tasks 5, 10, 13), audit log (Task 9), docs (Task 18).
+- **Not yet covered  flag for a follow-up plan:** admin/user-facing dashboard pages (`/app/(dashboard)/admin/plugins`, `/app/(dashboard)/plugins`) that call these API routes, the upload endpoint for new plugin versions (bundle + manifest validation wired together end-to-end), `registerRoute` page rendering (a catch-all App Router route resolving registered plugin paths), and `registerMenuItem` wiring into the actual nav component. This plan delivers the complete backend; UI wiring is a natural next plan.

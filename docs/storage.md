@@ -18,5 +18,5 @@ Returns `{ url, storagePath, mimeType }`.
 Bulk delete from bucket. Errors are logged, not thrown.
 
 ## Environment Variables
-- `SUPABASE_URL` — project URL
-- `SUPABASE_SERVICE_ROLE_KEY` — service role key (never expose client-side)
+- `SUPABASE_URL`  project URL
+- `SUPABASE_SERVICE_ROLE_KEY`  service role key (never expose client-side)

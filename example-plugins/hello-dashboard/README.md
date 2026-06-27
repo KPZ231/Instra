@@ -17,10 +17,10 @@ Przykładowy plugin dla systemu pluginów Instra. Wyświetla widget na dashboard
 
 ## Jak uruchomić
 
-1. **Upload** — wejdź na `/dashboard/plugins/upload` i prześlij `index.js` oraz wklej zawartość `manifest.json`
-2. **Review** — admin zatwierdza plugin w `/dashboard/admin/plugins`
-3. **Instalacja** — znajdź plugin w `/dashboard/plugins` i kliknij "Zainstaluj"
-4. **Efekt** — wejdź na `/dashboard` — widget pojawi się automatycznie w górnej sekcji
+1. **Upload**  wejdź na `/dashboard/plugins/upload` i prześlij `index.js` oraz wklej zawartość `manifest.json`
+2. **Review**  admin zatwierdza plugin w `/dashboard/admin/plugins`
+3. **Instalacja**  znajdź plugin w `/dashboard/plugins` i kliknij "Zainstaluj"
+4. **Efekt**  wejdź na `/dashboard`  widget pojawi się automatycznie w górnej sekcji
 
 ## Struktura UIBlock
 
@@ -33,7 +33,7 @@ card: "Hello Dashboard Plugin"
   └── button: "Resetuj licznik" (action: "reset_count")
 ```
 
-> **Uwaga:** Przycisk z `action: "reset_count"` jest przykładowy — obsługa akcji przycisków po stronie frontendu nie jest jeszcze zaimplementowana w `BlockRenderer`. To dobry punkt startowy do rozszerzenia systemu.
+> **Uwaga:** Przycisk z `action: "reset_count"` jest przykładowy  obsługa akcji przycisków po stronie frontendu nie jest jeszcze zaimplementowana w `BlockRenderer`. To dobry punkt startowy do rozszerzenia systemu.
 
 ## Rozszerzanie pluginu
 

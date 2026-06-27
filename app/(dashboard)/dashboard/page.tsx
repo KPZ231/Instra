@@ -14,12 +14,12 @@ import { UserRole } from '@/types/auth'
 
 export const metadata: Metadata = buildMetadata({
   slug: 'dashboard',
-  title: 'Dashboard — Instra',
+  title: 'Dashboard  Instra',
   description: "Your Instra feed. Create posts and see what's happening.",
   robots: { index: false, follow: false },
 })
 
-/** Dashboard feed page — Server Component. Renders overview metrics, inline post composer, and live feed. */
+/** Dashboard feed page  Server Component. Renders overview metrics, inline post composer, and live feed. */
 export default async function DashboardPage() {
   const user = await getCurrentUser()
 
@@ -39,7 +39,7 @@ export default async function DashboardPage() {
 
   return (
     <div className="space-y-8">
-      {/* Overview — KPI cards, chart, activity, quick actions */}
+      {/* Overview  KPI cards, chart, activity, quick actions */}
       <DashboardOverview metrics={metrics} />
 
       {/* Inline composer */}

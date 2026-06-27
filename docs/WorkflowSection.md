@@ -8,7 +8,7 @@
 ## i18n Keys
 - `usecaseWorkflow.badge`
 - `usecaseWorkflow.heading`
-- `usecaseWorkflow.steps[]` — array of `{ title, body }` (4 items)
+- `usecaseWorkflow.steps[]`  array of `{ title, body }` (4 items)
 
 ## Animation
 - Connector line: `scaleX: 0→1` (desktop) / `scaleY: 0→1` (mobile), 0.8s duration

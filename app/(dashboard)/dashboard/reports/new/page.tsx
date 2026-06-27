@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { ReportForm } from '@/components/ui/reports/ReportForm'
 
 export const metadata: Metadata = {
-  title: 'New Report — Instra',
+  title: 'New Report  Instra',
   robots: { index: false, follow: false },
 }
 

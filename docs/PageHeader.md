@@ -1,6 +1,6 @@
 # PageHeader
 
-Reusable page header — mono eyebrow label, large display heading (supports `\n` line breaks), animated rule, optional description paragraph. All copy resolved from i18n via `i18nPrefix`.
+Reusable page header  mono eyebrow label, large display heading (supports `\n` line breaks), animated rule, optional description paragraph. All copy resolved from i18n via `i18nPrefix`.
 
 ## Technologies
 - Next.js (App Router, `"use client"`)

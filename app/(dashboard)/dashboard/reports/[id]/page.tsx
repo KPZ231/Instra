@@ -11,7 +11,7 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params
   return {
-    title: `Report ${id} — Instra`,
+    title: `Report ${id}  Instra`,
     robots: { index: false, follow: false },
   }
 }

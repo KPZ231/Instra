@@ -8,12 +8,12 @@ import Link from "next/link";
 import type { PluginManifest } from "@/lib/plugins/manifest";
 
 export const metadata: Metadata = {
-  title: "Plugin Marketplace — Instra",
+  title: "Plugin Marketplace  Instra",
   robots: { index: false, follow: false },
 };
 
 /**
- * Plugin marketplace page — server component.
+ * Plugin marketplace page  server component.
  * Lists all approved plugins with the current user's installation state.
  * Fetches approved versions and user installations in parallel, then
  * resolves update availability per plugin.

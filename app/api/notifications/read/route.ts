@@ -4,7 +4,7 @@ import { markRead, markAllRead } from '@/lib/api/notifications'
 
 /**
  * POST /api/notifications/read
- * Body: { id?: string } — omit id to mark all as read.
+ * Body: { id?: string }  omit id to mark all as read.
  *
  * @param req - Request with optional JSON body { id?: string }
  * @returns JSON { ok: true }

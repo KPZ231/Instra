@@ -23,7 +23,7 @@ const ClientForgotSchema = z.object({
 type ForgotFormData = z.infer<typeof ClientForgotSchema>
 
 /**
- * ForgotPasswordPage — two-panel password reset request screen.
+ * ForgotPasswordPage  two-panel password reset request screen.
  * Validates email client-side with react-hook-form + zodResolver (hybrid: errors on blur).
  * Shows a success state after the email is dispatched.
  */

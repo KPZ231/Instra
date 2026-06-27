@@ -33,7 +33,7 @@ type ReportSnapshot = Partial<{
  */
 export async function generateReportRun(report: Report): Promise<ReportRun> {
   const overview = await getPostsAnalyticsOverview()
-  if (!overview) throw new Error('Unable to retrieve analytics — user not authenticated')
+  if (!overview) throw new Error('Unable to retrieve analytics  user not authenticated')
 
   const config = report.config as unknown as ReportConfig
   const sections = config.sections as ReportSection[]

@@ -10,7 +10,7 @@ export const maxDuration = 60
  * Cron endpoint: processes all reports due for execution.
  * Called by Vercel Cron (see vercel.json). Gated by CRON_SECRET.
  *
- * ponytail: brak per-report locking — cron co godzinę, min. interwał tygodniowy,
+ * ponytail: brak per-report locking  cron co godzinę, min. interwał tygodniowy,
  * więc nakładanie ticków praktycznie niemożliwe. Gdyby wolumen wzrósł →
  * claim (UPDATE status=RUNNING) przed wykonaniem.
  *

@@ -70,7 +70,7 @@ const headerVariants = {
 /* ── Main component ─────────────────────────────────────────────── */
 
 /**
- * ProblemSection — communicates Instra's core problem: scattered tools
+ * ProblemSection  communicates Instra's core problem: scattered tools
  * causing context-switching and lost productivity.
  * Left: animated pain-point cards. Right: chaos visualization of tool names.
  *

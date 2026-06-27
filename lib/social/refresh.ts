@@ -16,7 +16,7 @@ const META_GRAPH = 'https://graph.facebook.com/v19.0'
  * - LINKEDIN → basic tier has no refresh tokens; throw a user-friendly error so the caller
  *   can surface "reconnect your account" to the user.
  *
- * ponytail: lazy refresh only — no cron; LinkedIn basic tier has no refresh tokens → reconnect path
+ * ponytail: lazy refresh only  no cron; LinkedIn basic tier has no refresh tokens → reconnect path
  *
  * @param account - Full SocialAccountRow including encrypted accessToken
  * @returns Plaintext access token (fresh or already valid)
@@ -34,7 +34,7 @@ export async function ensureFreshToken(account: SocialAccountRow): Promise<strin
   if (!needsRefresh) return plaintext
 
   if (account.platform === 'LINKEDIN') {
-    throw new Error('Token LinkedIn wygasł — połącz konto ponownie w ustawieniach')
+    throw new Error('Token LinkedIn wygasł  połącz konto ponownie w ustawieniach')
   }
 
   // Meta: extend via fb_exchange_token
@@ -91,7 +91,7 @@ export async function ensureFreshToken(account: SocialAccountRow): Promise<strin
     return newToken
   }
 
-  // INSTAGRAM — token IS the page token; update it
+  // INSTAGRAM  token IS the page token; update it
   await upsertSocialAccount({
     userId: account.userId,
     platform: 'INSTAGRAM',
